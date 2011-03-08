@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World!</string>
+    <string name="app_name">Spinning Logo Live Wallpaper</string>
+    <string name="service_label">GL Wallpaper JAR Example</string>
+    <string name="description">Created using GLWallpaperService</string>
+</resources>
