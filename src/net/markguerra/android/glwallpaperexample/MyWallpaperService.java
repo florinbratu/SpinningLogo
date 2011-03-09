@@ -11,7 +11,7 @@ public class MyWallpaperService extends GLWallpaperService {
 
 	public Engine onCreateEngine() {
 		MyEngine engine = new MyEngine();
-		return engine;
+		return engine; 
 	}
 
 	class MyEngine extends GLEngine {
@@ -19,7 +19,7 @@ public class MyWallpaperService extends GLWallpaperService {
 		public MyEngine() {
 			super();
 			// handle prefs, other initialization
-			renderer = new MyRenderer();
+			renderer = new MyRenderer(MyWallpaperService.this);
 			setRenderer(renderer);
 			setRenderMode(RENDERMODE_CONTINUOUSLY);
 		}
