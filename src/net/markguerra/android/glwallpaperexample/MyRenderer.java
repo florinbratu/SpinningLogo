@@ -6,10 +6,14 @@ import javax.microedition.khronos.opengles.GL10;
 import min3d.Shared;
 import min3d.core.RenderCaps;
 import min3d.core.Renderer;
+import min3d.core.Scene;
 import min3d.core.TextureManager;
+import min3d.interfaces.ISceneController;
+import min3d.vos.Light;
 import net.rbgrn.android.glwallpaperservice.*;
 import android.content.res.Resources;
 import android.opengl.GLU;
+import android.os.Handler;
 
 // Original code provided by Robert Green
 // http://www.rbgrn.net/content/354-glsurfaceview-adapted-3d-live-wallpapers
@@ -18,6 +22,8 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	// the spinning logo which needs to be displayed
 	private ModeledObject logo;
 	private final Resources res;
+	// (ab)using the m3d's Scene object
+	private Scene scene;
 	// TODO should be a config option
 	private static final String MODEL_RESOURCE = "net.markguerra.android.glwallpaperexample:raw/camaro_obj";
 
@@ -31,7 +37,8 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 		Shared.context(lwpSvc);
 		Shared.textureManager(new TextureManager());
 		// this is the ugliest of them all hacks!
-		Shared.renderer(new Renderer(null));
+		scene = new Scene(new PhonySceneController());
+		Shared.renderer(new Renderer(scene));
 	}
 
 	public void onDrawFrame(GL10 gl) {
@@ -41,6 +48,7 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 		autoRotate(gl);
 		gl.glColor4f(.2f, 0f, .5f, 1f);
+		
 		logo.draw(gl); 
 	}
 
@@ -57,8 +65,7 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		// once again, ugly m3d hack
 		surfaceCreated_min3d(gl);
-		logo = new ModeledObject(res, MODEL_RESOURCE);
-
+		logo = new ModeledObject(res, MODEL_RESOURCE,scene);
 		reset(gl);
 	}
 
@@ -97,6 +104,8 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	private void surfaceCreated_min3d(GL10 gl) {
 		Shared.renderer().setGl(gl);
 		RenderCaps.setRenderCaps(gl);
+		// we also need to set at least one light, for the textures
+		scene.lights().add(new Light());
 	}
 
 	/**
@@ -110,5 +119,37 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	private void autoRotate(GL10 gl) {
 		gl.glRotatef(1, 0, 1, 0);
 		gl.glRotatef(0.5f, 1, 0, 0);
+	}
+	
+	class PhonySceneController implements ISceneController{
+
+		@Override
+		public Handler getInitSceneHandler() {
+			return null;
+		}
+
+		@Override
+		public Runnable getInitSceneRunnable() {
+			return null;
+		}
+
+		@Override
+		public Handler getUpdateSceneHandler() {
+			return null;
+		}
+
+		@Override
+		public Runnable getUpdateSceneRunnable() {
+			return null;
+		}
+
+		@Override
+		public void initScene() {
+		}
+
+		@Override
+		public void updateScene() {
+		}
+		
 	}
 }

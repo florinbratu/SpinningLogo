@@ -10,6 +10,7 @@ import min3d.core.FacesBufferedList;
 import min3d.core.Object3d;
 import min3d.core.Object3dContainer;
 import min3d.core.RenderCaps;
+import min3d.core.Scene;
 import min3d.vos.RenderType;
 import min3d.vos.TextureVo;
 import android.content.res.Resources;
@@ -22,21 +23,19 @@ public class ModeledObject {
 
 	private final Object3dContainer object;
 	// says if the object is to be drawn within a light-aware environment. true by default
-	private final boolean lightningEnabled;
+	private final Scene scene;
 	private IntBuffer scratchIntBuffer;
 	
-	public ModeledObject(Resources resources, String resId) {
-		this(resources, resId, true);
-	}
-	
-	public ModeledObject(Resources resources, String resId, boolean lightningEnabled) {
+	public ModeledObject(Resources resources, String resId, Scene scene) {
 		object = new ObjLoader().load(resources, resId);
-		this.lightningEnabled = lightningEnabled;
+		this.scene = scene;
 		this.scratchIntBuffer = IntBuffer.allocate(4);
 	}
 	
 	public void draw(GL10 gl){
 		// draw all objects within the container
+		/*scene.addChild(object);
+		Shared.renderer().onDrawFrame(gl);*/
 		for(int i = 0 ; i < object.numChildren(); i++) {
 			Object3d obj = object.getChildAt(i);
 			drawObject(gl, obj);
@@ -55,7 +54,7 @@ public class ModeledObject {
 		}
 
 		// lighting
-		boolean useLighting = (lightningEnabled && obj.hasNormals() && obj.normalsEnabled() && obj.lightingEnabled());
+		boolean useLighting = (scene.lightingEnabled() && obj.hasNormals() && obj.normalsEnabled() && obj.lightingEnabled());
 		if (useLighting) {
 			gl.glEnable(GL10.GL_LIGHTING);
 		} else {
