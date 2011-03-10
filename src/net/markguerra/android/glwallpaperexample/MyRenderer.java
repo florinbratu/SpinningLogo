@@ -97,8 +97,6 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	private void surfaceCreated_min3d(GL10 gl) {
 		Shared.renderer().setGl(gl);
 		RenderCaps.setRenderCaps(gl);
-		// Reset TextureManager
-		Shared.textureManager().reset();
 	}
 
 	/**
