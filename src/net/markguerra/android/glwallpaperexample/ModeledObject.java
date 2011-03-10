@@ -10,7 +10,9 @@ import min3d.core.FacesBufferedList;
 import min3d.core.Object3d;
 import min3d.core.Object3dContainer;
 import min3d.core.RenderCaps;
+import min3d.core.Renderer;
 import min3d.core.Scene;
+import min3d.vos.Light;
 import min3d.vos.RenderType;
 import min3d.vos.TextureVo;
 import android.content.res.Resources;
@@ -34,11 +36,124 @@ public class ModeledObject {
 	
 	public void draw(GL10 gl){
 		// draw all objects within the container
-		/*scene.addChild(object);
-		Shared.renderer().onDrawFrame(gl);*/
+		scene.addChild(object);
+		Shared.renderer().onDrawFrame(gl);
+		autoRotate();
+		/*drawSetupLights(gl);
+		
+		// Always on:
+		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 		for(int i = 0 ; i < object.numChildren(); i++) {
 			Object3d obj = object.getChildAt(i);
 			drawObject(gl, obj);
+		}*/
+	}
+
+	private void autoRotate() {
+		object.rotation().x++;
+		object.rotation().z++;
+	}
+
+	private void drawSetupLights(GL10 gl) {
+		// GL_LIGHTS enabled/disabled based on enabledDirty list
+		for (int glIndex = 0; glIndex < Renderer.NUM_GLLIGHTS; glIndex++)
+		{
+			if (scene.lights().glIndexEnabledDirty()[glIndex] == true)
+			{
+				if (scene.lights().glIndexEnabled()[glIndex] == true) 
+				{
+					gl.glEnable(GL10.GL_LIGHT0 + glIndex);
+					
+					// make light's properties dirty to force update
+					scene.lights().getLightByGlIndex(glIndex).setAllDirty();
+				} 
+				else 
+				{
+					gl.glDisable(GL10.GL_LIGHT0 + glIndex);
+				}
+				
+				scene.lights().glIndexEnabledDirty()[glIndex] = false; // clear dirtyflag
+			}
+		}
+		
+		// Lights' properties 
+
+		Light[] lights = scene.lights().toArray();
+		for (int i = 0; i < lights.length; i++)
+		{
+			Light light = lights[i];
+			
+			if (light.isDirty()) // .. something has changed
+			{
+				// Check all of Light's properties for dirty 
+				
+				int glLightId = GL10.GL_LIGHT0 + scene.lights().getGlIndexByLight(light);
+				
+				if (light.position.isDirty())
+				{
+					light.commitPositionAndTypeBuffer();
+					gl.glLightfv(glLightId, GL10.GL_POSITION, light._positionAndTypeBuffer);
+					light.position.clearDirtyFlag();
+				}
+				if (light.ambient.isDirty()) 
+				{
+					light.ambient.commitToFloatBuffer();
+					gl.glLightfv(glLightId, GL10.GL_AMBIENT, light.ambient.floatBuffer());
+					light.ambient.clearDirtyFlag();
+				}
+				if (light.diffuse.isDirty()) 
+				{
+					light.diffuse.commitToFloatBuffer();
+					gl.glLightfv(glLightId, GL10.GL_DIFFUSE, light.diffuse.floatBuffer());
+					light.diffuse.clearDirtyFlag();
+				}
+				if (light.specular.isDirty())
+				{
+					light.specular.commitToFloatBuffer();
+					gl.glLightfv(glLightId, GL10.GL_SPECULAR, light.specular.floatBuffer());
+					light.specular.clearDirtyFlag();
+				}
+				if (light.emissive.isDirty())
+				{
+					light.emissive.commitToFloatBuffer();
+					gl.glLightfv(glLightId, GL10.GL_EMISSION, light.emissive.floatBuffer());
+					light.emissive.clearDirtyFlag();
+				}
+
+				if (light.direction.isDirty())
+				{
+					light.direction.commitToFloatBuffer();
+					gl.glLightfv(glLightId, GL10.GL_SPOT_DIRECTION, light.direction.floatBuffer());
+					light.direction.clearDirtyFlag();
+				}
+				if (light._spotCutoffAngle.isDirty())
+				{
+					gl.glLightf(glLightId, GL10.GL_SPOT_CUTOFF, light._spotCutoffAngle.get());
+				}
+				if (light._spotExponent.isDirty())
+				{
+					gl.glLightf(glLightId, GL10.GL_SPOT_EXPONENT, light._spotExponent.get());
+				}
+
+				if (light._isVisible.isDirty()) 
+				{
+					if (light.isVisible()) {
+						gl.glEnable(glLightId);
+					} else {
+						gl.glDisable(glLightId);
+					}
+					light._isVisible.clearDirtyFlag();
+				}
+
+				if (light._attenuation.isDirty())
+				{
+					gl.glLightf(glLightId, GL10.GL_CONSTANT_ATTENUATION, light._attenuation.getX());
+					gl.glLightf(glLightId, GL10.GL_LINEAR_ATTENUATION, light._attenuation.getY());
+					gl.glLightf(glLightId, GL10.GL_QUADRATIC_ATTENUATION, light._attenuation.getZ());
+				}
+				
+				light.clearDirtyFlag();
+			}
 		}
 	}
 
