@@ -49,6 +49,7 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	}
 
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
+		// TODO compare with Renderer.onSurfaceChanged.
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadIdentity();
 		GLU.gluPerspective(gl, 60f, (float)width/(float)height, 1f, 100f);
@@ -63,6 +64,15 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 		surfaceCreated_min3d(gl);
 		logo = new ModeledObject(res, MODEL_RESOURCE,scene);
 		reset(gl);
+	}
+	
+
+	private void surfaceCreated_min3d(GL10 gl) {
+		Shared.renderer().setGl(gl);
+		RenderCaps.setRenderCaps(gl);
+		scene.reset();
+		// we also need to set at least one light, for the textures
+		scene.lights().add(new Light());
 	}
 
 	// Do OpenGL settings which we are using as defaults, or which we will not be changing on-draw
@@ -95,14 +105,6 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 		for (int i = GL10.GL_LIGHT0; i < GL10.GL_LIGHT0 + Renderer.NUM_GLLIGHTS; i++) {
 			gl.glDisable(i);
 		}
-	}
-
-	private void surfaceCreated_min3d(GL10 gl) {
-		Shared.renderer().setGl(gl);
-		RenderCaps.setRenderCaps(gl);
-		scene.reset();
-		// we also need to set at least one light, for the textures
-		scene.lights().add(new Light());
 	}
 
 	/**
