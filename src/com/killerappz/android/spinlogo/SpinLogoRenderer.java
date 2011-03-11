@@ -3,6 +3,9 @@ package com.killerappz.android.spinlogo;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import com.killerappz.android.spinlogo.context.ContextInfo;
+import com.killerappz.android.spinlogo.context.SpinLogoContext;
+
 import min3d.Shared;
 import min3d.core.RenderCaps;
 import min3d.core.Renderer;
@@ -29,12 +32,12 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	private final Resources res;
 	// (ab)using m3d's Scene object
 	private Scene scene;
-	// TODO should be a config option
-	private static final String MODEL_RESOURCE = 
-		SpinLogoRenderer.class.getPackage().getName() + ":raw/camaro_obj"; 
+	// the context informationfor rendering 
+	private final SpinLogoContext contextInfo;
 
-	public SpinLogoRenderer(GLWallpaperService lwpSvc) {
+	public SpinLogoRenderer(GLWallpaperService lwpSvc, SpinLogoContext contextInfo) {
 		res = lwpSvc.getResources();
+		this.contextInfo = contextInfo;
 		m3dInit(lwpSvc);
 	}
 
@@ -69,7 +72,9 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		min3dSurfaceCreated(gl);
-		logo = new SpinningLogo(res, MODEL_RESOURCE,scene);
+		String modelResource = SpinLogoRenderer.class.getPackage().getName() 
+				+ ":" + contextInfo.getLogoModelFile();
+		logo = new SpinningLogo(res, modelResource, scene);
 		reset(gl);
 	}
 

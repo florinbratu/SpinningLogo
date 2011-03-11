@@ -1,5 +1,8 @@
 package com.killerappz.android.spinlogo;
 
+import com.killerappz.android.spinlogo.context.ContextInfo;
+import com.killerappz.android.spinlogo.context.SpinLogoContext;
+
 import net.rbgrn.android.glwallpaperservice.*;
 
 // Original code provided by Robert Green
@@ -15,11 +18,15 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 	}
 
 	class SpinLogoEngine extends GLEngine {
-		SpinLogoRenderer renderer;
+		private SpinLogoRenderer renderer;
+		private ContextInfo contextInfo;
+		
 		public SpinLogoEngine() {
 			super();
 			// handle prefs, other initialization
-			renderer = new SpinLogoRenderer(SpinLogoWallpaperService.this);
+			SpinLogoContext theContext = new SpinLogoContext();
+			renderer = new SpinLogoRenderer(SpinLogoWallpaperService.this, theContext);
+			contextInfo = theContext;
 			setRenderer(renderer);
 			setRenderMode(RENDERMODE_CONTINUOUSLY);
 		}
