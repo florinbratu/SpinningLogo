@@ -74,7 +74,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		min3dSurfaceCreated(gl);
 		String modelResource = SpinLogoRenderer.class.getPackage().getName() 
 				+ ":" + contextInfo.getLogoModelFile();
-		logo = new SpinningLogo(res, modelResource, scene);
+		logo = new SpinningLogo(res, modelResource, 10, scene);
 		reset(gl);
 	}
 
