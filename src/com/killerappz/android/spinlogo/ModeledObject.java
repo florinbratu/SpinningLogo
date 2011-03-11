@@ -1,4 +1,4 @@
-package net.markguerra.android.glwallpaperexample;
+package com.killerappz.android.spinlogo;
 
 import javax.microedition.khronos.opengles.GL10;
 

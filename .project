@@ -30,4 +30,11 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>min3d</name>
+			<type>2</type>
+			<location>/home/florin/storehouse/android/min3d/src</location>
+		</link>
+	</linkedResources>
 </projectDescription>

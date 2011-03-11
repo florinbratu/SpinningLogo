@@ -1,4 +1,4 @@
-package net.markguerra.android.glwallpaperexample;
+package com.killerappz.android.spinlogo;
 
 import net.rbgrn.android.glwallpaperservice.*;
 
@@ -15,11 +15,11 @@ public class MyWallpaperService extends GLWallpaperService {
 	}
 
 	class MyEngine extends GLEngine {
-		MyRenderer renderer;
+		SpinLogoRenderer renderer;
 		public MyEngine() {
 			super();
 			// handle prefs, other initialization
-			renderer = new MyRenderer(MyWallpaperService.this);
+			renderer = new SpinLogoRenderer(MyWallpaperService.this);
 			setRenderer(renderer);
 			setRenderMode(RENDERMODE_CONTINUOUSLY);
 		}

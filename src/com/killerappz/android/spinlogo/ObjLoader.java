@@ -1,4 +1,4 @@
-package net.markguerra.android.glwallpaperexample;
+package com.killerappz.android.spinlogo;
 
 import android.content.res.Resources;
 import min3d.core.Object3dContainer;

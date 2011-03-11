@@ -1,4 +1,4 @@
-package net.markguerra.android.glwallpaperexample;
+package com.killerappz.android.spinlogo;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -15,28 +15,40 @@ import android.content.res.Resources;
 import android.opengl.GLU;
 import android.os.Handler;
 
-// Original code provided by Robert Green
-// http://www.rbgrn.net/content/354-glsurfaceview-adapted-3d-live-wallpapers
-public class MyRenderer implements GLWallpaperService.Renderer {
+/**
+ * This is the renderer implementation class for the Wallpaper Service
+ * It relies on the min3d library to do the heavyweight rendering
+ * 
+ * @author florin
+ *
+ */
+public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	
 	// the spinning logo which needs to be displayed
 	private ModeledObject logo;
 	private final Resources res;
-	// (ab)using the m3d's Scene object
+	// (ab)using m3d's Scene object
 	private Scene scene;
 	// TODO should be a config option
-	private static final String MODEL_RESOURCE = "net.markguerra.android.glwallpaperexample:raw/camaro_obj";
+	private static final String MODEL_RESOURCE = "com.killerappz.android.spinlogo:raw/camaro_obj";
 
-	public MyRenderer(GLWallpaperService lwpSvc) {
+	public SpinLogoRenderer(GLWallpaperService lwpSvc) {
 		res = lwpSvc.getResources();
-		init_m3d(lwpSvc);
+		m3dInit(lwpSvc);
 	}
 
-	private void init_m3d(GLWallpaperService lwpSvc) {
-		// ugly m3d hack
+	/**
+	 * Initialize m3d rendering fwk. 
+	 * As m3d is authoritarian and has full control on the rendering,
+	 * we want to regain that control. That's why we use a phony scene,
+	 * controlled by a phony scene controller - basically, we just use 
+	 * these objects' structure, and not their functionality.
+	 * 
+	 * It is the min3d's Renderer's functionality that we are interested in.
+	 */
+	private void m3dInit(GLWallpaperService lwpSvc) {
 		Shared.context(lwpSvc);
 		Shared.textureManager(new TextureManager());
-		// this is the ugliest of them all hacks!
 		scene = new Scene(new PhonySceneController());
 		Shared.renderer(new Renderer(scene));
 	}
@@ -44,7 +56,6 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	public void onDrawFrame(GL10 gl) {
 		gl.glClearColor(0.2f, 0.4f, 0.2f, 1f);
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-		
 		logo.draw(gl); 
 	}
 
@@ -56,14 +67,18 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	}
 
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-		// once again, ugly m3d hack
-		surfaceCreated_min3d(gl);
+		min3dSurfaceCreated(gl);
 		logo = new ModeledObject(res, MODEL_RESOURCE,scene);
 		reset(gl);
 	}
-	
 
-	private void surfaceCreated_min3d(GL10 gl) {
+	/**
+	 * Perform all necessary actions on min3d-side when the surface changes
+	 * @param gl
+	 */
+	private void min3dSurfaceCreated(GL10 gl) {
+		// Reset TextureManager
+		Shared.textureManager().reset();
 		Shared.renderer().setGl(gl);
 		RenderCaps.setRenderCaps(gl);
 		scene.reset();
@@ -84,9 +99,6 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 		// Alpha enabled
 		gl.glEnable(GL10.GL_BLEND);										
 		gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA); 	
-
-		// "Transparency is best implemented using glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) 
-		// with primitives sorted from farthest to nearest."
 
 		// Texture
 		gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST); // (OpenGL default is GL_NEAREST_MIPMAP)
