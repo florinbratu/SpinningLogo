@@ -49,14 +49,10 @@ public class MyRenderer implements GLWallpaperService.Renderer {
 	}
 
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
-		// TODO compare with Renderer.onSurfaceChanged.
+		// TODO useful?
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadIdentity();
 		GLU.gluPerspective(gl, 60f, (float)width/(float)height, 1f, 100f);
-
-		gl.glMatrixMode(GL10.GL_MODELVIEW);
-		gl.glLoadIdentity();
-		gl.glTranslatef(0, 0, -5);
 	}
 
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
