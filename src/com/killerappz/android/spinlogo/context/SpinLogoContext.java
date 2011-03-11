@@ -12,15 +12,15 @@ import android.content.SharedPreferences;
 public class SpinLogoContext extends ContextInfo {
 
 	// the file containing the model of the logo
-	private String logoModelFile = "raw/camaro_obj";
+	// it's static, as this info is fixed per-package
+	private static final String logoModelFile = "raw/camaro_obj";
 	
 	/* (non-Javadoc)
 	 * @see com.killerappz.android.spinlogo.context.ContextInfo#storePreferences(android.content.SharedPreferences, java.lang.String)
 	 */
 	@Override
 	public void storePreferences(SharedPreferences prefs, String key) {
-		if(key.equals("TODO_key"))
-			logoModelFile = prefs.getString(key, "");
+		
 	}
 
 	public String getLogoModelFile() {
