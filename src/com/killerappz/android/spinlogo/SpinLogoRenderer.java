@@ -10,7 +10,7 @@ import min3d.core.Scene;
 import min3d.core.TextureManager;
 import min3d.interfaces.ISceneController;
 import min3d.vos.Light;
-import net.rbgrn.android.glwallpaperservice.*;
+import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.res.Resources;
 import android.opengl.GLU;
 import android.os.Handler;
