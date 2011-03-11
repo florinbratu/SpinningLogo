@@ -6,8 +6,7 @@ import min3d.parser.IParser;
 import min3d.parser.Parser;
 
 /**
- * Loads models from a .obj file
- * using the min3d utilities
+ * Loads models from a .obj file using the min3d utilities
  *
  */
 public class ObjLoader {

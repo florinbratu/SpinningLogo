@@ -25,7 +25,7 @@ import android.os.Handler;
 public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	
 	// the spinning logo which needs to be displayed
-	private ModeledObject logo;
+	private SpinningLogo logo;
 	private final Resources res;
 	// (ab)using m3d's Scene object
 	private Scene scene;
@@ -68,7 +68,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		min3dSurfaceCreated(gl);
-		logo = new ModeledObject(res, MODEL_RESOURCE,scene);
+		logo = new SpinningLogo(res, MODEL_RESOURCE,scene);
 		reset(gl);
 	}
 

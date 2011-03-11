@@ -4,22 +4,22 @@ import net.rbgrn.android.glwallpaperservice.*;
 
 // Original code provided by Robert Green
 // http://www.rbgrn.net/content/354-glsurfaceview-adapted-3d-live-wallpapers
-public class MyWallpaperService extends GLWallpaperService {
-	public MyWallpaperService() {
+public class SpinLogoWallpaperService extends GLWallpaperService {
+	public SpinLogoWallpaperService() {
 		super();
 	}
 
 	public Engine onCreateEngine() {
-		MyEngine engine = new MyEngine();
+		SpinLogoEngine engine = new SpinLogoEngine();
 		return engine; 
 	}
 
-	class MyEngine extends GLEngine {
+	class SpinLogoEngine extends GLEngine {
 		SpinLogoRenderer renderer;
-		public MyEngine() {
+		public SpinLogoEngine() {
 			super();
 			// handle prefs, other initialization
-			renderer = new SpinLogoRenderer(MyWallpaperService.this);
+			renderer = new SpinLogoRenderer(SpinLogoWallpaperService.this);
 			setRenderer(renderer);
 			setRenderMode(RENDERMODE_CONTINUOUSLY);
 		}

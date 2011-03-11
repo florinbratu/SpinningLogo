@@ -8,15 +8,15 @@ import min3d.core.Scene;
 import android.content.res.Resources;
 
 /**
- * A single modeled object via an obj file
+ * The Spinning Logo object
  * 
  */
-public class ModeledObject {
+public class SpinningLogo {
 
 	private final Object3dContainer object;
 	private final Scene scene;
 	
-	public ModeledObject(Resources resources, String resId, Scene scene) {
+	public SpinningLogo(Resources resources, String resId, Scene scene) {
 		object = new ObjLoader().load(resources, resId);
 		this.scene = scene;
 	}
