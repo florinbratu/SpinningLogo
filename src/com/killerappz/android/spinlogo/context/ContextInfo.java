@@ -19,6 +19,8 @@ public abstract class ContextInfo {
     private final OffsetInfo mOffset;
     private final TouchPoint mTouchPoint;
     
+    private int rotationSpeed;
+    
     public ContextInfo() {
 		mCenter = new Point();
 		mOffset = new OffsetInfo();
