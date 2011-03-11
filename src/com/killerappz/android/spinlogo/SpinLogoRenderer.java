@@ -30,7 +30,8 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	// (ab)using m3d's Scene object
 	private Scene scene;
 	// TODO should be a config option
-	private static final String MODEL_RESOURCE = "com.killerappz.android.spinlogo:raw/camaro_obj";
+	private static final String MODEL_RESOURCE = 
+		SpinLogoRenderer.class.getPackage().getName() + ":raw/camaro_obj"; 
 
 	public SpinLogoRenderer(GLWallpaperService lwpSvc) {
 		res = lwpSvc.getResources();
