@@ -8,11 +8,8 @@ import android.content.SharedPreferences;
  */
 public class NoPreferencesContextInfo extends ContextInfo {
 
-	/* (non-Javadoc)
-	 * @see com.killerappz.lwp.context.ContextInfo#getPreferences(android.content.SharedPreferences, java.lang.String)
-	 */
 	@Override
-	public void storePreferences(SharedPreferences prefs, String key) {
+	public void onSharedPreferenceChanged(SharedPreferences arg0, String arg1) {
 		// disregard
 	}
 

@@ -1,15 +1,17 @@
 package com.killerappz.android.spinlogo;
 
-import com.killerappz.android.spinlogo.context.ContextInfo;
-import com.killerappz.android.spinlogo.context.SpinLogoContext;
+import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
+import android.content.SharedPreferences;
 
-import net.rbgrn.android.glwallpaperservice.*;
+import com.killerappz.android.spinlogo.context.SpinLogoContext;
 
 // Original code provided by Robert Green
 // http://www.rbgrn.net/content/354-glsurfaceview-adapted-3d-live-wallpapers
 public class SpinLogoWallpaperService extends GLWallpaperService {
+	private final SpinLogoContext contextInfo;
 	public SpinLogoWallpaperService() {
 		super();
+		contextInfo = new SpinLogoContext();
 	}
 
 	public Engine onCreateEngine() {
@@ -17,26 +19,28 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 		return engine; 
 	}
 
-	class SpinLogoEngine extends GLEngine {
+	class SpinLogoEngine extends GLEngine 
+	{
+		// access to the user preferences
+		private final SharedPreferences mPreferences;
 		private SpinLogoRenderer renderer;
-		private ContextInfo contextInfo;
 		
 		public SpinLogoEngine() {
 			super();
-			// handle prefs, other initialization
-			SpinLogoContext theContext = new SpinLogoContext();
-			renderer = new SpinLogoRenderer(SpinLogoWallpaperService.this, theContext);
-			contextInfo = theContext;
+			renderer = new SpinLogoRenderer(SpinLogoWallpaperService.this, SpinLogoWallpaperService.this.contextInfo);
 			setRenderer(renderer);
 			setRenderMode(RENDERMODE_CONTINUOUSLY);
+			mPreferences = SpinLogoWallpaperService.this.getSharedPreferences(Constants.PREFS_NAME, 0);
+			mPreferences.registerOnSharedPreferenceChangeListener(contextInfo);
 		}
 
 		public void onDestroy() {
-			super.onDestroy();
 			if (renderer != null) {
 				renderer.release();
 			}
 			renderer = null;
+			mPreferences.unregisterOnSharedPreferenceChangeListener(contextInfo);
+			super.onDestroy();
 		}
 	}
 }

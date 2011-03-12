@@ -12,14 +12,13 @@ import android.content.SharedPreferences;
  * The informations might not be available 
  * 	=> it is up to the caller to check
  */
-public abstract class ContextInfo {
+public abstract class ContextInfo implements
+	SharedPreferences.OnSharedPreferenceChangeListener{
     // the center of the image
     private final Point mCenter;
     // the offset information
     private final OffsetInfo mOffset;
     private final TouchPoint mTouchPoint;
-    
-    private int rotationSpeed;
     
     public ContextInfo() {
 		mCenter = new Point();
@@ -52,7 +51,4 @@ public abstract class ContextInfo {
 		return mOffset;
 	}
 	
-	/* the interpretation of user preferences is to be done by implementations */
-	public abstract void storePreferences(SharedPreferences prefs, String key);
-
 }

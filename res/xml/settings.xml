@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	android:title="@string/spinlogo_settings"
+	android:key="settings">
+
+	<EditTextPreference 
+		android:key="rotationSpeed"
+		android:name="@string/rotation_speed_name"
+		android:summary="@string/rotation_speed_description"
+		android:defaultValue="@string/rotation_speed_default_value"
+		android:title="@string/rotation_speed_title"
+	/>
+	
+</PreferenceScreen>

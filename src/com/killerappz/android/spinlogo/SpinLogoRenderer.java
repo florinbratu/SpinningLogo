@@ -3,9 +3,6 @@ package com.killerappz.android.spinlogo;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import com.killerappz.android.spinlogo.context.ContextInfo;
-import com.killerappz.android.spinlogo.context.SpinLogoContext;
-
 import min3d.Shared;
 import min3d.core.RenderCaps;
 import min3d.core.Renderer;
@@ -17,6 +14,8 @@ import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.res.Resources;
 import android.opengl.GLU;
 import android.os.Handler;
+
+import com.killerappz.android.spinlogo.context.SpinLogoContext;
 
 /**
  * This is the renderer implementation class for the Wallpaper Service
@@ -73,8 +72,8 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		min3dSurfaceCreated(gl);
 		String modelResource = SpinLogoRenderer.class.getPackage().getName() 
-				+ ":" + contextInfo.getLogoModelFile();
-		logo = new SpinningLogo(res, modelResource, contextInfo.getRotationSpeed(), scene);
+				+ ":" + Constants.LOGO_MODEL_FILE;
+		logo = new SpinningLogo(res, modelResource, contextInfo, scene);
 		reset(gl);
 	}
 

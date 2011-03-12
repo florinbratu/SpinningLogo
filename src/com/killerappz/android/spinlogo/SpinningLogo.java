@@ -2,6 +2,8 @@ package com.killerappz.android.spinlogo;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import com.killerappz.android.spinlogo.context.SpinLogoContext;
+
 import min3d.Shared;
 import min3d.core.Object3dContainer;
 import min3d.core.Scene;
@@ -15,13 +17,12 @@ public class SpinningLogo {
 
 	private final Object3dContainer object;
 	private final Scene scene;
-	private static final float ROTATION_SPEED_UNIT = 0.1f;
-	private final float rotationSpeed;  
+	private SpinLogoContext contextInfo;  
 	
 	// rotSpeed is the rotation speed measured in ROTATION_SPEED_UNIT
-	public SpinningLogo(Resources resources, String resId, int rotSpeed, Scene scene) {
+	public SpinningLogo(Resources resources, String resId, SpinLogoContext contextInfo, Scene scene) {
 		object = new ObjLoader().load(resources, resId);
-		this.rotationSpeed = (float)rotSpeed * ROTATION_SPEED_UNIT;
+		this.contextInfo = contextInfo;
  		this.scene = scene;
 	}
 	
@@ -33,6 +34,7 @@ public class SpinningLogo {
 	}
 
 	private void autoRotate() {
+		float rotationSpeed = (float)contextInfo.getRotationSpeed() * Constants.ROTATION_SPEED_UNIT;
 		object.rotation().y += rotationSpeed;
 	}
 	

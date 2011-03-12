@@ -1,5 +1,7 @@
 package com.killerappz.android.spinlogo.context;
 
+import com.killerappz.android.spinlogo.Constants;
+
 import android.content.SharedPreferences;
 
 /**
@@ -9,28 +11,20 @@ import android.content.SharedPreferences;
  * @author florin
  *
  */
-public class SpinLogoContext extends ContextInfo {
+public class SpinLogoContext extends ContextInfo implements
+	SharedPreferences.OnSharedPreferenceChangeListener{
 
-	// the file containing the model of the logo
-	// it's static, as this info is fixed per-package
-	private static final String logoModelFile = "raw/camaro_obj";
 	// the rotation speed
-	private int rotationSpeed = 10;
-	
-	/* (non-Javadoc)
-	 * @see com.killerappz.android.spinlogo.context.ContextInfo#storePreferences(android.content.SharedPreferences, java.lang.String)
-	 */
-	@Override
-	public void storePreferences(SharedPreferences prefs, String key) {
-		// TODO set rotation speed
-	}
-
-	public String getLogoModelFile() {
-		return logoModelFile;
-	}
+	private int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
 	
 	public int getRotationSpeed() {
 		return rotationSpeed;
+	}
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+		if(Constants.ROTATION_SPEED_KEY.equals(key))
+			rotationSpeed = Integer.parseInt(prefs.getString(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED + ""));
 	}
 	
 }
