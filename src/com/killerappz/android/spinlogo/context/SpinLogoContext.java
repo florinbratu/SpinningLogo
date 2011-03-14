@@ -24,7 +24,7 @@ public class SpinLogoContext extends ContextInfo implements
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
 		if(Constants.ROTATION_SPEED_KEY.equals(key))
-			rotationSpeed = Integer.parseInt(prefs.getString(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED + ""));
+			rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
 	}
 	
 }
