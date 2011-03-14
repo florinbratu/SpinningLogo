@@ -12,7 +12,7 @@
     	android:debuggable="true">
     	
         <service android:label="@string/service_label" 
-        	android:name="SpinLogoWallpaperService"
+        	android:name=".SpinLogoWallpaperService"
         	android:icon="@drawable/icon"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
@@ -23,7 +23,7 @@
         </service>
         
         <activity android:label="@string/spinlogo_settings"
-			android:name=".LiveWallpaperSettings"
+			android:name=".preferences.LiveWallpaperSettings"
 			android:theme="@android:style/Theme.Light.WallpaperSettings"
 			android:exported="true"
 			android:icon="@drawable/icon">
