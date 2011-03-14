@@ -17,5 +17,17 @@ public interface Constants {
 	// Attribute names
 	public static final String ATTR_DEFAULT_VALUE = "defaultValue";
 	public static final String ATTR_MAX_VALUE = "max";
+	
+	// skybox params
+	/*
+	 * parametrul asta imi da dimensiunea fiecarei laturi a skybox-ului
+	 * in fct de cat de mare e textura te poti juca cu el.
+	 * Pt textura exemplu pe care o am acum, 4 e perfect ca si size
+	 */
+	public static final int SKYBOX_SIZE = 4;
+	
+	/* cica da calitatea skybox-ului. De fapt da numarul de poligoane 
+	folosite pt a construi fiecare din laturile skybox-ului */
+	public static final int SKYBOX_QUALITY_FACTOR = 3;
 
 }

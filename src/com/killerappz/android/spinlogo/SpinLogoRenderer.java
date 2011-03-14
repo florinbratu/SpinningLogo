@@ -71,10 +71,11 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		min3dSurfaceCreated(gl);
+		reset(gl);
+		// create spinning logo object
 		String modelResource = SpinLogoRenderer.class.getPackage().getName() 
 				+ ":" + Constants.LOGO_MODEL_FILE;
 		logo = new SpinningLogo(res, modelResource, contextInfo, scene);
-		reset(gl);
 	}
 
 	/**
