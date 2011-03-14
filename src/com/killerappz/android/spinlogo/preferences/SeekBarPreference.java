@@ -90,7 +90,7 @@ public final class SeekBarPreference extends DialogPreference implements OnSeekB
 		// Format summary string with current value
 		String summary = super.getSummary().toString();
 		int value = getPersistedInt(mCurrentValue);
-		return String.format(summary, value);
+		return String.format(summary, value * Constants.ROTATION_SPEED_UNIT);
 	}
 
 	public void onProgressChanged(SeekBar seek, int value, boolean fromTouch) {
