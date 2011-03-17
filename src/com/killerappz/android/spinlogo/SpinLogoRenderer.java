@@ -15,6 +15,7 @@ import android.content.res.Resources;
 import android.opengl.GLU;
 import android.os.Handler;
 
+import com.killerappz.android.spinlogo.context.Point;
 import com.killerappz.android.spinlogo.context.SpinLogoContext;
 
 /**
@@ -59,14 +60,31 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	public void onDrawFrame(GL10 gl) {
 		gl.glClearColor(0.2f, 0.4f, 0.2f, 1f);
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+		Point center = contextInfo.getCenter();
+		// translate to the center of the screen
+		gl.glMatrixMode(GL10.GL_MODELVIEW);
+		gl.glPushMatrix();
+		gl.glTranslatef(center.x, center.y, 0);
 		logo.draw(gl); 
+		gl.glPopMatrix();
+		// "look" at the object we've drawn. Basically, rotate the view.
+		float rotationAngle;
+		if(center.x != 0) 
+			rotationAngle = (float)Math.atan(center.y/center.x);
+		else
+			rotationAngle =  90;
+		gl.glRotatef(rotationAngle, 0, 0, 1);
 	}
 
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
-		// TODO useful?
+		// get the center of the screen
+		contextInfo.setCenter(width/2.0f, height/2.0f);
+		// This part sets the perspective matrix. 
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadIdentity();
 		GLU.gluPerspective(gl, 60f, (float)width/(float)height, 1f, 100f);
+		// redraw the frame
+		onDrawFrame(gl);
 	}
 
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
