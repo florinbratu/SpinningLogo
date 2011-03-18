@@ -57,6 +57,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		Shared.renderer(new Renderer(scene));
 	}
 
+	@Override
 	public void onDrawFrame(GL10 gl) {
 		gl.glClearColor(0.2f, 0.4f, 0.2f, 1f);
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
@@ -76,6 +77,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		gl.glRotatef(rotationAngle, 0, 0, 1);
 	}
 
+	@Override
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
 		// get the center of the screen
 		contextInfo.setCenter(width/2.0f, height/2.0f);
@@ -84,9 +86,9 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		gl.glLoadIdentity();
 		GLU.gluPerspective(gl, 60f, (float)width/(float)height, 1f, 100f);
 		// redraw the frame
-		onDrawFrame(gl);
 	}
 
+	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		min3dSurfaceCreated(gl);
 		reset(gl);
