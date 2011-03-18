@@ -47,7 +47,6 @@ public class SpinningLogo {
 	private SkyBox createSkyBox() {
 		SkyBox skyBox = new SkyBox(Constants.SKYBOX_SIZE, Constants.SKYBOX_QUALITY_FACTOR);
 		/* textures */
-		skyBox.addTexture(SkyBox.Face.North, R.drawable.skybox_back, "north_texture");
 		skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_right,  "east_texture");
 		skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_center, "south_texture");
 		skyBox.addTexture(SkyBox.Face.West,  R.drawable.skybox_left,  "west_texture");
