@@ -4,6 +4,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import min3d.Shared;
+import min3d.core.Object3d;
 import min3d.core.RenderCaps;
 import min3d.core.Renderer;
 import min3d.core.Scene;
@@ -62,19 +63,23 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		gl.glClearColor(0.2f, 0.4f, 0.2f, 1f);
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		Point center = contextInfo.getCenter();
-		// translate to the center of the screen
-		gl.glMatrixMode(GL10.GL_MODELVIEW);
-		gl.glPushMatrix();
-		gl.glTranslatef(center.x, center.y, 0);
+		changeCamera(center);
 		logo.draw(gl); 
-		gl.glPopMatrix();
-		// "look" at the object we've drawn. Basically, rotate the view.
-		float rotationAngle;
-		if(center.x != 0) 
-			rotationAngle = (float)Math.atan(center.y/center.x);
-		else
-			rotationAngle =  90;
-		gl.glRotatef(rotationAngle, 0, 0, 1);
+	}
+
+	/**
+	 * Change the camera to look at the object
+	 *   which we are supposed to draw in the center
+	 *   Also draw the objects in the center
+	 *   
+	 * @param center
+	 */
+	private void changeCamera(Point center) {
+		scene.camera().position.x = 
+			scene.camera().target.x = center.x;
+		scene.camera().position.y = 
+			scene.camera().target.y = center.y;
+		logo.setCenter(center);
 	}
 
 	@Override

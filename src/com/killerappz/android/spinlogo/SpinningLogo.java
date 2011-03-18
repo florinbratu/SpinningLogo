@@ -2,6 +2,7 @@ package com.killerappz.android.spinlogo;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import com.killerappz.android.spinlogo.context.Point;
 import com.killerappz.android.spinlogo.context.SpinLogoContext;
 
 import min3d.Shared;
@@ -53,6 +54,12 @@ public class SpinningLogo {
 		skyBox.addTexture(SkyBox.Face.Up,    R.drawable.skybox_up,    "up_texture");
 		skyBox.addTexture(SkyBox.Face.Down,  R.drawable.skybox_down,  "down_texture");
 		return skyBox;
+	}
+
+	public void setCenter(Point center) {
+		this.object.position().x = this.skyBox.position().x = center.x;
+		this.object.position().y = this.skyBox.position().y = center.y;
+		
 	}
 	
 }
