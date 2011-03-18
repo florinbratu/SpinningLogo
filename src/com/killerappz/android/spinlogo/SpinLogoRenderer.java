@@ -85,7 +85,6 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadIdentity();
 		GLU.gluPerspective(gl, 60f, (float)width/(float)height, 1f, 100f);
-		// redraw the frame
 	}
 
 	@Override
