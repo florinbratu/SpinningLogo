@@ -36,5 +36,10 @@
 			<type>2</type>
 			<location>/home/florin/storehouse/android/min3d/src</location>
 		</link>
+		<link>
+			<name>src_glwpservice</name>
+			<type>2</type>
+			<location>/home/florin/storehouse/android/eclipse_ws/GLWallpaperService/GLWallpaperService/src</location>
+		</link>
 	</linkedResources>
 </projectDescription>
