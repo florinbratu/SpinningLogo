@@ -4,7 +4,6 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import min3d.Shared;
-import min3d.core.Object3d;
 import min3d.core.RenderCaps;
 import min3d.core.Renderer;
 import min3d.core.Scene;
@@ -35,6 +34,9 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	private Scene scene;
 	// the context informationfor rendering 
 	private final SpinLogoContext contextInfo;
+	
+	// sync between scene init and rendering
+	private volatile boolean initFinished = false;
 
 	public SpinLogoRenderer(GLWallpaperService lwpSvc, SpinLogoContext contextInfo) {
 		res = lwpSvc.getResources();
@@ -60,11 +62,16 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 
 	@Override
 	public void onDrawFrame(GL10 gl) {
+		// if not initialized drop frame
+		if(!initFinished)
+			// TODO show a Load in progress screen...
+			return;
+
 		gl.glClearColor(0.2f, 0.4f, 0.2f, 1f);
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		Point center = contextInfo.getCenter();
 		changeCamera(center);
-		logo.draw(gl); 
+		logo.draw(gl);
 	}
 
 	/**
@@ -94,12 +101,14 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+		initFinished = false;
 		min3dSurfaceCreated(gl);
 		reset(gl);
 		// create spinning logo object
 		String modelResource = SpinLogoRenderer.class.getPackage().getName() 
 				+ ":" + Constants.LOGO_MODEL_FILE;
 		logo = new SpinningLogo(res, modelResource, contextInfo, scene);
+		initFinished = true;
 	}
 
 	/**
