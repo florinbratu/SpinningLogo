@@ -10,7 +10,8 @@ import min3d.core.Scene;
 import min3d.core.TextureManager;
 import min3d.interfaces.ISceneController;
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
-import android.content.res.Resources;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.opengl.GLU;
 import android.os.Handler;
 
@@ -28,7 +29,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	
 	// the spinning logo which needs to be displayed
 	private SpinningLogo logo;
-	private final Resources res;
+	private final Context ctx; // for resources
 	// (ab)using m3d's Scene object
 	private Scene scene;
 	// the context informationfor rendering 
@@ -37,10 +38,10 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	// sync between scene init and rendering
 	private volatile boolean initFinished = false;
 
-	public SpinLogoRenderer(GLWallpaperService lwpSvc, SpinLogoContext contextInfo) {
-		res = lwpSvc.getResources();
+	public SpinLogoRenderer(Context ctx, SpinLogoContext contextInfo) {
+		this.ctx = ctx;
 		this.contextInfo = contextInfo;
-		m3dInit(lwpSvc);
+		m3dInit();
 	}
 
 	/**
@@ -52,8 +53,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	 * 
 	 * It is the min3d's Renderer's functionality that we are interested in.
 	 */
-	private void m3dInit(GLWallpaperService lwpSvc) {
-		Shared.context(lwpSvc);
+	private void m3dInit() {
 		Shared.textureManager(new TextureManager());
 		// Reset TextureManager
 		Shared.textureManager().reset();
@@ -62,7 +62,8 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		// disable lighting, don't need it for this scenario
 		scene.lightingEnabled(false);
 		// the new Renderer
-		Renderer renderer = new Renderer(scene);
+		ActivityManager activityMgr = (ActivityManager)this.ctx.getSystemService( Context.ACTIVITY_SERVICE );
+		Renderer renderer = new Renderer(scene, activityMgr);
 		if(Shared.renderer()!=null)
 			// temp set; will be overriden onSurfaceCreate
 			renderer.setGl(Shared.renderer().gl());
@@ -116,7 +117,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		// create spinning logo object
 		String modelResource = SpinLogoRenderer.class.getPackage().getName() 
 				+ ":" + Constants.LOGO_MODEL_FILE;
-		logo = new SpinningLogo(res, modelResource, contextInfo, scene);
+		logo = new SpinningLogo(ctx, modelResource, contextInfo, scene);
 		initFinished = true;
 	}
 
