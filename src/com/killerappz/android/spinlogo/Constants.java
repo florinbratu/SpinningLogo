@@ -3,7 +3,7 @@ package com.killerappz.android.spinlogo;
 public interface Constants {
 	public static final String PREFS_NAME	= "spinlogo_settings";
 	public static final float ROTATION_SPEED_UNIT = 0.1f;
-	public static final int DEFAULT_ROTATION_SPEED = 10;
+	public static final int DEFAULT_ROTATION_SPEED = 25;
 	public static final int ROTATION_MAX_SPEED = 100;
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/ying_yang_obj";

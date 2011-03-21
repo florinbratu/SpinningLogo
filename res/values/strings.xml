@@ -9,7 +9,7 @@
     <string name="spinlogo_settings">Preferences</string>
     <string name="rotation_speed_name">RotationSpeed</string>
     <string name="rotation_speed_summary">%1$.1f deg/sec</string>
-    <string name="rotation_speed_default_value">10</string>
+    <string name="rotation_speed_default_value">25</string>
     <string name="rotation_speed_max_value">90</string>
     <string name="rotation_speed_title">Rotation speed</string>
     <color name="white_color">#fff</color>
