@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World!</string>
-    <string name="app_name">Spinning Logo Live Wallpaper</string>
-    <string name="service_label">Spinning Logo LWP</string>
-    <string name="description">A wallpaper consisting of a spinning logo rotating in the center of the screen</string>
+    <string name="app_name">Ying Yang Live Wallpaper</string>
+    <string name="service_label">Ying Yang Tajitu Live Wallpaper</string>
+    <string name="description">The ancient Ying Yang Tajitu symbol rotating in the middle of a beautiful arctic landscape!</string>
     <string name="invalid_license">The Spinning Logo Live Wallpaper has been installed on this device without a license!</string>
     <string name="license_check_error">Error while performing application license check, error code: </string>
-    
+
     <!--  settings screen -->
     <string name="spinlogo_settings">Preferences</string>
     <string name="rotation_speed_name">RotationSpeed</string>
