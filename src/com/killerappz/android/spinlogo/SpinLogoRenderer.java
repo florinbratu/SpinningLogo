@@ -121,8 +121,8 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		Shared.renderer().setGl(gl);
 		RenderCaps.setRenderCaps(gl);
 		scene.reset();
-		// we also need to set at least one light, for the textures
-		scene.lights().add(new Light());
+		// disable lighting, don't need it for this scenario
+		scene.lightingEnabled(false);
 	}
 
 	// Do OpenGL settings which we are using as defaults, or which we will not be changing on-draw
