@@ -5,6 +5,7 @@ import javax.microedition.khronos.opengles.GL10;
 import min3d.Shared;
 import min3d.core.Object3dContainer;
 import min3d.core.Scene;
+import min3d.core.TextureManager;
 import min3d.objectPrimitives.SkyBox;
 import android.content.Context;
 
@@ -23,12 +24,15 @@ public class SpinningLogo {
 	// the skybox
 	private SkyBox skyBox;
 	// for resources
-	private final Context ctx;
+	private final Context context;
+	// for textures
+	private final TextureManager textureManager;
 	
 	// rotSpeed is the rotation speed measured in ROTATION_SPEED_UNIT
-	public SpinningLogo(Context context, String resId, SpinLogoContext contextInfo, Scene scene) {
-		this.ctx = context;
-		object = new ObjLoader(context).load(resId);
+	public SpinningLogo(Context context, TextureManager tm, String resId, SpinLogoContext contextInfo, Scene scene) {
+		this.context = context;
+		this.textureManager = tm;
+		object = new ObjLoader(context,tm).load(resId);
 		this.contextInfo = contextInfo;
  		this.scene = scene;
  		this.skyBox = createSkyBox();
@@ -48,7 +52,7 @@ public class SpinningLogo {
 	}
 	
 	private SkyBox createSkyBox() {
-		SkyBox skyBox = new SkyBox(ctx, Constants.SKYBOX_SIZE, Constants.SKYBOX_QUALITY_FACTOR);
+		SkyBox skyBox = new SkyBox(context, textureManager, Constants.SKYBOX_SIZE, Constants.SKYBOX_QUALITY_FACTOR);
 		/* textures */
 		skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_right,  "east_texture");
 		skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_center, "south_texture");

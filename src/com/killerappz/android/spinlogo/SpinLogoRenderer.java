@@ -29,17 +29,18 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	
 	// the spinning logo which needs to be displayed
 	private SpinningLogo logo;
-	private final Context ctx; // for resources
 	// (ab)using m3d's Scene object
 	private Scene scene;
 	// the context informationfor rendering 
 	private final SpinLogoContext contextInfo;
+	private TextureManager textureManager; // for textures
+	private final Context context; // for resources
 	
 	// sync between scene init and rendering
 	private volatile boolean initFinished = false;
 
 	public SpinLogoRenderer(Context ctx, SpinLogoContext contextInfo) {
-		this.ctx = ctx;
+		this.context = ctx;
 		this.contextInfo = contextInfo;
 		m3dInit();
 	}
@@ -54,16 +55,19 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	 * It is the min3d's Renderer's functionality that we are interested in.
 	 */
 	private void m3dInit() {
-		Shared.textureManager(new TextureManager());
-		// Reset TextureManager
-		Shared.textureManager().reset();
+
+		// the Texture Manager
+		this.textureManager = new TextureManager();
+		
+		// the Scene
 		scene = new Scene(new PhonySceneController());
 		scene.reset();
 		// disable lighting, don't need it for this scenario
 		scene.lightingEnabled(false);
+
 		// the new Renderer
-		ActivityManager activityMgr = (ActivityManager)this.ctx.getSystemService( Context.ACTIVITY_SERVICE );
-		Renderer renderer = new Renderer(scene, activityMgr);
+		ActivityManager activityMgr = (ActivityManager)this.context.getSystemService( Context.ACTIVITY_SERVICE );
+		Renderer renderer = new Renderer(scene, activityMgr, textureManager);
 		if(Shared.renderer()!=null)
 			// temp set; will be overriden onSurfaceCreate
 			renderer.setGl(Shared.renderer().gl());
@@ -117,7 +121,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		// create spinning logo object
 		String modelResource = SpinLogoRenderer.class.getPackage().getName() 
 				+ ":" + Constants.LOGO_MODEL_FILE;
-		logo = new SpinningLogo(ctx, modelResource, contextInfo, scene);
+		logo = new SpinningLogo(context, textureManager, modelResource, contextInfo, scene);
 		initFinished = true;
 	}
 
@@ -126,7 +130,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	 * @param gl
 	 */
 	private void min3dSurfaceCreated(GL10 gl) {
-		Shared.textureManager().reset();
+		textureManager.reset();
 		scene.reset();
 		scene.lightingEnabled(false);
 		Shared.renderer().setGl(gl);
@@ -167,7 +171,8 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	 * at this point your renderer instance is now done for.
 	 */
 	public void release() {
-
+		// clear all textures
+		textureManager.reset();
 	}
 
 	class PhonySceneController implements ISceneController{
