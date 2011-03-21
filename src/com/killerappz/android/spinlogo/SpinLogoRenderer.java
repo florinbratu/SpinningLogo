@@ -125,6 +125,9 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	 * @param gl
 	 */
 	private void min3dSurfaceCreated(GL10 gl) {
+		Shared.textureManager().reset();
+		scene.reset();
+		scene.lightingEnabled(false);
 		Shared.renderer().setGl(gl);
 		RenderCaps.setRenderCaps(gl);
 	}
