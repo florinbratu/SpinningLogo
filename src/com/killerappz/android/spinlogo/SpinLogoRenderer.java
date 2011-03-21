@@ -9,7 +9,6 @@ import min3d.core.Renderer;
 import min3d.core.Scene;
 import min3d.core.TextureManager;
 import min3d.interfaces.ISceneController;
-import min3d.vos.Light;
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.res.Resources;
 import android.opengl.GLU;
@@ -56,8 +55,18 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	private void m3dInit(GLWallpaperService lwpSvc) {
 		Shared.context(lwpSvc);
 		Shared.textureManager(new TextureManager());
+		// Reset TextureManager
+		Shared.textureManager().reset();
 		scene = new Scene(new PhonySceneController());
-		Shared.renderer(new Renderer(scene));
+		scene.reset();
+		// disable lighting, don't need it for this scenario
+		scene.lightingEnabled(false);
+		// the new Renderer
+		Renderer renderer = new Renderer(scene);
+		if(Shared.renderer()!=null)
+			// temp set; will be overriden onSurfaceCreate
+			renderer.setGl(Shared.renderer().gl());
+		Shared.renderer(renderer);
 	}
 
 	@Override
@@ -116,13 +125,8 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	 * @param gl
 	 */
 	private void min3dSurfaceCreated(GL10 gl) {
-		// Reset TextureManager
-		Shared.textureManager().reset();
 		Shared.renderer().setGl(gl);
 		RenderCaps.setRenderCaps(gl);
-		scene.reset();
-		// disable lighting, don't need it for this scenario
-		scene.lightingEnabled(false);
 	}
 
 	// Do OpenGL settings which we are using as defaults, or which we will not be changing on-draw

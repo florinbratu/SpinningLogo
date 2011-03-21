@@ -34,13 +34,14 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 			mPreferences.registerOnSharedPreferenceChangeListener(contextInfo);
 		}
 
+		@Override
 		public void onDestroy() {
+			super.onDestroy();
 			if (renderer != null) {
 				renderer.release();
 			}
 			renderer = null;
 			mPreferences.unregisterOnSharedPreferenceChangeListener(contextInfo);
-			super.onDestroy();
 		}
 	}
 }
