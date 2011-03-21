@@ -3,7 +3,6 @@ package com.killerappz.android.spinlogo;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import min3d.Shared;
 import min3d.core.RenderCaps;
 import min3d.core.Renderer;
 import min3d.core.Scene;
@@ -35,6 +34,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	private final SpinLogoContext contextInfo;
 	private TextureManager textureManager; // for textures
 	private final Context context; // for resources
+	private Renderer renderer; // min3d renderer
 	
 	// sync between scene init and rendering
 	private volatile boolean initFinished = false;
@@ -53,11 +53,13 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	 * these objects' structure, and not their functionality.
 	 * 
 	 * It is the min3d's Renderer's functionality that we are interested in.
+	 * 
+	 * MANDATORY min3d init steps:
+	 * 	1) Create Renderer
+	 *  2) Create TextureManager with Renderer as ctor arg
+	 *  3) set Renderer's Texture Mgr to be this one
 	 */
 	private void m3dInit() {
-
-		// the Texture Manager
-		this.textureManager = new TextureManager();
 		
 		// the Scene
 		scene = new Scene(new PhonySceneController());
@@ -65,13 +67,14 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		// disable lighting, don't need it for this scenario
 		scene.lightingEnabled(false);
 
-		// the new Renderer
+		// the Renderer
 		ActivityManager activityMgr = (ActivityManager)this.context.getSystemService( Context.ACTIVITY_SERVICE );
-		Renderer renderer = new Renderer(scene, activityMgr, textureManager);
-		if(Shared.renderer()!=null)
-			// temp set; will be overriden onSurfaceCreate
-			renderer.setGl(Shared.renderer().gl());
-		Shared.renderer(renderer);
+		this.renderer = new Renderer(scene, activityMgr);
+		
+		// the Texture Manager
+		this.textureManager = new TextureManager(this.renderer);
+		this.renderer.setTextureManager(this.textureManager);
+		
 	}
 
 	@Override
@@ -85,7 +88,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		Point center = contextInfo.getCenter();
 		changeCamera(center);
-		logo.draw(gl);
+		logo.draw(gl, this.renderer);
 	}
 
 	/**
@@ -133,7 +136,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		textureManager.reset();
 		scene.reset();
 		scene.lightingEnabled(false);
-		Shared.renderer().setGl(gl);
+		renderer.setGl(gl);
 		RenderCaps.setRenderCaps(gl);
 	}
 

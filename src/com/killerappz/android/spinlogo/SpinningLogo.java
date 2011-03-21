@@ -2,8 +2,8 @@ package com.killerappz.android.spinlogo;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import min3d.Shared;
 import min3d.core.Object3dContainer;
+import min3d.core.Renderer;
 import min3d.core.Scene;
 import min3d.core.TextureManager;
 import min3d.objectPrimitives.SkyBox;
@@ -38,11 +38,11 @@ public class SpinningLogo {
  		this.skyBox = createSkyBox();
 	}
 	
-	public void draw(GL10 gl){
+	public void draw(GL10 gl, Renderer renderer){
 		// draw all objects within the container
 		scene.addChild(object);
 		scene.addChild(skyBox);
-		Shared.renderer().onDrawFrame(gl);
+		renderer.onDrawFrame(gl);
 		autoRotate();
 	}
 
