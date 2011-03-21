@@ -6,7 +6,7 @@ public interface Constants {
 	public static final int DEFAULT_ROTATION_SPEED = 10;
 	public static final int ROTATION_MAX_SPEED = 100;
 	// the file containing the model of the logo
-	public static final String LOGO_MODEL_FILE = "raw/camaro_obj";
+	public static final String LOGO_MODEL_FILE = "raw/ying_yang_obj";
 	
 	// preferences screen keys
 	// 1) rotation
