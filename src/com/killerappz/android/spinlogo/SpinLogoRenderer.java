@@ -174,6 +174,8 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	 * at this point your renderer instance is now done for.
 	 */
 	public void release() {
+		// clear all objects from the scene
+		scene.reset();
 		// clear all textures
 		textureManager.reset();
 	}
