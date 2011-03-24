@@ -39,7 +39,7 @@ public class MarketLicensingManager {
 		if(Secure.ANDROID_ID != null)
 			return Secure.ANDROID_ID;
 		
-		String uniqueString = 
+		String uniqueString = Build.FINGERPRINT + 
     		Build.BOARD + Build.BRAND + Build.CPU_ABI + Build.DEVICE +
     		Build.DISPLAY + Build.HOST + Build.ID + Build.MANUFACTURER +
     		Build.MODEL + Build.PRODUCT + Build.TAGS + Build.TYPE +
