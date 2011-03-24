@@ -29,5 +29,20 @@ public interface Constants {
 	/* cica da calitatea skybox-ului. De fapt da numarul de poligoane 
 	folosite pt a construi fiecare din laturile skybox-ului */
 	public static final int SKYBOX_QUALITY_FACTOR = 3;
+	
+	/** Application licensing-related info */
+	public static final String BASE64_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBC" +
+			"gKCAQEAzJc4dgyEyGSo822dyj0//KtVtd4qZk7bpmPLav2ok88rpx1g474gOP7qX4JWrUIDUqwlRHBXP" +
+			"+Hohj4GitxK9KhqZGv2KoSfjKZidXKJixbqgRyyNcWod+FaYV2e9CNO+yWvXj8DdyOWRCnffm0AbLy" +
+			"2msUbiYNeUmVdbH73+7wrOf0vJkQ12VjW15coNSECCMzWVEys4gJrk4xC84Z/zvvTUzLrrlxipGVgR" +
+			"2s0mcN8q94/DjX0BWVVBTNJ4xty8J+K4GkMgPSg/286y9dWRHIhzGUksoI2nejsSNWmxjiJtQeg" +
+			"FefCHb6xond7+cHNqMEpmAjxpSSqyVm2XFFGkwIDAQAB";
+	
+	public static final byte[] SALT = new byte[] {
+		101, -53, -73, 36, -118, 
+		31, -33, -19, 38, -95,
+		12, 49, -107, 115, -92,
+		-1, -107, -116, 96, -94
+	};
 
 }

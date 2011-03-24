@@ -32,6 +32,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>GoogleMarketLicensing_src</name>
+			<type>2</type>
+			<locationURI>_android_GoogleMarketLicensing_77d67449/src</locationURI>
+		</link>
+		<link>
 			<name>min3d</name>
 			<type>2</type>
 			<location>/home/florin/storehouse/android/min3d/src</location>

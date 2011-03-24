@@ -23,6 +23,7 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 	{
 		// access to the user preferences
 		private final SharedPreferences mPreferences;
+		// market licensing manager
 		private SpinLogoRenderer renderer;
 		
 		public SpinLogoEngine() {
