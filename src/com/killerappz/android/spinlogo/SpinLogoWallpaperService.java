@@ -11,19 +11,34 @@ import com.killerappz.android.spinlogo.licensing.MarketLicensingManager;
 public class SpinLogoWallpaperService extends GLWallpaperService {
 	private final SpinLogoContext contextInfo;
 	// market licensing manager
-	private final MarketLicensingManager mLicenseManager;
+	private MarketLicensingManager mLicenseManager;
 	
 	public SpinLogoWallpaperService() {
 		super();
 		contextInfo = new SpinLogoContext();
+		
+	}
+	
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		// create the market license manager
 		mLicenseManager = new MarketLicensingManager(this);
+		// check license OBS this is not synchronous, unless there's info in its cache
+		mLicenseManager.doCheck();
 	}
 
 	public Engine onCreateEngine() {
-		// check license OBS this is not synchronous, unless there's info in its cache
-		mLicenseManager.doCheck();
 		SpinLogoEngine engine = new SpinLogoEngine();
 		return engine; 
+	}
+	
+	@Override
+	public void onDestroy() {
+		// cleanup for upper layers
+		super.onDestroy();
+		// cleanup the License Manager
+		mLicenseManager.cleanup();
 	}
 
 	class SpinLogoEngine extends GLEngine 

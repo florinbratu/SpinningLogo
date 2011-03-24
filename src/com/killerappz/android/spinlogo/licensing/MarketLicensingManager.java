@@ -52,4 +52,9 @@ public class MarketLicensingManager {
 		mChecker.checkAccess(mLicenseCheckerCallback);
 	}
 
+
+	public void cleanup() {
+		mChecker.onDestroy();
+	}
+
 }
