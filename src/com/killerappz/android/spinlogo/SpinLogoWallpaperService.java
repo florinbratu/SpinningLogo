@@ -10,12 +10,18 @@ import com.killerappz.android.spinlogo.licensing.MarketLicensingManager;
 // http://www.rbgrn.net/content/354-glsurfaceview-adapted-3d-live-wallpapers
 public class SpinLogoWallpaperService extends GLWallpaperService {
 	private final SpinLogoContext contextInfo;
+	// market licensing manager
+	private final MarketLicensingManager mLicenseManager;
+	
 	public SpinLogoWallpaperService() {
 		super();
 		contextInfo = new SpinLogoContext();
+		mLicenseManager = new MarketLicensingManager(this);
 	}
 
 	public Engine onCreateEngine() {
+		// check license OBS this is not synchronous, unless there's info in its cache
+		mLicenseManager.doCheck();
 		SpinLogoEngine engine = new SpinLogoEngine();
 		return engine; 
 	}
@@ -24,8 +30,7 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 	{
 		// access to the user preferences
 		private final SharedPreferences mPreferences;
-		// market licensing manager
-		private final MarketLicensingManager mLicenseManager;
+		// the renderer
 		private SpinLogoRenderer renderer;
 		
 		public SpinLogoEngine() {
@@ -36,8 +41,6 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 			// prefs
 			mPreferences = SpinLogoWallpaperService.this.getSharedPreferences(Constants.PREFS_NAME, 0);
 			mPreferences.registerOnSharedPreferenceChangeListener(contextInfo);
-			// license manager
-			mLicenseManager = new MarketLicensingManager(SpinLogoWallpaperService.this);
 		}
 
 		@Override
