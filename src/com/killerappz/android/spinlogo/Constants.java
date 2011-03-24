@@ -45,5 +45,16 @@ public interface Constants {
 		-1, -107, -116, 96, -94
 	};
 	public static final int UID_SIZE = 16; // the size of ANDROID_ID
-
+	
+	public static final String LOG_TAG = "killerappz";
+	
+	public static final String[] licenseErrorCodes = new String[] {
+		"INVALID_PACKAGE_NAME",
+        "NON_MATCHING_UID",
+        "NOT_MARKET_MANAGED",
+        "CHECK_IN_PROGRESS",
+        "INVALID_PUBLIC_KEY",
+        "MISSING_PERMISSION",
+	};
+	
 }
