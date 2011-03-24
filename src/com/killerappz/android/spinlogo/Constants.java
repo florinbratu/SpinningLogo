@@ -44,5 +44,6 @@ public interface Constants {
 		12, 49, -107, 115, -92,
 		-1, -107, -116, 96, -94
 	};
+	public static final int UID_SIZE = 32;
 
 }

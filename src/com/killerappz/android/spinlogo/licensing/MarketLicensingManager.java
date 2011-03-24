@@ -1,6 +1,7 @@
 package com.killerappz.android.spinlogo.licensing;
 
 import android.content.Context;
+import android.os.Build;
 import android.provider.Settings.Secure;
 
 import com.android.vending.licensing.AESObfuscator;
@@ -23,8 +24,7 @@ public class MarketLicensingManager {
 	private final LicenseChecker mChecker;
 
 	public MarketLicensingManager(Context ctx) {
-		// TODO Try to use more data here. ANDROID_ID is a single point of attack.
-        String deviceId = Secure.getString(ctx.getContentResolver(), Secure.ANDROID_ID);
+        String deviceId = Secure.getString(ctx.getContentResolver(), getUID(Constants.UID_SIZE));
 
         mLicenseCheckerCallback = new LicenseCheckerCallbackImpl();
         // Construct the LicenseChecker with the default policy.
@@ -32,6 +32,19 @@ public class MarketLicensingManager {
             ctx, new ServerManagedPolicy(ctx,
                 new AESObfuscator(Constants.SALT, ctx.getPackageName(), deviceId)),
             Constants.BASE64_PUBLIC_KEY);
+	}
+	
+	
+	private String getUID(int size) {
+		if(Secure.ANDROID_ID != null)
+			return Secure.ANDROID_ID;
+		
+		String uniqueString = 
+    		Build.BOARD + Build.BRAND + Build.CPU_ABI + Build.DEVICE +
+    		Build.DISPLAY + Build.HOST + Build.ID + Build.MANUFACTURER +
+    		Build.MODEL + Build.PRODUCT + Build.TAGS + Build.TYPE +
+    		Build.USER; 
+		return uniqueString.substring(0, size);
 	}
 
 }
