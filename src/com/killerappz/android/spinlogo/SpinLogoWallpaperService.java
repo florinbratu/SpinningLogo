@@ -41,6 +41,15 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 		// cleanup the License Manager
 		mLicenseManager.cleanup();
 	}
+	
+	// license related ops
+	public boolean hasValidLicense() {
+		return mLicenseManager.validLicense;
+	}
+	
+	public void setLicenseStatus(boolean validLicense) {
+		mLicenseManager.validLicense = validLicense;
+	}
 
 	class SpinLogoEngine extends GLEngine 
 	{

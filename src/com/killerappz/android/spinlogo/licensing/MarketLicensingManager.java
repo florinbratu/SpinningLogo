@@ -23,6 +23,18 @@ public class MarketLicensingManager {
 	
 	private final LicenseCheckerCallback mLicenseCheckerCallback; 
 	private final LicenseChecker mChecker;
+	/**
+	 * Marks if user has a valid license for product.
+	 * Works like this:
+	 * 1) The LWP Service requests license check
+	 * 2) the License Checker receives the reply and
+	 *  calls the Callback
+	 * 3) the License Checker Callback 
+	 *  sets this valid license flag accordingly
+	 * 4) the Renderer will refuse to work(in onDrawFrame)
+	 *  if the license flag is invalid!  
+	 */
+	public volatile boolean validLicense;
 
 	public MarketLicensingManager(SpinLogoWallpaperService lwp, Handler handler) {
         String deviceId = Secure.getString(lwp.getContentResolver(), getUID(Constants.UID_SIZE));
@@ -33,6 +45,9 @@ public class MarketLicensingManager {
             lwp, new ServerManagedPolicy(lwp,
                 new AESObfuscator(Constants.SALT, lwp.getPackageName(), deviceId)),
             Constants.BASE64_PUBLIC_KEY); 
+        
+        // initially we assume license == OK
+        this.validLicense = false;
 	}
 	
 	

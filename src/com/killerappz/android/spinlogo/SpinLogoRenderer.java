@@ -33,14 +33,14 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	// the context informationfor rendering 
 	private final SpinLogoContext contextInfo;
 	private TextureManager textureManager; // for textures
-	private final Context context; // for resources
+	private final SpinLogoWallpaperService wallpaperRef; // for resources and license checking
 	private Renderer renderer; // min3d renderer
 	
 	// sync between scene init and rendering
 	private volatile boolean initFinished = false;
 
-	public SpinLogoRenderer(Context ctx, SpinLogoContext contextInfo) {
-		this.context = ctx;
+	public SpinLogoRenderer(SpinLogoWallpaperService wallpaper, SpinLogoContext contextInfo) {
+		this.wallpaperRef = wallpaper;
 		this.contextInfo = contextInfo;
 		m3dInit();
 	}
@@ -68,7 +68,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		scene.lightingEnabled(false);
 
 		// the Renderer
-		ActivityManager activityMgr = (ActivityManager)this.context.getSystemService( Context.ACTIVITY_SERVICE );
+		ActivityManager activityMgr = (ActivityManager)this.wallpaperRef.getSystemService( Context.ACTIVITY_SERVICE );
 		this.renderer = new Renderer(scene, activityMgr);
 		
 		// the Texture Manager
@@ -81,7 +81,12 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	public void onDrawFrame(GL10 gl) {
 		// if not initialized drop frame
 		if(!initFinished)
-			// TODO show a Load in progress screen...
+			// TODO draw a Load in progress text...
+			return;
+		
+		// if invalid license, refuse to work!
+		if(!this.wallpaperRef.hasValidLicense())
+			// TODO draw a Invalid license text
 			return;
 
 		gl.glClearColor(0.2f, 0.4f, 0.2f, 1f);
@@ -124,7 +129,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		// create spinning logo object
 		String modelResource = SpinLogoRenderer.class.getPackage().getName() 
 				+ ":" + Constants.LOGO_MODEL_FILE;
-		logo = new SpinningLogo(context, textureManager, modelResource, contextInfo, scene);
+		logo = new SpinningLogo(wallpaperRef, textureManager, modelResource, contextInfo, scene);
 		initFinished = true;
 	}
 

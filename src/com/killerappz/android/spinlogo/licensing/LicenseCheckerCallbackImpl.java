@@ -33,8 +33,8 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	 */
 	@Override
 	public void allow() {
-		// TODO should I do anything here?
-		Log.d(Constants.LOG_TAG, "App is allowed");
+		Log.d(Constants.LOG_TAG, "License is valid");
+		this.lwp.setLicenseStatus(true);
 	}
 
 	/* (non-Javadoc)
@@ -51,11 +51,11 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	 */
 	@Override
 	public void dontAllow() {
-		Log.d(Constants.LOG_TAG, "App is NOT allowed");
+		Log.d(Constants.LOG_TAG, "License is invalid!");
 		// warn the user
 		warnUser();
-		// stop the service
-		this.lwp.stopSelf();
+		// mark invalid license
+		this.lwp.setLicenseStatus(false);
 	}
 
 	/**
@@ -65,6 +65,9 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	 * TODO more fancy stuff: display dialog with
 	 * 1) retry button
 	 * 2) link to Android Market page button
+	 * you can use the MainActivity from andorid sample
+	 * as a starting point
+	 * Potential pitfall: http://stackoverflow.com/questions/4131619/alertdialog-show-silently-ignored-within-a-service
 	 */
 	private void warnUser() {
 		this.mHandler.post(new Runnable() {
