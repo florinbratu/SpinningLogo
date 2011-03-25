@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Ying Yang Live Wallpaper</string>
-    <string name="service_label">Ying Yang Tajitu</string>
-    <string name="description">The ancient Ying Yang Tajitu symbol rotating in the middle of a beautiful arctic landscape!</string>
-    <string name="invalid_license">The Spinning Logo Live Wallpaper has been installed on this device without a license!</string>
+    <string name="service_label">Ying Yang Taijitu 3D</string>
+    <string name="description">The ancient Ying Yang Taijitu symbol rotating in the middle of a beautiful arctic landscape!</string>
+    <string name="invalid_license">The Ying Yang Live Wallpaper has been installed on this device without a license!</string>
     <string name="license_check_error">Error while performing application license check, error code: </string>
 
     <!--  settings screen -->
