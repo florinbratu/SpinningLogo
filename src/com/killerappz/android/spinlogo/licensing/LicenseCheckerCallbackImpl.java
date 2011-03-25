@@ -1,5 +1,6 @@
 package com.killerappz.android.spinlogo.licensing;
 
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -17,9 +18,14 @@ import com.killerappz.android.spinlogo.SpinLogoWallpaperService;
 public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	
 	private final SpinLogoWallpaperService lwp;
+	private final Handler mHandler;
+	private final Toast invalidLicenseToast;
 
-	public LicenseCheckerCallbackImpl(SpinLogoWallpaperService lwp) {
+	public LicenseCheckerCallbackImpl(SpinLogoWallpaperService lwp, Handler handler) {
 		this.lwp = lwp;
+		this.mHandler = handler;
+		invalidLicenseToast = Toast.makeText(this.lwp, 
+				R.string.invalid_license, Toast.LENGTH_LONG);
 	}
 
 	/* (non-Javadoc)
@@ -28,6 +34,7 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	@Override
 	public void allow() {
 		// TODO should I do anything here?
+		Log.d(Constants.LOG_TAG, "App is allowed");
 	}
 
 	/* (non-Javadoc)
@@ -44,13 +51,27 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	 */
 	@Override
 	public void dontAllow() {
-		/* TODO more fancy stuff: display dialog with
-		 * 1) retry button
-		 * 2) link to Android Market page button
-		 */
-		Toast.makeText(this.lwp, 
-				R.string.invalid_license, Toast.LENGTH_SHORT).show();
+		Log.d(Constants.LOG_TAG, "App is NOT allowed");
+		// warn the user
+		warnUser();
+		// stop the service
 		this.lwp.stopSelf();
+	}
+
+	/**
+	 * Notify the user the reason why we're stopping
+	 * the app: running without a license!
+	 * 
+	 * TODO more fancy stuff: display dialog with
+	 * 1) retry button
+	 * 2) link to Android Market page button
+	 */
+	private void warnUser() {
+		this.mHandler.post(new Runnable() {
+			public void run() {
+				invalidLicenseToast.show();
+			}
+		});
 	}
 
 }

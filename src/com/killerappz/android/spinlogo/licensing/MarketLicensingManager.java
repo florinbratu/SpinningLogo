@@ -1,7 +1,7 @@
 package com.killerappz.android.spinlogo.licensing;
 
-import android.content.Context;
 import android.os.Build;
+import android.os.Handler;
 import android.provider.Settings.Secure;
 
 import com.android.vending.licensing.AESObfuscator;
@@ -24,10 +24,10 @@ public class MarketLicensingManager {
 	private final LicenseCheckerCallback mLicenseCheckerCallback; 
 	private final LicenseChecker mChecker;
 
-	public MarketLicensingManager(SpinLogoWallpaperService lwp) {
+	public MarketLicensingManager(SpinLogoWallpaperService lwp, Handler handler) {
         String deviceId = Secure.getString(lwp.getContentResolver(), getUID(Constants.UID_SIZE));
 
-        mLicenseCheckerCallback = new LicenseCheckerCallbackImpl(lwp);
+        mLicenseCheckerCallback = new LicenseCheckerCallbackImpl(lwp, handler);
         // Construct the LicenseChecker with the default policy.
         mChecker = new LicenseChecker(
             lwp, new ServerManagedPolicy(lwp,

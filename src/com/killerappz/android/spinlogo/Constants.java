@@ -46,7 +46,7 @@ public interface Constants {
 	};
 	public static final int UID_SIZE = 16; // the size of ANDROID_ID
 	
-	public static final String LOG_TAG = "killerappz";
+	public static final String LOG_TAG = "KILLER_LWP";
 	
 	public static final String[] licenseErrorCodes = new String[] {
 		"INVALID_PACKAGE_NAME",

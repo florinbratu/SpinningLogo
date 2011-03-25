@@ -2,6 +2,7 @@ package com.killerappz.android.spinlogo;
 
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.SharedPreferences;
+import android.os.Handler;
 
 import com.killerappz.android.spinlogo.context.SpinLogoContext;
 import com.killerappz.android.spinlogo.licensing.MarketLicensingManager;
@@ -23,7 +24,7 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 	public void onCreate() {
 		super.onCreate();
 		// create the market license manager
-		mLicenseManager = new MarketLicensingManager(this);
+		mLicenseManager = new MarketLicensingManager(this, new Handler());
 		// check license OBS this is not synchronous, unless there's info in its cache
 		mLicenseManager.doCheck();
 	}
