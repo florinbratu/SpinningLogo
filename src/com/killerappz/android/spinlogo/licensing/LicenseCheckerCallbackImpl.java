@@ -42,7 +42,9 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	 */
 	@Override
 	public void applicationError(ApplicationErrorCode errorCode) {
-		Log.e(Constants.LOG_TAG, Constants.licenseErrorCodes[errorCode.ordinal()]);
+		Log.e(Constants.LOG_TAG, "License check error:" + Constants.licenseErrorCodes[errorCode.ordinal()]);
+		invalidLicenseToast.setText( this.lwp.getString(R.string.license_check_error)
+				+ Constants.licenseErrorCodes[errorCode.ordinal()]);
 		dontAllow();
 	}
 

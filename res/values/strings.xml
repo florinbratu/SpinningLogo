@@ -5,6 +5,7 @@
     <string name="service_label">Spinning Logo LWP</string>
     <string name="description">A wallpaper consisting of a spinning logo rotating in the center of the screen</string>
     <string name="invalid_license">The Spinning Logo Live Wallpaper has been installed on this device without a license!</string>
+    <string name="license_check_error">Error while performing application license check, error code: </string>
     
     <!--  settings screen -->
     <string name="spinlogo_settings">Preferences</string>
