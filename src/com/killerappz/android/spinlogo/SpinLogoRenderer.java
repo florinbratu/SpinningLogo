@@ -11,7 +11,6 @@ import min3d.interfaces.ISceneController;
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.app.ActivityManager;
 import android.content.Context;
-import android.opengl.GLU;
 import android.os.Handler;
 
 import com.killerappz.android.spinlogo.context.Point;
@@ -122,17 +121,32 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		 */
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadIdentity();
-		/*GLU.gluPerspective(gl, Constants.FIELD_OF_VIEW_Y, (float)width/(float)height, 
-				Constants.Z_NEAR_PLANE, Constants.Z_FAR_PLANE);*/
+		
+		/**
+		 * Create an oblique projection 
+		 */
+		double alpha = 0;
+        /* Working cavalier projection matrix
+         * float[] cavalier = {
+                1, 0, 0, 0,
+                0, 1, 0, 0,
+                -1 * (float)Math.cos(Math.toRadians(alpha)), -1 * (float)Math.sin(Math.toRadians(alpha)), 1, 0,
+                0, 0, 0, 1};
+        */
+		/* Currently used projection matrix. TODO find the real cabinet transformation matrix */
+		float[] cabinet = {
+                1, 0, 0 , 0,
+                0, 1, 0, 0,
+                (float)Math.sin(Math.toRadians(alpha)), 0, 1 , 0,
+                0, 0, 0, 1};
+		gl.glLoadMatrixf(cabinet, 0);
 		
 		/** gluPerspective to glFrustum conversion 
+		 *  Achieves same effect as:
+		 * GLU.gluPerspective(gl, Constants.FIELD_OF_VIEW_Y, (float)width/(float)height, 
+				Constants.Z_NEAR_PLANE, Constants.Z_FAR_PLANE);
 		* 	@see http://www.opengl.org/resources/faq/technical/transformations.htm, Question #9.085
 		*/
-		float halfWidth = width*0.5f;
-		/* cx is the eye space center of the zNear plane in X
-		 * In our case, the center of the screen 
-		 * */
-		float cx = contextInfo.getCenter().x;
 		float aspect = (float)width/(float)height; 
 		float bottom = -(float)Math.tan(Math.toRadians(Constants.FIELD_OF_VIEW_Y) * 0.5) * Constants.Z_NEAR_PLANE;
 		float top = -bottom;
