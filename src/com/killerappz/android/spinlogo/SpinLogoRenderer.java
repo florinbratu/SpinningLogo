@@ -115,10 +115,30 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
 		// get the center of the screen
 		contextInfo.setCenter(width/2.0f, height/2.0f);
-		// This part sets the perspective matrix. 
+		
+		/** This part sets the perspective matrix.
+		 *  The goal is to preserve the aspect ration
+		 *  @see http://www.opengl.org/resources/faq/technical/transformations.htm, Question #9.140
+		 */
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadIdentity();
-		GLU.gluPerspective(gl, 60f, (float)width/(float)height, 1f, 100f);
+		/*GLU.gluPerspective(gl, Constants.FIELD_OF_VIEW_Y, (float)width/(float)height, 
+				Constants.Z_NEAR_PLANE, Constants.Z_FAR_PLANE);*/
+		
+		/** gluPerspective to glFrustum conversion 
+		* 	@see http://www.opengl.org/resources/faq/technical/transformations.htm, Question #9.085
+		*/
+		float halfWidth = width*0.5f;
+		/* cx is the eye space center of the zNear plane in X
+		 * In our case, the center of the screen 
+		 * */
+		float cx = contextInfo.getCenter().x;
+		float aspect = (float)width/(float)height; 
+		float bottom = -(float)Math.tan(Math.toRadians(Constants.FIELD_OF_VIEW_Y) * 0.5) * Constants.Z_NEAR_PLANE;
+		float top = -bottom;
+		// load the frustum!
+		gl.glFrustumf(bottom*aspect, top*aspect, bottom, top, 
+				Constants.Z_NEAR_PLANE, Constants.Z_FAR_PLANE);
 	}
 
 	@Override

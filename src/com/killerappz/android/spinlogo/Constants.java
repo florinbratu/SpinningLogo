@@ -8,6 +8,13 @@ public interface Constants {
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/ying_yang_obj";
 	
+	// viewing params
+	// field of view
+	public static final float FIELD_OF_VIEW_Y = 60f;
+	// the near and far clipping planes
+	public static final float Z_NEAR_PLANE = 1f;
+	public static final float Z_FAR_PLANE = 100f;
+	
 	// preferences screen keys
 	// 1) rotation
 	public static final String ROTATION_SPEED_KEY = "rotation";
