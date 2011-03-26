@@ -102,16 +102,18 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	 * Shift the view according to the offset information.
 	 * For the moment, we shift on x axis only
 	 * 
-	 * TODO shift for Y axis, should be nice! 
-	 * 	You get the full cavaler matrix on that one!
 	 * @param offset the Offset information
 	 */
 	private void shift(OffsetInfo offset) {
-		/* the oblique projection angle range is
-		 * [- MAX_OBLIQUE_ANGLE, MAX_OBLIQUE_ANGLE]
+		/* the oblique projection angle ranges are(increasing as offset increases)
+		 * <ul>
+		 * <li> [- MAX_OBLIQUE_ANGLE, MAX_OBLIQUE_ANGLE] for X axis </li>
+		 * <li> [0, MAX_OBLIQUE_ANGLE] for Y axis </li>
+		 * </ul>
 		 *  */
-		scene.camera().frustum.obliqueProjectionAngle(
-				Constants.MAX_OBLIQUE_ANGLE * ( 2.0f * offset.xOffset - 1) );
+		scene.camera().frustum.obliqueProjectionAngles(
+				Constants.MAX_OBLIQUE_ANGLE * ( 2.0f * offset.xOffset - 1),
+				Constants.MAX_OBLIQUE_ANGLE * offset.yOffset );
 	}
 
 	/**
