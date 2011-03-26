@@ -141,18 +141,11 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
                 0, 0, 0, 1};
 		gl.glLoadMatrixf(cabinet, 0);
 		
-		/** gluPerspective to glFrustum conversion 
-		 *  Achieves same effect as:
-		 * GLU.gluPerspective(gl, Constants.FIELD_OF_VIEW_Y, (float)width/(float)height, 
+		float aspectRatio = (float)width/(float)height;
+		scene.camera().frustum.fromPerspective(Constants.FIELD_OF_VIEW_Y, aspectRatio, 
 				Constants.Z_NEAR_PLANE, Constants.Z_FAR_PLANE);
-		* 	@see http://www.opengl.org/resources/faq/technical/transformations.htm, Question #9.085
-		*/
-		float aspect = (float)width/(float)height; 
-		float bottom = -(float)Math.tan(Math.toRadians(Constants.FIELD_OF_VIEW_Y) * 0.5) * Constants.Z_NEAR_PLANE;
-		float top = -bottom;
-		// load the frustum!
-		gl.glFrustumf(bottom*aspect, top*aspect, bottom, top, 
-				Constants.Z_NEAR_PLANE, Constants.Z_FAR_PLANE);
+		// let the renderer load the frustum
+		renderer.onSurfaceChanged(gl, width, height);
 	}
 
 	@Override
