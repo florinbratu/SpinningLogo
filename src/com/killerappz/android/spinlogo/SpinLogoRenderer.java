@@ -114,33 +114,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
 		// get the center of the screen
 		contextInfo.setCenter(width/2.0f, height/2.0f);
-		
-		/** This part sets the perspective matrix.
-		 *  The goal is to preserve the aspect ration
-		 *  @see http://www.opengl.org/resources/faq/technical/transformations.htm, Question #9.140
-		 */
-		gl.glMatrixMode(GL10.GL_PROJECTION);
-		gl.glLoadIdentity();
-		
-		/**
-		 * Create an oblique projection 
-		 */
-		double alpha = 0;
-        /* Working cavalier projection matrix
-         * float[] cavalier = {
-                1, 0, 0, 0,
-                0, 1, 0, 0,
-                -1 * (float)Math.cos(Math.toRadians(alpha)), -1 * (float)Math.sin(Math.toRadians(alpha)), 1, 0,
-                0, 0, 0, 1};
-        */
-		/* Currently used projection matrix. TODO find the real cabinet transformation matrix */
-		float[] cabinet = {
-                1, 0, 0 , 0,
-                0, 1, 0, 0,
-                (float)Math.sin(Math.toRadians(alpha)), 0, 1 , 0,
-                0, 0, 0, 1};
-		gl.glLoadMatrixf(cabinet, 0);
-		
+		// register the projection parameters to the Frustum
 		float aspectRatio = (float)width/(float)height;
 		scene.camera().frustum.fromPerspective(Constants.FIELD_OF_VIEW_Y, aspectRatio, 
 				Constants.Z_NEAR_PLANE, Constants.Z_FAR_PLANE);
