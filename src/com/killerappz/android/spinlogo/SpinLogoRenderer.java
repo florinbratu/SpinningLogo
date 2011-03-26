@@ -13,6 +13,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Handler;
 
+import com.killerappz.android.spinlogo.context.OffsetInfo;
 import com.killerappz.android.spinlogo.context.Point;
 import com.killerappz.android.spinlogo.context.SpinLogoContext;
 
@@ -92,7 +93,25 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		Point center = contextInfo.getCenter();
 		changeCamera(center);
+		// shift according to offset
+		shift(contextInfo.getOffset());
 		logo.draw(gl, this.renderer);
+	}
+
+	/**
+	 * Shift the view according to the offset information.
+	 * For the moment, we shift on x axis only
+	 * 
+	 * TODO shift for Y axis, should be nice! 
+	 * 	You get the full cavaler matrix on that one!
+	 * @param offset the Offset information
+	 */
+	private void shift(OffsetInfo offset) {
+		/* the oblique projection angle range is
+		 * [- MAX_OBLIQUE_ANGLE, MAX_OBLIQUE_ANGLE]
+		 *  */
+		scene.camera().frustum.obliqueProjectionAngle(
+				Constants.MAX_OBLIQUE_ANGLE * ( 2.0f * offset.xOffset - 1) );
 	}
 
 	/**

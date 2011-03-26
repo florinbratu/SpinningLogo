@@ -3,6 +3,7 @@ package com.killerappz.android.spinlogo;
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.SharedPreferences;
 import android.os.Handler;
+import android.util.Log;
 
 import com.killerappz.android.spinlogo.context.SpinLogoContext;
 import com.killerappz.android.spinlogo.licensing.MarketLicensingManager;
@@ -40,6 +41,17 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 		super.onDestroy();
 		// cleanup the License Manager
 		mLicenseManager.cleanup();
+	}
+	
+	@Override
+	public void onOffsetsChanged(float xOffset, float yOffset,
+			float xOffsetStep, float yOffsetStep, int xPixelOffset,
+			int yPixelOffset) {
+		Log.d("MULTISCR", "xOffset: " + xOffset + " xOffsetStep: " + xOffsetStep + " xPixelOffset: " + xPixelOffset);
+		Log.d("MULTISCR", "yOffset: " + yOffset + " yOffsetStep: " + yOffsetStep + " yPixelOffset: " + yPixelOffset);
+		// store all info we acquired
+		contextInfo.setOffset(xOffset, yOffset, xOffsetStep, 
+				yOffsetStep, xPixelOffset, yPixelOffset);
 	}
 	
 	// license related ops

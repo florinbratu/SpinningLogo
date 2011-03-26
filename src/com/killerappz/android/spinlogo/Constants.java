@@ -14,6 +14,8 @@ public interface Constants {
 	// the near and far clipping planes
 	public static final float Z_NEAR_PLANE = 1f;
 	public static final float Z_FAR_PLANE = 100f;
+	// oblique projection
+	public static final float MAX_OBLIQUE_ANGLE = 30;
 	
 	// preferences screen keys
 	// 1) rotation
