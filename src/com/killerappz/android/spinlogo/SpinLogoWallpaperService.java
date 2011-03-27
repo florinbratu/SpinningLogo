@@ -47,8 +47,6 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 	public void onOffsetsChanged(float xOffset, float yOffset,
 			float xOffsetStep, float yOffsetStep, int xPixelOffset,
 			int yPixelOffset) {
-		Log.d("MULTISCR", "xOffset: " + xOffset + " xOffsetStep: " + xOffsetStep + " xPixelOffset: " + xPixelOffset);
-		Log.d("MULTISCR", "yOffset: " + yOffset + " yOffsetStep: " + yOffsetStep + " yPixelOffset: " + yPixelOffset);
 		// store all info we acquired
 		contextInfo.setOffset(xOffset, yOffset, xOffsetStep, 
 				yOffsetStep, xPixelOffset, yPixelOffset);
