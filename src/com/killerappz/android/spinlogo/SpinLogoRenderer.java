@@ -9,6 +9,7 @@ import min3d.core.Scene;
 import min3d.core.TextureManager;
 import min3d.interfaces.ISceneController;
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
+import net.rbgrn.android.glwallpaperservice.GLWallpaperService.GLEngine;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Handler;
@@ -38,10 +39,15 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	
 	// sync between scene init and rendering
 	private volatile boolean initFinished = false;
+	
+	// we need the engine, at least to know 
+	// whether we're running in preview mode or not
+	private final GLEngine underlyingEngine;
 
-	public SpinLogoRenderer(SpinLogoWallpaperService wallpaper, SpinLogoContext contextInfo) {
+	public SpinLogoRenderer(SpinLogoWallpaperService wallpaper, SpinLogoContext contextInfo, GLEngine theEngine) {
 		this.wallpaperRef = wallpaper;
 		this.contextInfo = contextInfo;
+		this.underlyingEngine = theEngine;
 		m3dInit();
 	}
 
@@ -100,7 +106,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 
 	/**
 	 * Shift the view according to the offset information.
-	 * For the moment, we shift on x axis only
+	 * 	Do not perform the shift in preview mode
 	 * 
 	 * @param offset the Offset information
 	 */
@@ -111,9 +117,10 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		 * <li> [0, MAX_OBLIQUE_ANGLE] for Y axis </li>
 		 * </ul>
 		 *  */
-		scene.camera().frustum.obliqueProjectionAngles(
-				Constants.MAX_OBLIQUE_ANGLE * ( 2.0f * offset.xOffset - 1),
-				Constants.MAX_OBLIQUE_ANGLE * offset.yOffset );
+		if(!this.underlyingEngine.isPreview())
+			scene.camera().frustum.obliqueProjectionAngles(
+					Constants.MAX_OBLIQUE_ANGLE * ( 2.0f * offset.xOffset - 1),
+					Constants.MAX_OBLIQUE_ANGLE * offset.yOffset );
 	}
 
 	/**
