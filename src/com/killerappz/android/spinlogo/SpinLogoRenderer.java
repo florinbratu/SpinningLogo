@@ -3,6 +3,7 @@ package com.killerappz.android.spinlogo;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import min3d.core.IFpsProvider;
 import min3d.core.RenderCaps;
 import min3d.core.Renderer;
 import min3d.core.Scene;
@@ -34,7 +35,7 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 	// the context informationfor rendering 
 	private final SpinLogoContext contextInfo;
 	private TextureManager textureManager; // for textures
-	private final SpinLogoWallpaperService wallpaperRef; // for resources and license checking
+	private final SpinLogoWallpaperService wallpaperRef; // for resources, license checking and fps tracking
 	private Renderer renderer; // min3d renderer
 	
 	// sync between scene init and rendering
@@ -76,11 +77,16 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		// the Renderer
 		ActivityManager activityMgr = (ActivityManager)this.wallpaperRef.getSystemService( Context.ACTIVITY_SERVICE );
 		this.renderer = new Renderer(scene, activityMgr);
+		// activate fps
+		this.renderer.logFps(true);
 		
 		// the Texture Manager
 		this.textureManager = new TextureManager(this.renderer);
 		this.renderer.setTextureManager(this.textureManager);
-		
+	}
+	
+	public IFpsProvider getFpsProvider() {
+		return renderer;
 	}
 
 	@Override
@@ -245,4 +251,5 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		}
 		
 	}
+
 }

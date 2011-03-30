@@ -73,6 +73,7 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 			renderer = new SpinLogoRenderer(SpinLogoWallpaperService.this, 
 					SpinLogoWallpaperService.this.contextInfo,
 					this);
+			setFpsProvider(renderer.getFpsProvider());
 			setRenderer(renderer);
 			setRenderMode(RENDERMODE_CONTINUOUSLY);
 			// prefs
