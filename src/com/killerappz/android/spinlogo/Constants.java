@@ -10,7 +10,7 @@ public interface Constants {
 	
 	// viewing params
 	// field of view
-	public static final float FIELD_OF_VIEW_Y = 90f;
+	public static final float FIELD_OF_VIEW_Y = 60f;
 	// the near and far clipping planes
 	public static final float Z_NEAR_PLANE = 1f;
 	public static final float Z_FAR_PLANE = 100f;
@@ -33,7 +33,7 @@ public interface Constants {
 	 * in fct de cat de mare e textura te poti juca cu el.
 	 * Pt textura exemplu pe care o am acum, 4 e perfect ca si size
 	 */
-	public static final int SKYBOX_SIZE = 5;
+	public static final int SKYBOX_SIZE = 4;
 	
 	/* cica da calitatea skybox-ului. De fapt da numarul de poligoane 
 	folosite pt a construi fiecare din laturile skybox-ului */
