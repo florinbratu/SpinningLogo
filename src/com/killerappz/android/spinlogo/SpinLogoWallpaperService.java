@@ -3,7 +3,6 @@ package com.killerappz.android.spinlogo;
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.SharedPreferences;
 import android.os.Handler;
-import android.util.Log;
 
 import com.killerappz.android.spinlogo.context.SpinLogoContext;
 import com.killerappz.android.spinlogo.licensing.MarketLicensingManager;
