@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo.licensing;
+package com.killerappz.android.lwp.batman.licensing;
 
 import android.os.Build;
 import android.os.Handler;
@@ -8,8 +8,8 @@ import com.android.vending.licensing.AESObfuscator;
 import com.android.vending.licensing.LicenseChecker;
 import com.android.vending.licensing.LicenseCheckerCallback;
 import com.android.vending.licensing.ServerManagedPolicy;
-import com.killerappz.android.spinlogo.Constants;
-import com.killerappz.android.spinlogo.SpinLogoWallpaperService;
+import com.killerappz.android.lwp.batman.Constants;
+import com.killerappz.android.lwp.batman.SpinLogoWallpaperService;
 
 /**
  * Handles the licensing process for the application,

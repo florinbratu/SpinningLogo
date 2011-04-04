@@ -1,7 +1,7 @@
-package com.killerappz.android.spinlogo.preferences;
+package com.killerappz.android.lwp.batman.preferences;
 
-import com.killerappz.android.spinlogo.Constants;
-import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.lwp.batman.Constants;
+import com.killerappz.android.lwp.batman.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

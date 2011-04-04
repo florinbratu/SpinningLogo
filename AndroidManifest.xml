@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.killerappz.android.spinlogo"
       android:versionCode="1"
-      android:versionName="1.0">
+      android:versionName="1.0" package="com.killerappz.android.lwp.batman">
     
     <uses-sdk android:minSdkVersion="7" />
     <uses-feature android:name="android.software.live_wallpaper" />
@@ -13,7 +12,7 @@
     	android:debuggable="true">
     	
         <service android:label="@string/service_label" 
-        	android:name=".SpinLogoWallpaperService"
+        	android:name="SpinLogoWallpaperService"
         	android:icon="@drawable/icon"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
@@ -24,7 +23,7 @@
         </service>
         
         <activity android:label="@string/spinlogo_settings"
-			android:name=".preferences.LiveWallpaperSettings"
+			android:name="preferences.LiveWallpaperSettings"
 			android:theme="@android:style/Theme.Light.WallpaperSettings"
 			android:exported="true"
 			android:icon="@drawable/icon">
