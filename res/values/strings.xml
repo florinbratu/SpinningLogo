@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World!</string>
     <string name="app_name">Batman 3D Live Wallpaper</string>
     <string name="service_label">Batman 3D Live Wallpaper</string>
     <string name="description">The Dark Knight and his famous emblem animated in 3D!</string>
