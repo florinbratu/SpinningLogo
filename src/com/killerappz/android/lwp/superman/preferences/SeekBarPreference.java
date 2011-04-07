@@ -1,6 +1,6 @@
-package com.killerappz.android.spinlogo.preferences;
+package com.killerappz.android.lwp.superman.preferences;
 
-import com.killerappz.android.spinlogo.Constants;
+import com.killerappz.android.lwp.superman.Constants;
 import com.killerappz.android.spinlogo.R;
 
 import android.content.Context;

@@ -1,13 +1,13 @@
-package com.killerappz.android.spinlogo.licensing;
+package com.killerappz.android.lwp.superman.licensing;
 
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.android.vending.licensing.LicenseCheckerCallback;
-import com.killerappz.android.spinlogo.Constants;
+import com.killerappz.android.lwp.superman.Constants;
+import com.killerappz.android.lwp.superman.SpinLogoWallpaperService;
 import com.killerappz.android.spinlogo.R;
-import com.killerappz.android.spinlogo.SpinLogoWallpaperService;
 
 /**
  * Callback implementation
