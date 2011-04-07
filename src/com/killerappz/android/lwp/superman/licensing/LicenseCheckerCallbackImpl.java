@@ -7,7 +7,7 @@ import android.widget.Toast;
 import com.android.vending.licensing.LicenseCheckerCallback;
 import com.killerappz.android.lwp.superman.Constants;
 import com.killerappz.android.lwp.superman.SpinLogoWallpaperService;
-import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.lwp.superman.R;
 
 /**
  * Callback implementation

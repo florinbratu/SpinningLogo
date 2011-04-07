@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
 import com.killerappz.android.lwp.superman.Constants;
-import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.lwp.superman.R;
 
 public class LiveWallpaperSettings extends PreferenceActivity
 {

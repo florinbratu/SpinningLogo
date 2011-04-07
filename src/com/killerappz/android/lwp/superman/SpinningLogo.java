@@ -11,7 +11,7 @@ import android.content.Context;
 
 import com.killerappz.android.lwp.superman.context.Point;
 import com.killerappz.android.lwp.superman.context.SpinLogoContext;
-import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.lwp.superman.R;
 
 /**
  * The Spinning Logo object
