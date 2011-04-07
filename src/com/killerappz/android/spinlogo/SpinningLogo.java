@@ -65,6 +65,10 @@ public class SpinningLogo {
 	public void setCenter(Point center) {
 		this.object.position().x = this.skyBox.position().x = center.x;
 		this.object.position().y = this.skyBox.position().y = center.y;
+		// move left a bit on the X axis
+		this.object.position().x -= Constants.LOGO_X_AXIS_SKEW;
+		// move down a bit on the Y axis
+		this.object.position().y -= Constants.LOGO_Y_AXIS_SKEW;
 		
 	}
 	

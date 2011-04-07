@@ -7,6 +7,9 @@ public interface Constants {
 	public static final int ROTATION_MAX_SPEED = 100;
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/superman_obj";
+	// logo position skew, for fancy look. TODO maybe configurable via preferences???
+	public static final float LOGO_X_AXIS_SKEW = 0.1f;
+	public static final float LOGO_Y_AXIS_SKEW = 0.5f;
 	
 	// viewing params
 	// field of view
