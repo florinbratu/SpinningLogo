@@ -7,6 +7,9 @@ public interface Constants {
 	public static final int ROTATION_MAX_SPEED = 100;
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/mk_obj";
+	// scaling factors for the logo - the model is too big
+	public static final float LOGO_SCALING_X_FACTOR = 0.8f;
+	public static final float LOGO_SCALING_Y_FACTOR = 0.8f;
 	
 	// viewing params
 	// field of view
