@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo.context;
+package com.killerappz.android.lwp.mortalkombat.context;
 
 import android.content.SharedPreferences;
 
