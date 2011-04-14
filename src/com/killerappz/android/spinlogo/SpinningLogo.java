@@ -18,7 +18,9 @@ import com.killerappz.android.spinlogo.context.SpinLogoContext;
  */
 public class SpinningLogo {
 
-	private final Object3dContainer object;
+	// we use two crosses - one on the left and the other one on the right
+	private final Object3dContainer crossLeft;
+	private final Object3dContainer crossRight;
 	private final Scene scene;
 	private SpinLogoContext contextInfo;
 	// the skybox
@@ -32,7 +34,9 @@ public class SpinningLogo {
 	public SpinningLogo(Context context, TextureManager tm, String resId, SpinLogoContext contextInfo, Scene scene) {
 		this.context = context;
 		this.textureManager = tm;
-		object = new ObjLoader(context,tm).load(resId);
+		ObjLoader loader = new ObjLoader(context,tm);
+		crossLeft = loader.load(resId);
+		crossRight = loader.load(resId);
 		this.contextInfo = contextInfo;
  		this.scene = scene;
  		this.skyBox = createSkyBox();
@@ -40,7 +44,8 @@ public class SpinningLogo {
 	
 	public void draw(GL10 gl, Renderer renderer){
 		// draw all objects within the container
-		scene.addChild(object);
+		scene.addChild(crossLeft);
+		scene.addChild(crossRight);
 		scene.addChild(skyBox);
 		renderer.onDrawFrame(gl);
 		autoRotate();
@@ -48,7 +53,8 @@ public class SpinningLogo {
 
 	private void autoRotate() {
 		float rotationSpeed = (float)contextInfo.getRotationSpeed() * Constants.ROTATION_SPEED_UNIT;
-		object.rotation().y += rotationSpeed;
+		crossLeft.rotation().y += rotationSpeed;
+		crossRight.rotation().y -= rotationSpeed;
 	}
 	
 	private SkyBox createSkyBox() {
@@ -63,9 +69,13 @@ public class SpinningLogo {
 	}
 
 	public void setCenter(Point center) {
-		this.object.position().x = this.skyBox.position().x = center.x;
-		this.object.position().y = this.skyBox.position().y = center.y;
+		this.crossRight.position().x = this.skyBox.position().x = center.x;
+		this.crossRight.position().y = this.skyBox.position().y = center.y;
+		this.crossRight.position().x += Constants.LOGO_X_AXIS_SKEW;
 		
+		this.crossLeft.position().x = this.skyBox.position().x = center.x;
+		this.crossLeft.position().y = this.skyBox.position().y = center.y;
+		this.crossLeft.position().x -= Constants.LOGO_X_AXIS_SKEW;
 	}
 	
 }

@@ -16,6 +16,7 @@ public interface Constants {
 	public static final float Z_FAR_PLANE = 100f;
 	// oblique projection
 	public static final float MAX_OBLIQUE_ANGLE = 30;
+	public static final float LOGO_X_AXIS_SKEW = 0.7f;
 	
 	// preferences screen keys
 	// 1) rotation
