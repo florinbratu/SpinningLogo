@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo;
+package com.killerappz.android.lwp.orthodox;
 
 import min3d.core.Object3dContainer;
 import min3d.core.TextureManager;

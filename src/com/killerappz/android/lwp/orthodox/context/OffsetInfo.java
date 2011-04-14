@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo.context;
+package com.killerappz.android.lwp.orthodox.context;
 
 public class OffsetInfo {
 
