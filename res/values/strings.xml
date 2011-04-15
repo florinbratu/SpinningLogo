@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Orthodox 3D Live Wallpaper</string>
-    <string name="service_label">Orthodox 3D Live Wallpaper</string>
-    <string name="description">God bless his true believers!</string>
-    <string name="invalid_license">The Orthodox 3D Live Wallpaper has been installed on this device without a license!</string>
+    <string name="app_name">Christian 3D Live Wallpaper</string>
+    <string name="service_label">Christian 3D Live Wallpaper</string>
+    <string name="description">God bless His true believers!</string>
+    <string name="invalid_license">The Christian 3D Live Wallpaper has been installed on this device without a license!</string>
     <string name="license_check_error">Error while performing application license check, error code: </string>
     
     <!--  settings screen -->
