@@ -1,6 +1,6 @@
-# Blender3D MTL File: ying-yang-tex2.blend
+# Blender3D MTL File: x-men.blend
 # Material Count: 1
-newmtl Ying_tajitu_128.png
+newmtl MK_X_Men_Logo_512x512.pn
 Ns 96.078431
 Ka 0.000000 0.000000 0.000000
 Kd 0.800000 0.800000 0.800000
@@ -8,6 +8,6 @@ Ks 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd tajitu.png
+map_Kd xmen.png
 
 
