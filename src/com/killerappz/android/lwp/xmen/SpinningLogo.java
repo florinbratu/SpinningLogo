@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo;
+package com.killerappz.android.lwp.xmen;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -9,8 +9,9 @@ import min3d.core.TextureManager;
 import min3d.objectPrimitives.SkyBox;
 import android.content.Context;
 
-import com.killerappz.android.spinlogo.context.Point;
-import com.killerappz.android.spinlogo.context.SpinLogoContext;
+import com.killerappz.android.lwp.xmen.context.Point;
+import com.killerappz.android.lwp.xmen.context.SpinLogoContext;
+import com.killerappz.android.lwp.xmen.R;
 
 /**
  * The Spinning Logo object

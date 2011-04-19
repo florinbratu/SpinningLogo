@@ -3,7 +3,7 @@
 	android:title="@string/spinlogo_settings"
 	android:key="settings">
 
-    <com.killerappz.android.spinlogo.preferences.SeekBarPreference
+    <com.killerappz.android.lwp.xmen.preferences.SeekBarPreference
         android:key="rotation"
 		android:title="@string/rotation_speed_title"
 		android:dialogTitle="@string/rotation_speed_title"

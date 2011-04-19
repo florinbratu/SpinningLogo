@@ -1,6 +1,6 @@
-package com.killerappz.android.spinlogo.context;
+package com.killerappz.android.lwp.xmen.context;
 
-import com.killerappz.android.spinlogo.Constants;
+import com.killerappz.android.lwp.xmen.Constants;
 
 import android.content.SharedPreferences;
 
