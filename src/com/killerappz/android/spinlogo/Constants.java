@@ -7,6 +7,7 @@ public interface Constants {
 	public static final int ROTATION_MAX_SPEED = 100;
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/xmen_obj";
+	public static final float LOGO_Y_AXIS_SKEW = 0.5f;
 	
 	// viewing params
 	// field of view
