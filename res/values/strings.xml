@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World!</string>
-    <string name="app_name">Spinning Logo Live Wallpaper</string>
-    <string name="service_label">Spinning Logo LWP</string>
-    <string name="description">A wallpaper consisting of a spinning logo rotating in the center of the screen</string>
-    <string name="invalid_license">The Spinning Logo Live Wallpaper has been installed on this device without a license!</string>
+    <string name="app_name">Duke Nukem Live Wallpaper</string>
+    <string name="service_label">Duke Nukem Live Wallpaper</string>
+    <string name="description">Hail to the king!</string>
+    <string name="invalid_license">The Duke Nukem Live Wallpaper has been installed on this device without a license!</string>
     <string name="license_check_error">Error while performing application license check, error code: </string>
     
     <!--  settings screen -->
