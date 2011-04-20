@@ -1,6 +1,6 @@
-package com.killerappz.android.spinlogo.context;
+package com.killerappz.android.lwp.dukenukem.context;
 
-import com.killerappz.android.spinlogo.Constants;
+import com.killerappz.android.lwp.dukenukem.Constants;
 
 import android.content.SharedPreferences;
 
