@@ -88,7 +88,7 @@ public final class SeekBarPreference extends DialogPreference implements OnSeekB
 	public CharSequence getSummary() {
 		// Format summary string with current value
 		String summary = super.getSummary().toString();
-		int value = getPersistedInt(mCurrentValue);
+		int value = getPersistedInt(mDefaultValue);
 		return String.format(summary, value * Constants.ROTATION_SPEED_UNIT);
 	}
 
