@@ -37,6 +37,12 @@ public class SpinLogoContext extends ContextInfo implements
 		return this.logoTextureName;
 	}
 	
+	// will be called initially, @engine creation
+	public void loadPrefs(SharedPreferences prefs) {
+		this.rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
+		this.logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
+	}
+	
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
 		if(Constants.ROTATION_SPEED_KEY.equals(key))
