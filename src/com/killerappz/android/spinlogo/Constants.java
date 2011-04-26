@@ -7,6 +7,8 @@ public interface Constants {
 	public static final int ROTATION_MAX_SPEED = 100;
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/ying_yang_obj";
+	// the folder under res/ where we find textures. Android internal cuisine
+	public static final String TEXTURES_LOCATION = "drawable/";
 	
 	// viewing params
 	// field of view
@@ -22,6 +24,9 @@ public interface Constants {
 	public static final String ROTATION_SPEED_KEY = "rotation";
 	// Namespaces to read attributes
 	public static final String ANDROID_NS = "http://schemas.android.com/apk/res/android";
+	// 2) logo texture
+	public static final String LOGO_TEXTURE_KEY = "logoTexture";
+	public static final String DEFAULT_TEXTURE_NAME = "texture_taijitu";
 
 	// Attribute names
 	public static final String ATTR_DEFAULT_VALUE = "defaultValue";

@@ -20,5 +20,5 @@
     
     <!-- Logo texture -->
     <string name="logo_texture_title">Ying Yang Image</string>
-    <string name="logo_texture_defaultValue">1</string>
+    <string name="logo_texture_defaultValue">texture_taijitu</string>
 </resources>

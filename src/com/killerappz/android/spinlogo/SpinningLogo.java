@@ -2,12 +2,15 @@ package com.killerappz.android.spinlogo;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import min3d.Utils;
 import min3d.core.Object3dContainer;
 import min3d.core.Renderer;
 import min3d.core.Scene;
 import min3d.core.TextureManager;
 import min3d.objectPrimitives.SkyBox;
+import min3d.vos.TextureVo;
 import android.content.Context;
+import android.graphics.Bitmap;
 
 import com.killerappz.android.spinlogo.context.Point;
 import com.killerappz.android.spinlogo.context.SpinLogoContext;
@@ -39,11 +42,33 @@ public class SpinningLogo {
 	}
 	
 	public void draw(GL10 gl, Renderer renderer){
+		// pre-draw: check for texture changes
+		if(contextInfo.dirtyLogoTexture()) {
+			updateLogoTexture(contextInfo.getLogoTextureName());
+		}
+		
 		// draw all objects within the container
 		scene.addChild(object);
 		scene.addChild(skyBox);
 		renderer.onDrawFrame(gl);
+		
+		// post-draw: rotate logo
 		autoRotate();
+	}
+
+	private void updateLogoTexture(String logoTextureName) {
+		
+		// find res for the new texture
+		int texId = context.getResources().getIdentifier(
+				Constants.TEXTURES_LOCATION + logoTextureName,
+				null, context.getPackageName());
+		// load up the new texture
+		Bitmap b = Utils.makeBitmapFromResourceId( context, texId);
+		this.textureManager.addTextureId(b, logoTextureName, false);
+		b.recycle();
+		
+		// link the new texture to the logo
+		object.getChildAt(0).textures().addReplace(new TextureVo(logoTextureName));
 	}
 
 	private void autoRotate() {
