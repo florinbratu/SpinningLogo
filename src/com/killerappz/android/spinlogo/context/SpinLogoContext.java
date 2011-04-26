@@ -20,7 +20,7 @@ public class SpinLogoContext extends ContextInfo implements
 	// indicate if logo texture changed
 	private boolean dirtyLogoTexture = false;
 	// the new logo texture, if it changed
-	private String logoTextureName;
+	private String logoTextureName = Constants.DEFAULT_LOGO_TEXTURE_NAME;
 	
 	public int getRotationSpeed() {
 		return rotationSpeed;
@@ -44,8 +44,7 @@ public class SpinLogoContext extends ContextInfo implements
 		else if(Constants.LOGO_TEXTURE_KEY.equals(key)) {
 			// the texture for the logo changed!
 			this.dirtyLogoTexture = true;
-			logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_TEXTURE_NAME);
+			logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
 		}
 	}
-	
 }

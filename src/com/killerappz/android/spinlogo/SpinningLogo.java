@@ -32,7 +32,6 @@ public class SpinningLogo {
 	// for textures
 	private final TextureManager textureManager;
 	
-	// rotSpeed is the rotation speed measured in ROTATION_SPEED_UNIT
 	public SpinningLogo(Context context, TextureManager tm, String resId, SpinLogoContext contextInfo, Scene scene) {
 		this.context = context;
 		this.textureManager = tm;
@@ -40,8 +39,16 @@ public class SpinningLogo {
 		this.contextInfo = contextInfo;
  		this.scene = scene;
  		this.skyBox = createSkyBox();
+ 		// compare texture info vs the one stored in prefs
+		checkTextures();
 	}
 	
+	private void checkTextures() {
+		if(!contextInfo.getLogoTextureName().equals(Constants.DEFAULT_LOGO_TEXTURE_NAME))
+			updateLogoTexture(contextInfo.getLogoTextureName());
+		// TODO same will be for skybox
+	}
+
 	public void draw(GL10 gl, Renderer renderer){
 		// pre-draw: check for texture changes
 		if(contextInfo.dirtyLogoTexture()) {

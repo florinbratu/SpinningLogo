@@ -26,7 +26,7 @@ public interface Constants {
 	public static final String ANDROID_NS = "http://schemas.android.com/apk/res/android";
 	// 2) logo texture
 	public static final String LOGO_TEXTURE_KEY = "logoTexture";
-	public static final String DEFAULT_TEXTURE_NAME = "texture_taijitu";
+	public static final String DEFAULT_LOGO_TEXTURE_NAME = "texture_taijitu";
 
 	// Attribute names
 	public static final String ATTR_DEFAULT_VALUE = "defaultValue";
