@@ -33,12 +33,11 @@ public final class SeekBarPreference extends DialogPreference implements OnSeekB
 
 	public SeekBarPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
-
 		// Read parameters from attributes
 		mMinValue = 0;
-		// TODO bug; actually the calls below will always fall back to the values from Constants. need to investigate why.
-		mMaxValue = attrs.getAttributeIntValue(Constants.ANDROID_NS, Constants.ATTR_MAX_VALUE, Constants.ROTATION_MAX_SPEED);
-		mDefaultValue = attrs.getAttributeIntValue(Constants.ANDROID_NS, Constants.ATTR_DEFAULT_VALUE, Constants.DEFAULT_ROTATION_SPEED);
+		// we will cheat
+		mDefaultValue = Integer.parseInt(context.getString(R.string.rotation_speed_default_value));
+		mMaxValue = Integer.parseInt(context.getString(R.string.rotation_speed_max_value));
 	}
 
 	@Override
@@ -89,7 +88,7 @@ public final class SeekBarPreference extends DialogPreference implements OnSeekB
 	public CharSequence getSummary() {
 		// Format summary string with current value
 		String summary = super.getSummary().toString();
-		int value = getPersistedInt(mCurrentValue);
+		int value = getPersistedInt(mDefaultValue);
 		return String.format(summary, value * Constants.ROTATION_SPEED_UNIT);
 	}
 
