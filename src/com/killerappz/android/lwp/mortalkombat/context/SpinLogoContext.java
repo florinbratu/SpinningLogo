@@ -26,5 +26,9 @@ public class SpinLogoContext extends ContextInfo implements
 		if(Constants.ROTATION_SPEED_KEY.equals(key))
 			rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
 	}
+
+	public void loadPrefs(SharedPreferences prefs) {
+		this.rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
+	}
 	
 }
