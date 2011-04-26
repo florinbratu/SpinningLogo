@@ -77,6 +77,7 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 			// prefs
 			mPreferences = SpinLogoWallpaperService.this.getSharedPreferences(Constants.PREFS_NAME, 0);
 			mPreferences.registerOnSharedPreferenceChangeListener(contextInfo);
+			SpinLogoWallpaperService.this.contextInfo.loadPrefs(mPreferences);
 		}
 
 		@Override
