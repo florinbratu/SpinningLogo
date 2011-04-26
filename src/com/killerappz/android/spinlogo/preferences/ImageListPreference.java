@@ -25,8 +25,10 @@ import com.killerappz.android.spinlogo.R;
  *
  */
 public class ImageListPreference extends ListPreference {
-	private int[] resourceIds = null;
-
+	private final int[] resourceIds;
+	// the default selected value. I'm cheating, it is stored in the summary var
+	private final String defaultValue;
+	
 	/**
 	 * Constructor of the ImageListPreference. Initializes the custom images.
 	 * @param context application context.
@@ -34,19 +36,21 @@ public class ImageListPreference extends ListPreference {
 	 */
 	public ImageListPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		
+		defaultValue = getContext().getString(R.string.logo_texture_defaultValue);
 
 		TypedArray typedArray = context.obtainStyledAttributes(attrs,
 			R.styleable.ImageListPreference);
 
-		String[] imageNames = context.getResources().getStringArray(
+		String[] imagePaths = context.getResources().getStringArray(
 			typedArray.getResourceId(typedArray.getIndexCount()-1, -1));
 
-		resourceIds = new int[imageNames.length];
+		resourceIds = new int[imagePaths.length];
 
-		for (int i=0;i<imageNames.length;i++) {
-			String imageName = imageNames[i].substring(
-				imageNames[i].indexOf('/') + 1,
-				imageNames[i].lastIndexOf('.'));
+		for (int i=0;i<imagePaths.length;i++) {
+			String imageName = imagePaths[i].substring(
+				imagePaths[i].indexOf('/') + 1,
+				imagePaths[i].lastIndexOf('.'));
 
 			resourceIds[i] = context.getResources().getIdentifier(imageName,
 				null, context.getPackageName());
@@ -58,8 +62,8 @@ public class ImageListPreference extends ListPreference {
 	 * {@inheritDoc}
 	 */
 	protected void onPrepareDialogBuilder(Builder builder) {
-		int index = findIndexOfValue(getSharedPreferences().getString(
-			getKey(), "1"));
+		int index = findIndexOfValue(getSharedPreferences().
+				getString(getKey(), defaultValue));
 
 		ListAdapter listAdapter = new ImageArrayAdapter(getContext(),
 			R.layout.listitem, getEntries(), resourceIds, index);
@@ -67,6 +71,26 @@ public class ImageListPreference extends ListPreference {
 		// Order matters.
 		builder.setAdapter(listAdapter, this);
 		super.onPrepareDialogBuilder(builder);
+	}
+	
+	@Override
+	protected void onDialogClosed(boolean positiveResult) {
+		super.onDialogClosed(positiveResult);
+
+		// Return if change was cancelled
+		if (!positiveResult) {
+			return;
+		}
+
+		// Notify activity about changes (to update preference summary line)
+		notifyChanged();
+	}
+	
+	@Override
+	public CharSequence getSummary() {
+		int index = findIndexOfValue(getSharedPreferences().getString(
+				getKey(), defaultValue));
+		return getEntries()[index];
 	}
 	
 	/**

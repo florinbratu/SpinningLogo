@@ -8,6 +8,7 @@
     <string name="license_check_error">Error while performing application license check, error code: </string>
     
     <!--  settings screen -->
+    <!-- Rotation speed -->
     <string name="spinlogo_settings">Preferences</string>
     <string name="rotation_speed_name">RotationSpeed</string>
     <string name="rotation_speed_summary">%1$.1f deg/sec</string>
@@ -16,4 +17,8 @@
     <string name="rotation_speed_title">Rotation speed</string>
     <color name="white_color">#fff</color>
     <color name="gray_color">#aaa</color>
+    
+    <!-- Logo texture -->
+    <string name="logo_texture_title">Ying Yang Image</string>
+    <string name="logo_texture_defaultValue">1</string>
 </resources>
