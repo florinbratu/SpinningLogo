@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:killerappzz="http://schemas.android.com/apk/res/com.killerappz.android.spinlogo">
 	android:title="@string/spinlogo_settings"
 	android:key="settings">
 
+	<!-- the seekbar pref screen for rotation speed -->
     <com.killerappz.android.spinlogo.preferences.SeekBarPreference
         android:key="rotation"
 		android:title="@string/rotation_speed_title"
@@ -11,6 +13,14 @@
 		android:persistent="true"
 		android:defaultValue="@string/rotation_speed_default_value"
 		android:max="@string/rotation_speed_max_value" />
-        
+		
+	<!-- the ImageList pref screen for selecting the logo image -->
+	<com.killerappz.android.spinlogo.preferences.ImageListPreference
+		android:key="imageList"
+		android:title="Title"
+		android:summary="Summary"
+		android:entries="@array/listNames"
+		android:entryValues="@array/listValues"
+		killerappzz:entryImages="@array/imageValues"/>
 	
 </PreferenceScreen>
