@@ -3,6 +3,7 @@ package com.killerappz.android.spinlogo;
 import javax.microedition.khronos.opengles.GL10;
 
 import min3d.Utils;
+import min3d.core.Object3d;
 import min3d.core.Object3dContainer;
 import min3d.core.Renderer;
 import min3d.core.Scene;
@@ -67,8 +68,11 @@ public class SpinningLogo {
 		this.textureManager.addTextureId(b, logoTextureName, false);
 		b.recycle();
 		
+		Object3d logoObject = object.getChildAt(0);
+		// unload old texture. Textures are expensive, don't keep any unless it's used!
+		this.textureManager.deleteTexture(logoObject.textures().get(0).textureId);
 		// link the new texture to the logo
-		object.getChildAt(0).textures().addReplace(new TextureVo(logoTextureName));
+		logoObject.textures().addReplace(new TextureVo(logoTextureName));
 	}
 
 	private void autoRotate() {
