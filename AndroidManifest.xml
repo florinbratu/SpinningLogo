@@ -31,6 +31,14 @@
 			android:exported="true"
 			android:icon="@drawable/icon">
 		</activity>
+		
+		<!-- ACRA crash report dialog -->
+		<activity android:name="org.acra.CrashReportDialog"
+	        android:theme="@android:style/Theme.Dialog"
+	        android:launchMode="singleInstance"
+	        android:excludeFromRecents="true"
+	        android:finishOnTaskLaunch="true" />
+		
     </application>
     
 
