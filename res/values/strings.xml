@@ -19,22 +19,21 @@
     
     <!-- crash reporting -->
     <string name="crash_notif_ticker_text">Unexpected error, please send a report...</string>
-	<string name="crash_notif_title">Spinning Logo Live Wallpaper has crashed...</string>
+	<string name="crash_notif_title">Spinning Logo LWP has crashed...</string>
 	<string name="crash_notif_text">Please click here to help fix the issue.</string>
 	<string name="crash_dialog_title">Spinning Logo Live Wallpaper has crashed</string>
 	<string name="crash_dialog_text">An unexpected error occurred forcing the
         application to stop. Please help us fix this by sending us error data,
         all you have to do is click \'OK\'.</string>
 	<string name="crash_dialog_comment_prompt">However you can help by providing additional details
-		on the conditions onto which the error occured():
-		- how were you using the phone in general, and the live wallpaper in particular
-		- what applications were opened
-		- eventually, an email address where we can contact you wrt this issue</string>
-	<string name="crash_dialog_ok_toast">Thank you! We\'ll get on this ASAP!</string>
+		on the conditions onto which the error occured: 
+		how were you using the phone in general, and the live wallpaper in particular; 
+		what applications were opened;
+		eventually, an email address where we can contact you wrt this issue</string>
+	<string name="crash_dialog_ok_toast">Thank you! We\'ll take care of this issue ASAP!</string>
 	<!-- crash reporting preference checkbox -->
 	<string name="pref_disable_acra">Disable crash reporting</string>
 	<string name="pref_acra_disabled">Crash reporting mechanism disabled.</string>
-	<string name="pref_acra_enabled">Crash reporting mechanism enabled. Should an unexpected error occur,
-		you will be provided with an error reporting form that you can submit to the developer</string>
+	<string name="pref_acra_enabled">Crash reporting mechanism enabled, you will be able to contact dev via form submission</string>
 	
 </resources>
