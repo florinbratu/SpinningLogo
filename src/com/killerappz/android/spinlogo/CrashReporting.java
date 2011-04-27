@@ -12,6 +12,7 @@ import android.app.Application;
  * @author florin
  */
 @ReportsCrashes(formKey = "dC1xZ1lxZVV3SkJ4aE1nOFpnMTRXR0E6MQ",
+		formUri = "https://spreadsheets.google.com/formResponse?formkey=dC1xZ1lxZVV3SkJ4aE1nOFpnMTRXR0E6MQ&amp;ifq",
 		mode = ReportingInteractionMode.NOTIFICATION,
 		sharedPreferencesName = Constants.PREFS_NAME,
         resNotifTickerText = R.string.crash_notif_ticker_text,
