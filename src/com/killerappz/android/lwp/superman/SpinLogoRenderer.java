@@ -245,4 +245,9 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		}
 		
 	}
+
+	@Override
+	public void onSurfaceLost() {
+		// unload textures. Or not?
+	}
 }
