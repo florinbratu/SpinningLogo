@@ -18,4 +18,10 @@
         android:summaryOff="@string/pref_acra_enabled"
         android:defaultValue="false"/>
         
+    <com.killerappz.android.spinlogo.preferences.UserFeedbackDialogPreference
+        android:key="userFeedback"
+		android:title="@string/user_feedback_desc"
+		android:summary="@string/user_feedback_summary"
+		android:dialogTitle="@string/user_feedback_title"/>
+        
 </PreferenceScreen>

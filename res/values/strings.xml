@@ -16,6 +16,7 @@
     <string name="rotation_speed_title">Rotation speed</string>
     <color name="white_color">#fff</color>
     <color name="gray_color">#aaa</color>
+    <color name="black_color">#000</color>
     
     <!-- crash reporting -->
     <string name="crash_notif_ticker_text">Unexpected error, please send a report...</string>
@@ -31,9 +32,28 @@
 		what applications were opened;
 		eventually, an email address where we can contact you wrt this issue</string>
 	<string name="crash_dialog_ok_toast">Thank you! We\'ll take care of this issue ASAP!</string>
+	
 	<!-- crash reporting preference checkbox -->
 	<string name="pref_disable_acra">Disable crash reporting</string>
 	<string name="pref_acra_disabled">Crash reporting mechanism disabled.</string>
 	<string name="pref_acra_enabled">Crash reporting mechanism enabled, you will be able to contact dev via form submission</string>
+	
+	<!-- issue reporting -->
+	<string name="user_feedback_desc">User feedback</string>
+	<string name="user_feedback_title">User feedback form</string>
+	<string name="user_feedback_summary">Contact the developer for issues, technical questions and/or suggestions</string>
+	<string name="user_feedback_text">You can help us improve! 
+		Feel free to send any issue, technical support question 
+		or any other suggestion you might have to the developer!
+	</string>
+	<string name="user_feedback_details"> You experienced an unexpected
+		behaviour with the live wallpaper? Are you in need of 
+		technical assistance on how to use the app? You have an improvement
+		which you would like to suggest to the developer? We would like to hear from you!	
+		Make sure you include as much information as possible. The more precise, the better!
+		For instance, if you experience an unexpected behaviour, please provide details on 
+		how were you using the phone in general, and the live wallpaper in particular; 
+		and what applications were opened. If you wish, you can also include 
+	</string>
 	
 </resources>
