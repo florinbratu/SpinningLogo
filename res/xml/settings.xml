@@ -20,8 +20,8 @@
         
     <com.killerappz.android.spinlogo.preferences.UserFeedbackDialogPreference
         android:key="userFeedback"
-		android:title="@string/user_feedback_desc"
+		android:title="@string/user_feedback_title"
 		android:summary="@string/user_feedback_summary"
-		android:dialogTitle="@string/user_feedback_title"/>
+		android:dialogTitle="@string/user_feedback_dialog_title"/>
         
 </PreferenceScreen>
