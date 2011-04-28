@@ -21,8 +21,11 @@ import com.killerappz.android.spinlogo.R;
  */
 public class UserFeedbackDialogPreference extends DialogPreference {
 	
+	private boolean includeLogcat;
+	
 	public UserFeedbackDialogPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		this.includeLogcat = false;
 		setDialogIcon(android.R.drawable.ic_dialog_info);
 		setDialogLayoutResource(R.layout.user_feedback);
 	}
@@ -32,15 +35,12 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 		super.onBindDialogView(view);
 		
 		final CheckBox checkbox = (CheckBox) view.findViewById(R.id.logcat);
+		// set value from last run(if any)
+		checkbox.setChecked(includeLogcat);
 		checkbox.setOnClickListener(new View.OnClickListener() {
 			@Override
 		    public void onClick(View v) {
-		        // Perform action on clicks, depending on whether it's now checked
-		        if (((CheckBox) v).isChecked()) {
-		            Toast.makeText(getContext(), "Selected", Toast.LENGTH_SHORT).show();
-		        } else {
-		            Toast.makeText(getContext(), "Not selected", Toast.LENGTH_SHORT).show();
-		        }
+				includeLogcat = ((CheckBox) v).isChecked();
 		    }
 		});
 		
@@ -52,7 +52,7 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 		if(!positiveResult) {
 			Toast.makeText(getContext(), "Thou pressed Cancel" , Toast.LENGTH_SHORT).show();
 		} else {
-			Toast.makeText(getContext(), "Thou pressed OK" , Toast.LENGTH_SHORT).show();
+			Toast.makeText(getContext(), "Thou pressed OK. Logs need " + (includeLogcat ? "" : " not ") + " to be included" , Toast.LENGTH_SHORT).show();
 		}
 	}
 }
