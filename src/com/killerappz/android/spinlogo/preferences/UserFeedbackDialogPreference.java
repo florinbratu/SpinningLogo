@@ -5,6 +5,7 @@ import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -24,6 +25,8 @@ import com.killerappz.android.spinlogo.R;
  *
  */
 public class UserFeedbackDialogPreference extends DialogPreference {
+	
+	private CheckBox logcatCheckBox; 
 
 	public UserFeedbackDialogPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -61,9 +64,13 @@ public class UserFeedbackDialogPreference extends DialogPreference {
         root.addView(label, new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 
         EditText userComment = new EditText(ctx);
-
         userComment.setLines(2);
         root.addView(userComment,
+        		new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+        
+        logcatCheckBox = new CheckBox(ctx);
+        logcatCheckBox.setText(R.string.user_feedback_logcat_checkbox);
+        root.addView(logcatCheckBox,
         		new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
         
         return root.getRootView();
@@ -75,7 +82,7 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 		if(!positiveResult) {
 			Toast.makeText(getContext(), "Thou pressed Cancel" , Toast.LENGTH_SHORT).show();
 		} else {
-			Toast.makeText(getContext(), "Thou pressed OK" , Toast.LENGTH_SHORT).show();
+			Toast.makeText(getContext(), "Thou pressed OK. Checkbox is " + (logcatCheckBox.isChecked() ? "checked" : "not checked") , Toast.LENGTH_SHORT).show();
 		}
 	}
 }

@@ -55,5 +55,6 @@
 		how were you using the phone in general, and the live wallpaper in particular; 
 		and what applications were opened. If you wish, you can also include 
 	</string>
+	<string name="user_feedback_logcat_checkbox">Add device(logcat) logs</string>
 	
 </resources>
