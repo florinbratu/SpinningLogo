@@ -63,6 +63,7 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 		if(positiveResult) {
 			ErrorReporter err = ErrorReporter.getInstance();
 			err.addUserComment(userCommentView.getText().toString());
+			err.includeLogcat(includeLogcat);
 			err.handleSilentException(new Exception("User feedback"));
 			Toast.makeText(getContext(), R.string.user_feedback_report_sent , 
 					Toast.LENGTH_SHORT).show();
