@@ -1,5 +1,6 @@
 package com.killerappz.android.spinlogo.licensing;
 
+import android.content.SharedPreferences.Editor;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
@@ -35,6 +36,13 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	public void allow() {
 		Log.d(Constants.LOG_TAG, "License is valid");
 		this.lwp.setLicenseStatus(true);
+		updateLicenseStatus(Constants.OK_LICENSE_STATUS);
+	}
+
+	private void updateLicenseStatus(String licenseStatus) {
+		Editor editor = this.lwp.getSharedPreferences(Constants.PREFS_NAME, 0).edit();
+		editor.putString(Constants.LICENSE_STATUS_KEY, licenseStatus);
+		editor.commit();
 	}
 
 	/* (non-Javadoc)
@@ -45,7 +53,11 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 		Log.e(Constants.LOG_TAG, "License check error:" + Constants.licenseErrorCodes[errorCode.ordinal()]);
 		invalidLicenseToast.setText( this.lwp.getString(R.string.license_check_error)
 				+ Constants.licenseErrorCodes[errorCode.ordinal()]);
-		dontAllow();
+		// warn the user
+		warnUser();
+		// mark invalid license
+		this.lwp.setLicenseStatus(false);
+		updateLicenseStatus(Constants.licenseErrorCodes[errorCode.ordinal()]);
 	}
 
 	/* (non-Javadoc)
@@ -58,6 +70,7 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 		warnUser();
 		// mark invalid license
 		this.lwp.setLicenseStatus(false);
+		updateLicenseStatus(Constants.INVALID_LICENSE_STATUS);
 	}
 
 	/**

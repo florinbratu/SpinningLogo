@@ -2,7 +2,8 @@ package com.killerappz.android.spinlogo.preferences;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.net.Uri;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
@@ -12,7 +13,6 @@ import android.widget.TextView;
 
 import com.killerappz.android.spinlogo.Constants;
 import com.killerappz.android.spinlogo.R;
-import com.killerappz.android.spinlogo.R.color;
 
 /**
  * Entrance in the Preferences page for 
@@ -21,12 +21,20 @@ import com.killerappz.android.spinlogo.R.color;
  * @author florin
  *
  */
-public class LicenseStatusPreference extends DialogPreference{
+public class LicenseStatusPreference extends DialogPreference
+	implements OnSharedPreferenceChangeListener {
+	
+	private final SharedPreferences sharedPrefs;
+	// the label with the status info
+	private TextView statusLabel; 
 	
     public LicenseStatusPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogIcon(android.R.drawable.ic_lock_lock);
         setDialogLayoutResource(R.layout.license_check_dialog);
+        // register myself as listener for shared prefs. For license status
+        sharedPrefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        sharedPrefs.registerOnSharedPreferenceChangeListener(this);
     }
     
     @Override
@@ -70,7 +78,7 @@ public class LicenseStatusPreference extends DialogPreference{
 		((TextView)view.findViewById(R.id.email_label)).setOnClickListener(emailDevLink);
 		
 		// set the License status
-		TextView statusLabel = (TextView)view.findViewById(R.id.status);
+		statusLabel = (TextView)view.findViewById(R.id.status);
 		String status = getSharedPreferences().getString(
     			getKey(), Constants.DEFAULT_LICENSE_STATUS);
 		statusLabel.setText(status);
@@ -100,5 +108,23 @@ public class LicenseStatusPreference extends DialogPreference{
     		return R.color.color_license_ok;
     	else return R.color.color_license_error;
     }
+
+    @Override
+    public void onActivityDestroy() {
+    	super.onActivityDestroy();
+    	sharedPrefs.unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+		if(Constants.LICENSE_STATUS_KEY.equals(key) && statusLabel != null) {
+			String status = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
+			statusLabel.setText(status);
+			statusLabel.setTextColor( getContext().getResources().
+					getColor(colorForStatus(status)));
+		}
+    	// Notify activity about changes (to update preference summary line)
+		notifyChanged();
+	}
     
 }
