@@ -1,10 +1,15 @@
 package com.killerappz.android.spinlogo.preferences;
 
+import org.acra.ACRA;
+import org.acra.ErrorReporter;
+import org.acra.LogCatCollector;
+
 import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.killerappz.android.spinlogo.R;
@@ -22,6 +27,9 @@ import com.killerappz.android.spinlogo.R;
 public class UserFeedbackDialogPreference extends DialogPreference {
 	
 	private boolean includeLogcat;
+	
+	// ref to the edit text
+	private EditText userCommentView;
 	
 	public UserFeedbackDialogPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -44,6 +52,8 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 		    }
 		});
 		
+		// save the ref to the user comments page
+		userCommentView = (EditText) view.findViewById(R.id.usercomment);
 	}
 	
 	@Override
@@ -52,7 +62,9 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 		if(!positiveResult) {
 			Toast.makeText(getContext(), "Thou pressed Cancel" , Toast.LENGTH_SHORT).show();
 		} else {
-			Toast.makeText(getContext(), "Thou pressed OK. Logs need " + (includeLogcat ? "" : " not ") + " to be included" , Toast.LENGTH_SHORT).show();
+			Toast.makeText(getContext(), "Thou pressed OK. Logs need " + (includeLogcat ? "" : " not ") + " to be included" + 
+					"User comment:" + userCommentView.getText().toString() , Toast.LENGTH_SHORT).show();
 		}
 	}
+	
 }
