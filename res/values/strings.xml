@@ -16,4 +16,12 @@
     <string name="rotation_speed_title">Rotation speed</string>
     <color name="white_color">#fff</color>
     <color name="gray_color">#aaa</color>
+    
+    <!-- License status dialog -->
+    <string name="license_check_title">License Status</string>
+    <string name="license_check_summary">TODO</string>
+    <string name="license_check_status_label">License Status:</string>
+    <string name="license_check_android_market_label">Go to the Android Market page of the application:</string>
+    <string name="license_check_dialog_title">Check your license status</string>
+    
 </resources>
