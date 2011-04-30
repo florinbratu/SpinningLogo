@@ -26,5 +26,8 @@
     <string name="license_check_email_dev_label">Contact the developer</string>
     <string name="license_check_email_subject">Problems with license for app </string>
     <string name="license_check_email_dev_intent">Email the developer</string>
+    <color name="red_color">#f00</color>
+    <color name="green_color">#0f0</color>
+    <color name="orange_color">#ff0</color>
     
 </resources>

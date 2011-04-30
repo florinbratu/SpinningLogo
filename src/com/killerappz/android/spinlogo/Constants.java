@@ -19,6 +19,11 @@ public interface Constants {
 	// preferences screen keys
 	// 1) rotation
 	public static final String ROTATION_SPEED_KEY = "rotation";
+	// 2) license status
+	public static final String LICENSE_STATUS_KEY = "licenseStatus";
+	// the default license status message
+	public static final String DEFAULT_LICENSE_STATUS = "N/A";
+	public static final String OK_LICENSE_STATUS = "OK";
 
 	// skybox params
 	/*
