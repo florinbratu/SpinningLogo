@@ -59,11 +59,12 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 	@Override
 	protected void onDialogClosed(boolean positiveResult) {
 		super.onDialogClosed(positiveResult);
-		if(!positiveResult) {
-			Toast.makeText(getContext(), "Thou pressed Cancel" , Toast.LENGTH_SHORT).show();
-		} else {
-			Toast.makeText(getContext(), "Thou pressed OK. Logs need " + (includeLogcat ? "" : " not ") + " to be included" + 
-					"User comment:" + userCommentView.getText().toString() , Toast.LENGTH_SHORT).show();
+		
+		if(positiveResult) {
+			ErrorReporter.getInstance().
+				handleSilentException(new Exception("User feedback"));
+			Toast.makeText(getContext(), R.string.user_feedback_report_sent , 
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 	

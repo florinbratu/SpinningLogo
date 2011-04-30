@@ -49,5 +49,6 @@
 		Also, feel free to include your email address so we can get back to you.
 	</string>
 	<string name="user_feedback_logcat_checkbox">Add device logs to report</string>
+	<string name="user_feedback_report_sent">Thank you for your feedback!</string>
 	
 </resources>
