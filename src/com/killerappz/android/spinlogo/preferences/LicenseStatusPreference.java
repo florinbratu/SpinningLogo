@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.net.Uri;
+import android.os.Handler;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
@@ -27,6 +28,8 @@ public class LicenseStatusPreference extends DialogPreference
 	private final SharedPreferences sharedPrefs;
 	// the label with the status info
 	private TextView statusLabel; 
+	// the UI needs to be updated via this handler
+	private final Handler mHandler;
 	
     public LicenseStatusPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -35,6 +38,8 @@ public class LicenseStatusPreference extends DialogPreference
         // register myself as listener for shared prefs. For license status
         sharedPrefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         sharedPrefs.registerOnSharedPreferenceChangeListener(this);
+        
+        this.mHandler = new Handler();
     }
     
     @Override
@@ -116,15 +121,21 @@ public class LicenseStatusPreference extends DialogPreference
     }
 
 	@Override
-	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-		if(Constants.LICENSE_STATUS_KEY.equals(key) && statusLabel != null) {
-			String status = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
-			statusLabel.setText(status);
-			statusLabel.setTextColor( getContext().getResources().
-					getColor(colorForStatus(status)));
-		}
-    	// Notify activity about changes (to update preference summary line)
-		notifyChanged();
+	public void onSharedPreferenceChanged(final SharedPreferences prefs, 
+			final String key) {
+		mHandler.post(new Runnable() {
+			@Override
+			public void run() {
+				if(Constants.LICENSE_STATUS_KEY.equals(key) && statusLabel != null) {
+					String status = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
+					statusLabel.setText(status);
+					statusLabel.setTextColor( getContext().getResources().
+							getColor(colorForStatus(status)));
+				}
+		    	// Notify activity about changes (to update preference summary line)
+				notifyChanged();
+			}
+		});
 	}
     
 }
