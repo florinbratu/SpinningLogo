@@ -37,6 +37,11 @@
 			<locationURI>_android_GoogleMarketLicensing_77d67449/src</locationURI>
 		</link>
 		<link>
+			<name>java</name>
+			<type>2</type>
+			<location>/home/florin/storehouse/android/eclipse_ws/acra-src/acra/src/main/java</location>
+		</link>
+		<link>
 			<name>min3d</name>
 			<type>2</type>
 			<location>/home/florin/storehouse/android/min3d/src</location>
