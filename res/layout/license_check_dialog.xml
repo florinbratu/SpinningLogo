@@ -48,8 +48,29 @@
   			android:text="@string/license_check_android_market_label"
   			android:textColor="@color/white_color" 
   			android:layout_weight="10" 
-  			android:layout_gravity="center_horizontal"
+  			android:paddingLeft="7dp" android:layout_gravity="bottom"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+    	android:id="@+id/tableRow3"
+    	android:orientation="horizontal" 
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content"
+    	android:paddingTop="10dp" >
+    	<Button
+	        android:id="@+id/email_button"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/email_icon" 
+	        android:layout_weight="1"/>
+    	<TextView 
+            android:id="@+id/email_label"
+            android:layout_width="wrap_content"
+  			android:layout_height="wrap_content"
+  			android:text="@string/license_check_email_dev_label"
+  			android:textColor="@color/white_color" 
+  			android:layout_weight="10" 
   			android:paddingLeft="7dp"
-  			/>
+  			android:layout_gravity="center_vertical"/>
     </LinearLayout>
 </LinearLayout>

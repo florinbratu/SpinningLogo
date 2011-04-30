@@ -1,5 +1,6 @@
 package com.killerappz.android.spinlogo.preferences;
 
+import com.killerappz.android.spinlogo.Constants;
 import com.killerappz.android.spinlogo.R;
 
 import android.content.Context;
@@ -29,6 +30,7 @@ public class LicenseStatusPreference extends DialogPreference{
     @Override
     protected void onBindDialogView(View view) {
     	super.onBindDialogView(view);
+    	
     	View.OnClickListener androidMarketLink = new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -39,6 +41,22 @@ public class LicenseStatusPreference extends DialogPreference{
 		};
 		((Button) view.findViewById(R.id.android_market_button)).setOnClickListener(androidMarketLink);
 		((TextView)view.findViewById(R.id.android_market_label)).setOnClickListener(androidMarketLink);
+		
+		View.OnClickListener emailDevLink = new View.OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent emailIntent = new Intent(Intent.ACTION_SEND);
+				emailIntent.setType("text/plain");
+				emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{Constants.DEV_EMAIL_ADDRESS});
+				emailIntent.putExtra(Intent.EXTRA_SUBJECT, 
+						getContext().getString(R.string.license_check_email_subject) + getContext().getPackageName());
+                getContext().startActivity(
+                		Intent.createChooser(emailIntent, 
+                				getContext().getString(R.string.license_check_email_dev_intent)));
+			}
+		};
+		((Button) view.findViewById(R.id.email_button)).setOnClickListener(emailDevLink);
+		((TextView)view.findViewById(R.id.email_label)).setOnClickListener(emailDevLink);
     }
     
 }

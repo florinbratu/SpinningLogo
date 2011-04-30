@@ -21,7 +21,10 @@
     <string name="license_check_title">License Status</string>
     <string name="license_check_summary">TODO</string>
     <string name="license_check_status_label">License Status:</string>
-    <string name="license_check_android_market_label">Go to the Android Market page of the application:</string>
+    <string name="license_check_android_market_label">Go to the Android Market page of the application</string>
     <string name="license_check_dialog_title">Check your license status</string>
+    <string name="license_check_email_dev_label">Contact the developer</string>
+    <string name="license_check_email_subject">Problems with license for app </string>
+    <string name="license_check_email_dev_intent">Email the developer</string>
     
 </resources>

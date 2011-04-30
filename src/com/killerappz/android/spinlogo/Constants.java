@@ -59,4 +59,6 @@ public interface Constants {
         "MISSING_PERMISSION",
 	};
 	
+	public static final String DEV_EMAIL_ADDRESS = "killerappzz@gmail.com";
+	
 }
