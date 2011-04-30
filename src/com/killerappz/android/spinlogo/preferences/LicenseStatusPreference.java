@@ -2,6 +2,7 @@ package com.killerappz.android.spinlogo.preferences;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.killerappz.android.spinlogo.Constants;
 import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.spinlogo.R.color;
 
 /**
  * Entrance in the Preferences page for 
@@ -68,10 +70,12 @@ public class LicenseStatusPreference extends DialogPreference{
 		((TextView)view.findViewById(R.id.email_label)).setOnClickListener(emailDevLink);
 		
 		// set the License status
-		/*TextView licenseStatus = (TextView)view.findViewById(R.id.status);
-		licenseStatus.setTextColor(
-				colorForStatus(getSharedPreferences().getString(
-		    			getKey(), Constants.DEFAULT_LICENSE_STATUS)));*/
+		TextView statusLabel = (TextView)view.findViewById(R.id.status);
+		String status = getSharedPreferences().getString(
+    			getKey(), Constants.DEFAULT_LICENSE_STATUS);
+		statusLabel.setText(status);
+		statusLabel.setTextColor( getContext().getResources().
+				getColor(colorForStatus(status)));
     }
     
     @Override
@@ -91,10 +95,10 @@ public class LicenseStatusPreference extends DialogPreference{
 
     private int colorForStatus(String status) {
     	if(status.equals(Constants.DEFAULT_LICENSE_STATUS))
-    		return R.color.orange_color;
-    	if(status.equals(Constants.OK_LICENSE_STATUS))
-    		return R.color.green_color;
-    	return R.color.red_color;
+    		return R.color.color_license_unknown;
+    	else if(status.equals(Constants.OK_LICENSE_STATUS))
+    		return R.color.color_license_ok;
+    	else return R.color.color_license_error;
     }
     
 }
