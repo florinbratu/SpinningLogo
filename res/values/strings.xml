@@ -26,7 +26,11 @@
     <string name="license_check_email_dev_label">Contact the developer</string>
     <string name="license_check_email_subject">Problems with license for app </string>
     <string name="license_check_email_dev_intent">Email the developer</string>
-    <color name="color_license_error">#f00</color>
+    <string name="license_check_negative_button">Cancel</string>
+    <string name="license_check_positive_button_ok">OK</string>
+    <string name="license_check_positive_button_check_license">Check license</string>
+    <color name="color_license_invalid">#f00</color>
+    <color name="color_license_error">#00f</color>
     <color name="color_license_ok">#0f0</color>
     <color name="color_license_unknown">#ff0</color>
     

@@ -34,6 +34,8 @@ public class LicenseStatusPreference extends DialogPreference
     public LicenseStatusPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogIcon(android.R.drawable.ic_lock_lock);
+        setNegativeButtonText(context.getString(
+        		R.string.license_check_negative_button));
         setDialogLayoutResource(R.layout.license_check_dialog);
         // register myself as listener for shared prefs. For license status
         sharedPrefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
@@ -89,9 +91,11 @@ public class LicenseStatusPreference extends DialogPreference
 		statusLabel.setText(status);
 		statusLabel.setTextColor( getContext().getResources().
 				getColor(colorForStatus(status)));
+		setPositiveButtonText(getContext().getString(
+				positiveButtonForStatus(status)));
     }
     
-    @Override
+	@Override
     protected void onDialogClosed(boolean positiveResult) {
     	super.onDialogClosed(positiveResult);
 
@@ -101,9 +105,6 @@ public class LicenseStatusPreference extends DialogPreference
     	}
     	
     	// TODO actually test! the license status
-
-    	// Notify activity about changes (to update preference summary line)
-    	notifyChanged();
     }
 
     private int colorForStatus(String status) {
@@ -111,8 +112,17 @@ public class LicenseStatusPreference extends DialogPreference
     		return R.color.color_license_unknown;
     	else if(status.equals(Constants.OK_LICENSE_STATUS))
     		return R.color.color_license_ok;
+    	else if(status.equals(Constants.INVALID_LICENSE_STATUS))
+    		return R.color.color_license_invalid;
     	else return R.color.color_license_error;
     }
+    
+    private int positiveButtonForStatus(String status) {
+    	if(status.equals(Constants.OK_LICENSE_STATUS))
+    		return R.string.license_check_positive_button_ok;
+    	else
+    		return R.string.license_check_positive_button_check_license;
+	}
 
     @Override
     public void onActivityDestroy() {
@@ -126,14 +136,19 @@ public class LicenseStatusPreference extends DialogPreference
 		mHandler.post(new Runnable() {
 			@Override
 			public void run() {
-				if(Constants.LICENSE_STATUS_KEY.equals(key) && statusLabel != null) {
+				if(Constants.LICENSE_STATUS_KEY.equals(key)) {
 					String status = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
-					statusLabel.setText(status);
-					statusLabel.setTextColor( getContext().getResources().
-							getColor(colorForStatus(status)));
+					if(statusLabel != null) {
+						statusLabel.setText(status);
+						statusLabel.setTextColor( getContext().getResources().
+								getColor(colorForStatus(status)));
+					}
+					// update positive button text
+					setPositiveButtonText(getContext().getString(
+							positiveButtonForStatus(status)));
+					// Notify activity about changes (to update preference summary line)
+					notifyChanged();
 				}
-		    	// Notify activity about changes (to update preference summary line)
-				notifyChanged();
 			}
 		});
 	}

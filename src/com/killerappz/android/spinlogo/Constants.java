@@ -24,7 +24,7 @@ public interface Constants {
 	// the default license status message
 	public static final String DEFAULT_LICENSE_STATUS = "N/A";
 	public static final String OK_LICENSE_STATUS = "OK";
-	public static final String INVALID_LICENSE_STATUS = "INVALID";
+	public static final String INVALID_LICENSE_STATUS = "NOT_LICENSED";
 
 	// skybox params
 	/*
