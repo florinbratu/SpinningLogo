@@ -24,7 +24,7 @@ import com.killerappz.android.spinlogo.R;
  */
 public class UserFeedbackDialogPreference extends DialogPreference {
 	
-	private boolean includeLogcat;
+	private volatile boolean includeLogcat;
 	
 	// ref to the edit text
 	private EditText userCommentView;
@@ -64,7 +64,7 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 			if( null != userComment && !userComment.equals("")) {
 				err.setUserComment(userComment);
 			}
-			/*err.includeLogcat(includeLogcat);*/
+			err.includeLogcat(includeLogcat);
 			err.handleSilentException(new Exception("User feedback"));
 			Toast.makeText(getContext(), R.string.user_feedback_report_sent , 
 					Toast.LENGTH_SHORT).show();
