@@ -3,15 +3,16 @@ package com.killerappz.android.spinlogo.licensing;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.killerappz.android.spinlogo.Constants;
 import com.killerappz.android.spinlogo.R;
@@ -33,6 +34,8 @@ public class LicenseValidationDialog extends Activity
 	private final Handler mHandler = new Handler();
 	private SharedPreferences sharedPrefs;
 	
+	private Button checkLicenseButton;
+	
     /*
      * (non-Javadoc)
      * 
@@ -42,31 +45,50 @@ public class LicenseValidationDialog extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        Context ctx = getApplicationContext();
+        final Context ctx = getApplicationContext();
         sharedPrefs = ctx.getSharedPreferences(Constants.PREFS_NAME, 0);
     	sharedPrefs.registerOnSharedPreferenceChangeListener(this);
         
-        requestWindowFeature(Window.FEATURE_LEFT_ICON);        
+        requestWindowFeature(Window.FEATURE_LEFT_ICON); 
         setContentView(R.layout.invalid_license_dialog);
-        Button yes = (Button)findViewById(R.id.check_button);
-        yes.setOnClickListener(new View.OnClickListener() {
-
+        
+        // add listeners for android market links
+    	View.OnClickListener androidMarketLink = new View.OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(
+                        "market://details?id=" + ctx.getPackageName()));
+                ctx.startActivity(marketIntent);
+			}
+		};
+		((Button) findViewById(R.id.android_market_button)).setOnClickListener(androidMarketLink);
+		((TextView) findViewById(R.id.android_market_label)).setOnClickListener(androidMarketLink);
+		
+        checkLicenseButton = (Button)findViewById(R.id.check_button);
+        checkLicenseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Thou pressed OK",
-                            Toast.LENGTH_SHORT).show();
-                finish();
+                checkLicenseButton.setEnabled(false);
+                statusLabel.setText(R.string.license_check_in_progress);
+                ctx.sendBroadcast(new Intent(Constants.RECHECK_LICENSE_ACTION));
+                
+                // just to make sure, in case something bad happens
+                // register a TimerTask to re-enable the interface
+                /* TODO new Timer().schedule(new TimerTask() {
+					@Override
+					public void run() {
+						
+					}
+				}, 0, Constants.RECHECK_LICENSE_TIMEOUT);*/
             }
 
         });
         Button no = (Button)findViewById(R.id.cancel_button);
         no.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
             	finish();
             }
-
         });
         
         statusLabel = (TextView)findViewById(R.id.status);
@@ -111,6 +133,7 @@ public class LicenseValidationDialog extends Activity
 						statusLabel.setTextColor( getApplicationContext().getResources().
 								getColor(LicenseStatusPreference.colorForStatus(status)));
 					}
+					checkLicenseButton.setEnabled(true);
 				}
 			}
 		});
