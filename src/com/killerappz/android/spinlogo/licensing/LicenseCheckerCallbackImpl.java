@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.os.Handler;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.android.vending.licensing.LicenseCheckerCallback;
 import com.killerappz.android.spinlogo.Constants;

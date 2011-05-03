@@ -3,7 +3,10 @@ package com.killerappz.android.spinlogo.licensing;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -21,7 +24,14 @@ import com.killerappz.android.spinlogo.preferences.LicenseStatusPreference;
  * @author florin
  *
  */
-public class LicenseValidationDialog extends Activity {
+public class LicenseValidationDialog extends Activity 
+	implements OnSharedPreferenceChangeListener{
+	
+	// the label with the status info
+	private TextView statusLabel; 
+	// the UI needs to be updated via this handler
+	private final Handler mHandler = new Handler();
+	private SharedPreferences sharedPrefs;
 	
     /*
      * (non-Javadoc)
@@ -32,8 +42,11 @@ public class LicenseValidationDialog extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        requestWindowFeature(Window.FEATURE_LEFT_ICON);
+        Context ctx = getApplicationContext();
+        sharedPrefs = ctx.getSharedPreferences(Constants.PREFS_NAME, 0);
+    	sharedPrefs.registerOnSharedPreferenceChangeListener(this);
         
+        requestWindowFeature(Window.FEATURE_LEFT_ICON);        
         setContentView(R.layout.invalid_license_dialog);
         Button yes = (Button)findViewById(R.id.check_button);
         yes.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +69,7 @@ public class LicenseValidationDialog extends Activity {
 
         });
         
-        TextView statusLabel = (TextView)findViewById(R.id.status);
-        Context ctx = getApplicationContext();
+        statusLabel = (TextView)findViewById(R.id.status);
         String status = ctx.getSharedPreferences(Constants.PREFS_NAME, 0)
         	.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
         statusLabel.setText(status);
@@ -71,6 +83,12 @@ public class LicenseValidationDialog extends Activity {
 
         cancelNotification();
     }
+    
+    @Override
+    protected void onDestroy() {
+    	super.onDestroy();
+    	sharedPrefs.unregisterOnSharedPreferenceChangeListener(this);
+    }
 
     /**
      * Disable the notification in the Status Bar.
@@ -79,5 +97,23 @@ public class LicenseValidationDialog extends Activity {
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.cancel(Constants.NOTIF_TICKER_ID);
     }
+    
+	@Override
+	public void onSharedPreferenceChanged(final SharedPreferences prefs, 
+			final String key) {
+		mHandler.post(new Runnable() {
+			@Override
+			public void run() {
+				if(Constants.LICENSE_STATUS_KEY.equals(key)) {
+					String status = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
+					if(statusLabel != null) {
+						statusLabel.setText(status);
+						statusLabel.setTextColor( getApplicationContext().getResources().
+								getColor(LicenseStatusPreference.colorForStatus(status)));
+					}
+				}
+			}
+		});
+	}
     
 }
