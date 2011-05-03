@@ -25,13 +25,10 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	
 	private final SpinLogoWallpaperService lwp;
 	private final Handler mHandler;
-	private final Toast invalidLicenseToast;
 
 	public LicenseCheckerCallbackImpl(SpinLogoWallpaperService lwp, Handler handler) {
 		this.lwp = lwp;
 		this.mHandler = handler;
-		invalidLicenseToast = Toast.makeText(this.lwp, 
-				R.string.invalid_license, Toast.LENGTH_LONG);
 	}
 
 	/* (non-Javadoc)
@@ -56,8 +53,6 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	@Override
 	public void applicationError(ApplicationErrorCode errorCode) {
 		Log.e(Constants.LOG_TAG, "License check error:" + Constants.licenseErrorCodes[errorCode.ordinal()]);
-		invalidLicenseToast.setText( this.lwp.getString(R.string.license_check_error)
-				+ Constants.licenseErrorCodes[errorCode.ordinal()]);
 		// warn the user
 		warnUser();
 		// mark invalid license
@@ -82,12 +77,6 @@ public class LicenseCheckerCallbackImpl implements LicenseCheckerCallback {
 	 * Notify the user the reason why we're stopping
 	 * the app: running without a license!
 	 * 
-	 * TODO more fancy stuff: display dialog with
-	 * 1) retry button
-	 * 2) link to Android Market page button
-	 * you can use the MainActivity from andorid sample
-	 * as a starting point
-	 * Potential pitfall: http://stackoverflow.com/questions/4131619/alertdialog-show-silently-ignored-within-a-service
 	 */
 	private void warnUser() {
 		this.mHandler.post(new Runnable() {

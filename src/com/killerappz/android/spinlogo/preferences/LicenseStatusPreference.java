@@ -104,7 +104,6 @@ public class LicenseStatusPreference extends DialogPreference
     		return;
     	}
     	
-    	// TODO actually test! the license status
     }
 
     public static int colorForStatus(String status) {
