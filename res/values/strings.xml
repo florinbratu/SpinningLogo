@@ -34,6 +34,15 @@
     <color name="color_license_ok">#0f0</color>
     <color name="color_license_unknown">#ff0</color>
     
+    <string name="license_check_notes_label">The Android License Validation framework
+    	detected an attempt of running the Spinning Logo Live Wallpaper on this device
+    	without a valid license. The server response code is displayed below. Please 
+    	get a valid version of the Spinning Logo Live Wallpaper from the Android Market.
+    	
+    	You may reattempt license validation by clicking the \'Check license\' button below.
+    	The license validation process needs access to the Android Market servers, so
+    	please make sure you have network coverage during the validation process.
+    	</string>
     <string name="license_check_notif_ticker_text">Spinning Logo Live Wallpaper license validation failed!</string>
     <string name="license_check_notif_title">License validation failed...</string>
     <string name="license_check_notif_text">Click here to reattempt license validation</string>

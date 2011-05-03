@@ -107,7 +107,7 @@ public class LicenseStatusPreference extends DialogPreference
     	// TODO actually test! the license status
     }
 
-    private int colorForStatus(String status) {
+    public static int colorForStatus(String status) {
     	if(status.equals(Constants.DEFAULT_LICENSE_STATUS))
     		return R.color.color_license_unknown;
     	else if(status.equals(Constants.OK_LICENSE_STATUS))
