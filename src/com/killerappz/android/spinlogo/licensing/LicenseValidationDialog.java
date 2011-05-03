@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -58,6 +59,7 @@ public class LicenseValidationDialog extends Activity
 			public void onClick(View arg0) {
 				Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(
                         "market://details?id=" + ctx.getPackageName()));
+				marketIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 ctx.startActivity(marketIntent);
 			}
 		};
@@ -70,6 +72,7 @@ public class LicenseValidationDialog extends Activity
             public void onClick(View v) {
                 checkLicenseButton.setEnabled(false);
                 statusLabel.setText(R.string.license_check_in_progress);
+                statusLabel.setTextColor(Color.WHITE);
                 ctx.sendBroadcast(new Intent(Constants.RECHECK_LICENSE_ACTION));
                 
                 // just to make sure, in case something bad happens

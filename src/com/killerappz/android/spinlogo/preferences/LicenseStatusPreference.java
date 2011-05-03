@@ -61,6 +61,7 @@ public class LicenseStatusPreference extends DialogPreference
 			public void onClick(View arg0) {
 				Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(
                         "market://details?id=" + getContext().getPackageName()));
+				marketIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getContext().startActivity(marketIntent);
 			}
 		};
@@ -72,6 +73,7 @@ public class LicenseStatusPreference extends DialogPreference
 			@Override
 			public void onClick(View arg0) {
 				Intent emailIntent = new Intent(Intent.ACTION_SEND);
+				emailIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				emailIntent.setType("text/plain");
 				emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{Constants.DEV_EMAIL_ADDRESS});
 				emailIntent.putExtra(Intent.EXTRA_SUBJECT, 
@@ -99,9 +101,13 @@ public class LicenseStatusPreference extends DialogPreference
     protected void onDialogClosed(boolean positiveResult) {
     	super.onDialogClosed(positiveResult);
 
-    	// Return if change was cancelled
-    	if (!positiveResult) {
-    		return;
+    	if (positiveResult) {
+    		// if invalid license, trigger license check
+    		if(!Constants.OK_LICENSE_STATUS.equals(
+    				getSharedPreferences().getString(
+    					getKey(), Constants.DEFAULT_LICENSE_STATUS)))
+    		getContext().sendBroadcast(
+    				new Intent(Constants.RECHECK_LICENSE_ACTION));
     	}
     	
     }
