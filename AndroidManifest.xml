@@ -29,6 +29,13 @@
 			android:exported="true"
 			android:icon="@drawable/icon">
 		</activity>
+		
+		<!-- the license validation dialog -->
+		<activity android:name="com.killerappz.android.spinlogo.licensing.LicenseValidationDialog"
+	        android:theme="@android:style/Theme.Dialog"
+	        android:launchMode="singleInstance"
+	        android:excludeFromRecents="true"
+	        android:finishOnTaskLaunch="true" />
     </application>
     
 

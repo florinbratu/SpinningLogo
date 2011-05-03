@@ -25,6 +25,8 @@ public interface Constants {
 	public static final String DEFAULT_LICENSE_STATUS = "N/A";
 	public static final String OK_LICENSE_STATUS = "OK";
 	public static final String INVALID_LICENSE_STATUS = "NOT_LICENSED";
+	// the notification ID
+	public static final int NOTIF_TICKER_ID = 42;
 
 	// skybox params
 	/*

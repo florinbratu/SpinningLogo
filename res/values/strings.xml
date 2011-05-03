@@ -34,4 +34,8 @@
     <color name="color_license_ok">#0f0</color>
     <color name="color_license_unknown">#ff0</color>
     
+    <string name="license_check_notif_ticker_text">Spinning Logo Live Wallpaper license validation failed!</string>
+    <string name="license_check_notif_title">License validation failed...</string>
+    <string name="license_check_notif_text">Click here to reattempt license validation</string>
+    
 </resources>
