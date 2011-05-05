@@ -145,6 +145,9 @@ public class LicenseValidationDialog extends Activity
 					checkLicenseButton.setEnabled(true);
 					checkLicenseButton.setText(getApplicationContext().getString(
 							LicenseStatusPreference.positiveButtonForStatus(status)));
+					
+					// cancel notification that will be put in status bar by LicenseCheckerCallbak
+					cancelNotification();
 				}
 			}
 		});
