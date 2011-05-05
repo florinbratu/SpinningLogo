@@ -70,19 +70,25 @@ public class LicenseValidationDialog extends Activity
         checkLicenseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkLicenseButton.setEnabled(false);
-                statusLabel.setText(R.string.license_check_in_progress);
-                statusLabel.setTextColor(Color.WHITE);
-                ctx.sendBroadcast(new Intent(Constants.RECHECK_LICENSE_ACTION));
-                
-                // just to make sure, in case something bad happens
-                // register a TimerTask to re-enable the interface
-                /* TODO new Timer().schedule(new TimerTask() {
-					@Override
-					public void run() {
-						
-					}
-				}, 0, Constants.RECHECK_LICENSE_TIMEOUT);*/
+            	if(Constants.OK_LICENSE_STATUS.equals(
+            			ctx.getSharedPreferences(Constants.PREFS_NAME, 0)
+            			.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS))) {
+            		finish();
+            	} else {
+            		checkLicenseButton.setEnabled(false);
+            		statusLabel.setText(R.string.license_check_in_progress);
+            		statusLabel.setTextColor(Color.WHITE);
+            		ctx.sendBroadcast(new Intent(Constants.RECHECK_LICENSE_ACTION));
+
+            		// just to make sure, in case something bad happens
+            		// register a TimerTask to re-enable the interface
+            		/* TODO new Timer().schedule(new TimerTask() {
+						@Override
+						public void run() {
+	
+						}
+					}, 0, Constants.RECHECK_LICENSE_TIMEOUT);*/
+            	}
             }
 
         });
@@ -137,6 +143,8 @@ public class LicenseValidationDialog extends Activity
 								getColor(LicenseStatusPreference.colorForStatus(status)));
 					}
 					checkLicenseButton.setEnabled(true);
+					checkLicenseButton.setText(getApplicationContext().getString(
+							LicenseStatusPreference.positiveButtonForStatus(status)));
 				}
 			}
 		});

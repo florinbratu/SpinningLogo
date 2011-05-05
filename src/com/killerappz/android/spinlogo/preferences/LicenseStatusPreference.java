@@ -122,7 +122,7 @@ public class LicenseStatusPreference extends DialogPreference
     	else return R.color.color_license_error;
     }
     
-    private int positiveButtonForStatus(String status) {
+    public static int positiveButtonForStatus(String status) {
     	if(status.equals(Constants.OK_LICENSE_STATUS))
     		return R.string.license_check_positive_button_ok;
     	else
