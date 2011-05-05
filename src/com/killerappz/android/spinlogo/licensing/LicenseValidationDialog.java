@@ -79,19 +79,10 @@ public class LicenseValidationDialog extends Activity
             		statusLabel.setText(R.string.license_check_in_progress);
             		statusLabel.setTextColor(Color.WHITE);
             		ctx.sendBroadcast(new Intent(Constants.RECHECK_LICENSE_ACTION));
-
-            		// just to make sure, in case something bad happens
-            		// register a TimerTask to re-enable the interface
-            		/* TODO new Timer().schedule(new TimerTask() {
-						@Override
-						public void run() {
-	
-						}
-					}, 0, Constants.RECHECK_LICENSE_TIMEOUT);*/
             	}
             }
-
         });
+		        
         Button no = (Button)findViewById(R.id.cancel_button);
         no.setOnClickListener(new View.OnClickListener() {
             @Override
