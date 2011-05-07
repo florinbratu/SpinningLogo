@@ -46,13 +46,17 @@ public class SpinningLogo {
 	private void checkTextures() {
 		if(!contextInfo.getLogoTextureName().equals(Constants.DEFAULT_LOGO_TEXTURE_NAME))
 			updateLogoTexture(contextInfo.getLogoTextureName());
-		// TODO same will be for skybox
+		if(!contextInfo.getLogoTextureName().equals(Constants.DEFAULT_SKYBOX_TEXTURE_NAME))
+			updateSkyboxTexture(contextInfo.getSkyboxTextureName());
 	}
 
 	public void draw(GL10 gl, Renderer renderer){
 		// pre-draw: check for texture changes
 		if(contextInfo.dirtyLogoTexture()) {
 			updateLogoTexture(contextInfo.getLogoTextureName());
+		}
+		if(contextInfo.dirtySkyboxTexture()) {
+			updateSkyboxTexture(contextInfo.getSkyboxTextureName());
 		}
 		
 		// draw all objects within the container
@@ -62,6 +66,14 @@ public class SpinningLogo {
 		
 		// post-draw: rotate logo
 		autoRotate();
+	}
+	
+	private void updateSkyboxTexture(String skyboxTextureName) {
+		skyBox.replaceTexture(SkyBox.Face.East,  Constants.TEXTURES_LOCATION + skyboxTextureName + "_right" , skyboxTextureName + "_right");
+		skyBox.replaceTexture(SkyBox.Face.South, Constants.TEXTURES_LOCATION + skyboxTextureName + "_center", skyboxTextureName + "_center");
+		skyBox.replaceTexture(SkyBox.Face.West,  Constants.TEXTURES_LOCATION + skyboxTextureName + "_left" , skyboxTextureName + "_left");
+		skyBox.replaceTexture(SkyBox.Face.Up,    Constants.TEXTURES_LOCATION + skyboxTextureName + "_up", skyboxTextureName + "_up");
+		skyBox.replaceTexture(SkyBox.Face.Down,  Constants.TEXTURES_LOCATION + skyboxTextureName + "_down", skyboxTextureName + "_down");
 	}
 
 	private void updateLogoTexture(String logoTextureName) {
@@ -90,11 +102,11 @@ public class SpinningLogo {
 	private SkyBox createSkyBox() {
 		SkyBox skyBox = new SkyBox(context, textureManager, Constants.SKYBOX_SIZE, Constants.SKYBOX_QUALITY_FACTOR);
 		/* textures */
-		skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_right,  "east_texture");
-		skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_center, "south_texture");
-		skyBox.addTexture(SkyBox.Face.West,  R.drawable.skybox_left,  "west_texture");
-		skyBox.addTexture(SkyBox.Face.Up,    R.drawable.skybox_up,    "up_texture");
-		skyBox.addTexture(SkyBox.Face.Down,  R.drawable.skybox_down,  "down_texture");
+		skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_awisdom_right,  "east_texture");
+		skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_awisdom_center, "south_texture");
+		skyBox.addTexture(SkyBox.Face.West,  R.drawable.skybox_awisdom_left,  "west_texture");
+		skyBox.addTexture(SkyBox.Face.Up,    R.drawable.skybox_awisdom_up,    "up_texture");
+		skyBox.addTexture(SkyBox.Face.Down,  R.drawable.skybox_awisdom_down,  "down_texture");
 		return skyBox;
 	}
 
