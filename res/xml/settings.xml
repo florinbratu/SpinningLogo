@@ -19,5 +19,11 @@
          android:title="@string/license_check_title"
          android:summary="@string/license_check_summary"
          android:dialogTitle="@string/license_check_dialog_title"/>
-	
+               
+    <com.killerappz.android.spinlogo.preferences.UserFeedbackDialogPreference
+        android:key="userFeedback"
+		android:title="@string/user_feedback_title"
+		android:summary="@string/user_feedback_summary"
+		android:dialogTitle="@string/user_feedback_dialog_title"/>
+        
 </PreferenceScreen>

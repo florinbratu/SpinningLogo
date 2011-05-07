@@ -9,6 +9,7 @@
     <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
     
     <application android:icon="@drawable/icon" 
     	android:label="@string/app_name" 
@@ -38,6 +39,13 @@
 		
 		<!-- the license validation dialog -->
 		<activity android:name="com.killerappz.android.spinlogo.licensing.LicenseValidationDialog"
+			android:theme="@android:style/Theme.Dialog"
+	        android:launchMode="singleInstance"
+	        android:excludeFromRecents="true"
+	        android:finishOnTaskLaunch="true" />
+		
+		<!-- ACRA crash report dialog -->
+		<activity android:name="org.acra.CrashReportDialog"
 	        android:theme="@android:style/Theme.Dialog"
 	        android:launchMode="singleInstance"
 	        android:excludeFromRecents="true"

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:paddingLeft="10dp"
+	android:paddingRight="10dp"
+	android:paddingTop="10dp"
+	android:paddingBottom="10dp">
+	
+	<ScrollView
+    	android:id="@+id/scrollview"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent">
+    	<TextView
+			android:id="@+id/description"
+			android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    		android:text="@string/user_feedback_description"
+			android:textColor="@color/white_color"/>
+	</ScrollView>
+			
+	<TextView
+		android:id="@+id/details"
+		android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+   		android:paddingTop="10dp"
+   		android:text="@string/user_feedback_details"
+		android:textColor="@color/white_color"/>
+
+    <EditText
+        android:id="@+id/usercomment"
+        android:lines="5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    
+    <CheckBox android:id="@+id/logcat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white_color"
+        android:text="@string/user_feedback_logcat_checkbox" />
+        
+</LinearLayout>
