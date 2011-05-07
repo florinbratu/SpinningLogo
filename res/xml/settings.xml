@@ -19,8 +19,17 @@
 		android:key="logoTexture"
 		android:title="@string/logo_texture_title"
 		android:summary="@string/logo_texture_defaultValue"
+		android:entries="@array/listNamesLogo"
+		android:entryValues="@array/listValuesLogo"
+		killerappzz:entryImages="@array/imageValuesLogo"/>
+		
+	<!-- the ImageList pref screen for selecting the skybox texture -->
+	<!-- com.killerappz.android.spinlogo.preferences.ImageListPreference
+		android:key="skyboxTexture"
+		android:title="@string/skybox_texture_title"
+		android:summary="@string/skybox_texture_defaultValue"
 		android:entries="@array/listNames"
 		android:entryValues="@array/listValues"
-		killerappzz:entryImages="@array/imageValues"/>
+		killerappzz:entryImages="@array/imageValues"/-->
 	
 </PreferenceScreen>
