@@ -1,5 +1,6 @@
 package com.killerappz.android.spinlogo.preferences;
 
+import org.acra.ACRA;
 import org.acra.ErrorReporter;
 
 import android.content.Context;
@@ -34,6 +35,8 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 		this.includeLogcat = false;
 		setDialogIcon(android.R.drawable.ic_dialog_info);
 		setDialogLayoutResource(R.layout.user_feedback);
+		// fwkin ACRA
+		ACRA.init(context);
 	}
 	
 	@Override

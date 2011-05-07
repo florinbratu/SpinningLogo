@@ -15,6 +15,7 @@ import android.app.Application;
 		formUri = "https://spreadsheets.google.com/formResponse?formkey=dC1xZ1lxZVV3SkJ4aE1nOFpnMTRXR0E6MQ&amp;ifq",
 		mode = ReportingInteractionMode.NOTIFICATION,
 		sharedPreferencesName = Constants.PREFS_NAME,
+		logcatArguments = { "-t", "300", "-v", "long", "ActivityManager:I", "ACRA:I", "KILLER_LWP:D", "Min3D:D", "GLThread:D", "*:S" },
         resNotifTickerText = R.string.crash_notif_ticker_text,
         resNotifTitle = R.string.crash_notif_title,
         resNotifText = R.string.crash_notif_text,
