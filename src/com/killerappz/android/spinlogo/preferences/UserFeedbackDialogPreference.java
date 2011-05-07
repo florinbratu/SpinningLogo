@@ -36,7 +36,7 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 		setDialogIcon(android.R.drawable.ic_dialog_info);
 		setDialogLayoutResource(R.layout.user_feedback);
 		// fwkin ACRA
-		ACRA.init(context);
+		// ACRA.init(context);
 	}
 	
 	@Override
