@@ -22,6 +22,11 @@ public class SpinLogoContext extends ContextInfo implements
 	// the new logo texture, if it changed
 	private String logoTextureName = Constants.DEFAULT_LOGO_TEXTURE_NAME;
 	
+	// indicate if skybox texture changed
+	private boolean dirtySkyboxTexture = false;
+	// the new logo texture, if it changed
+	private String skyboxTextureName = Constants.DEFAULT_SKYBOX_TEXTURE_NAME;
+	
 	public int getRotationSpeed() {
 		return rotationSpeed;
 	}
@@ -37,10 +42,22 @@ public class SpinLogoContext extends ContextInfo implements
 		return this.logoTextureName;
 	}
 	
+	// indicate if we need to reload texture
+	public boolean dirtySkyboxTexture() {
+		return this.dirtySkyboxTexture;
+	}
+	
+	// get texture && reset the texture dirty flag
+	public String getSkyboxTextureName() {
+		this.dirtySkyboxTexture = false;
+		return this.skyboxTextureName;
+	}
+	
 	// will be called initially, @engine creation
 	public void loadPrefs(SharedPreferences prefs) {
 		this.rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
 		this.logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
+		this.skyboxTextureName = prefs.getString(Constants.SKYBOX_TEXTURE_KEY, Constants.DEFAULT_SKYBOX_TEXTURE_NAME);
 	}
 	
 	@Override
@@ -51,6 +68,11 @@ public class SpinLogoContext extends ContextInfo implements
 			// the texture for the logo changed!
 			this.dirtyLogoTexture = true;
 			logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
+		}
+		else if(Constants.SKYBOX_TEXTURE_KEY.equals(key)) {
+			// the texture for the skybox changed!
+			this.dirtySkyboxTexture = true;
+			skyboxTextureName = prefs.getString(Constants.SKYBOX_TEXTURE_KEY, Constants.DEFAULT_SKYBOX_TEXTURE_NAME);
 		}
 	}
 }

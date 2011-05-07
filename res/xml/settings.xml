@@ -21,15 +21,15 @@
 		android:summary="@string/logo_texture_defaultValue"
 		android:entries="@array/listNamesLogo"
 		android:entryValues="@array/listValuesLogo"
-		killerappzz:entryImages="@array/imageValuesLogo"/>
+		killerappzz:logoImages="@array/imageValuesLogo"/>
 		
 	<!-- the ImageList pref screen for selecting the skybox texture -->
-	<!--com.killerappz.android.spinlogo.preferences.ImageListPreference
+	<com.killerappz.android.spinlogo.preferences.SkyboxTexturePreference
 		android:key="skyboxTexture"
 		android:title="@string/skybox_texture_title"
 		android:summary="@string/skybox_texture_defaultValue"
 		android:entries="@array/listNamesSkybox"
 		android:entryValues="@array/listValuesSkybox"
-		killerappzz:entryImages="@array/imageValuesSkybox"/-->
+		killerappzz:skyboxImages="@array/imageValuesSkybox"/>
 	
 </PreferenceScreen>
