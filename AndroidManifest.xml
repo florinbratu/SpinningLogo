@@ -35,7 +35,13 @@
 		<!-- adz -->		
 		<activity android:name="com.google.ads.AdActivity"
               android:configChanges="keyboard|keyboardHidden|orientation"/>
-              
+		
+		<!-- the license validation dialog -->
+		<activity android:name="com.killerappz.android.spinlogo.licensing.LicenseValidationDialog"
+	        android:theme="@android:style/Theme.Dialog"
+	        android:launchMode="singleInstance"
+	        android:excludeFromRecents="true"
+	        android:finishOnTaskLaunch="true" />
     </application>
     
 
