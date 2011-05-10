@@ -1,5 +1,9 @@
 package com.killerappz.android.lwp.mortalkombat.licensing;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Handler;
 import android.provider.Settings.Secure;
@@ -35,6 +39,10 @@ public class MarketLicensingManager {
 	 *  if the license flag is invalid!  
 	 */
 	public volatile boolean validLicense;
+	// this is the entry point for license recheck demands
+	private final BroadcastReceiver recheckLicenseBR;
+	// the context
+	private final Context theContext;
 
 	public MarketLicensingManager(SpinLogoWallpaperService lwp, Handler handler) {
         String deviceId = Secure.getString(lwp.getContentResolver(), getUID(Constants.UID_SIZE));
@@ -48,6 +56,11 @@ public class MarketLicensingManager {
         
         // initially we assume license == OK
         this.validLicense = false;
+        
+        // register broadcast receivers, for future demands
+        theContext = lwp;
+        this.recheckLicenseBR = new RecheckLicenseBroadcastReceiver();
+		lwp.registerReceiver(recheckLicenseBR, new IntentFilter(Constants.RECHECK_LICENSE_ACTION));
 	}
 	
 	
@@ -70,6 +83,18 @@ public class MarketLicensingManager {
 
 	public void cleanup() {
 		mChecker.onDestroy();
+		theContext.unregisterReceiver(recheckLicenseBR);
+	}
+	
+	private class RecheckLicenseBroadcastReceiver extends BroadcastReceiver {
+
+		@Override
+		public void onReceive(Context ctx, Intent intent) {
+			if(Constants.RECHECK_LICENSE_ACTION.equals(intent.getAction())) {
+				doCheck();
+			}
+		}
+		
 	}
 
 }
