@@ -40,8 +40,4 @@ public class SpinLogoContext extends ContextInfo implements
 		this.licenseStatus = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
 	}
 
-	public void loadPrefs(SharedPreferences prefs) {
-		this.rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
-	}
-	
 }
