@@ -33,7 +33,7 @@
     <color name="color_license_ok">#0f0</color>
     <color name="color_license_unknown">#ff0</color>
     
-    <string name="license_check_notes_label">The Spinning Logo Live Wallpaper version
+    <string name="license_check_notes_label">The Duke Nukem Live Wallpaper version
     	installed on this device did not pass license validation! Please 
     	get a valid version of the application from the Android Market.
     	
@@ -42,7 +42,7 @@
     	The license validation process needs access to the Android Market servers, so
     	please make sure you have network coverage during the validation process.
     	</string>
-    <string name="license_check_notif_ticker_text">Spinning Logo Live Wallpaper license validation failed!</string>
+    <string name="license_check_notif_ticker_text">Duke Nukem Live Wallpaper license validation failed!</string>
     <string name="license_check_notif_title">License validation failed...</string>
     <string name="license_check_notif_text">Click here to reattempt license validation</string>
     <string name="license_check_in_progress">Check in progress...</string>

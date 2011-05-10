@@ -30,7 +30,7 @@
 		</activity>
 		
 		<!-- the license validation dialog -->
-		<activity android:name="com.killerappz.android.spinlogo.licensing.LicenseValidationDialog"
+		<activity android:name="com.killerappz.android.lwp.dukenukem.licensing.LicenseValidationDialog"
 	        android:theme="@android:style/Theme.Dialog"
 	        android:launchMode="singleInstance"
 	        android:excludeFromRecents="true"

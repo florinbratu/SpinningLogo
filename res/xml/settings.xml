@@ -12,7 +12,7 @@
 		android:defaultValue="@string/rotation_speed_default_value"
 		android:max="@string/rotation_speed_max_value" />
 		
-	<com.killerappz.android.spinlogo.preferences.LicenseStatusPreference
+	<com.killerappz.android.lwp.dukenukem.preferences.LicenseStatusPreference
          android:key="licenseStatus"
          android:title="@string/license_check_title"
          android:summary="@string/license_check_summary"
