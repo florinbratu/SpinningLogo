@@ -20,6 +20,15 @@ public interface Constants {
 	// preferences screen keys
 	// 1) rotation
 	public static final String ROTATION_SPEED_KEY = "rotation";
+	// 2) license status
+	public static final String LICENSE_STATUS_KEY = "licenseStatus";
+	// the default license status message
+	public static final String DEFAULT_LICENSE_STATUS = "N/A";
+	public static final String OK_LICENSE_STATUS = "OK";
+	public static final String INVALID_LICENSE_STATUS = "NOT_LICENSED";
+	// the notification ID
+	public static final int NOTIF_TICKER_ID = 42;
+	public static final String RECHECK_LICENSE_ACTION = "RECHECK_LICENSE";
 
 	// skybox params
 	/*
@@ -59,5 +68,7 @@ public interface Constants {
         "INVALID_PUBLIC_KEY",
         "MISSING_PERMISSION",
 	};
+	
+	public static final String DEV_EMAIL_ADDRESS = "killerappzz@gmail.com";
 	
 }
