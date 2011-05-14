@@ -3,7 +3,7 @@
     <string name="hello">Hello World!</string>
     <string name="app_name">Iron Man Live Wallpaper</string>
     <string name="service_label">Iron Man LWP</string>
-    <string name="description">Brings the metal superhero on your wallpaper</string>
+    <string name="description">Tony Stark and his metal gear!</string>
     <string name="invalid_license">The Iron Man Live Wallpaper has been installed on this device without a license!</string>
     <string name="license_check_error">Error while performing application license check, error code: </string>
     
