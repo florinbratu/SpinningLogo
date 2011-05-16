@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:killerappzz="http://schemas.android.com/apk/res/com.killerappz.android.spinlogo">
 	android:title="@string/spinlogo_settings"
 	android:key="settings">
 
+	<!-- the seekbar pref screen for rotation speed -->
     <com.killerappz.android.spinlogo.preferences.SeekBarPreference
         android:key="rotation"
 		android:title="@string/rotation_speed_title"
@@ -12,6 +14,25 @@
 		android:defaultValue="@string/rotation_speed_default_value"
 		android:max="@string/rotation_speed_max_value" />
 		
+	<!-- the ImageList pref screen for selecting the logo image -->
+	<com.killerappz.android.spinlogo.preferences.SpinningLogoTexturePreference
+		android:key="logoTexture"
+		android:title="@string/logo_texture_title"
+		android:summary="@string/logo_texture_defaultValue"
+		android:entries="@array/listNamesLogo"
+		android:entryValues="@array/listValuesLogo"
+		killerappzz:logoImages="@array/imageValuesLogo"/>
+		
+	<!-- the ImageList pref screen for selecting the skybox texture -->
+	<com.killerappz.android.spinlogo.preferences.SkyboxTexturePreference
+		android:key="skyboxTexture"
+		android:title="@string/skybox_texture_title"
+		android:summary="@string/skybox_texture_defaultValue"
+		android:entries="@array/listNamesSkybox"
+		android:entryValues="@array/listValuesSkybox"
+		killerappzz:skyboxImages="@array/imageValuesSkybox"/>
+
+	<!-- the license validation pref page -->
 	<com.killerappz.android.spinlogo.preferences.LicenseStatusPreference
          android:key="licenseStatus"
          android:title="@string/license_check_title"
