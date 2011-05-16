@@ -28,8 +28,8 @@
         <item>"skybox_greentrees"</item>
     </string-array>
 	<array name="imageValuesSkybox">
-		<item>@drawable/texture_taijitu_icon</item>
-		<item>@drawable/texture_rough_icon</item>
-		<item>@drawable/texture_rainbow_blue_icon</item>
+		<item>@drawable/skybox_awisdom_icon</item>
+		<item>@drawable/skybox_airsky_icon</item>
+		<item>@drawable/skybox_greentrees_icon</item>
 	</array>
 </resources>
