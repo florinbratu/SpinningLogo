@@ -31,6 +31,7 @@ public class SpinningLogo {
 	private final Context context;
 	// for textures
 	private final TextureManager textureManager;
+    private String currentLogoTexture = Constants.DEFAULT_LOGO_TEXTURE_NAME;
 	
 	public SpinningLogo(Context context, TextureManager tm, String resId, SpinLogoContext contextInfo, Scene scene) {
 		this.context = context;
@@ -44,16 +45,14 @@ public class SpinningLogo {
 	}
 	
 	private void checkTextures() {
-		if(!contextInfo.getLogoTextureName().equals(Constants.DEFAULT_LOGO_TEXTURE_NAME))
+		if(dirtyLogoTexture()) {
 			updateLogoTexture(contextInfo.getLogoTextureName());
-		// TODO same will be for skybox
+		}
 	}
 
 	public void draw(GL10 gl, Renderer renderer){
 		// pre-draw: check for texture changes
-		if(contextInfo.dirtyLogoTexture()) {
-			updateLogoTexture(contextInfo.getLogoTextureName());
-		}
+		checkTextures();
 		
 		// draw all objects within the container
 		scene.addChild(object);
@@ -65,7 +64,6 @@ public class SpinningLogo {
 	}
 
 	private void updateLogoTexture(String logoTextureName) {
-		
 		// find res for the new texture
 		int texId = context.getResources().getIdentifier(
 				Constants.TEXTURES_LOCATION + logoTextureName,
@@ -80,6 +78,14 @@ public class SpinningLogo {
 		this.textureManager.deleteTexture(logoObject.textures().get(0).textureId);
 		// link the new texture to the logo
 		logoObject.textures().addReplace(new TextureVo(logoTextureName));
+		
+		// store its name
+		this.currentLogoTexture = logoTextureName;
+	}
+	
+    // tests for texture changes
+	private boolean dirtyLogoTexture() {
+		return !currentLogoTexture.equals(contextInfo.getLogoTextureName());
 	}
 
 	private void autoRotate() {
