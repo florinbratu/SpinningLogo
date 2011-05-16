@@ -5,22 +5,28 @@
         <item>"Taijitu"</item>
         <item>"Rough"</item>
         <item>"Fire And Ice"</item>
-        <item>"Recursive"</item>
+        <item>"Red"</item>
         <item>"Hearts"</item>
+        <item>"Golden"</item>
+        <item>"Elektra"</item>
     </string-array>
     <string-array name="listValuesLogo">
         <item>"texture_taijitu"</item>
         <item>"texture_rough"</item>
         <item>"texture_fire_and_ice"</item>
-        <item>"texture_recursive"</item>
+        <item>"texture_red"</item>
         <item>"texture_hearts"</item>
+        <item>"texture_golden"</item>
+        <item>"texture_elektra"</item>
     </string-array>
 	<array name="imageValuesLogo">
 		<item>@drawable/texture_taijitu_icon</item>
 		<item>@drawable/texture_rough_icon</item>
 		<item>@drawable/texture_fire_and_ice_icon</item>
-		<item>@drawable/texture_recursive_icon</item>
+		<item>@drawable/texture_red_icon</item>
 		<item>@drawable/texture_hearts_icon</item>
+		<item>@drawable/texture_golden_icon</item>
+		<item>@drawable/texture_elektra_icon</item>
 	</array>
 	
 	<string-array name="listNamesSkybox">
