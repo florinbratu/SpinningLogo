@@ -7,6 +7,8 @@ public interface Constants {
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/xmen_obj";
 	public static final float LOGO_Y_AXIS_SKEW = 0.5f;
+	// the folder under res/ where we find textures. Android internal cuisine
+	public static final String TEXTURES_LOCATION = "drawable/";
 	
 	// viewing params
 	// field of view
@@ -29,6 +31,9 @@ public interface Constants {
 	// the notification ID
 	public static final int NOTIF_TICKER_ID = 42;
 	public static final String RECHECK_LICENSE_ACTION = "RECHECK_LICENSE";
+	// 3) logo texture
+	public static final String LOGO_TEXTURE_KEY = "logoTexture";
+	public static final String DEFAULT_LOGO_TEXTURE_NAME = "texture_taijitu";
 
 	// skybox params
 	/*

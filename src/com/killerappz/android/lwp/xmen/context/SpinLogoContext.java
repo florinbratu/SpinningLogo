@@ -18,6 +18,13 @@ public class SpinLogoContext extends ContextInfo implements
 	private int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
 	// the license status
 	private String licenseStatus = Constants.DEFAULT_LICENSE_STATUS;
+    // the new logo texture, if it changed
+    private String logoTextureName = Constants.DEFAULT_LOGO_TEXTURE_NAME;
+
+    // get texture && reset the texture dirty flag
+    public String getLogoTextureName() {
+    	return this.logoTextureName;
+    }
 	
 	public int getRotationSpeed() {
 		return rotationSpeed;
@@ -33,11 +40,15 @@ public class SpinLogoContext extends ContextInfo implements
 			rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
 		else if(Constants.LICENSE_STATUS_KEY.equals(key))
 			licenseStatus = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
+		else if(Constants.LOGO_TEXTURE_KEY.equals(key)) {
+			logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
+		}
 	}
 
 	public void loadPrefs(SharedPreferences prefs) {
 		this.rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
 		this.licenseStatus = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
+		this.logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
 	}
 	
 }
