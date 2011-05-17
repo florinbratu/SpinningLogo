@@ -6,17 +6,20 @@
         <item>"Red black"</item>
         <item>"Grey"</item>
         <item>"Cherry"</item>
+        <item>"First Class"</item>
     </string-array>
     <string-array name="listValues">
         <item>"texture_xavier"</item>
         <item>"texture_red_black"</item>
         <item>"texture_grey"</item>
         <item>"texture_cherry"</item>
+        <item>"texture_first_class"</item>
     </string-array>
 	<array name="imageValues">
-		<item>@drawable/texture_xavier</item>
-		<item>@drawable/texture_red_black</item>
-		<item>@drawable/texture_grey</item>
-		<item>@drawable/texture_cherry</item>
+		<item>@drawable/texture_xavier_icon</item>
+		<item>@drawable/texture_red_black_icon</item>
+		<item>@drawable/texture_grey_icon</item>
+		<item>@drawable/texture_cherry_icon</item>
+		<item>@drawable/texture_first_class_icon</item>
 	</array>
 </resources>
