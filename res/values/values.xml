@@ -2,21 +2,18 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="listNames">
-        <item>"Taijitu"</item>
         <item>"Xavier's School"</item>
         <item>"Red black"</item>
         <item>"Grey"</item>
         <item>"Cherry"</item>
     </string-array>
     <string-array name="listValues">
-        <item>"texture_taijitu"</item>
         <item>"texture_xavier"</item>
         <item>"texture_red_black"</item>
         <item>"texture_grey"</item>
         <item>"texture_cherry"</item>
     </string-array>
 	<array name="imageValues">
-		<item>@drawable/texture_taijitu_icon</item>
 		<item>@drawable/texture_xavier</item>
 		<item>@drawable/texture_red_black</item>
 		<item>@drawable/texture_grey</item>
