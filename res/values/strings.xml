@@ -50,6 +50,6 @@
     
     <!-- Logo texture -->
     <string name="logo_texture_title">X-Men Logo Image</string>
-    <string name="logo_texture_defaultValue">texture_xavier</string>
+    <string name="logo_texture_defaultValue">texture_first_class</string>
 
 </resources>

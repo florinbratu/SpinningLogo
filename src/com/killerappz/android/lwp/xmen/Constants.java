@@ -33,7 +33,7 @@ public interface Constants {
 	public static final String RECHECK_LICENSE_ACTION = "RECHECK_LICENSE";
 	// 3) logo texture
 	public static final String LOGO_TEXTURE_KEY = "logoTexture";
-	public static final String DEFAULT_LOGO_TEXTURE_NAME = "texture_xavier";
+	public static final String DEFAULT_LOGO_TEXTURE_NAME = "texture_first_class";
 
 	// skybox params
 	/*

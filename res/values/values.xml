@@ -2,24 +2,24 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="listNames">
+        <item>"First Class"</item>
         <item>"Xavier's School"</item>
         <item>"Red black"</item>
         <item>"Grey"</item>
         <item>"Cherry"</item>
-        <item>"First Class"</item>
     </string-array>
     <string-array name="listValues">
+    	<item>"texture_first_class"</item>
         <item>"texture_xavier"</item>
         <item>"texture_red_black"</item>
         <item>"texture_grey"</item>
         <item>"texture_cherry"</item>
-        <item>"texture_first_class"</item>
     </string-array>
 	<array name="imageValues">
+		<item>@drawable/texture_first_class_icon</item>
 		<item>@drawable/texture_xavier_icon</item>
 		<item>@drawable/texture_red_black_icon</item>
 		<item>@drawable/texture_grey_icon</item>
 		<item>@drawable/texture_cherry_icon</item>
-		<item>@drawable/texture_first_class_icon</item>
 	</array>
 </resources>
