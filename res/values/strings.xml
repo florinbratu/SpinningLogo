@@ -7,6 +7,7 @@
     <string name="license_check_error">Error while performing application license check, error code: </string>
     
     <!--  settings screen -->
+    <!-- Rotation speed -->
     <string name="spinlogo_settings">Preferences</string>
     <string name="rotation_speed_name">RotationSpeed</string>
     <string name="rotation_speed_summary">%1$.1f deg/sec</string>
@@ -47,4 +48,8 @@
     <string name="license_check_notif_text">Click here to reattempt license validation</string>
     <string name="license_check_in_progress">Check in progress...</string>
     
+    <!-- Logo texture -->
+    <string name="logo_texture_title">Batman Logo</string>
+    <string name="logo_texture_defaultValue">texture_taijitu</string>
+
 </resources>
