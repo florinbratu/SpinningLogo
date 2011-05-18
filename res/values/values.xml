@@ -5,15 +5,36 @@
         <item>"Taijitu"</item>
         <item>"Rough"</item>
         <item>"Rainbow Blue"</item>
+        <item>"Classic"</item>
+        <item>"Buckle"</item>
+        <item>"Light"</item>
+        <item>"Golden"</item>
+        <item>"Nightfall"</item>
+        <item>"Skinny"</item>
+        <item>"Red"</item>
     </string-array>
     <string-array name="listValues">
         <item>"texture_taijitu"</item>
         <item>"texture_rough"</item>
         <item>"texture_rainbow_blue"</item>
+        <item>"texture_classic"</item>
+        <item>"texture_buckle"</item>
+        <item>"texture_light"</item>
+        <item>"texture_golden"</item>
+        <item>"texture_nightfall"</item>
+        <item>"texture_skinny"</item>
+        <item>"texture_red"</item>
     </string-array>
 	<array name="imageValues">
 		<item>@drawable/texture_taijitu_icon</item>
 		<item>@drawable/texture_rough_icon</item>
 		<item>@drawable/texture_rainbow_blue_icon</item>
+		<item>@drawable/texture_classic_icon</item>
+		<item>@drawable/texture_buckle_icon</item>
+		<item>@drawable/texture_light_icon</item>
+		<item>@drawable/texture_golden_icon</item>
+		<item>@drawable/texture_nightfall_icon</item>
+		<item>@drawable/texture_skinny_icon</item>
+		<item>@drawable/texture_red_icon</item>
 	</array>
 </resources>
