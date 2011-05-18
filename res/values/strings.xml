@@ -50,6 +50,6 @@
     
     <!-- Logo texture -->
     <string name="logo_texture_title">Batman Logo</string>
-    <string name="logo_texture_defaultValue">texture_taijitu</string>
+    <string name="logo_texture_defaultValue">texture_classic</string>
 
 </resources>
