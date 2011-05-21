@@ -2,12 +2,16 @@ package com.killerappz.android.lwp.dukenukem;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import min3d.Utils;
+import min3d.core.Object3d;
 import min3d.core.Object3dContainer;
 import min3d.core.Renderer;
 import min3d.core.Scene;
 import min3d.core.TextureManager;
 import min3d.objectPrimitives.SkyBox;
+import min3d.vos.TextureVo;
 import android.content.Context;
+import android.graphics.Bitmap;
 
 import com.killerappz.android.lwp.dukenukem.context.Point;
 import com.killerappz.android.lwp.dukenukem.context.SpinLogoContext;
@@ -28,8 +32,8 @@ public class SpinningLogo {
 	private final Context context;
 	// for textures
 	private final TextureManager textureManager;
+    private String currentLogoTexture = Constants.DEFAULT_LOGO_TEXTURE_NAME;
 	
-	// rotSpeed is the rotation speed measured in ROTATION_SPEED_UNIT
 	public SpinningLogo(Context context, TextureManager tm, String resId, SpinLogoContext contextInfo, Scene scene) {
 		this.context = context;
 		this.textureManager = tm;
@@ -37,14 +41,52 @@ public class SpinningLogo {
 		this.contextInfo = contextInfo;
  		this.scene = scene;
  		this.skyBox = createSkyBox();
+ 		// compare texture info vs the one stored in prefs
+		checkTextures();
 	}
 	
+	private void checkTextures() {
+		if(dirtyLogoTexture()) {
+			updateLogoTexture(contextInfo.getLogoTextureName());
+		}
+	}
+
 	public void draw(GL10 gl, Renderer renderer){
+		// pre-draw: check for texture changes
+		checkTextures();
+		
 		// draw all objects within the container
 		scene.addChild(object);
 		scene.addChild(skyBox);
 		renderer.onDrawFrame(gl);
+		
+		// post-draw: rotate logo
 		autoRotate();
+	}
+
+	private void updateLogoTexture(String logoTextureName) {
+		// find res for the new texture
+		int texId = context.getResources().getIdentifier(
+				Constants.TEXTURES_LOCATION + logoTextureName,
+				null, context.getPackageName());
+		// load up the new texture
+		Bitmap b = Utils.makeBitmapFromResourceId( context, texId);
+		this.textureManager.addTextureId(b, logoTextureName, false);
+		b.recycle();
+		
+		Object3d logoObject = object.getChildAt(0);
+		// unload old texture. Textures are expensive, don't keep any unless it's used!
+		this.textureManager.deleteTexture(logoObject.textures().get(0).textureId);
+		// link the new texture to the logo
+		logoObject.textures().addReplace(new TextureVo(logoTextureName));
+		
+		// store its name
+		this.currentLogoTexture = logoTextureName;
+	}
+	
+    // tests for texture changes
+	private boolean dirtyLogoTexture() {
+		return !currentLogoTexture.equals(contextInfo.getLogoTextureName());
 	}
 
 	private void autoRotate() {

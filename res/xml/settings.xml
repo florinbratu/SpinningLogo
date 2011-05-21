@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:killerappzz="http://schemas.android.com/apk/res/com.killerappz.android.lwp.dukenukem">
 	android:title="@string/spinlogo_settings"
 	android:key="settings">
 
@@ -11,7 +12,16 @@
 		android:persistent="true"
 		android:defaultValue="@string/rotation_speed_default_value"
 		android:max="@string/rotation_speed_max_value" />
-		
+
+	<!-- the ImageList pref screen for selecting the logo image -->
+	<com.killerappz.android.lwp.dukenukem.preferences.ImageListPreference
+		android:key="logoTexture"
+		android:title="@string/logo_texture_title"
+		android:summary="@string/logo_texture_defaultValue"
+		android:entries="@array/listNames"
+		android:entryValues="@array/listValues"
+		killerappzz:entryImages="@array/imageValues"/>		
+
 	<com.killerappz.android.lwp.dukenukem.preferences.LicenseStatusPreference
          android:key="licenseStatus"
          android:title="@string/license_check_title"
