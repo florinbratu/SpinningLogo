@@ -2,11 +2,9 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="listNames">
-        <item>"Taijitu"</item>
-        <item>"Rough"</item>
-        <item>"Rainbow Blue"</item>
         <item>"Classic"</item>
-        <item>"Golden black"</item>
+        <item>"Rough"</item>
+        <item>"Golden Black"</item>
         <item>"Velour"</item>
         <item>"Rusty"</item>
         <item>"Shiny"</item>
@@ -14,10 +12,8 @@
         <item>"White Rough"</item>
     </string-array>
     <string-array name="listValues">
-        <item>"texture_taijitu"</item>
-        <item>"texture_rough"</item>
-        <item>"texture_rainbow_blue"</item>
         <item>"texture_classic"</item>
+        <item>"texture_rough"</item>
         <item>"texture_golden_black"</item>
         <item>"texture_velour"</item>
         <item>"texture_rusty"</item>
@@ -26,10 +22,8 @@
         <item>"texture_white_rough"</item>
     </string-array>
 	<array name="imageValues">
-		<item>@drawable/texture_taijitu_icon</item>
-		<item>@drawable/texture_rough_icon</item>
-		<item>@drawable/texture_rainbow_blue_icon</item>
 		<item>@drawable/texture_classic_icon</item>
+		<item>@drawable/texture_rough_icon</item>
 		<item>@drawable/texture_golden_black_icon</item>
 		<item>@drawable/texture_velour_icon</item>
 		<item>@drawable/texture_rusty_icon</item>
