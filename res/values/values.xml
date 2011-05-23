@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="listNames">
+        <item>"Taijitu"</item>
+        <item>"Rough"</item>
+        <item>"Rainbow Blue"</item>
+    </string-array>
+    <string-array name="listValues">
+        <item>"texture_taijitu"</item>
+        <item>"texture_rough"</item>
+        <item>"texture_rainbow_blue"</item>
+    </string-array>
+	<array name="imageValues">
+		<item>@drawable/texture_taijitu_icon</item>
+		<item>@drawable/texture_rough_icon</item>
+		<item>@drawable/texture_rainbow_blue_icon</item>
+	</array>
+</resources>
