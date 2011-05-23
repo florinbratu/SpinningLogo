@@ -51,5 +51,5 @@
     
     <!-- Logo texture -->
     <string name="logo_texture_title">Superman Logo Image</string>
-    <string name="logo_texture_defaultValue">texture_taijitu</string>
+    <string name="logo_texture_defaultValue">texture_default</string>
 </resources>
