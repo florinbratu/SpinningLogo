@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World!</string>
-    <string name="app_name">Spinning Logo Live Wallpaper</string>
-    <string name="service_label">Spinning Logo LWP</string>
-    <string name="description">A wallpaper consisting of a spinning logo rotating in the center of the screen</string>
-    <string name="invalid_license">The Spinning Logo Live Wallpaper has been installed on this device without a license!</string>
+    <string name="app_name">Ying Yang Live Wallpaper</string>
+    <string name="service_label">Ying Yang Tajitu</string>
+    <string name="description">The ancient Ying Yang Tajitu symbol rotating in the middle of a beautiful arctic landscape!</string>
+    <string name="invalid_license">The Ying Yang Live Wallpaper has been installed on this device without a license!</string>
     <string name="license_check_error">Error while performing application license check, error code: </string>
     
     <!--  settings screen -->
@@ -34,7 +34,7 @@
     <color name="color_license_ok">#0f0</color>
     <color name="color_license_unknown">#ff0</color>
     
-    <string name="license_check_notes_label">The Spinning Logo Live Wallpaper version
+    <string name="license_check_notes_label">The Ying Yang Live Wallpaper version
     	installed on this device did not pass license validation! Please 
     	get a valid version of the application from the Android Market.
     	
@@ -43,7 +43,7 @@
     	The license validation process needs access to the Android Market servers, so
     	please make sure you have network coverage during the validation process.
     	</string>
-    <string name="license_check_notif_ticker_text">Spinning Logo Live Wallpaper license validation failed!</string>
+    <string name="license_check_notif_ticker_text">Ying Yang Live Wallpaper license validation failed!</string>
     <string name="license_check_notif_title">License validation failed...</string>
     <string name="license_check_notif_text">Click here to reattempt license validation</string>
     <string name="license_check_in_progress">Check in progress...</string>
@@ -52,9 +52,9 @@
     
     <!-- crash reporting -->
     <string name="crash_notif_ticker_text">Unexpected error, please send a report...</string>
-	<string name="crash_notif_title">Spinning Logo LWP has crashed...</string>
+	<string name="crash_notif_title">Ying Yang LWP has crashed...</string>
 	<string name="crash_notif_text">Please click here to help fix the issue.</string>
-	<string name="crash_dialog_title">Spinning Logo Live Wallpaper has crashed</string>
+	<string name="crash_dialog_title">The Ying Yang Live Wallpaper has crashed</string>
 	<string name="crash_dialog_text">An unexpected error occurred forcing the
         application to stop. Please help us fix this by sending us error data,
         all you have to do is click \'OK\'.</string>
