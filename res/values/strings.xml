@@ -83,4 +83,15 @@
 	<string name="user_feedback_logcat_checkbox">Add device logs to report</string>
 	<string name="user_feedback_report_sent">Thank you for your feedback!</string>
 	
+	<!-- full version -->
+	<string name="full_version_logo_texture_title">Ying Yang Image</string>
+	<string name="full_version_skybox_texture_title">Background Image</string>
+	<string name="full_version_summary">Default</string>
+	<string name="full_version_dialog_title">Download full version</string>
+	<string name="full_version_positive_btn">Get full version</string>
+	<string name="full_version_negative_btn">No, thanks</string>
+	<string name="full_version_teaser">This feature is only available in full version!</string>
+	<string name="full_version_features">Key benefits of full version:\n* 100% Ad Free\n* No permissions required\n* Fully skinnable</string>
+	<string name="full_version_donate">Your donation is what motivates us for developing these nice-looking wallpapers.\nIf you like it, please download the full version! You won\'t regret it!</string>
+	
 </resources>
