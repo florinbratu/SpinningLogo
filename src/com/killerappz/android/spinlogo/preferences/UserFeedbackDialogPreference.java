@@ -2,6 +2,8 @@ package com.killerappz.android.spinlogo.preferences;
 
 import org.acra.ACRA;
 import org.acra.ErrorReporter;
+import org.acra.ReportingInteractionMode;
+import org.acra.annotation.ReportsCrashes;
 
 import android.content.Context;
 import android.preference.DialogPreference;
@@ -11,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.killerappz.android.spinlogo.Constants;
 import com.killerappz.android.spinlogo.R;
 
 /**
@@ -23,6 +26,22 @@ import com.killerappz.android.spinlogo.R;
  * @author florin
  *
  */
+@ReportsCrashes(formKey = "dC1xZ1lxZVV3SkJ4aE1nOFpnMTRXR0E6MQ",
+		formUri = "https://spreadsheets.google.com/formResponse?formkey=dC1xZ1lxZVV3SkJ4aE1nOFpnMTRXR0E6MQ&amp;ifq",
+		mode = ReportingInteractionMode.NOTIFICATION,
+		sharedPreferencesName = Constants.PREFS_NAME,
+		logcatArguments = { "-t", "300", "-v", "long", "ActivityManager:I", "ACRA:I", "KILLER_LWP:D", "Min3D:D", "GLThread:D", "*:S" },
+		logcatTimeout = 3,
+        resNotifTickerText = R.string.crash_notif_ticker_text,
+        resNotifTitle = R.string.crash_notif_title,
+        resNotifText = R.string.crash_notif_text,
+        resNotifIcon = android.R.drawable.stat_notify_error, // optional. default is a warning sign
+        resDialogText = R.string.crash_dialog_text,
+        resDialogIcon = android.R.drawable.ic_dialog_info, //optional. default is a warning sign
+        resDialogTitle = R.string.crash_dialog_title, // optional. default is your application name
+        resDialogCommentPrompt = R.string.crash_dialog_comment_prompt, // optional. when defined, adds a user text field input with this text resource as a label
+        resDialogOkToast = R.string.crash_dialog_ok_toast // optional. displays a Toast message when the user accepts to send a report.
+	)
 public class UserFeedbackDialogPreference extends DialogPreference {
 	
 	private volatile boolean includeLogcat;
@@ -36,7 +55,7 @@ public class UserFeedbackDialogPreference extends DialogPreference {
 		setDialogIcon(android.R.drawable.ic_dialog_info);
 		setDialogLayoutResource(R.layout.user_feedback);
 		// fwkin ACRA
-		// ACRA.init(context);
+		ACRA.init(this, context);
 	}
 	
 	@Override
