@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo.preferences;
+package com.killerappz.android.spinlogo.free.preferences;
 
 import org.acra.ACRA;
 import org.acra.ErrorReporter;
@@ -13,8 +13,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.killerappz.android.spinlogo.Constants;
-import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.spinlogo.free.R;
+import com.killerappz.android.spinlogo.free.Constants;
 
 /**
  * This is not really a preference. It will simply be

@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo.preferences;
+package com.killerappz.android.spinlogo.free.preferences;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.spinlogo.Constants;
-import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.spinlogo.free.R;
+import com.killerappz.android.spinlogo.free.Constants;
 
 /**
  * Entrance in the Preferences page for 

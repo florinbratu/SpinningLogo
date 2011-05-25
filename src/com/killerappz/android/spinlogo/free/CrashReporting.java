@@ -1,8 +1,10 @@
-package com.killerappz.android.spinlogo;
+package com.killerappz.android.spinlogo.free;
 
 import org.acra.ACRA;
 import org.acra.ReportingInteractionMode;
 import org.acra.annotation.ReportsCrashes;
+
+import com.killerappz.android.spinlogo.free.R;
 
 import android.app.Application;
 

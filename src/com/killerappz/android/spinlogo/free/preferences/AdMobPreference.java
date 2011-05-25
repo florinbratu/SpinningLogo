@@ -1,8 +1,8 @@
-package com.killerappz.android.spinlogo.preferences;
+package com.killerappz.android.spinlogo.free.preferences;
 
 import com.google.ads.AdRequest;
 import com.google.ads.AdView;
-import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.spinlogo.free.R;
 
 import android.content.Context;
 import android.preference.Preference;

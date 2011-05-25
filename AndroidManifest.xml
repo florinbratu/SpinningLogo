@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.killerappz.android.spinlogo"
+      package="com.killerappz.android.spinlogo.free"
       android:versionCode="1"
       android:versionName="1.0">
     
@@ -38,7 +38,7 @@
               android:configChanges="keyboard|keyboardHidden|orientation"/>
 		
 		<!-- the license validation dialog -->
-		<activity android:name="com.killerappz.android.spinlogo.licensing.LicenseValidationDialog"
+		<activity android:name=".licensing.LicenseValidationDialog"
 			android:theme="@android:style/Theme.Dialog"
 	        android:launchMode="singleInstance"
 	        android:excludeFromRecents="true"

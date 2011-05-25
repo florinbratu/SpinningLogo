@@ -1,6 +1,6 @@
-package com.killerappz.android.spinlogo.preferences;
+package com.killerappz.android.spinlogo.free.preferences;
 
-import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.spinlogo.free.R;
 
 import android.content.Context;
 import android.content.Intent;

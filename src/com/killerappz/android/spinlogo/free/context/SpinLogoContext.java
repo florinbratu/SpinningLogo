@@ -1,6 +1,6 @@
-package com.killerappz.android.spinlogo.context;
+package com.killerappz.android.spinlogo.free.context;
 
-import com.killerappz.android.spinlogo.Constants;
+import com.killerappz.android.spinlogo.free.Constants;
 
 import android.content.SharedPreferences;
 
