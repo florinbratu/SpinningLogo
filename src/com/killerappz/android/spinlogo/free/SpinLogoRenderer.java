@@ -89,11 +89,6 @@ public class SpinLogoRenderer implements GLWallpaperService.Renderer {
 		if(!initFinished)
 			// TODO draw a Load in progress text...
 			return;
-		
-		// if invalid license, refuse to work!
-		if(!this.wallpaperRef.hasValidLicense())
-			// TODO draw a Invalid license text
-			return;
 
 		gl.glClearColor(0.2f, 0.4f, 0.2f, 1f);
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);

@@ -2,17 +2,13 @@ package com.killerappz.android.spinlogo.free;
 
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.SharedPreferences;
-import android.os.Handler;
 
 import com.killerappz.android.spinlogo.free.context.SpinLogoContext;
-import com.killerappz.android.spinlogo.free.licensing.MarketLicensingManager;
 
 // Original code provided by Robert Green
 // http://www.rbgrn.net/content/354-glsurfaceview-adapted-3d-live-wallpapers
 public class SpinLogoWallpaperService extends GLWallpaperService {
 	private final SpinLogoContext contextInfo;
-	// market licensing manager
-	private MarketLicensingManager mLicenseManager;
 	
 	public SpinLogoWallpaperService() {
 		super();
@@ -23,10 +19,6 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		// create the market license manager
-		mLicenseManager = new MarketLicensingManager(this, new Handler());
-		// check license OBS this is not synchronous, unless there's info in its cache
-		mLicenseManager.doCheck();
 	}
 
 	public Engine onCreateEngine() {
@@ -38,8 +30,6 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 	public void onDestroy() {
 		// cleanup for upper layers
 		super.onDestroy();
-		// cleanup the License Manager
-		mLicenseManager.cleanup();
 	}
 	
 	@Override
@@ -51,15 +41,6 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 				yOffsetStep, xPixelOffset, yPixelOffset);
 	}
 	
-	// license related ops
-	public boolean hasValidLicense() {
-		return mLicenseManager.validLicense;
-	}
-	
-	public void setLicenseStatus(boolean validLicense) {
-		mLicenseManager.validLicense = validLicense;
-	}
-
 	class SpinLogoEngine extends GLEngine 
 	{
 		// access to the user preferences

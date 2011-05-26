@@ -3,8 +3,6 @@
     <string name="app_name">Ying Yang Live Wallpaper Free</string>
     <string name="service_label">Ying Yang Tajitu Free</string>
     <string name="description">The ancient Ying Yang Tajitu symbol rotating in the middle of a beautiful arctic landscape!</string>
-    <string name="invalid_license">The Ying Yang Live Wallpaper has been installed on this device without a license!</string>
-    <string name="license_check_error">Error while performing application license check, error code: </string>
     
     <!--  settings screen -->
     <string name="spinlogo_settings">Preferences</string>
@@ -14,39 +12,7 @@
     <string name="rotation_speed_max_value">90</string>
     <string name="rotation_speed_title">Rotation speed</string>
     <color name="white_color">#fff</color>
-    <color name="gray_color">#aaa</color>
-    
-    <!-- License status dialog -->
-    <string name="license_check_title">License Status</string>
-    <string name="license_check_summary">TODO</string>
-    <string name="license_check_status_label">License Status:</string>
-    <string name="license_check_android_market_label">Go to the Android Market page of the application</string>
-    <string name="license_check_dialog_title">Check your license status</string>
-    <string name="license_check_email_dev_label">Contact the developer</string>
-    <string name="license_check_email_subject">Problems with license for app </string>
-    <string name="license_check_email_dev_intent">Email the developer</string>
-    <string name="license_check_negative_button">Cancel</string>
-    <string name="license_check_positive_button_ok">OK</string>
-    <string name="license_check_positive_button_check_license">Check license</string>
-    <color name="color_license_invalid">#f00</color>
-    <color name="color_license_error">#00f</color>
-    <color name="color_license_ok">#0f0</color>
-    <color name="color_license_unknown">#ff0</color>
-    
-    <string name="license_check_notes_label">The Ying Yang Live Wallpaper version
-    	installed on this device did not pass license validation! Please 
-    	get a valid version of the application from the Android Market.
-    	
-    	You may reattempt license validation right now by clicking the \'Check license\' 
-    	button below, or later from the Preferences page.
-    	The license validation process needs access to the Android Market servers, so
-    	please make sure you have network coverage during the validation process.
-    	</string>
-    <string name="license_check_notif_ticker_text">Ying Yang Live Wallpaper license validation failed!</string>
-    <string name="license_check_notif_title">License validation failed...</string>
-    <string name="license_check_notif_text">Click here to reattempt license validation</string>
-    <string name="license_check_in_progress">Check in progress...</string>
-    
+    <color name="gray_color">#aaa</color>    
     <color name="black_color">#000</color>
     
     <!-- crash reporting -->

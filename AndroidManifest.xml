@@ -6,7 +6,6 @@
     
     <uses-sdk android:minSdkVersion="7" />
     <uses-feature android:name="android.software.live_wallpaper" />
-    <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
@@ -35,13 +34,6 @@
 		<!-- adz -->		
 		<activity android:name="com.google.ads.AdActivity"
               android:configChanges="keyboard|keyboardHidden|orientation"/>
-		
-		<!-- the license validation dialog -->
-		<activity android:name=".licensing.LicenseValidationDialog"
-			android:theme="@android:style/Theme.Dialog"
-	        android:launchMode="singleInstance"
-	        android:excludeFromRecents="true"
-	        android:finishOnTaskLaunch="true" />
 		
 		<!-- ACRA crash report dialog -->
 		<activity android:name="org.acra.CrashReportDialog"

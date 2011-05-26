@@ -27,12 +27,6 @@
 		android:title="@string/full_version_skybox_texture_title"
 		android:summary="@string/full_version_summary"
 		android:dialogTitle="@string/full_version_dialog_title"/>
-		
-	<com.killerappz.android.spinlogo.free.preferences.LicenseStatusPreference
-         android:key="licenseStatus"
-         android:title="@string/license_check_title"
-         android:summary="@string/license_check_summary"
-         android:dialogTitle="@string/license_check_dialog_title"/>
                
     <com.killerappz.android.spinlogo.free.preferences.UserFeedbackDialogPreference
         android:key="userFeedback"
