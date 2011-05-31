@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.superman.preferences;
+package com.killerappz.android.lwp.donation.superman.preferences;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.superman.Constants;
-import com.killerappz.android.lwp.superman.R;
+import com.killerappz.android.lwp.donation.superman.Constants;
+import com.killerappz.android.lwp.donation.superman.R;
 
 /**
  * Entrance in the Preferences page for 

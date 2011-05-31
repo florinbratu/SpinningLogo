@@ -1,6 +1,6 @@
-package com.killerappz.android.lwp.superman.context;
+package com.killerappz.android.lwp.donation.superman.context;
 
-import com.killerappz.android.lwp.superman.Constants;
+import com.killerappz.android.lwp.donation.superman.Constants;
 
 import android.content.SharedPreferences;
 

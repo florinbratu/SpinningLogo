@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.superman.preferences;
+package com.killerappz.android.lwp.donation.superman.preferences;
 
-import com.killerappz.android.lwp.superman.Constants;
-import com.killerappz.android.lwp.superman.R;
+import com.killerappz.android.lwp.donation.superman.Constants;
+import com.killerappz.android.lwp.donation.superman.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

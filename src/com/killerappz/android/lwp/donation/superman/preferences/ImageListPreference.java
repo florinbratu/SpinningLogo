@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.superman.preferences;
+package com.killerappz.android.lwp.donation.superman.preferences;
 
 import android.app.AlertDialog.Builder;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 
-import com.killerappz.android.lwp.superman.R;
+import com.killerappz.android.lwp.donation.superman.R;
 
 /**
  * This is a Preference widget offering 

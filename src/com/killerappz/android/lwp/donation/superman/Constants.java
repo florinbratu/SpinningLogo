@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.superman;
+package com.killerappz.android.lwp.donation.superman;
 
 public interface Constants {
-	public static final String PREFS_NAME	= "spinlogo_settings";
+	public static final String PREFS_NAME	= "superman_donation_settings";
 	public static final float ROTATION_SPEED_UNIT = 0.1f;
 	public static final int DEFAULT_ROTATION_SPEED = 25;
 	// the file containing the model of the logo

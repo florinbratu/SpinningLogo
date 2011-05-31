@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.superman.licensing;
+package com.killerappz.android.lwp.donation.superman.licensing;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -15,9 +15,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.superman.preferences.LicenseStatusPreference;
-import com.killerappz.android.lwp.superman.Constants;
-import com.killerappz.android.lwp.superman.R;
+import com.killerappz.android.lwp.donation.superman.Constants;
+import com.killerappz.android.lwp.donation.superman.preferences.LicenseStatusPreference;
+import com.killerappz.android.lwp.donation.superman.R;
 
 /**
  * Dialog to be displayed on wallpaper startup

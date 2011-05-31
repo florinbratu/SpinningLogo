@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.superman.licensing;
+package com.killerappz.android.lwp.donation.superman.licensing;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,8 +12,8 @@ import com.android.vending.licensing.AESObfuscator;
 import com.android.vending.licensing.LicenseChecker;
 import com.android.vending.licensing.LicenseCheckerCallback;
 import com.android.vending.licensing.ServerManagedPolicy;
-import com.killerappz.android.lwp.superman.Constants;
-import com.killerappz.android.lwp.superman.SpinLogoWallpaperService;
+import com.killerappz.android.lwp.donation.superman.Constants;
+import com.killerappz.android.lwp.donation.superman.SpinLogoWallpaperService;
 
 /**
  * Handles the licensing process for the application,

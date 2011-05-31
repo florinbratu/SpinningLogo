@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:killerappzz="http://schemas.android.com/apk/res/com.killerappz.android.lwp.superman">
+	xmlns:killerappzz="http://schemas.android.com/apk/res/com.killerappz.android.lwp.donation.superman">
 	android:title="@string/spinlogo_settings"
 	android:key="settings">
 
 	<!-- the seekbar pref screen for rotation speed -->
-    <com.killerappz.android.lwp.superman.preferences.SeekBarPreference
+    <com.killerappz.android.lwp.donation.superman.preferences.SeekBarPreference
         android:key="rotation"
 		android:title="@string/rotation_speed_title"
 		android:dialogTitle="@string/rotation_speed_title"
@@ -15,7 +15,7 @@
 		android:max="@string/rotation_speed_max_value" />
 
 	<!-- the ImageList pref screen for selecting the logo image -->
-	<com.killerappz.android.lwp.superman.preferences.ImageListPreference
+	<com.killerappz.android.lwp.donation.superman.preferences.ImageListPreference
 		android:key="logoTexture"
 		android:title="@string/logo_texture_title"
 		android:summary="@string/logo_texture_defaultValue"

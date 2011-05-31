@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.superman;
+package com.killerappz.android.lwp.donation.superman;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -13,9 +13,9 @@ import min3d.vos.TextureVo;
 import android.content.Context;
 import android.graphics.Bitmap;
 
-import com.killerappz.android.lwp.superman.context.Point;
-import com.killerappz.android.lwp.superman.context.SpinLogoContext;
-import com.killerappz.android.lwp.superman.R;
+import com.killerappz.android.lwp.donation.superman.context.Point;
+import com.killerappz.android.lwp.donation.superman.context.SpinLogoContext;
+import com.killerappz.android.lwp.donation.superman.R;
 
 /**
  * The Spinning Logo object
