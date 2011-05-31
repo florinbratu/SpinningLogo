@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.mortalkombat.context;
+package com.killerappz.android.lwp.donation.mortalkombat.context;
 
 public class OffsetInfo {
 

@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.mortalkombat.preferences;
+package com.killerappz.android.lwp.donation.mortalkombat.preferences;
 
-import com.killerappz.android.lwp.mortalkombat.Constants;
-import com.killerappz.android.lwp.mortalkombat.R;
+import com.killerappz.android.lwp.donation.mortalkombat.Constants;
+import com.killerappz.android.lwp.donation.mortalkombat.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,11 +1,11 @@
-package com.killerappz.android.lwp.mortalkombat;
+package com.killerappz.android.lwp.donation.mortalkombat;
 
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.SharedPreferences;
 import android.os.Handler;
 
-import com.killerappz.android.lwp.mortalkombat.context.SpinLogoContext;
-import com.killerappz.android.lwp.mortalkombat.licensing.MarketLicensingManager;
+import com.killerappz.android.lwp.donation.mortalkombat.context.SpinLogoContext;
+import com.killerappz.android.lwp.donation.mortalkombat.licensing.MarketLicensingManager;
 
 // Original code provided by Robert Green
 // http://www.rbgrn.net/content/354-glsurfaceview-adapted-3d-live-wallpapers

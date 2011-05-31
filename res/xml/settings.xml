@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:killerappzz="http://schemas.android.com/apk/res/com.killerappz.android.lwp.mortalkombat">
+	xmlns:killerappzz="http://schemas.android.com/apk/res/com.killerappz.android.lwp.donation.mortalkombat"
 	android:title="@string/spinlogo_settings"
 	android:key="settings">
 
-    <com.killerappz.android.lwp.mortalkombat.preferences.SeekBarPreference
+    <com.killerappz.android.lwp.donation.mortalkombat.preferences.SeekBarPreference
         android:key="rotation"
 		android:title="@string/rotation_speed_title"
 		android:dialogTitle="@string/rotation_speed_title"
@@ -14,7 +14,7 @@
 		android:max="@string/rotation_speed_max_value" />
 
 	<!-- the ImageList pref screen for selecting the logo image -->
-	<com.killerappz.android.lwp.mortalkombat.preferences.ImageListPreference
+	<com.killerappz.android.lwp.donation.mortalkombat.preferences.ImageListPreference
 		android:key="logoTexture"
 		android:title="@string/logo_texture_title"
 		android:summary="@string/logo_texture_defaultValue"
@@ -22,7 +22,7 @@
 		android:entryValues="@array/listValues"
 		killerappzz:entryImages="@array/imageValues"/>		
 
-	<com.killerappz.android.lwp.mortalkombat.preferences.LicenseStatusPreference
+	<com.killerappz.android.lwp.donation.mortalkombat.preferences.LicenseStatusPreference
          android:key="licenseStatus"
          android:title="@string/license_check_title"
          android:summary="@string/license_check_summary"

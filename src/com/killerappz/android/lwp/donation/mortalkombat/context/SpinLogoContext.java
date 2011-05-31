@@ -1,6 +1,6 @@
-package com.killerappz.android.lwp.mortalkombat.context;
+package com.killerappz.android.lwp.donation.mortalkombat.context;
 
-import com.killerappz.android.lwp.mortalkombat.Constants;
+import com.killerappz.android.lwp.donation.mortalkombat.Constants;
 
 import android.content.SharedPreferences;
 

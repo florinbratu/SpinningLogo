@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.mortalkombat;
+package com.killerappz.android.lwp.donation.mortalkombat;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "spinlogo_settings";
