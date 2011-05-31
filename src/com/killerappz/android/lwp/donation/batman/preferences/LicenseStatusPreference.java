@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.batman.preferences;
+package com.killerappz.android.lwp.donation.batman.preferences;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.batman.Constants;
-import com.killerappz.android.lwp.batman.R;
+import com.killerappz.android.lwp.donation.batman.Constants;
+import com.killerappz.android.lwp.donation.batman.R;
 
 /**
  * Entrance in the Preferences page for 

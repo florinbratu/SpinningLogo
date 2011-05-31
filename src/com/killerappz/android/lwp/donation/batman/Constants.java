@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.batman;
+package com.killerappz.android.lwp.donation.batman;
 
 public interface Constants {
-	public static final String PREFS_NAME	= "spinlogo_settings";
+	public static final String PREFS_NAME	= "batman_donation_settings";
 	public static final float ROTATION_SPEED_UNIT = 0.1f;
 	public static final int DEFAULT_ROTATION_SPEED = 25;
 	// the file containing the model of the logo

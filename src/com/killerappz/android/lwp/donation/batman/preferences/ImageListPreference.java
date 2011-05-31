@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.batman.preferences;
+package com.killerappz.android.lwp.donation.batman.preferences;
 
 import android.app.AlertDialog.Builder;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 
-import com.killerappz.android.lwp.batman.R;
+import com.killerappz.android.lwp.donation.batman.R;
 
 /**
  * This is a Preference widget offering 

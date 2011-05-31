@@ -1,6 +1,6 @@
-package com.killerappz.android.lwp.batman.context;
+package com.killerappz.android.lwp.donation.batman.context;
 
-import com.killerappz.android.lwp.batman.Constants;
+import com.killerappz.android.lwp.donation.batman.Constants;
 
 import android.content.SharedPreferences;
 

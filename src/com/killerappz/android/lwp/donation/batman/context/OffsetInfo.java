@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.batman.context;
+package com.killerappz.android.lwp.donation.batman.context;
 
 public class OffsetInfo {
 

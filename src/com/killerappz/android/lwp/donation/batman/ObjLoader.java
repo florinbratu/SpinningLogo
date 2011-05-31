@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.batman;
+package com.killerappz.android.lwp.donation.batman;
 
 import min3d.core.Object3dContainer;
 import min3d.core.TextureManager;
