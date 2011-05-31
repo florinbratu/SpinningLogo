@@ -22,5 +22,11 @@
 		android:entries="@array/listNames"
 		android:entryValues="@array/listValues"
 		killerappzz:entryImages="@array/imageValues"/>		
+		
+	<com.killerappz.android.lwp.donation.superman.preferences.LicenseStatusPreference
+         android:key="licenseStatus"
+         android:title="@string/license_check_title"
+         android:summary="@string/license_check_summary"
+         android:dialogTitle="@string/license_check_dialog_title"/>
 	
 </PreferenceScreen>
