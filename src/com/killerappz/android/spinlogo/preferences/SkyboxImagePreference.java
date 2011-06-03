@@ -9,17 +9,6 @@ import min3d.core.Scene;
 import min3d.core.TextureManager;
 import min3d.interfaces.ISceneController;
 import min3d.objectPrimitives.SkyBox;
-import net.rbgrn.android.glwallpaperservice.GLWallpaperService.GLEngine;
-
-import com.killerappz.android.spinlogo.Constants;
-import com.killerappz.android.spinlogo.R;
-import com.killerappz.android.spinlogo.SpinLogoRenderer;
-import com.killerappz.android.spinlogo.SpinLogoWallpaperService;
-import com.killerappz.android.spinlogo.SpinningLogo;
-import com.killerappz.android.spinlogo.context.OffsetInfo;
-import com.killerappz.android.spinlogo.context.Point;
-import com.killerappz.android.spinlogo.context.SpinLogoContext;
-
 import android.app.ActivityManager;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
@@ -28,6 +17,12 @@ import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Toast;
+
+import com.killerappz.android.spinlogo.Constants;
+import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.spinlogo.context.ContextInfo;
+import com.killerappz.android.spinlogo.context.NoPreferencesContextInfo;
+import com.killerappz.android.spinlogo.context.Point;
 
 /**
  * The pref page for choosing the 
@@ -38,14 +33,16 @@ import android.widget.Toast;
  */
 public class SkyboxImagePreference extends DialogPreference {
 	
+	private GLSurfaceView mGLView;
+	
 	public SkyboxImagePreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
 	@Override
 	protected View onCreateDialogView() {
-		View imgChoiceView = new ImageLayoutView(getContext());
-		return imgChoiceView;
+		mGLView = new ImageLayoutView(getContext());
+		return mGLView;
 	}
 	
 	@Override
@@ -67,13 +64,15 @@ public class SkyboxImagePreference extends DialogPreference {
 
 		public ImageLayoutView(Context context) {
 			super(context);
-			this.mRenderer = new ImageLayoutRenderer(context);
+			this.mRenderer = new ImageLayoutRenderer(context,
+					new NoPreferencesContextInfo());
 			setRenderer(mRenderer);
 		}
 		
 		public ImageLayoutView(Context context, AttributeSet attrs) {
 			super(context, attrs);
-			this.mRenderer = new ImageLayoutRenderer(context);
+			this.mRenderer = new ImageLayoutRenderer(context,
+					new NoPreferencesContextInfo());
 			setRenderer(mRenderer);
 		}
 	
@@ -90,7 +89,7 @@ public class SkyboxImagePreference extends DialogPreference {
 		// (ab)using m3d's Scene object
 		private Scene scene;
 		// the context informationfor rendering 
-		private final SpinLogoContext contextInfo;
+		private final ContextInfo contextInfo;
 		private TextureManager textureManager; // for textures
 		private Renderer renderer; // min3d renderer
 		
@@ -98,7 +97,7 @@ public class SkyboxImagePreference extends DialogPreference {
 		// sync between scene init and rendering
 		private volatile boolean initFinished = false;
 		
-		public ImageLayoutRenderer(Context ctx, SpinLogoContext contextInfo) {
+		public ImageLayoutRenderer(Context ctx, ContextInfo contextInfo) {
 			this.contextInfo = contextInfo;
 			this.context = ctx;
 			m3dInit();
