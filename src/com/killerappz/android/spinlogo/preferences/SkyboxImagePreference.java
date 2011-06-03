@@ -1,6 +1,10 @@
 package com.killerappz.android.spinlogo.preferences;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 
 import min3d.core.RenderCaps;
@@ -9,6 +13,7 @@ import min3d.core.Scene;
 import min3d.core.TextureManager;
 import min3d.interfaces.ISceneController;
 import min3d.objectPrimitives.SkyBox;
+import min3d.objectPrimitives.SkyBox.Face;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
@@ -24,6 +29,9 @@ import com.killerappz.android.spinlogo.R;
 import com.killerappz.android.spinlogo.context.ContextInfo;
 import com.killerappz.android.spinlogo.context.NoPreferencesContextInfo;
 import com.killerappz.android.spinlogo.context.Point;
+import com.killerappz.android.spinlogo.context.Rectangle;
+import com.killerappz.android.spinlogo.preferences.matrix.MatrixTrackingGL;
+import com.killerappz.android.spinlogo.preferences.matrix.Projector;
 
 /**
  * The pref page for choosing the 
@@ -70,6 +78,11 @@ public class SkyboxImagePreference extends DialogPreference {
 		public ImageLayoutView(Context context) {
 			super(context);
 			this.contextInfo = new NoPreferencesContextInfo();
+			// set wrapper keeping track of the projection matrices
+			setGLWrapper(new GLSurfaceView.GLWrapper() {
+	            public GL wrap(GL gl) {
+	                return new MatrixTrackingGL(gl);
+	            }});
 			this.mRenderer = new ImageLayoutRenderer(context, contextInfo);
 			setRenderer(mRenderer);
 			setRenderMode(RENDERMODE_WHEN_DIRTY);
@@ -117,6 +130,8 @@ public class SkyboxImagePreference extends DialogPreference {
 		
 		// the skybox object
 		private SkyBox skyBox;
+		// skybox texture names. 
+		private final Map<SkyBox.Face,String> faceNames;
 		// (ab)using m3d's Scene object
 		private Scene scene;
 		// the context informationfor rendering 
@@ -129,12 +144,23 @@ public class SkyboxImagePreference extends DialogPreference {
 		private volatile boolean initFinished = false;
 		
 		// store if texture is currently highlighted
-		private boolean highlightedTexture = false;
+		private Face highlightedFace = Face.North; // North is magic for None
+		
+		// get the current matrices(modelview, projection,...)
+		private final Projector projektor; 
 		
 		public ImageLayoutRenderer(Context ctx, ContextInfo contextInfo) {
 			this.contextInfo = contextInfo;
 			this.context = ctx;
+			this.projektor = new Projector();
 			m3dInit();
+			// names for the textures
+			faceNames = new HashMap<SkyBox.Face, String>();
+			faceNames.put(SkyBox.Face.East,  "east_texture");
+			faceNames.put(SkyBox.Face.South, "south_texture");
+			faceNames.put(SkyBox.Face.West,  "west_texture");
+			faceNames.put(SkyBox.Face.Up,    "up_texture");
+			faceNames.put(SkyBox.Face.Down,  "down_texture");
 		}
 
 		/**
@@ -180,26 +206,34 @@ public class SkyboxImagePreference extends DialogPreference {
 			// draw the skybox
 			scene.addChild(skyBox);
 			// touch test
-			if(!highlightedTexture && contextInfo.isTouched())
+			if( highlightedFace.equals(Face.North) && contextInfo.isTouched()) {
 				// switch from normal texture to highlighted
-				highlightTexture();
-			else if( highlightedTexture && !contextInfo.isTouched() )
+				this.highlightedFace = getHighlightedFace(gl);
+				skyBox.highlightTexture(highlightedFace, 
+						faceNames.get(highlightedFace));
+			}
+			else if( !highlightedFace.equals(Face.North) && !contextInfo.isTouched()) {
 				// switch from highlighted to normal texture
-				unhighlightTexture();
+				skyBox.unhighlightTexture(highlightedFace, 
+						faceNames.get(highlightedFace));
+				this.highlightedFace = Face.North;
+			}
 			// delegate to min3D renderer
 			renderer.onDrawFrame(gl);
 		}
 		
-		private void highlightTexture() {
-			// TODO take into account touch point position!
-			skyBox.highlightTexture(SkyBox.Face.Up, "up_texture");
-			this.highlightedTexture = true;
-		}
-		
-		private void unhighlightTexture() {
-			// TODO take into account touch point position!
-			skyBox.unhighlightTexture(SkyBox.Face.Up, "up_texture");
-			this.highlightedTexture = false;
+		// find out which texture needs to be highlighted
+		// according to the placement of the touch point
+		private SkyBox.Face getHighlightedFace(GL10 gl) {
+			// load up the current modelview matrix
+			projektor.getCurrentModelView(gl);
+			// project the central rectangle to screen coordinates
+			float halfSize = Constants.SKYBOX_PREF_SIZE * 0.5f;
+			Rectangle skyBoxFront = new Rectangle( halfSize, halfSize, 
+					-halfSize, -halfSize, -halfSize);
+			Rectangle projectedSkyBoxFront = skyBoxFront.projection(projektor);
+			return projectedSkyBoxFront.position(contextInfo.getTouchPoint(), 
+					contextInfo.getCenter());
 		}
 
 		/**
@@ -229,6 +263,8 @@ public class SkyboxImagePreference extends DialogPreference {
 					Constants.Z_NEAR_PLANE, Constants.Z_FAR_PLANE);
 			// let the renderer load the frustum
 			renderer.onSurfaceChanged(gl, width, height);
+			// save up the projection matrix
+			projektor.getCurrentProjection(gl);
 		}
 
 		@Override
@@ -240,11 +276,11 @@ public class SkyboxImagePreference extends DialogPreference {
 			skyBox = new SkyBox(context, textureManager, Constants.SKYBOX_PREF_SIZE, 
 					Constants.SKYBOX_PREF_QUALITY_FACTOR);
 			/* skybox textures */
-			skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_right,  "east_texture");
-			skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_center, "south_texture");
-			skyBox.addTexture(SkyBox.Face.West,  R.drawable.skybox_left,  "west_texture");
-			skyBox.addTextureWithHighligh(SkyBox.Face.Up,    R.drawable.skybox_up,    "up_texture");
-			skyBox.addTexture(SkyBox.Face.Down,  R.drawable.skybox_down,  "down_texture");
+			skyBox.addTextureWithHighligh(SkyBox.Face.East,  R.drawable.skybox_right,  this.faceNames.get(Face.East));
+			skyBox.addTextureWithHighligh(SkyBox.Face.South, R.drawable.skybox_center, this.faceNames.get(Face.South));
+			skyBox.addTextureWithHighligh(SkyBox.Face.West,  R.drawable.skybox_left,   this.faceNames.get(Face.West));
+			skyBox.addTextureWithHighligh(SkyBox.Face.Up,    R.drawable.skybox_up,     this.faceNames.get(Face.Up));
+			skyBox.addTextureWithHighligh(SkyBox.Face.Down,  R.drawable.skybox_down,   this.faceNames.get(Face.Down));
 			initFinished = true;
 		}
 
