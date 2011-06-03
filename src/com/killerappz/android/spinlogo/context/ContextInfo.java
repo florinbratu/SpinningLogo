@@ -18,12 +18,13 @@ public abstract class ContextInfo implements
     private final Point mCenter;
     // the offset information
     private final OffsetInfo mOffset;
-    private final TouchPoint mTouchPoint;
+    private final Point mTouchPoint;
     
     public ContextInfo() {
 		mCenter = new Point();
 		mOffset = new OffsetInfo();
-		mTouchPoint = new TouchPoint();
+		mTouchPoint = new Point();
+		touched = false;
 	}
 
 	public void setCenter(float width, float height) {
@@ -37,6 +38,7 @@ public abstract class ContextInfo implements
 
 	public void setTouchPoint(float x, float y) {
 		mTouchPoint.set(x,y);
+		this.touched = true;
 	}
 	
 	public Point getCenter() {
@@ -44,9 +46,19 @@ public abstract class ContextInfo implements
 	}
 	
 	public Point getTouchPoint(){
-		return mTouchPoint.get();
+		return mTouchPoint;
 	}
 	
+	private volatile boolean touched;
+	
+	public boolean isTouched() {
+		return touched;
+	}
+	
+	public void setTouched(boolean t) {
+		touched = t;
+	}
+
 	public OffsetInfo getOffset() {
 		return mOffset;
 	}

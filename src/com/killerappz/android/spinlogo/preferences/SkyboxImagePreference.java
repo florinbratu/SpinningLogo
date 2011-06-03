@@ -15,6 +15,7 @@ import android.opengl.GLSurfaceView;
 import android.os.Handler;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -64,24 +65,48 @@ public class SkyboxImagePreference extends DialogPreference {
 	private class ImageLayoutView extends GLSurfaceView {
 		
 		private final ImageLayoutRenderer mRenderer;
+		private final ContextInfo contextInfo;
 
 		public ImageLayoutView(Context context) {
 			super(context);
-			this.mRenderer = new ImageLayoutRenderer(context,
-					new NoPreferencesContextInfo());
+			this.contextInfo = new NoPreferencesContextInfo();
+			this.mRenderer = new ImageLayoutRenderer(context, contextInfo);
 			setRenderer(mRenderer);
-			setRenderMode(RENDERMODE_CONTINUOUSLY);
+			setRenderMode(RENDERMODE_WHEN_DIRTY);
 		}
 		
 		public ImageLayoutView(Context context, AttributeSet attrs) {
 			super(context, attrs);
-			this.mRenderer = new ImageLayoutRenderer(context,
-					new NoPreferencesContextInfo());
+			this.contextInfo = new NoPreferencesContextInfo();
+			this.mRenderer = new ImageLayoutRenderer(context, contextInfo);
 			setRenderer(mRenderer);
-			setRenderMode(RENDERMODE_CONTINUOUSLY);
+			setRenderMode(RENDERMODE_WHEN_DIRTY);
 		}
-	
-		// TODO.
+
+		@Override 
+		public boolean onTouchEvent(MotionEvent e) {
+	        switch (e.getAction()) {
+	        case MotionEvent.ACTION_DOWN:
+	        	contextInfo.setTouchPoint(e.getX(), e.getY());
+	        	requestRender();
+	        	break;
+	        case MotionEvent.ACTION_MOVE:
+	        	/* TODO
+	        	float dx = x - mPreviousX;
+	        	float dy = y - mPreviousY;
+	        	mRenderer.mAngleX += dx * TOUCH_SCALE_FACTOR;
+	        	mRenderer.mAngleY += dy * TOUCH_SCALE_FACTOR;
+	        	requestRender();*/
+	        	break;
+	        case MotionEvent.ACTION_UP:
+	        	// TODO
+	        case MotionEvent.ACTION_CANCEL:
+	        	contextInfo.setTouched(false);
+	        	break;
+	        }
+	        return true;
+	    }
+		
 	}
 	
 	/**
@@ -150,8 +175,16 @@ public class SkyboxImagePreference extends DialogPreference {
 			changeCamera(center);
 			// draw the skybox
 			scene.addChild(skyBox);
+			// touch test
+			if(contextInfo.isTouched())
+				highlightTexture();
 			// delegate to min3D renderer
 			renderer.onDrawFrame(gl);
+		}
+		
+		private void highlightTexture() {
+			// TODO take into account touch point position!
+			skyBox.highlightTexture(SkyBox.Face.Up, "drawable/skybox_up", "up_texture");
 		}
 
 		/**
