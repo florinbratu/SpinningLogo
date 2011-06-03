@@ -102,6 +102,7 @@ public class SkyboxImagePreference extends DialogPreference {
 	        	// TODO
 	        case MotionEvent.ACTION_CANCEL:
 	        	contextInfo.setTouched(false);
+	        	requestRender();
 	        	break;
 	        }
 	        return true;
@@ -126,6 +127,9 @@ public class SkyboxImagePreference extends DialogPreference {
 		private final Context context;
 		// sync between scene init and rendering
 		private volatile boolean initFinished = false;
+		
+		// store if texture is currently highlighted
+		private boolean highlightedTexture = false;
 		
 		public ImageLayoutRenderer(Context ctx, ContextInfo contextInfo) {
 			this.contextInfo = contextInfo;
@@ -176,8 +180,12 @@ public class SkyboxImagePreference extends DialogPreference {
 			// draw the skybox
 			scene.addChild(skyBox);
 			// touch test
-			if(contextInfo.isTouched())
+			if(!highlightedTexture && contextInfo.isTouched())
+				// switch from normal texture to highlighted
 				highlightTexture();
+			else if( highlightedTexture && !contextInfo.isTouched() )
+				// switch from highlighted to normal texture
+				unhighlightTexture();
 			// delegate to min3D renderer
 			renderer.onDrawFrame(gl);
 		}
@@ -185,6 +193,13 @@ public class SkyboxImagePreference extends DialogPreference {
 		private void highlightTexture() {
 			// TODO take into account touch point position!
 			skyBox.highlightTexture(SkyBox.Face.Up, "drawable/skybox_up", "up_texture");
+			this.highlightedTexture = true;
+		}
+		
+		private void unhighlightTexture() {
+			// TODO take into account touch point position!
+			skyBox.unhighlightTexture(SkyBox.Face.Up, R.drawable.skybox_up, "up_texture");
+			this.highlightedTexture = false;
 		}
 
 		/**
