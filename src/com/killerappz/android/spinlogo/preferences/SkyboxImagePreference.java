@@ -42,6 +42,9 @@ public class SkyboxImagePreference extends DialogPreference {
 	@Override
 	protected View onCreateDialogView() {
 		mGLView = new ImageLayoutView(getContext());
+		// get some focus in here!
+		mGLView.requestFocus();
+        mGLView.setFocusableInTouchMode(true);
 		return mGLView;
 	}
 	
@@ -67,6 +70,7 @@ public class SkyboxImagePreference extends DialogPreference {
 			this.mRenderer = new ImageLayoutRenderer(context,
 					new NoPreferencesContextInfo());
 			setRenderer(mRenderer);
+			setRenderMode(RENDERMODE_CONTINUOUSLY);
 		}
 		
 		public ImageLayoutView(Context context, AttributeSet attrs) {
@@ -74,6 +78,7 @@ public class SkyboxImagePreference extends DialogPreference {
 			this.mRenderer = new ImageLayoutRenderer(context,
 					new NoPreferencesContextInfo());
 			setRenderer(mRenderer);
+			setRenderMode(RENDERMODE_CONTINUOUSLY);
 		}
 	
 		// TODO.
