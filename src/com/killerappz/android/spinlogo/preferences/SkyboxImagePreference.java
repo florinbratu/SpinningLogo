@@ -189,7 +189,8 @@ public class SkyboxImagePreference extends DialogPreference {
 			min3dSurfaceCreated(gl);
 			reset(gl);
 			// create skybox
-			skyBox = new SkyBox(context, textureManager, Constants.SKYBOX_SIZE, Constants.SKYBOX_QUALITY_FACTOR);
+			skyBox = new SkyBox(context, textureManager, Constants.SKYBOX_PREF_SIZE, 
+					Constants.SKYBOX_PREF_QUALITY_FACTOR);
 			/* skybox textures */
 			skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_right,  "east_texture");
 			skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_center, "south_texture");

@@ -41,6 +41,10 @@ public interface Constants {
 	folosite pt a construi fiecare din laturile skybox-ului */
 	public static final int SKYBOX_QUALITY_FACTOR = 3;
 	
+	/* dimensiunea skybox-ului in fereastra de customizare */
+	public static final float SKYBOX_PREF_SIZE = 4;
+	public static final int SKYBOX_PREF_QUALITY_FACTOR = 3;
+	
 	/** Application licensing-related info */
 	public static final String BASE64_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBC" +
 			"gKCAQEAzJc4dgyEyGSo822dyj0//KtVtd4qZk7bpmPLav2ok88rpx1g474gOP7qX4JWrUIDUqwlRHBXP" +
