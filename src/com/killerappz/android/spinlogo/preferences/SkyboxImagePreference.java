@@ -192,13 +192,13 @@ public class SkyboxImagePreference extends DialogPreference {
 		
 		private void highlightTexture() {
 			// TODO take into account touch point position!
-			skyBox.highlightTexture(SkyBox.Face.Up, "drawable/skybox_up", "up_texture");
+			skyBox.highlightTexture(SkyBox.Face.Up, "up_texture");
 			this.highlightedTexture = true;
 		}
 		
 		private void unhighlightTexture() {
 			// TODO take into account touch point position!
-			skyBox.unhighlightTexture(SkyBox.Face.Up, R.drawable.skybox_up, "up_texture");
+			skyBox.unhighlightTexture(SkyBox.Face.Up, "up_texture");
 			this.highlightedTexture = false;
 		}
 
@@ -243,7 +243,7 @@ public class SkyboxImagePreference extends DialogPreference {
 			skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_right,  "east_texture");
 			skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_center, "south_texture");
 			skyBox.addTexture(SkyBox.Face.West,  R.drawable.skybox_left,  "west_texture");
-			skyBox.addTexture(SkyBox.Face.Up,    R.drawable.skybox_up,    "up_texture");
+			skyBox.addTextureWithHighligh(SkyBox.Face.Up,    R.drawable.skybox_up,    "up_texture");
 			skyBox.addTexture(SkyBox.Face.Down,  R.drawable.skybox_down,  "down_texture");
 			initFinished = true;
 		}
