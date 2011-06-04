@@ -75,7 +75,7 @@ public class Projector {
     
     @Override
     public String toString() {
-    	return mGrabber.toString();
+    	return mGrabber.toString() + " width:" + mViewWidth + " height:" +mViewHeight;
     }
     
     private MatrixGrabber mGrabber;
