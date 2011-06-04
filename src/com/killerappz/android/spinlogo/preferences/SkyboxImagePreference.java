@@ -263,7 +263,7 @@ public class SkyboxImagePreference extends DialogPreference {
 		@Override
 		public void onSurfaceChanged(GL10 gl, int width, int height) {
 			// get the center of the screen
-			contextInfo.setCenter(width/2.0f, height/2.0f);
+			contextInfo.setCenter(width, height);
 			// save up the width/height in the projektor
 			projektor.setCurrentView(0, 0, width, height);
 			// register the projection parameters to the Frustum
