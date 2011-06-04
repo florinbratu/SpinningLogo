@@ -1,11 +1,14 @@
 package com.killerappz.android.spinlogo.preferences;
 
+import java.nio.Buffer;
+import java.nio.IntBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL11Ext;
+import javax.microedition.khronos.opengles.GL11ExtensionPack;
 
 import min3d.core.RenderCaps;
 import min3d.core.Renderer;
@@ -14,8 +17,10 @@ import min3d.core.TextureManager;
 import min3d.interfaces.ISceneController;
 import min3d.objectPrimitives.SkyBox;
 import min3d.objectPrimitives.SkyBox.Face;
+import min3d.vos.Color4;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.opengl.GLES11Ext;
 import android.opengl.GLSurfaceView;
 import android.os.Handler;
 import android.preference.DialogPreference;
@@ -31,7 +36,6 @@ import com.killerappz.android.spinlogo.context.ContextInfo;
 import com.killerappz.android.spinlogo.context.NoPreferencesContextInfo;
 import com.killerappz.android.spinlogo.context.Point;
 import com.killerappz.android.spinlogo.context.Rectangle;
-import com.killerappz.android.spinlogo.preferences.matrix.MatrixTrackingGL;
 import com.killerappz.android.spinlogo.preferences.matrix.Projector;
 
 /**
@@ -80,10 +84,11 @@ public class SkyboxImagePreference extends DialogPreference {
 			super(context);
 			this.contextInfo = new NoPreferencesContextInfo();
 			// set wrapper keeping track of the projection matrices
-			setGLWrapper(new GLSurfaceView.GLWrapper() {
+			// disable for now - going for the color picker version
+			/*setGLWrapper(new GLSurfaceView.GLWrapper() {
 	            public GL wrap(GL gl) {
 	                return new MatrixTrackingGL(gl);
-	            }});
+	            }});*/
 			this.mRenderer = new ImageLayoutRenderer(context, contextInfo);
 			setRenderer(mRenderer);
 			setRenderMode(RENDERMODE_WHEN_DIRTY);
@@ -113,7 +118,7 @@ public class SkyboxImagePreference extends DialogPreference {
 	        	requestRender();*/
 	        	break;
 	        case MotionEvent.ACTION_UP:
-	        	// TODO
+	        	// TODO show the Load Image screen
 	        case MotionEvent.ACTION_CANCEL:
 	        	contextInfo.setTouched(false);
 	        	requestRender();
@@ -131,6 +136,8 @@ public class SkyboxImagePreference extends DialogPreference {
 		
 		// the skybox object
 		private SkyBox skyBox;
+		// the skybox for the back buffer; for touch selection
+		private SkyBox skyBoxColored;
 		// skybox texture names. 
 		private final Map<SkyBox.Face,String> faceNames;
 		// (ab)using m3d's Scene object
@@ -148,7 +155,9 @@ public class SkyboxImagePreference extends DialogPreference {
 		private Face highlightedFace = Face.North; // North is magic for None
 		
 		// get the current matrices(modelview, projection,...)
-		private final Projector projektor; 
+		private final Projector projektor;
+		// the buffer drawing colored scene. for touch test
+		private FrameBufferObject fbo = new FrameBufferObject();
 		
 		public ImageLayoutRenderer(Context ctx, ContextInfo contextInfo) {
 			this.contextInfo = contextInfo;
@@ -193,9 +202,36 @@ public class SkyboxImagePreference extends DialogPreference {
 			this.textureManager = new TextureManager(this.renderer);
 			this.renderer.setTextureManager(this.textureManager);
 		}
-
+		
 		@Override
 		public void onDrawFrame(GL10 gl) {
+            if (checkGL11Support(gl)) {
+                GL11ExtensionPack gl11ep = (GL11ExtensionPack) gl;
+                gl11ep.glBindFramebufferOES(GL11ExtensionPack.GL_FRAMEBUFFER_OES, fbo.getFrameBuffer());
+                drawBackBuffer(gl);
+                gl11ep.glBindFramebufferOES(GL11ExtensionPack.GL_FRAMEBUFFER_OES, 0);
+                drawFrontEnd(gl);
+            } else {
+                // TODO handle lack of framebuffer support!!
+            }
+        }
+
+		private void drawBackBuffer(GL10 gl) {
+			// if not initialized drop frame
+			if(!initFinished)
+				return;
+			gl.glClearColor(0.2f, 0.4f, 0.2f, 1f);
+			gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+			// draw the skybox
+			scene.addChild(skyBoxColored);
+			// delegate to min3D renderer
+			renderer.onDrawFrame(gl);
+			// touch test
+			if(contextInfo.isTouched())
+				this.highlightedFace = getHighlightedFace(gl);
+		}
+
+		public void drawFrontEnd(GL10 gl) {
 			// if not initialized drop frame
 			if(!initFinished)
 				// TODO draw a Load in progress text...
@@ -206,26 +242,54 @@ public class SkyboxImagePreference extends DialogPreference {
 			changeCamera(center);
 			// draw the skybox
 			scene.addChild(skyBox);
-			// touch test
-			if( highlightedFace.equals(Face.North) && contextInfo.isTouched()) {
-				// switch from normal texture to highlighted
-				this.highlightedFace = getHighlightedFace(gl);
-				skyBox.highlightTexture(highlightedFace, 
-						faceNames.get(highlightedFace));
-			}
-			else if( !highlightedFace.equals(Face.North) && !contextInfo.isTouched()) {
-				// switch from highlighted to normal texture
-				skyBox.unhighlightTexture(highlightedFace, 
-						faceNames.get(highlightedFace));
-				this.highlightedFace = Face.North;
-			}
+			// highlighted face?
+			if( !highlightedFace.equals(Face.North)) 
+				if(contextInfo.isTouched()) {
+					// switch from normal texture to highlighted
+					skyBox.highlightTexture(highlightedFace, 
+							faceNames.get(highlightedFace));
+				}
+				else {
+					// switch from highlighted to normal texture
+					skyBox.unhighlightTexture(highlightedFace, 
+							faceNames.get(highlightedFace));
+					this.highlightedFace = Face.North;
+				}
 			// delegate to min3D renderer
 			renderer.onDrawFrame(gl);
 		}
 		
 		// find out which texture needs to be highlighted
-		// according to the placement of the touch point
+		// using color picking method
 		private SkyBox.Face getHighlightedFace(GL10 gl) {
+			Point touchPoint = contextInfo.getTouchPoint();
+            int[] tmp = new int[1];
+            Buffer pixelColorBuffer = IntBuffer.wrap(tmp);
+            pixelColorBuffer.position(0);
+			gl.glReadPixels((int)touchPoint.x, (int)touchPoint.y, 1, 1, 
+					GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, pixelColorBuffer);
+			int touchColor = tmp[0];
+			Color4 touchPointColor = new Color4(
+					touchColor >>> 24,
+					(touchColor >> 16) & 0xFF,
+					(touchColor >> 8) & 0xFF,
+					touchColor & 0xFF 
+					);
+			for( Face face : Face.values() ) {
+				if(SkyBox.getFaceColor(face).equals(touchPointColor))
+					return face;
+			}
+			// error - no face has been touched!
+			Log.e(Constants.LOG_TAG, "Touch point " + touchPoint 
+					+ " has color " + touchPointColor +
+					" not corresponding to any faces colors!");
+			// no highlight
+			return Face.North;
+		}
+		
+		// find out which texture needs to be highlighted
+		// according to the placement of the touch point
+		private SkyBox.Face getHighlightedFaceWithGeometry(GL10 gl) {
 			// load up the current modelview matrix
 			projektor.getCurrentModelView(gl);
 			// show us the matrices
@@ -266,6 +330,9 @@ public class SkyboxImagePreference extends DialogPreference {
 			contextInfo.setCenter(width, height);
 			// save up the width/height in the projektor
 			projektor.setCurrentView(0, 0, width, height);
+			// create framebuffer
+			fbo.width = width;
+			fbo.height = height;
 			// register the projection parameters to the Frustum
 			float aspectRatio = (float)width/(float)height;
 			scene.camera().frustum.fromPerspective(Constants.FIELD_OF_VIEW_Y, aspectRatio, 
@@ -281,9 +348,17 @@ public class SkyboxImagePreference extends DialogPreference {
 			initFinished = false;
 			min3dSurfaceCreated(gl);
 			reset(gl);
+			// create the framebuffer for touch test
+			if(checkGL11Support(gl)) {
+				fbo.gl11 = (GL11ExtensionPack)gl;
+				fbo.create();
+			}
+			// create colored skybox
+			skyBoxColored = new SkyBox(context, textureManager, Constants.SKYBOX_PREF_SIZE, 
+					Constants.SKYBOX_PREF_QUALITY_FACTOR, true);
 			// create skybox
 			skyBox = new SkyBox(context, textureManager, Constants.SKYBOX_PREF_SIZE, 
-					Constants.SKYBOX_PREF_QUALITY_FACTOR);
+					Constants.SKYBOX_PREF_QUALITY_FACTOR, false);
 			/* skybox textures */
 			skyBox.addTextureWithHighligh(SkyBox.Face.East,  R.drawable.skybox_right,  this.faceNames.get(Face.East));
 			skyBox.addTextureWithHighligh(SkyBox.Face.South, R.drawable.skybox_center, this.faceNames.get(Face.South));
@@ -376,7 +451,80 @@ public class SkyboxImagePreference extends DialogPreference {
 			}
 			
 		}
+		
+		/**
+		 * Check if current device supports OpenGL 1.1 
+		 * and the FrameBuffer Object extension
+		 *  */
+		private boolean checkGL11Support(GL10 gl) {
+			String extensions = " " + gl.glGetString(GL10.GL_EXTENSIONS) + " ";
+			Log.d(Constants.LOG_TAG, extensions);
+			if(!(gl instanceof GL11ExtensionPack))
+				return false;
+	        // The extensions string is padded with spaces between extensions, but not
+	        // necessarily at the beginning or end. For simplicity, add spaces at the
+	        // beginning and end of the extensions string and the extension string.
+	        // This means we can avoid special-case checks for the first or last
+	        // extension, as well as avoid special-case checks when an extension name
+	        // is the same as the first part of another extension name.
+	        return extensions.indexOf(" GL_OES_framebuffer_object ") >= 0;
+		}
+		
+		/* the framebuffer object */
+		class FrameBufferObject {
+			
+			public GL11ExtensionPack gl11;
+			
+			private int framebuffer;
+			private int depthbuffer;
+			
+			public int width;
+			public int height;
+			
+			public FrameBufferObject() {
+			}
+			
+			public void create() { 
+	            int[] framebuffers = new int[1];
+	            gl11.glGenFramebuffersOES(1, framebuffers, 0);
+	            framebuffer = framebuffers[0];
+	            gl11.glBindFramebufferOES(GL11ExtensionPack.GL_FRAMEBUFFER_OES, framebuffer);
+
+	            int[] renderbuffers = new int[1];
+	            gl11.glGenRenderbuffersOES(1, renderbuffers, 0);
+	            depthbuffer = renderbuffers[0];
+
+	            gl11.glBindRenderbufferOES(GL11ExtensionPack.GL_RENDERBUFFER_OES, depthbuffer);
+	            gl11.glRenderbufferStorageOES(GL11ExtensionPack.GL_RENDERBUFFER_OES,
+	                    GL11ExtensionPack.GL_DEPTH_COMPONENT16, width, height);
+	            gl11.glFramebufferRenderbufferOES(GL11ExtensionPack.GL_FRAMEBUFFER_OES,
+	                    GL11ExtensionPack.GL_DEPTH_ATTACHMENT_OES,
+	                    GL11ExtensionPack.GL_RENDERBUFFER_OES, depthbuffer);
+
+	            int status = gl11.glCheckFramebufferStatusOES(GL11ExtensionPack.GL_FRAMEBUFFER_OES);
+	            if (status != GL11ExtensionPack.GL_FRAMEBUFFER_COMPLETE_OES) {
+	                throw new RuntimeException("Framebuffer is not complete: " +
+	                        Integer.toHexString(status));
+	            }
+	            gl11.glBindFramebufferOES(GL11ExtensionPack.GL_FRAMEBUFFER_OES, 0);
+	        }
+			
+			public int getFrameBuffer() {
+				return framebuffer;
+			}
+			
+			public void cleanup() {
+				int[] framebuffers = new int[1];
+				framebuffers[0] = framebuffer;
+				gl11.glDeleteFramebuffersOES(1, framebuffers, 0);
+				
+				int[] renderbuffers = new int[1];
+				renderbuffers[0] = depthbuffer;
+	            gl11.glDeleteRenderbuffersOES(1, renderbuffers, 0);
+			}
+
+		}
 
 	}
-
+	
 }
