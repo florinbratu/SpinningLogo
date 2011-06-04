@@ -41,6 +41,23 @@ public class MatrixGrabber {
         gl2.glMatrixMode(mode);
         gl2.getMatrix(mat, 0);
     }
+    
+    @Override
+    public String toString() {
+    	String projectionMatrix = "[" 
+    		+ mProjection[0] + "," + mProjection[1] + "," + mProjection[2] + "," + mProjection[3] + "|"
+    		+ mProjection[4] + "," + mProjection[5] + "," + mProjection[6] + "," + mProjection[7] + "|"
+    		+ mProjection[8] + "," + mProjection[9] + "," + mProjection[10] + "," + mProjection[11] + "|"
+    		+ mProjection[12] + "," + mProjection[13] + "," + mProjection[14] + "," + mProjection[15] + "]";
+    	
+    	String modelViewMatrix = "[" 
+    		+ mModelView[0] + "," + mModelView[1] + "," +  mModelView[2] + "," + mModelView[3] + "|"
+    		+ mModelView[4] + "," + mModelView[5] + "," + mModelView[6] + "," + mModelView[7] + "|"
+    		+ mModelView[8] + "," + mModelView[9] + "," + mModelView[10] + "," + mModelView[11] + "|"
+    		+ mModelView[12] + "," + mModelView[13] + "," + mModelView[14] + "," + mModelView[15] + "]";
+    	
+    	return "Projection matrix: " +  projectionMatrix + "\nModelview matrix: " + modelViewMatrix;
+    }
 
     public float[] mModelView;
     public float[] mProjection;

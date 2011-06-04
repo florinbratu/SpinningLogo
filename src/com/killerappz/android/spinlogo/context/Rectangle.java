@@ -70,4 +70,9 @@ public class Rectangle {
 			+ ((double)R.y - O.y) * ((double)T.y - O.y));
 	}
 	
+	@Override
+	public String toString() {
+		return "Upper Left corner: " + upperLeft + "; Lower Right corner: " + lowerRight;
+	}
+	
 }

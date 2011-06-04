@@ -72,7 +72,12 @@ public class Projector {
         mGrabber.getCurrentModelView(gl);
         mMVPComputed = false;
     }
-
+    
+    @Override
+    public String toString() {
+    	return mGrabber.toString();
+    }
+    
     private MatrixGrabber mGrabber;
     private boolean mMVPComputed;
     private float[] mMVP;

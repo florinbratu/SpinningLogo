@@ -25,5 +25,10 @@ public class Point {
 		Point po = (Point)o;
 		return po.x == this.x && po.y == this.y;
 	}
+	
+	@Override
+	public String toString() {
+		return "(" + x + "," + y + ")";
+	}
 
 }

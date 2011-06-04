@@ -20,6 +20,7 @@ import android.opengl.GLSurfaceView;
 import android.os.Handler;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -227,11 +228,17 @@ public class SkyboxImagePreference extends DialogPreference {
 		private SkyBox.Face getHighlightedFace(GL10 gl) {
 			// load up the current modelview matrix
 			projektor.getCurrentModelView(gl);
+			// show us the matrices
+			Log.d(Constants.LOG_TAG, projektor.toString());
 			// project the central rectangle to screen coordinates
 			float halfSize = Constants.SKYBOX_PREF_SIZE * 0.5f;
 			Rectangle skyBoxFront = new Rectangle( halfSize, halfSize, 
 					-halfSize, -halfSize, -halfSize);
+			Log.d(Constants.LOG_TAG, "Skybox center, before projection:" + skyBoxFront);
 			Rectangle projectedSkyBoxFront = skyBoxFront.projection(projektor);
+			Log.d(Constants.LOG_TAG, "Skybox center, after projection:" + projectedSkyBoxFront);
+			Log.d(Constants.LOG_TAG, "Center:" + contextInfo.getCenter());
+			Log.d(Constants.LOG_TAG, "Touch Point:" + contextInfo.getTouchPoint());
 			return projectedSkyBoxFront.position(contextInfo.getTouchPoint(), 
 					contextInfo.getCenter());
 		}
@@ -257,6 +264,8 @@ public class SkyboxImagePreference extends DialogPreference {
 		public void onSurfaceChanged(GL10 gl, int width, int height) {
 			// get the center of the screen
 			contextInfo.setCenter(width/2.0f, height/2.0f);
+			// save up the width/height in the projektor
+			projektor.setCurrentView(0, 0, width, height);
 			// register the projection parameters to the Frustum
 			float aspectRatio = (float)width/(float)height;
 			scene.camera().frustum.fromPerspective(Constants.FIELD_OF_VIEW_Y, aspectRatio, 
