@@ -20,6 +20,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 import com.killerappz.android.spinlogo.context.Rectangle;
 
+import android.opengl.GLU;
 import android.opengl.Matrix;
 
 /**
@@ -30,6 +31,7 @@ public class Projector {
     public Projector() {
         mMVP = new float[16];
         mV = new float[4];
+        mView = new int[4];
         mGrabber = new MatrixGrabber();
     }
 
@@ -38,6 +40,7 @@ public class Projector {
         mY = y;
         mViewWidth = width;
         mViewHeight = height;
+        mView[0] = (int)x; mView[1] = (int)y; mView[2] = Math.round(mViewWidth); mView[3] = Math.round(mViewHeight);
     }
 
     public void project(float[] obj, int objOffset, float[] win, int winOffset) {
@@ -53,6 +56,10 @@ public class Projector {
         win[winOffset] = mX + mViewWidth * (mV[0] * rw + 1.0f) * 0.5f;
         win[winOffset + 1] = mY + mViewHeight * (mV[1] * rw + 1.0f) * 0.5f;
         win[winOffset + 2] = (mV[2] * rw + 1.0f) * 0.5f;
+    }
+    
+    public void projekt(float[] obj, int objOffset, float[] win, int winOffset) {
+    	GLU.gluProject(obj[0], obj[1], obj[2], mGrabber.mModelView, 0, mGrabber.mProjection, 0, mView, 0, win, winOffset);
     }
    
     public void unproject(float[] win, int winOffset, float[] obj, int objOffset) {
@@ -118,4 +125,5 @@ public class Projector {
     private int mY;
     private int mViewWidth;
     private int mViewHeight;
+    private int[] mView;
 }
