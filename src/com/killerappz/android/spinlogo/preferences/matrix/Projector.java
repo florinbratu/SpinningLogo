@@ -16,9 +16,9 @@
 
 package com.killerappz.android.spinlogo.preferences.matrix;
 
-import android.opengl.Matrix;
-
 import javax.microedition.khronos.opengles.GL10;
+
+import android.opengl.Matrix;
 
 /**
  * A utility that projects
@@ -52,8 +52,33 @@ public class Projector {
         win[winOffset + 1] = mY + mViewHeight * (mV[1] * rw + 1.0f) * 0.5f;
         win[winOffset + 2] = (mV[2] * rw + 1.0f) * 0.5f;
     }
+   
+    public void unproject(float[] win, int winOffset, float[] obj, int objOffset) {
+    	
+    	if (!mMVPComputed) {
+            Matrix.multiplyMM(mMVP, 0, mGrabber.mProjection, 0, mGrabber.mModelView, 0);
+            mMVPComputed = true;
+        }
+    	
+    	float[] invertedMatrix = new float[16];
+    	Matrix.invertM(invertedMatrix, 0, mMVP, 0);
+    	
+    	float[] normalizedInPoint = new float[4];
+    	
+    	normalizedInPoint[0] = (float) ((win[winOffset]) * 2.0f / mViewWidth - 1.0);
+    	normalizedInPoint[1] = (float) ((mViewHeight - win[winOffset + 1]) * 2.0f / mViewHeight - 1.0);
+    	normalizedInPoint[2] = win[winOffset + 2];
+    	normalizedInPoint[3] = norm(win); // TODO maybe should be norm(win) aka sqrt(sum(win[i]^2))?
+    		   
+    	Matrix.multiplyMV(obj, objOffset, invertedMatrix, 0, normalizedInPoint, 0);
+    	
+    }
 
-    /**
+    private float norm(float[] win) {
+		return (float)Math.sqrt(win[0] * win[0] + win[1] * win[1] + win[2] * win[2]);
+	}
+
+	/**
      * Get the current projection matrix. Has the side-effect of
      * setting current matrix mode to GL_PROJECTION
      * @param gl

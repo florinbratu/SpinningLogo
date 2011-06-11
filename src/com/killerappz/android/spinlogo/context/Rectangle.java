@@ -2,6 +2,9 @@ package com.killerappz.android.spinlogo.context;
 
 import min3d.objectPrimitives.SkyBox.Face;
 
+import android.util.Log;
+
+import com.killerappz.android.spinlogo.Constants;
 import com.killerappz.android.spinlogo.preferences.matrix.Projector;
 
 /**
@@ -13,7 +16,7 @@ public class Rectangle {
 
 	private final Point upperLeft;
 	private final Point lowerRight;
-	private float z;
+	public float z;
 	
 	public Rectangle( float upperLeftX, float upperLeftY, 
 			float lowerRightX, float lowerRightY, float z ) {
@@ -22,19 +25,26 @@ public class Rectangle {
 		this.z = z;
 	}
 	
-	public Rectangle projection( Projector projektor ) {
+	/**
+	 * Get the screen coordinates for this rectangle.
+	 * Assumes(not checked!) that this rectangle is in world coords 
+	 */
+	public Rectangle toScreenCoords( Projector projektor ) {
 		float[] upperLeftCoords = new float[] { upperLeft.x, upperLeft.y, z, 1.0f};
 		float[] upperLeftWin = new float[3];
 		projektor.project(upperLeftCoords, 0, upperLeftWin, 0);
+		Log.d(Constants.LOG_TAG, "upper left z coord" + upperLeftWin[2]);
 		
 		float[] lowerRightCoords = new float[] { lowerRight.x, lowerRight.y, z, 1.0f};
 		float[] lowerRightWin = new float[3];
 		projektor.project(lowerRightCoords, 0, lowerRightWin, 0);
+		Log.d(Constants.LOG_TAG, "upper left z coord" + lowerRightWin[2]);
+		// assert(upperLeftWin[2] == lowerRightWin[2])
 		
 		return new Rectangle(upperLeftWin[0], upperLeftWin[1], 
-				lowerRightWin[0], lowerRightWin[1], z);
+				lowerRightWin[0], lowerRightWin[1], upperLeftWin[2]);
 	}
-
+	
 	/**
 	 * Assess the position of the testPoint
 	 * against this Rectangle, knowing that 
