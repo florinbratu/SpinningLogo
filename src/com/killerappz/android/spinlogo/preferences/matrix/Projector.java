@@ -18,6 +18,8 @@ package com.killerappz.android.spinlogo.preferences.matrix;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import com.killerappz.android.spinlogo.context.Rectangle;
+
 import android.opengl.Matrix;
 
 /**
@@ -65,10 +67,10 @@ public class Projector {
     	
     	float[] normalizedInPoint = new float[4];
     	
-    	normalizedInPoint[0] = (float) ((win[winOffset]) * 2.0f / mViewWidth - 1.0);
-    	normalizedInPoint[1] = (float) ((mViewHeight - win[winOffset + 1]) * 2.0f / mViewHeight - 1.0);
-    	normalizedInPoint[2] = win[winOffset + 2];
-    	normalizedInPoint[3] = norm(win); // TODO maybe should be norm(win) aka sqrt(sum(win[i]^2))?
+    	normalizedInPoint[0] = ((win[winOffset] - mX) * 2.0f / mViewWidth - 1.0f);
+    	normalizedInPoint[1] = ((mViewHeight - win[winOffset + 1]) * 2.0f / mViewHeight - 1.0f);
+    	normalizedInPoint[2] = 2 * win[winOffset + 2] - 1.0f;
+    	normalizedInPoint[3] = norm(normalizedInPoint); 
     		   
     	Matrix.multiplyMV(obj, objOffset, invertedMatrix, 0, normalizedInPoint, 0);
     	
@@ -93,8 +95,13 @@ public class Projector {
      * setting current matrix mode to GL_MODELVIEW
      * @param gl
      */
-    public void getCurrentModelView(GL10 gl) {
+    public void getCurrentModelView(GL10 gl) { 
         mGrabber.getCurrentModelView(gl);
+        mMVPComputed = false;
+    }
+    
+    public void getRectModelView(GL10 gl, Rectangle targetPlane) { 
+        mGrabber.getRectangleModelView(gl, targetPlane);
         mMVPComputed = false;
     }
     

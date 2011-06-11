@@ -2,6 +2,10 @@ package com.killerappz.android.spinlogo.preferences.matrix;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import com.killerappz.android.spinlogo.context.Rectangle;
+
+import android.opengl.Matrix;
+
 public class MatrixGrabber {
     public MatrixGrabber() {
         mModelView = new float[16];
@@ -25,6 +29,17 @@ public class MatrixGrabber {
      */
     public void getCurrentModelView(GL10 gl) {
         getMatrix(gl, GL10.GL_MODELVIEW, mModelView);
+    }
+    
+    /* Normally we'd use the grabber.
+     * However, as in our case we know in advance
+     * what we are processing: the rectangle
+     * corresponding to the skybox central plane,
+     * we may directly precompute the shit
+     */    
+    public void getRectangleModelView(GL10 gl, Rectangle targetPlane) {
+    	Matrix.setIdentityM(mModelView, 0);
+    	Matrix.translateM(mModelView, 0, 0, 0, targetPlane.z);
     }
 
     /**

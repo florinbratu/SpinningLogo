@@ -38,7 +38,7 @@ public class Rectangle {
 		float[] lowerRightCoords = new float[] { lowerRight.x, lowerRight.y, z, 1.0f};
 		float[] lowerRightWin = new float[3];
 		projektor.project(lowerRightCoords, 0, lowerRightWin, 0);
-		Log.d(Constants.LOG_TAG, "upper left z coord" + lowerRightWin[2]);
+		Log.d(Constants.LOG_TAG, "lower right z coord" + lowerRightWin[2]);
 		// assert(upperLeftWin[2] == lowerRightWin[2])
 		
 		return new Rectangle(upperLeftWin[0], upperLeftWin[1], 
