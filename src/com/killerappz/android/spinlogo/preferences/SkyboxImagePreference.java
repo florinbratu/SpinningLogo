@@ -226,21 +226,26 @@ public class SkyboxImagePreference extends DialogPreference {
 		// find out which texture needs to be highlighted
 		// according to the placement of the touch point
 		private SkyBox.Face getHighlightedFace(GL10 gl) {
-			// load up the current modelview matrix
-			projektor.getCurrentModelView(gl);
-			// show us the matrices
-			Log.d(Constants.LOG_TAG, projektor.toString());
 			// project the central rectangle to screen coordinates
+			// only to find out the z
 			float halfSize = Constants.SKYBOX_PREF_SIZE * 0.5f;
 			Rectangle skyBoxFront = new Rectangle( halfSize, halfSize, 
 					-halfSize, -halfSize, -halfSize);
 			Log.d(Constants.LOG_TAG, "Skybox center, before projection:" + skyBoxFront);
-			Rectangle projectedSkyBoxFront = skyBoxFront.projection(projektor);
+			// load up the current modelview matrix
+			projektor.getRectModelView(gl, skyBoxFront);
+			// show us the matrices
+			Log.d(Constants.LOG_TAG, projektor.toString());
+			Rectangle projectedSkyBoxFront = skyBoxFront.toScreenCoords(projektor);
 			Log.d(Constants.LOG_TAG, "Skybox center, after projection:" + projectedSkyBoxFront);
-			Log.d(Constants.LOG_TAG, "Center:" + contextInfo.getCenter());
-			Log.d(Constants.LOG_TAG, "Touch Point:" + contextInfo.getTouchPoint());
-			return projectedSkyBoxFront.position(contextInfo.getTouchPoint(), 
-					contextInfo.getCenter());
+			Log.d(Constants.LOG_TAG, "Touch Point world coords:" + contextInfo.getTouchPoint());
+			float[] touch = new float[] { contextInfo.getTouchPoint().x, 
+					contextInfo.getTouchPoint().y, projectedSkyBoxFront.z};
+			float[] objTouch = new float[4];
+			projektor.unprojekt(touch, 0, objTouch, 0);
+			Point unprojectedTouchPoint = new Point(objTouch[0], objTouch[1]);
+			Log.d(Constants.LOG_TAG, "Unprojected Touch Point:" + unprojectedTouchPoint + " z value:" + objTouch[2]);
+			return skyBoxFront.position( unprojectedTouchPoint,	new Point(0,0));
 		}
 
 		/**
@@ -273,7 +278,7 @@ public class SkyboxImagePreference extends DialogPreference {
 			// let the renderer load the frustum
 			renderer.onSurfaceChanged(gl, width, height);
 			// save up the projection matrix
-			projektor.getCurrentProjection(gl);
+			projektor.getFrustumProjection(gl, scene.camera().frustum.frustum);
 		}
 
 		@Override

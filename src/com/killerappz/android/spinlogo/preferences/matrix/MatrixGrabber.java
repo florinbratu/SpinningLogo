@@ -2,6 +2,8 @@ package com.killerappz.android.spinlogo.preferences.matrix;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import min3d.vos.FrustumManaged.Frustum;
+
 import com.killerappz.android.spinlogo.context.Rectangle;
 
 import android.opengl.Matrix;
@@ -49,6 +51,15 @@ public class MatrixGrabber {
      */
     public void getCurrentProjection(GL10 gl) {
         getMatrix(gl, GL10.GL_PROJECTION, mProjection);
+    }
+    
+    public void getFrustumProjection(GL10 gl, Frustum frustum) {
+    	Matrix.frustumM(mProjection, 0, frustum.lt, frustum.rt, frustum.btm, frustum.top, frustum.zNear, frustum.zFar);
+    	/*for(int i=0;i<16;i++) mProjection[i] = 0;
+    	mProjection[0] = 0.77f;
+    	mProjection[5] = 0.57f;
+    	mProjection[10] = mProjection[11] = -1;
+    	mProjection[14] = -1;*/
     }
 
     private void getMatrix(GL10 gl, int mode, float[] mat) {

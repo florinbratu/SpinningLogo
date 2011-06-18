@@ -18,6 +18,8 @@ package com.killerappz.android.spinlogo.preferences.matrix;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import min3d.vos.FrustumManaged.Frustum;
+
 import com.killerappz.android.spinlogo.context.Rectangle;
 
 import android.opengl.GLU;
@@ -58,6 +60,8 @@ public class Projector {
         win[winOffset + 2] = (mV[2] * rw + 1.0f) * 0.5f;
     }
     
+    /* it is equivalent to the project() operation; only difference is it uses gluProject() utility
+     * 1.0f is well chosen as weight value(w coord) for 3D coords. so not to worry :) */
     public void projekt(float[] obj, int objOffset, float[] win, int winOffset) {
     	GLU.gluProject(obj[0], obj[1], obj[2], mGrabber.mModelView, 0, mGrabber.mProjection, 0, mView, 0, win, winOffset);
     }
@@ -82,6 +86,12 @@ public class Projector {
     	Matrix.multiplyMV(obj, objOffset, invertedMatrix, 0, normalizedInPoint, 0);
     	
     }
+    
+    /* equivalent to the unproject() operation; only difference is it uses gluUnProject() utility
+     * */
+    public void unprojekt(float[] win, int winOffset, float[] obj, int objOffset) {
+    	GLU.gluUnProject(win[0], win[1], win[2], mGrabber.mModelView, 0, mGrabber.mProjection, 0, mView, 0, obj, objOffset);
+    }
 
     private float norm(float[] win) {
 		return (float)Math.sqrt(win[0] * win[0] + win[1] * win[1] + win[2] * win[2]);
@@ -95,6 +105,11 @@ public class Projector {
     public void getCurrentProjection(GL10 gl) {
         mGrabber.getCurrentProjection(gl);
         mMVPComputed = false;
+    }
+    
+    public void getFrustumProjection(GL10 gl, Frustum frustum) {
+    	mGrabber.getFrustumProjection(gl, frustum);
+    	mMVPComputed = false;
     }
 
     /**
