@@ -21,7 +21,7 @@ public interface Constants {
 	public static final int DEFAULT_REVOLUTION_SPEED = 25;
 	// rotation
 	public static final String ROTATION_SPEED_KEY = "rotation";
-	public static final float ROTATION_SPEED_UNIT = 0.1f;
+	public static final float ROTATION_SPEED_UNIT = 0.25f;
 	public static final int DEFAULT_ROTATION_SPEED = 0;
 	// 2) license status
 	public static final String LICENSE_STATUS_KEY = "licenseStatus";
