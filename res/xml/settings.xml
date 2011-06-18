@@ -3,7 +3,7 @@
 	android:title="@string/spinlogo_settings"
 	android:key="settings">
 
-    <com.killerappz.android.spinlogo.preferences.SeekBarPreference
+    <com.killerappz.android.spinlogo.preferences.RevolutionSpeedPreference
         android:key="revolution"
 		android:title="@string/revolution_speed_title"
 		android:dialogTitle="@string/revolution_speed_title"
@@ -12,7 +12,7 @@
 		android:defaultValue="@string/revolution_speed_default_value"
 		android:max="@string/revolution_speed_max_value" />
 		
-	<com.killerappz.android.spinlogo.preferences.SeekBarPreference
+	<com.killerappz.android.spinlogo.preferences.RotationSpeedPreference
         android:key="rotation"
 		android:title="@string/rotation_speed_title"
 		android:dialogTitle="@string/rotation_speed_title"
