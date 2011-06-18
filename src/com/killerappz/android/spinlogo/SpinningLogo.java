@@ -48,6 +48,8 @@ public class SpinningLogo {
 	private void autoRotate() {
 		float revolutionSpeed = (float)contextInfo.getRevolutionSpeed() * Constants.REVOLUTION_SPEED_UNIT;
 		object.rotation().y += revolutionSpeed;
+		float rotationSpeed = (float)contextInfo.getRotationSpeed() * Constants.ROTATION_SPEED_UNIT;
+		object.rotation().z += rotationSpeed;
 	}
 	
 	private SkyBox createSkyBox() {

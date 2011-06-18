@@ -2,8 +2,6 @@ package com.killerappz.android.spinlogo;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "spinlogo_settings";
-	public static final float REVOLUTION_SPEED_UNIT = 0.1f;
-	public static final int DEFAULT_REVOLUTION_SPEED = 25;
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/ying_yang_obj";
 	
@@ -19,6 +17,12 @@ public interface Constants {
 	// preferences screen keys
 	// 1) revolution
 	public static final String REVOLUTION_SPEED_KEY = "revolution";
+	public static final float REVOLUTION_SPEED_UNIT = 0.1f;
+	public static final int DEFAULT_REVOLUTION_SPEED = 25;
+	// rotation
+	public static final String ROTATION_SPEED_KEY = "rotation";
+	public static final float ROTATION_SPEED_UNIT = 0.1f;
+	public static final int DEFAULT_ROTATION_SPEED = 0;
 	// 2) license status
 	public static final String LICENSE_STATUS_KEY = "licenseStatus";
 	// the default license status message

@@ -9,6 +9,7 @@
     
     <!--  settings screen -->
     <string name="spinlogo_settings">Preferences</string>
+    <!-- revolution speed -->
     <string name="revolution_speed_name">RevolutionSpeed</string>
     <string name="revolution_speed_summary">%1$.1f deg/sec</string>
     <string name="revolution_speed_default_value">25</string>
@@ -16,6 +17,13 @@
     <string name="revolution_speed_title">Revolution speed</string>
     <color name="white_color">#fff</color>
     <color name="gray_color">#aaa</color>
+    
+    <!-- rotation speed -->
+    <string name="rotation_speed_name">RotationSpeed</string>
+    <string name="rotation_speed_summary">%1$.1f deg/sec</string>
+    <string name="rotation_speed_default_value">0</string>
+    <string name="rotation_speed_max_value">90</string>
+    <string name="rotation_speed_title">Rotation speed</string>
     
     <!-- License status dialog -->
     <string name="license_check_title">License Status</string>
