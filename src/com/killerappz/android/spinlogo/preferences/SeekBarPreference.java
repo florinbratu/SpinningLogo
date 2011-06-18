@@ -36,8 +36,8 @@ public final class SeekBarPreference extends DialogPreference implements OnSeekB
 		// Read parameters from attributes
 		mMinValue = 0;
 		// we will cheat
-		mDefaultValue = Integer.parseInt(context.getString(R.string.rotation_speed_default_value));
-		mMaxValue = Integer.parseInt(context.getString(R.string.rotation_speed_max_value));
+		mDefaultValue = Integer.parseInt(context.getString(R.string.revolution_speed_default_value));
+		mMaxValue = Integer.parseInt(context.getString(R.string.revolution_speed_max_value));
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public final class SeekBarPreference extends DialogPreference implements OnSeekB
 		// Format summary string with current value
 		String summary = super.getSummary().toString();
 		int value = getPersistedInt(mDefaultValue);
-		return String.format(summary, value * Constants.ROTATION_SPEED_UNIT);
+		return String.format(summary, value * Constants.REVOLUTION_SPEED_UNIT);
 	}
 
 	public void onProgressChanged(SeekBar seek, int value, boolean fromTouch) {

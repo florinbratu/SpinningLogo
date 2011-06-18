@@ -28,7 +28,6 @@ public class SpinningLogo {
 	// for textures
 	private final TextureManager textureManager;
 	
-	// rotSpeed is the rotation speed measured in ROTATION_SPEED_UNIT
 	public SpinningLogo(Context context, TextureManager tm, String resId, SpinLogoContext contextInfo, Scene scene) {
 		this.context = context;
 		this.textureManager = tm;
@@ -47,8 +46,8 @@ public class SpinningLogo {
 	}
 
 	private void autoRotate() {
-		float rotationSpeed = (float)contextInfo.getRotationSpeed() * Constants.ROTATION_SPEED_UNIT;
-		object.rotation().y += rotationSpeed;
+		float revolutionSpeed = (float)contextInfo.getRevolutionSpeed() * Constants.REVOLUTION_SPEED_UNIT;
+		object.rotation().y += revolutionSpeed;
 	}
 	
 	private SkyBox createSkyBox() {

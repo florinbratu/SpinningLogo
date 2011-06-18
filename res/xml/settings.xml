@@ -4,13 +4,13 @@
 	android:key="settings">
 
     <com.killerappz.android.spinlogo.preferences.SeekBarPreference
-        android:key="rotation"
-		android:title="@string/rotation_speed_title"
-		android:dialogTitle="@string/rotation_speed_title"
-		android:summary="@string/rotation_speed_summary"
+        android:key="revolution"
+		android:title="@string/revolution_speed_title"
+		android:dialogTitle="@string/revolution_speed_title"
+		android:summary="@string/revolution_speed_summary"
 		android:persistent="true"
-		android:defaultValue="@string/rotation_speed_default_value"
-		android:max="@string/rotation_speed_max_value" />
+		android:defaultValue="@string/revolution_speed_default_value"
+		android:max="@string/revolution_speed_max_value" />
 		
 	<com.killerappz.android.spinlogo.preferences.LicenseStatusPreference
          android:key="licenseStatus"
