@@ -31,7 +31,8 @@ public class SpinningLogo {
 	private final Context context;
 	// for textures
 	private final TextureManager textureManager;
-    private String currentLogoTexture = Constants.DEFAULT_LOGO_TEXTURE_NAME;
+	private String currentLogoTexture = Constants.DEFAULT_LOGO_TEXTURE_NAME;
+	private String currentSkyboxTexture = Constants.DEFAULT_SKYBOX_TEXTURE_NAME;
 	
 	public SpinningLogo(Context context, TextureManager tm, String resId, SpinLogoContext contextInfo, Scene scene) {
 		this.context = context;
@@ -48,6 +49,9 @@ public class SpinningLogo {
 		if(dirtyLogoTexture()) {
 			updateLogoTexture(contextInfo.getLogoTextureName());
 		}
+		if(dirtySkyboxTexture()) {
+			updateSkyboxTexture(contextInfo.getSkyboxTextureName());
+		}
 	}
 
 	public void draw(GL10 gl, Renderer renderer){
@@ -61,6 +65,15 @@ public class SpinningLogo {
 		
 		// post-draw: rotate logo
 		autoRotate();
+	}
+	
+	private void updateSkyboxTexture(String skyboxTextureName) {
+		skyBox.replaceTexture(SkyBox.Face.East,  Constants.TEXTURES_LOCATION + skyboxTextureName + "_right" , skyboxTextureName + "_right");
+		skyBox.replaceTexture(SkyBox.Face.South, Constants.TEXTURES_LOCATION + skyboxTextureName + "_center", skyboxTextureName + "_center");
+		skyBox.replaceTexture(SkyBox.Face.West,  Constants.TEXTURES_LOCATION + skyboxTextureName + "_left" , skyboxTextureName + "_left");
+		skyBox.replaceTexture(SkyBox.Face.Up,    Constants.TEXTURES_LOCATION + skyboxTextureName + "_up", skyboxTextureName + "_up");
+		skyBox.replaceTexture(SkyBox.Face.Down,  Constants.TEXTURES_LOCATION + skyboxTextureName + "_down", skyboxTextureName + "_down");
+		this.currentSkyboxTexture = skyboxTextureName;
 	}
 
 	private void updateLogoTexture(String logoTextureName) {
@@ -83,9 +96,13 @@ public class SpinningLogo {
 		this.currentLogoTexture = logoTextureName;
 	}
 	
-    // tests for texture changes
+	// tests for texture changes
 	private boolean dirtyLogoTexture() {
 		return !currentLogoTexture.equals(contextInfo.getLogoTextureName());
+	}
+	
+	private boolean dirtySkyboxTexture() {
+		return !currentSkyboxTexture.equals(contextInfo.getSkyboxTextureName());
 	}
 
 	private void autoRotate() {
@@ -96,11 +113,11 @@ public class SpinningLogo {
 	private SkyBox createSkyBox() {
 		SkyBox skyBox = new SkyBox(context, textureManager, Constants.SKYBOX_SIZE, Constants.SKYBOX_QUALITY_FACTOR);
 		/* textures */
-		skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_right,  "east_texture");
-		skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_center, "south_texture");
-		skyBox.addTexture(SkyBox.Face.West,  R.drawable.skybox_left,  "west_texture");
-		skyBox.addTexture(SkyBox.Face.Up,    R.drawable.skybox_up,    "up_texture");
-		skyBox.addTexture(SkyBox.Face.Down,  R.drawable.skybox_down,  "down_texture");
+		skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_awisdom_right,  "east_texture");
+		skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_awisdom_center, "south_texture");
+		skyBox.addTexture(SkyBox.Face.West,  R.drawable.skybox_awisdom_left,  "west_texture");
+		skyBox.addTexture(SkyBox.Face.Up,    R.drawable.skybox_awisdom_up,    "up_texture");
+		skyBox.addTexture(SkyBox.Face.Down,  R.drawable.skybox_awisdom_down,  "down_texture");
 		return skyBox;
 	}
 

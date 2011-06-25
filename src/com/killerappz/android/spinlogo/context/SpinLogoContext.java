@@ -22,6 +22,9 @@ public class SpinLogoContext extends ContextInfo implements
 	// the new logo texture, if it changed
 	private String logoTextureName = Constants.DEFAULT_LOGO_TEXTURE_NAME;
 	
+	// the new logo texture, if it changed
+	private String skyboxTextureName = Constants.DEFAULT_SKYBOX_TEXTURE_NAME;
+	
 	public int getRotationSpeed() {
 		return rotationSpeed;
 	}
@@ -35,6 +38,19 @@ public class SpinLogoContext extends ContextInfo implements
 		return this.logoTextureName;
 	}
 	
+	// get texture && reset the texture dirty flag
+	public String getSkyboxTextureName() {
+		return this.skyboxTextureName;
+	}
+	
+	// will be called initially, @engine creation
+	public void loadPrefs(SharedPreferences prefs) {
+		this.rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
+		this.licenseStatus = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
+		this.logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
+		this.skyboxTextureName = prefs.getString(Constants.SKYBOX_TEXTURE_KEY, Constants.DEFAULT_SKYBOX_TEXTURE_NAME);
+	}
+	
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
 		if(Constants.ROTATION_SPEED_KEY.equals(key))
@@ -43,11 +59,8 @@ public class SpinLogoContext extends ContextInfo implements
 			licenseStatus = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
 		else if(Constants.LOGO_TEXTURE_KEY.equals(key)) 
 			logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
+		else if(Constants.SKYBOX_TEXTURE_KEY.equals(key))
+			skyboxTextureName = prefs.getString(Constants.SKYBOX_TEXTURE_KEY, Constants.DEFAULT_SKYBOX_TEXTURE_NAME);
 	}
 
-	public void loadPrefs(SharedPreferences prefs) {
-		this.rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
-		this.licenseStatus = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
-		this.logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
-	}
 }

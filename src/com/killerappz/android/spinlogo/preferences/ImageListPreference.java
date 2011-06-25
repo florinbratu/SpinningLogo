@@ -34,13 +34,13 @@ public class ImageListPreference extends ListPreference {
 	 * @param context application context.
 	 * @param attrs custom xml attributes.
 	 */
-	public ImageListPreference(Context context, AttributeSet attrs) {
+	public ImageListPreference(Context context, AttributeSet attrs, 
+			int defaultValueResId, int[] imageListResource) {
 		super(context, attrs);
 		
-		defaultValue = getContext().getString(R.string.logo_texture_defaultValue);
+		this.defaultValue = getContext().getString(defaultValueResId);
 
-		TypedArray typedArray = context.obtainStyledAttributes(attrs,
-			R.styleable.ImageListPreference);
+		TypedArray typedArray = context.obtainStyledAttributes(attrs, imageListResource);
 
 		String[] imagePaths = context.getResources().getStringArray(
 			typedArray.getResourceId(typedArray.getIndexCount()-1, -1));

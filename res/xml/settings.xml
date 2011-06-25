@@ -21,12 +21,21 @@
          android:dialogTitle="@string/license_check_dialog_title"/>
 
 	<!-- the ImageList pref screen for selecting the logo image -->
-	<com.killerappz.android.spinlogo.preferences.ImageListPreference
+	<com.killerappz.android.spinlogo.preferences.SpinningLogoTexturePreference
 		android:key="logoTexture"
 		android:title="@string/logo_texture_title"
 		android:summary="@string/logo_texture_defaultValue"
-		android:entries="@array/listNames"
-		android:entryValues="@array/listValues"
-		killerappzz:entryImages="@array/imageValues"/>
+		android:entries="@array/listNamesLogo"
+		android:entryValues="@array/listValuesLogo"
+		killerappzz:logoImages="@array/imageValuesLogo"/>
+		
+	<!-- the ImageList pref screen for selecting the skybox texture -->
+	<com.killerappz.android.spinlogo.preferences.SkyboxTexturePreference
+		android:key="skyboxTexture"
+		android:title="@string/skybox_texture_title"
+		android:summary="@string/skybox_texture_defaultValue"
+		android:entries="@array/listNamesSkybox"
+		android:entryValues="@array/listValuesSkybox"
+		killerappzz:skyboxImages="@array/imageValuesSkybox"/>
 	
 </PreferenceScreen>

@@ -52,5 +52,9 @@
     <!-- Logo texture -->
     <string name="logo_texture_title">Transformers Logo Image</string>
     <string name="logo_texture_defaultValue">texture_taijitu</string>
+   
+    <!-- skybox texture -->
+    <string name="skybox_texture_title">Background View</string>
+    <string name="skybox_texture_defaultValue">skybox_awisdom</string>
 
 </resources>
