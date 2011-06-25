@@ -113,11 +113,11 @@ public class SpinningLogo {
 	private SkyBox createSkyBox() {
 		SkyBox skyBox = new SkyBox(context, textureManager, Constants.SKYBOX_SIZE, Constants.SKYBOX_QUALITY_FACTOR);
 		/* textures */
-		skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_awisdom_right,  "east_texture");
-		skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_awisdom_center, "south_texture");
-		skyBox.addTexture(SkyBox.Face.West,  R.drawable.skybox_awisdom_left,  "west_texture");
-		skyBox.addTexture(SkyBox.Face.Up,    R.drawable.skybox_awisdom_up,    "up_texture");
-		skyBox.addTexture(SkyBox.Face.Down,  R.drawable.skybox_awisdom_down,  "down_texture");
+		skyBox.addTexture(SkyBox.Face.East,  R.drawable.skybox_autobots_black_right,  "east_texture");
+		skyBox.addTexture(SkyBox.Face.South, R.drawable.skybox_autobots_black_center, "south_texture");
+		skyBox.addTexture(SkyBox.Face.West,  R.drawable.skybox_autobots_black_left,  "west_texture");
+		skyBox.addTexture(SkyBox.Face.Up,    R.drawable.skybox_autobots_black_up,    "up_texture");
+		skyBox.addTexture(SkyBox.Face.Down,  R.drawable.skybox_autobots_black_down,  "down_texture");
 		return skyBox;
 	}
 

@@ -18,21 +18,21 @@
 	</array>
 	
 	<string-array name="listNamesSkybox">
-        <item>"Arctic Wisdom"</item>
-        <item>"Air Sky"</item>
-        <item>"Green Trees"</item>
+        <item>"Autobots White"</item>
+        <item>"Autobots Black"</item>
+        <item>"Decepticons White"</item>
         <item>"Decepticons Black"</item>
     </string-array>
     <string-array name="listValuesSkybox">
-        <item>"skybox_awisdom"</item>
-        <item>"skybox_airsky"</item>
-        <item>"skybox_greentrees"</item>
+        <item>"skybox_autobots_white"</item>
+        <item>"skybox_autobots_black"</item>
+        <item>"skybox_decepticons_white"</item>
         <item>"skybox_decepticons_black"</item>
     </string-array>
 	<array name="imageValuesSkybox">
-		<item>@drawable/skybox_awisdom_icon</item>
-		<item>@drawable/skybox_airsky_icon</item>
-		<item>@drawable/skybox_greentrees_icon</item>
+		<item>@drawable/skybox_autobots_white_icon</item>
+		<item>@drawable/skybox_autobots_black_icon</item>
+		<item>@drawable/skybox_decepticons_white_icon</item>
 		<item>@drawable/skybox_decepticons_black_icon</item>
 	</array>
 </resources>
