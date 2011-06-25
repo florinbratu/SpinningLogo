@@ -21,15 +21,18 @@
         <item>"Arctic Wisdom"</item>
         <item>"Air Sky"</item>
         <item>"Green Trees"</item>
+        <item>"Decepticons Black"</item>
     </string-array>
     <string-array name="listValuesSkybox">
         <item>"skybox_awisdom"</item>
         <item>"skybox_airsky"</item>
         <item>"skybox_greentrees"</item>
+        <item>"skybox_decepticons_black"</item>
     </string-array>
 	<array name="imageValuesSkybox">
 		<item>@drawable/skybox_awisdom_icon</item>
 		<item>@drawable/skybox_airsky_icon</item>
 		<item>@drawable/skybox_greentrees_icon</item>
+		<item>@drawable/skybox_decepticons_black_icon</item>
 	</array>
 </resources>
