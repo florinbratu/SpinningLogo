@@ -125,6 +125,10 @@ public class SpinningLogo {
 		this.object.position().x = this.skyBox.position().x = center.x;
 		this.object.position().y = this.skyBox.position().y = center.y;
 		
+		// scale it down a bit
+		this.object.scale().x = Constants.LOGO_SCALING_X_FACTOR;
+		this.object.scale().y = Constants.LOGO_SCALING_Y_FACTOR;
+		
 	}
 	
 }
