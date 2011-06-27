@@ -2,7 +2,7 @@
 <resources>
     <string name="hello">Hello World!</string>
     <string name="app_name">Transformers Live Wallpaper</string>
-    <string name="service_label">Transformers LWP</string>
+    <string name="service_label">Transformers Live Wallpaper</string>
     <string name="description">Autobots and Decepticons to spice up your phone!</string>
     <string name="invalid_license">The Transformers Live Wallpaper has been installed on this device without a license!</string>
     <string name="license_check_error">Error while performing application license check, error code: </string>
@@ -51,7 +51,7 @@
     
     <!-- Logo texture -->
     <string name="logo_texture_title">Transformers Logo Image</string>
-    <string name="logo_texture_defaultValue">texture_taijitu</string>
+    <string name="logo_texture_defaultValue">texture_autobots_grey</string>
    
     <!-- skybox texture -->
     <string name="skybox_texture_title">Background View</string>
