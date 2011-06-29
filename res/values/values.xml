@@ -39,21 +39,27 @@
 	</array>
 	
 	<string-array name="listNamesSkybox">
+		<item>"Autobots Stripes"</item>
         <item>"Autobots White"</item>
         <item>"Autobots Black"</item>
         <item>"Decepticons White"</item>
         <item>"Decepticons Black"</item>
+        <item>"BlackOut"</item>
     </string-array>
     <string-array name="listValuesSkybox">
+    	<item>"skybox_autobots_stripes"</item>
         <item>"skybox_autobots_white"</item>
         <item>"skybox_autobots_black"</item>
         <item>"skybox_decepticons_white"</item>
         <item>"skybox_decepticons_black"</item>
+        <item>"skybox_blackout"</item>
     </string-array>
 	<array name="imageValuesSkybox">
+		<item>@drawable/skybox_autobots_stripes_icon</item>
 		<item>@drawable/skybox_autobots_white_icon</item>
 		<item>@drawable/skybox_autobots_black_icon</item>
 		<item>@drawable/skybox_decepticons_white_icon</item>
 		<item>@drawable/skybox_decepticons_black_icon</item>
+		<item>@drawable/skybox_blackout_icon</item>
 	</array>
 </resources>
