@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo;
+package com.killerappz.android.lwp.transformers;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "transformers_settings";

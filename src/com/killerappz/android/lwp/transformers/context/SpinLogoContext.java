@@ -1,8 +1,8 @@
-package com.killerappz.android.spinlogo.context;
+package com.killerappz.android.lwp.transformers.context;
 
 import android.content.SharedPreferences;
 
-import com.killerappz.android.spinlogo.Constants;
+import com.killerappz.android.lwp.transformers.Constants;
 
 /**
  * Generic Context Information relevant 
