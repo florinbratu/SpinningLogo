@@ -55,6 +55,6 @@
    
     <!-- skybox texture -->
     <string name="skybox_texture_title">Background View</string>
-    <string name="skybox_texture_defaultValue">skybox_autobots_black</string>
+    <string name="skybox_texture_defaultValue">skybox_autobots_lineup</string>
 
 </resources>

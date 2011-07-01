@@ -35,7 +35,7 @@ public interface Constants {
 	public static final String DEFAULT_LOGO_TEXTURE_NAME = "texture_autobots_grey";
 	// 3) skybox texture
 	public static final String SKYBOX_TEXTURE_KEY = "skyboxTexture";
-	public static final String DEFAULT_SKYBOX_TEXTURE_NAME = "skybox_autobots_black";
+	public static final String DEFAULT_SKYBOX_TEXTURE_NAME = "skybox_autobots_lineup";
 	
 	// scaling factors for the logo - the model is too big
 	public static final float LOGO_SCALING_X_FACTOR = 0.8f;
