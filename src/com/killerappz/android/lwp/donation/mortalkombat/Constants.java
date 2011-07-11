@@ -2,8 +2,6 @@ package com.killerappz.android.lwp.donation.mortalkombat;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "mk_donation_settings";
-	public static final float ROTATION_SPEED_UNIT = 0.1f;
-	public static final int DEFAULT_ROTATION_SPEED = 25;
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/mk_obj";
 	// scaling factors for the logo - the model is too big
@@ -23,8 +21,18 @@ public interface Constants {
 	public static final float MAX_OBLIQUE_ANGLE = 30;
 	
 	// preferences screen keys
-	// 1) rotation
+	// revolution
+	public static final String REVOLUTION_SPEED_KEY = "revolution";
+	public static final float REVOLUTION_SPEED_UNIT = 0.1f;
+	public static final int DEFAULT_REVOLUTION_SPEED = 25;
+	// rotation
 	public static final String ROTATION_SPEED_KEY = "rotation";
+	public static final float ROTATION_SPEED_UNIT = 0.25f;
+	public static final int DEFAULT_ROTATION_SPEED = 0;
+	// scaling
+	public static final String SCALING_FACTOR_KEY = "scale";
+	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
+	public static final int DEFAULT_LOGO_SIZE = 45;
 	// 2) license status
 	public static final String LICENSE_STATUS_KEY = "licenseStatus";
 	// the default license status message

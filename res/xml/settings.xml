@@ -4,7 +4,16 @@
 	android:title="@string/spinlogo_settings"
 	android:key="settings">
 
-    <com.killerappz.android.lwp.donation.mortalkombat.preferences.SeekBarPreference
+    <com.killerappz.android.lwp.donation.mortalkombat.preferences.RevolutionSpeedPreference
+        android:key="revolution"
+		android:title="@string/revolution_speed_title"
+		android:dialogTitle="@string/revolution_speed_title"
+		android:summary="@string/revolution_speed_summary"
+		android:persistent="true"
+		android:defaultValue="@string/revolution_speed_default_value"
+		android:max="@string/revolution_speed_max_value" />
+		
+	<com.killerappz.android.lwp.donation.mortalkombat.preferences.RotationSpeedPreference
         android:key="rotation"
 		android:title="@string/rotation_speed_title"
 		android:dialogTitle="@string/rotation_speed_title"
@@ -12,6 +21,16 @@
 		android:persistent="true"
 		android:defaultValue="@string/rotation_speed_default_value"
 		android:max="@string/rotation_speed_max_value" />
+		
+    <com.killerappz.android.lwp.donation.mortalkombat.preferences.LogoSizePreference
+        android:key="scale"
+		android:title="@string/logo_size_title"
+		android:dialogTitle="@string/logo_size_title"
+	 	android:summary="@string/logo_size_summary"
+		android:persistent="true"
+		android:defaultValue="@string/logo_size_default_value"
+		android:max="@string/logo_size_max_value" />
+		
 
 	<!-- the ImageList pref screen for selecting the logo image -->
 	<com.killerappz.android.lwp.donation.mortalkombat.preferences.ImageListPreference
