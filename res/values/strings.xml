@@ -49,6 +49,8 @@
 	<string name="user_feedback_report_sent">Thank you for your feedback!</string>
 	
 	<!-- full version -->
+	<string name="full_version_revolution_speed_title">Revolution Speed</string>
+	<string name="full_version_scaling_factor_title">Ying Yang Symbol Size</string>
 	<string name="full_version_logo_texture_title">Ying Yang Image</string>
 	<string name="full_version_skybox_texture_title">Background Image</string>
 	<string name="full_version_summary">Default</string>

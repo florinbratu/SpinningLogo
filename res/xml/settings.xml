@@ -14,6 +14,20 @@
 		android:defaultValue="@string/rotation_speed_default_value"
 		android:max="@string/rotation_speed_max_value" />
 		
+	<!-- "fake" revolution speed configuration option -->
+	<com.killerappz.android.spinlogo.free.preferences.FullVersionPreference
+        android:key="fvRevolutionSpeed"
+		android:title="@string/full_version_revolution_speed_title"
+		android:summary="@string/full_version_summary"
+		android:dialogTitle="@string/full_version_dialog_title"/>
+		
+	<!-- "fake" revolution speed configuration option -->
+	<com.killerappz.android.spinlogo.free.preferences.FullVersionPreference
+        android:key="fvScalingFactor"
+		android:title="@string/full_version_scaling_factor_title"
+		android:summary="@string/full_version_summary"
+		android:dialogTitle="@string/full_version_dialog_title"/>
+		
 	<!-- "fake" logo texture configuration option -->
 	<com.killerappz.android.spinlogo.free.preferences.FullVersionPreference
         android:key="fvLogoTexture"
