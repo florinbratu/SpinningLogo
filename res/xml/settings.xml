@@ -5,7 +5,7 @@
 	android:key="settings">
 
 	<!-- the seekbar pref screen for rotation speed -->
-    <com.killerappz.android.lwp.donation.superman.preferences.SeekBarPreference
+	<com.killerappz.android.lwp.donation.superman.preferences.RotationSpeedPreference
         android:key="rotation"
 		android:title="@string/rotation_speed_title"
 		android:dialogTitle="@string/rotation_speed_title"
@@ -13,6 +13,15 @@
 		android:persistent="true"
 		android:defaultValue="@string/rotation_speed_default_value"
 		android:max="@string/rotation_speed_max_value" />
+
+    <com.killerappz.android.lwp.donation.superman.preferences.LogoSizePreference
+        android:key="scale"
+		android:title="@string/logo_size_title"
+		android:dialogTitle="@string/logo_size_title"
+		android:summary="@string/logo_size_summary"
+		android:persistent="true"
+		android:defaultValue="@string/logo_size_default_value"
+		android:max="@string/logo_size_max_value" />
 
 	<!-- the ImageList pref screen for selecting the logo image -->
 	<com.killerappz.android.lwp.donation.superman.preferences.ImageListPreference

@@ -16,6 +16,8 @@ public class SpinLogoContext extends ContextInfo implements
 
 	// the rotation speed
 	private int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
+	// the scale factor
+	private int scaleFactor = Constants.DEFAULT_LOGO_SIZE;
 	// the license status
 	private String licenseStatus = Constants.DEFAULT_LICENSE_STATUS;
 	// the new logo texture, if it changed
@@ -23,6 +25,10 @@ public class SpinLogoContext extends ContextInfo implements
 
 	public int getRotationSpeed() {
 		return rotationSpeed;
+	}
+	
+	public int getScaleFactor() {
+		return scaleFactor;
 	}
 	
 	public String getLicenseStatus() {
@@ -39,6 +45,8 @@ public class SpinLogoContext extends ContextInfo implements
 			rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
 		else if(Constants.LOGO_TEXTURE_KEY.equals(key))
 			logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
+		else if(Constants.SCALING_FACTOR_KEY.equals(key))
+			scaleFactor = prefs.getInt(Constants.SCALING_FACTOR_KEY, Constants.DEFAULT_LOGO_SIZE);
 		else if(Constants.LICENSE_STATUS_KEY.equals(key))
 			licenseStatus = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
 	}
@@ -46,6 +54,7 @@ public class SpinLogoContext extends ContextInfo implements
 	public void loadPrefs(SharedPreferences prefs) {
 		this.rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
 		this.logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
+		this.scaleFactor = prefs.getInt(Constants.SCALING_FACTOR_KEY, Constants.DEFAULT_LOGO_SIZE);
 		this.licenseStatus = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
 	}
 

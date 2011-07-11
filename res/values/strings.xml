@@ -18,6 +18,13 @@
     <color name="white_color">#fff</color>
     <color name="gray_color">#aaa</color>
     
+    <!-- logo size -->
+    <string name="logo_size_name">Superman Logo Size</string>
+    <string name="logo_size_summary">%1$.2f (scaled)</string>
+    <string name="logo_size_default_value">45</string>
+    <string name="logo_size_max_value">90</string>
+    <string name="logo_size_title">Superman Logo Size</string>
+    
     <!-- License status dialog -->
     <string name="license_check_title">License Status</string>
     <string name="license_check_summary">TODO</string>

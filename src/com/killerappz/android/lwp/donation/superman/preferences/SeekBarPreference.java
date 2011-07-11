@@ -1,16 +1,15 @@
 package com.killerappz.android.lwp.donation.superman.preferences;
 
-import com.killerappz.android.lwp.donation.superman.Constants;
-import com.killerappz.android.lwp.donation.superman.R;
-
 import android.content.Context;
+import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.preference.DialogPreference;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+
+import com.killerappz.android.lwp.donation.superman.R;
 
 /**
  * Class implementing a sliding seek bar. Used for selecting the rotation speed
@@ -18,11 +17,12 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
  * @author florin
  *
  */
-public final class SeekBarPreference extends DialogPreference implements OnSeekBarChangeListener {
+public class SeekBarPreference extends DialogPreference implements OnSeekBarChangeListener {
 
 	private final int mDefaultValue;
 	private final int mMaxValue;
 	private final int mMinValue;
+	private final float mSpeedUnit;
 
 	// Current value
 	private int mCurrentValue;
@@ -31,13 +31,14 @@ public final class SeekBarPreference extends DialogPreference implements OnSeekB
 	private SeekBar mSeekBar;
 	private TextView mValueText;
 
-	public SeekBarPreference(Context context, AttributeSet attrs) {
+	public SeekBarPreference(Context context, AttributeSet attrs,
+			int defaultVale, int maxValue, float speedUnit) {
 		super(context, attrs);
 		// Read parameters from attributes
 		mMinValue = 0;
-		// we will cheat
-		mDefaultValue = Integer.parseInt(context.getString(R.string.rotation_speed_default_value));
-		mMaxValue = Integer.parseInt(context.getString(R.string.rotation_speed_max_value));
+		mDefaultValue = defaultVale;
+		mMaxValue = maxValue;
+		mSpeedUnit = speedUnit;	
 	}
 
 	@Override
@@ -89,7 +90,7 @@ public final class SeekBarPreference extends DialogPreference implements OnSeekB
 		// Format summary string with current value
 		String summary = super.getSummary().toString();
 		int value = getPersistedInt(mDefaultValue);
-		return String.format(summary, value * Constants.ROTATION_SPEED_UNIT);
+		return String.format(summary, value * mSpeedUnit);
 	}
 
 	public void onProgressChanged(SeekBar seek, int value, boolean fromTouch) {
