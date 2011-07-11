@@ -23,6 +23,10 @@ public interface Constants {
 	public static final String ROTATION_SPEED_KEY = "rotation";
 	public static final float ROTATION_SPEED_UNIT = 0.25f;
 	public static final int DEFAULT_ROTATION_SPEED = 0;
+	// scaling
+	public static final String SCALING_FACTOR_KEY = "scale";
+	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
+	public static final int DEFAULT_LOGO_SIZE = 45;
 	// 2) license status
 	public static final String LICENSE_STATUS_KEY = "licenseStatus";
 	// the default license status message
