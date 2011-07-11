@@ -3,7 +3,16 @@
 	android:title="@string/spinlogo_settings"
 	android:key="settings">
 
-    <com.killerappz.android.spinlogo.preferences.SeekBarPreference
+    <com.killerappz.android.spinlogo.preferences.LogoSizePreference
+        android:key="scale"
+		android:title="@string/logo_size_title"
+		android:dialogTitle="@string/logo_size_title"
+		android:summary="@string/logo_size_summary"
+		android:persistent="true"
+		android:defaultValue="@string/logo_size_default_value"
+		android:max="@string/logo_size_max_value" />
+		
+	<com.killerappz.android.spinlogo.preferences.RotationSpeedPreference
         android:key="rotation"
 		android:title="@string/rotation_speed_title"
 		android:dialogTitle="@string/rotation_speed_title"
