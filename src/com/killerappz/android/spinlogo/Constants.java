@@ -2,8 +2,6 @@ package com.killerappz.android.spinlogo;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "spinlogo_settings";
-	public static final float ROTATION_SPEED_UNIT = 0.1f;
-	public static final int DEFAULT_ROTATION_SPEED = 25;
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/ying_yang_obj";
 	// the folder under res/ where we find textures. Android internal cuisine
@@ -19,15 +17,26 @@ public interface Constants {
 	public static final float MAX_OBLIQUE_ANGLE = 30;
 	
 	// preferences screen keys
-	// 1) rotation
+	// revolution
+	public static final String REVOLUTION_SPEED_KEY = "revolution";
+	public static final float REVOLUTION_SPEED_UNIT = 0.1f;
+	public static final int DEFAULT_REVOLUTION_SPEED = 25;
+	// rotation
 	public static final String ROTATION_SPEED_KEY = "rotation";
-	// 2) logo texture
+	public static final float ROTATION_SPEED_UNIT = 0.25f;
+	public static final int DEFAULT_ROTATION_SPEED = 0;
+	// logo texture
 	public static final String LOGO_TEXTURE_KEY = "logoTexture";
 	public static final String DEFAULT_LOGO_TEXTURE_NAME = "texture_taijitu";
-	// 3) skybox texture
+	// skybox texture
 	public static final String SKYBOX_TEXTURE_KEY = "skyboxTexture";
 	public static final String DEFAULT_SKYBOX_TEXTURE_NAME = "skybox_awisdom";
-	// 4) license status
+
+	// scaling
+	public static final String SCALING_FACTOR_KEY = "scale";
+	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
+	public static final int DEFAULT_LOGO_SIZE = 45;
+	// license status
 	public static final String LICENSE_STATUS_KEY = "licenseStatus";
 	// the default license status message
 	public static final String DEFAULT_LICENSE_STATUS = "N/A";
