@@ -21,11 +21,11 @@
     <string name="rotation_speed_max_value">90</string>
     <string name="rotation_speed_title">Rotation speed</string>
     <!-- logo size -->
-    <string name="logo_size_name">Spinning Logo Size</string>
+    <string name="logo_size_name">Mortal Kombat Logo Size</string>
     <string name="logo_size_summary">%1$.2f (scaled)</string>
     <string name="logo_size_default_value">45</string>
     <string name="logo_size_max_value">90</string>
-    <string name="logo_size_title">Logo Size</string>
+    <string name="logo_size_title">Mortal Kombat Logo Size</string>
     
     
     <color name="white_color">#fff</color>
