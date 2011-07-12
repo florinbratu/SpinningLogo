@@ -109,6 +109,9 @@ public class SpinningLogo {
 	private void autoRotate() {
 		float rotationSpeed = (float)contextInfo.getRotationSpeed() * Constants.ROTATION_SPEED_UNIT;
 		object.rotation().y += rotationSpeed;
+		
+		float scaleFactor = (float)contextInfo.getScaleFactor() * Constants.LOGO_SIZE_UNIT;
+		object.scale().x = object.scale().y = object.scale().z = scaleFactor;
 	}
 	
 	private SkyBox createSkyBox() {
@@ -127,8 +130,8 @@ public class SpinningLogo {
 		this.object.position().y = this.skyBox.position().y = center.y;
 		
 		// scale it down a bit
-		this.object.scale().x = Constants.LOGO_SCALING_X_FACTOR;
-		this.object.scale().y = Constants.LOGO_SCALING_Y_FACTOR;
+		this.object.scale().x *= Constants.LOGO_SCALING_X_FACTOR;
+		this.object.scale().y *= Constants.LOGO_SCALING_Y_FACTOR;
 		
 	}
 	
