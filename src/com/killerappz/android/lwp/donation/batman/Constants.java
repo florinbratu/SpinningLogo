@@ -4,6 +4,10 @@ public interface Constants {
 	public static final String PREFS_NAME	= "batman_donation_settings";
 	public static final float ROTATION_SPEED_UNIT = 0.1f;
 	public static final int DEFAULT_ROTATION_SPEED = 25;
+	// scaling
+	public static final String SCALING_FACTOR_KEY = "scale";
+	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
+	public static final int DEFAULT_LOGO_SIZE = 45;
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/batman_logo_obj";
 	// the folder under res/ where we find textures. Android internal cuisine
