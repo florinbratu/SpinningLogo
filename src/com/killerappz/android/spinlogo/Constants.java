@@ -27,6 +27,7 @@ public interface Constants {
 	public static final String SCALING_FACTOR_KEY = "scale";
 	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
 	public static final int DEFAULT_LOGO_SIZE = 45;
+	public static final int MAX_LOGO_SIZE = 90; // ugly but...works
 	// 2) license status
 	public static final String LICENSE_STATUS_KEY = "licenseStatus";
 	// the default license status message
@@ -77,5 +78,10 @@ public interface Constants {
 	};
 	
 	public static final String DEV_EMAIL_ADDRESS = "killerappzz@gmail.com";
+	
+	/* Touch interaction prefs */
+	// the percentile with which the model increases when user double taps the screen 
+	public static final int DOUBLE_TAP_SCALE_PERCENTILE = 20;
+	public static final int DOUBLE_TAP_RANGE_PERCENTILE = 20;
 	
 }
