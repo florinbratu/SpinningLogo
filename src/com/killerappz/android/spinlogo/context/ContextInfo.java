@@ -72,6 +72,10 @@ public abstract class ContextInfo implements
 				 *  */
 				range = (mCenter.x + mCenter.y) * Constants.DOUBLE_TAP_RANGE_PERCENTILE / 100.0f;
 				break;
+			case SCALE:
+				/* same idea for scaling range */
+				range = (mCenter.x + mCenter.y) * Constants.SCALING_RANGE_PERCENTILE / 100.0f;
+				break;
 			default:
 				return false;
 		}

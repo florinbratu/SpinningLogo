@@ -47,8 +47,9 @@ public class TouchGesturesHandler extends SimpleOnGestureListener
 	}
 
 	public boolean onScaleBegin(ScaleGestureDetector detector) {
-		// TODO begin only if in range
-		return true;
+		contextInfo.setTouchPoint( (detector.getTopFingerX() + detector.getBottomFingerX()) * 0.5f , 
+				(detector.getTopFingerY() + detector.getBottomFingerY() ) * 0.5f );
+		return contextInfo.touchInRange(GestureType.SCALE);
 	}
 
 	public void onScaleEnd(ScaleGestureDetector detector, boolean blah) {
@@ -57,6 +58,7 @@ public class TouchGesturesHandler extends SimpleOnGestureListener
     
     // the list of gestures we handle
 	public enum GestureType {
-		DOUBLE_TAP
+		DOUBLE_TAP,
+		SCALE
 	}
 }
