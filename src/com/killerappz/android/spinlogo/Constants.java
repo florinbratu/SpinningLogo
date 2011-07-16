@@ -28,6 +28,7 @@ public interface Constants {
 	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
 	public static final int DEFAULT_LOGO_SIZE = 45;
 	public static final int MAX_LOGO_SIZE = 90; // ugly but...works
+	public static final int MIN_LOGO_SIZE = 9;
 	// 2) license status
 	public static final String LICENSE_STATUS_KEY = "licenseStatus";
 	// the default license status message
