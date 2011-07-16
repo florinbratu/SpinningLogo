@@ -23,6 +23,8 @@ public interface Constants {
 	public static final String ROTATION_SPEED_KEY = "rotation";
 	public static final float ROTATION_SPEED_UNIT = 0.25f;
 	public static final int DEFAULT_ROTATION_SPEED = 0;
+	public static final int MAX_ROTATION_SPEED = 90; // ugly but...works
+	public static final int MIN_ROTATION_SPEED = 10;
 	// scaling
 	public static final String SCALING_FACTOR_KEY = "scale";
 	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
@@ -86,5 +88,8 @@ public interface Constants {
 	public static final int DOUBLE_TAP_RANGE_PERCENTILE = 20;
 	// scaling percentile
 	public static final int SCALING_RANGE_PERCENTILE = 15;
+	// rotation - speed increment
+	public static final int ROTATION_RANGE_PERCENTILE = 25;
+	public static final int ROTATION_SPEED_INCREMENT = 10;
 	
 }

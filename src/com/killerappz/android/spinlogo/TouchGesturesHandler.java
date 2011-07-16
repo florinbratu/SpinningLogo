@@ -1,6 +1,7 @@
 package com.killerappz.android.spinlogo;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
@@ -37,6 +38,20 @@ public class TouchGesturesHandler extends SimpleOnGestureListener
 					contextInfo.getScaleFactor() * ( 100 + Constants.DOUBLE_TAP_SCALE_PERCENTILE ) / 100 );
 		return true;
 	}
+	
+	@Override
+	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+			float velocityY) {
+		Log.d(Constants.LOG_TAG, "Fling detected; velocities: " + velocityX + ";" + velocityY);
+		contextInfo.setTouchPoint(e1.getX(), e1.getY());
+		// TODO rotation direction according to velocity vektor
+		// TODO we can improve, calculate rot speed increment according to velocity values
+		int rotationIncrement = Constants.ROTATION_SPEED_INCREMENT;
+		if(contextInfo.touchInRange(GestureType.ROTATE))
+			contextInfo.setRotationSpeed( prefs , 
+					contextInfo.getRotationSpeed() + rotationIncrement );
+		return true;
+	}
 
 	/**
 	 * On scale, well... scale the model! :) */
@@ -58,6 +73,7 @@ public class TouchGesturesHandler extends SimpleOnGestureListener
     // the list of gestures we handle
 	public enum GestureType {
 		DOUBLE_TAP,
-		SCALE
+		SCALE,
+		ROTATE
 	}
 }

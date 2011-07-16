@@ -67,5 +67,13 @@ public class SpinLogoContext extends ContextInfo implements
 		editor.putInt(Constants.SCALING_FACTOR_KEY, this.scaleFactor);
 		editor.commit();
 	}
+
+	public void setRotationSpeed(SharedPreferences prefs, int rotationSpeed) {
+		this.rotationSpeed = rotationSpeed > Constants.MAX_ROTATION_SPEED ? Constants.MAX_ROTATION_SPEED : rotationSpeed;
+		this.rotationSpeed = rotationSpeed < Constants.MIN_ROTATION_SPEED ? Constants.MIN_ROTATION_SPEED : rotationSpeed;
+		Editor editor = prefs.edit();
+		editor.putInt(Constants.ROTATION_SPEED_KEY, this.rotationSpeed);
+		editor.commit();
+	}
 	
 }
