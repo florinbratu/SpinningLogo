@@ -77,5 +77,6 @@ public interface Constants {
 	/* Touch interaction prefs */
 	// the percentile with which the model increases when user double taps the screen 
 	public static final int DOUBLE_TAP_SCALE_PERCENTILE = 20;
+	public static final int DOUBLE_TAP_RANGE_PERCENTILE = 20;
 	
 }

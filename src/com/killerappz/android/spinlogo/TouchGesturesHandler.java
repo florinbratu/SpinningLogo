@@ -1,11 +1,11 @@
 package com.killerappz.android.spinlogo;
 
-import com.killerappz.android.spinlogo.context.SpinLogoContext;
-
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
+
+import com.killerappz.android.spinlogo.context.SpinLogoContext;
 
 /**
  * Handle touch screen interaction
@@ -30,9 +30,15 @@ public class TouchGesturesHandler extends SimpleOnGestureListener {
 	 */
 	@Override
 	public boolean onDoubleTap(MotionEvent e) {
-		// TODO do it only if pointer is inside the "center" range
-		contextInfo.setScaleFactor( prefs,
-				contextInfo.getScaleFactor() * ( 100 + Constants.DOUBLE_TAP_SCALE_PERCENTILE ) / 100 );
+		contextInfo.setTouchPoint(e.getX(), e.getY());
+		if(contextInfo.touchInRange(GestureType.DOUBLE_TAP))
+			contextInfo.setScaleFactor( prefs,
+					contextInfo.getScaleFactor() * ( 100 + Constants.DOUBLE_TAP_SCALE_PERCENTILE ) / 100 );
 		return true;
+	}
+	
+	// the list of gestures we handle
+	public enum GestureType {
+		DOUBLE_TAP
 	}
 }
