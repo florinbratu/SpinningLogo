@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.SurfaceHolder;
 
 import com.killerappz.android.spinlogo.context.SpinLogoContext;
 import com.killerappz.android.spinlogo.licensing.MarketLicensingManager;
@@ -85,6 +86,13 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 			// touch gesture detector
 			gestureDetector = new GestureDetector(SpinLogoWallpaperService.this, 
 					new TouchGesturesHandler(contextInfo, mPreferences));
+		}
+		
+		@Override
+		public void onCreate(SurfaceHolder surfaceHolder) {
+			super.onCreate(surfaceHolder);
+			// By default we don't get touch events, so enable them. Android is fucked up!
+	        setTouchEventsEnabled(true);
 		}
 
 		@Override
