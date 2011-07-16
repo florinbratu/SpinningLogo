@@ -53,7 +53,6 @@ public class TouchGesturesHandler extends SimpleOnGestureListener
 	}
 
 	public void onScaleEnd(ScaleGestureDetector detector, boolean blah) {
-		// TODO
 	}
     
     // the list of gestures we handle

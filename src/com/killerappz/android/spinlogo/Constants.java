@@ -7,6 +7,7 @@ public interface Constants {
 	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
 	public static final int DEFAULT_LOGO_SIZE = 45;
 	public static final int MAX_LOGO_SIZE = 90; // ugly but...works
+	public static final int MIN_LOGO_SIZE = 9; 
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/ying_yang_obj";
 	
