@@ -24,7 +24,7 @@ public interface Constants {
 	public static final float ROTATION_SPEED_UNIT = 0.25f;
 	public static final int DEFAULT_ROTATION_SPEED = 0;
 	public static final int MAX_ROTATION_SPEED = 90; // ugly but...works
-	public static final int MIN_ROTATION_SPEED = 10;
+	public static final int MIN_ROTATION_SPEED = -90;
 	// scaling
 	public static final String SCALING_FACTOR_KEY = "scale";
 	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
