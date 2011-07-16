@@ -73,4 +73,8 @@ public interface Constants {
 	
 	public static final String DEV_EMAIL_ADDRESS = "killerappzz@gmail.com";
 	
+	/* Touch interaction prefs */
+	// the percentile with which the model increases when user double taps the screen 
+	public static final int DOUBLE_TAP_SCALE_PERCENTILE = 20;
+	
 }

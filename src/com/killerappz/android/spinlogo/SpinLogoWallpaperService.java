@@ -3,6 +3,8 @@ package com.killerappz.android.spinlogo;
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.SharedPreferences;
 import android.os.Handler;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 
 import com.killerappz.android.spinlogo.context.SpinLogoContext;
 import com.killerappz.android.spinlogo.licensing.MarketLicensingManager;
@@ -66,6 +68,8 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 		private final SharedPreferences mPreferences;
 		// the renderer
 		private SpinLogoRenderer renderer;
+		// touch gestures detektor
+		private final GestureDetector gestureDetector;
 		
 		public SpinLogoEngine() {
 			super();
@@ -78,6 +82,9 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 			mPreferences = SpinLogoWallpaperService.this.getSharedPreferences(Constants.PREFS_NAME, 0);
 			mPreferences.registerOnSharedPreferenceChangeListener(contextInfo);
 			SpinLogoWallpaperService.this.contextInfo.loadPrefs(mPreferences);
+			// touch gesture detector
+			gestureDetector = new GestureDetector(SpinLogoWallpaperService.this, 
+					new TouchGesturesHandler(contextInfo, mPreferences));
 		}
 
 		@Override
@@ -88,6 +95,12 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 			}
 			renderer = null;
 			mPreferences.unregisterOnSharedPreferenceChangeListener(contextInfo);
+		}
+		
+		// touch impl
+		@Override
+		public void onTouchEvent(MotionEvent event) {
+			gestureDetector.onTouchEvent(event);
 		}
 	}
 }
