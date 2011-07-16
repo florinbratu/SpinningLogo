@@ -1,10 +1,10 @@
 package com.killerappz.android.spinlogo;
 
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
+import com.killerappz.android.spinlogo.ScaleGestureDetector.OnScaleGestureListener;
 import com.killerappz.android.spinlogo.context.SpinLogoContext;
 
 /**
@@ -13,7 +13,8 @@ import com.killerappz.android.spinlogo.context.SpinLogoContext;
  * @author florin
  *
  */
-public class TouchGesturesHandler extends SimpleOnGestureListener {
+public class TouchGesturesHandler extends SimpleOnGestureListener 
+	implements OnScaleGestureListener{
 	
 	private final SpinLogoContext contextInfo;
 	private final SharedPreferences prefs;
@@ -36,8 +37,25 @@ public class TouchGesturesHandler extends SimpleOnGestureListener {
 					contextInfo.getScaleFactor() * ( 100 + Constants.DOUBLE_TAP_SCALE_PERCENTILE ) / 100 );
 		return true;
 	}
-	
-	// the list of gestures we handle
+
+	/**
+	 * On scale, well... scale the model! :) */
+	@Override
+	public boolean onScale(ScaleGestureDetector detector) {
+		contextInfo.setScaleFactor( prefs, (int)((float)contextInfo.getScaleFactor() * detector.getScaleFactor()));
+		return true;
+	}
+
+	public boolean onScaleBegin(ScaleGestureDetector detector) {
+		// TODO begin only if in range
+		return true;
+	}
+
+	public void onScaleEnd(ScaleGestureDetector detector, boolean blah) {
+		// TODO
+	}
+    
+    // the list of gestures we handle
 	public enum GestureType {
 		DOUBLE_TAP
 	}

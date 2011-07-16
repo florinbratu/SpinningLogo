@@ -71,6 +71,8 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 		private SpinLogoRenderer renderer;
 		// touch gestures detektor
 		private final GestureDetector gestureDetector;
+		// the scale detector
+		private final ScaleGestureDetector scaleDetector;
 		
 		public SpinLogoEngine() {
 			super();
@@ -84,8 +86,9 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 			mPreferences.registerOnSharedPreferenceChangeListener(contextInfo);
 			SpinLogoWallpaperService.this.contextInfo.loadPrefs(mPreferences);
 			// touch gesture detector
-			gestureDetector = new GestureDetector(SpinLogoWallpaperService.this, 
-					new TouchGesturesHandler(contextInfo, mPreferences));
+			TouchGesturesHandler touchHandler = new TouchGesturesHandler(contextInfo, mPreferences);
+			gestureDetector = new GestureDetector(SpinLogoWallpaperService.this, touchHandler);
+			scaleDetector = new ScaleGestureDetector(SpinLogoWallpaperService.this, touchHandler);
 		}
 		
 		@Override
@@ -109,6 +112,7 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 		@Override
 		public void onTouchEvent(MotionEvent event) {
 			gestureDetector.onTouchEvent(event);
+			scaleDetector.onTouchEvent(event);
 		}
 	}
 }
