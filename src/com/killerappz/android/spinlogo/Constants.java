@@ -88,8 +88,14 @@ public interface Constants {
 	public static final int DOUBLE_TAP_RANGE_PERCENTILE = 20;
 	// scaling percentile
 	public static final int SCALING_RANGE_PERCENTILE = 15;
-	// rotation - speed increment
+	// rotation 
 	public static final int ROTATION_RANGE_PERCENTILE = 25;
-	public static final int ROTATION_SPEED_INCREMENT = 10;
+	public static final float ROTATION_SPEED_MIN_INCREMENT = 5;
+	public static final float ROTATION_SPEED_MAX_INCREMENT = 45;
+	public static final float SCREEN_UNIT_SCREEN_SIZE_FACTOR = 5;
+	// the velocity corresponding to the minimum speed increment, in "screen units"
+	public static final float ROTATION_VELOCITY_MIN_INCREMENT = 0.5f;
+	// the velocity corresponding to the maximum speed increment, in "screen units"
+	public static final float ROTATION_VELOCITY_MAX_INCREMENT = 9.0f;
 	
 }

@@ -45,7 +45,8 @@ public class TouchGesturesHandler extends SimpleOnGestureListener
 		contextInfo.setTouchPoint(e1.getX(), e1.getY());
 		int ccw = contextInfo.rotationDirection( e1.getX(), e1.getY(), e2.getX(), e2.getY() );
 		// TODO calculate rot speed increment according to velocity values
-		int rotationIncrement = Constants.ROTATION_SPEED_INCREMENT;
+		int rotationIncrement = contextInfo.getRotationSpeedIncrement(
+				velocityX, velocityY);
 		if(contextInfo.touchInRange(GestureType.ROTATE))
 			contextInfo.setRotationSpeed( prefs , 
 					contextInfo.getRotationSpeed() + ccw * rotationIncrement );

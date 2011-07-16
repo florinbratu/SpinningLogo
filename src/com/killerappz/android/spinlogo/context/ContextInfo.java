@@ -97,5 +97,24 @@ public abstract class ContextInfo implements
 	public int rotationDirection(float x1, float y1, float x2, float y2) {
 		return (x1 - mCenter.x) * (y2 - mCenter.y) > (x2 - mCenter.x) * (y1 - mCenter.y) ? -1 : 1;
 	}
+	
+	/**
+	 * Calculate the speed increment from the fling movement
+	 * It is calculated via linear interpolation, 
+	 * we use precomputed values for minimum and maximum velocities
+	 * and for minumum/maximum speed increments and interpolate through them
+	 * 
+	 * @param vx, vy the velocity values on x and y axes
+	 * @return the speed increment 
+	 */
+	public int getRotationSpeedIncrement(float vx, float vy) {
+		float velocity = (float)Math.sqrt( vx * vx + vy * vy );
+		float screenUnit = (mCenter.x + mCenter.y) / Constants.SCREEN_UNIT_SCREEN_SIZE_FACTOR;
+		float minVelocity = (float)Constants.ROTATION_SPEED_MIN_INCREMENT * screenUnit;
+		float maxVelocity = (float)Constants.ROTATION_VELOCITY_MAX_INCREMENT * screenUnit;
+		float retFloat = Constants.ROTATION_SPEED_MIN_INCREMENT * ((velocity - minVelocity) / (maxVelocity - minVelocity))
+			+ Constants.ROTATION_SPEED_MAX_INCREMENT * ((maxVelocity - velocity) / (maxVelocity - minVelocity)) ;
+		return (int)retFloat;
+	}
 
 }
