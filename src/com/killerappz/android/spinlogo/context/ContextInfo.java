@@ -88,5 +88,14 @@ public abstract class ContextInfo implements
 				+ (mTouchPoint.y - mCenter.y) * (mTouchPoint.y - mCenter.y) );
 		return (float)distance < range;
 	}
+	
+	/**
+	 * Determine the rotation direction from point (x1,y1) 
+	 * 	to point (x2,y2) using the center point as reference.
+	 * @returns true if counter clockwise rotation
+	 */
+	public int rotationDirection(float x1, float y1, float x2, float y2) {
+		return (x1 - mCenter.x) * (y2 - mCenter.y) > (x2 - mCenter.x) * (y1 - mCenter.y) ? -1 : 1;
+	}
 
 }

@@ -42,14 +42,13 @@ public class TouchGesturesHandler extends SimpleOnGestureListener
 	@Override
 	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 			float velocityY) {
-		Log.d(Constants.LOG_TAG, "Fling detected; velocities: " + velocityX + ";" + velocityY);
 		contextInfo.setTouchPoint(e1.getX(), e1.getY());
-		// TODO rotation direction according to velocity vektor
-		// TODO we can improve, calculate rot speed increment according to velocity values
+		int ccw = contextInfo.rotationDirection( e1.getX(), e1.getY(), e2.getX(), e2.getY() );
+		// TODO calculate rot speed increment according to velocity values
 		int rotationIncrement = Constants.ROTATION_SPEED_INCREMENT;
 		if(contextInfo.touchInRange(GestureType.ROTATE))
 			contextInfo.setRotationSpeed( prefs , 
-					contextInfo.getRotationSpeed() + rotationIncrement );
+					contextInfo.getRotationSpeed() + ccw * rotationIncrement );
 		return true;
 	}
 

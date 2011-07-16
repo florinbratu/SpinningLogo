@@ -75,5 +75,5 @@ public class SpinLogoContext extends ContextInfo implements
 		editor.putInt(Constants.ROTATION_SPEED_KEY, this.rotationSpeed);
 		editor.commit();
 	}
-	
+
 }
