@@ -6,6 +6,7 @@ public interface Constants {
 	public static final int DEFAULT_ROTATION_SPEED = 25;
 	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
 	public static final int DEFAULT_LOGO_SIZE = 45;
+	public static final int MAX_LOGO_SIZE = 90; // ugly but...works
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/ying_yang_obj";
 	

@@ -52,9 +52,9 @@ public class SpinLogoContext extends ContextInfo implements
 	}
 
 	public void setScaleFactor(SharedPreferences prefs, int scaleFactor) {
-		this.scaleFactor = scaleFactor;
+		this.scaleFactor = scaleFactor > Constants.MAX_LOGO_SIZE ? Constants.MAX_LOGO_SIZE : scaleFactor;
 		Editor editor = prefs.edit();
-		editor.putInt(Constants.SCALING_FACTOR_KEY, scaleFactor);
+		editor.putInt(Constants.SCALING_FACTOR_KEY, this.scaleFactor);
 		editor.commit();
 	}
 	
