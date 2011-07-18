@@ -19,7 +19,7 @@ public class SpinLogoContext extends ContextInfo implements
 	// the revolution speed
 	private int revolutionSpeed = Constants.DEFAULT_REVOLUTION_SPEED;
 	// the rotation speed
-	private int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
+	private volatile int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
 	// the scale factor
 	private volatile int scaleFactor = Constants.DEFAULT_LOGO_SIZE;
 	// the license status
