@@ -1,6 +1,7 @@
 package com.killerappz.android.spinlogo.context;
 
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 
 import com.killerappz.android.spinlogo.Constants;
 
@@ -17,9 +18,9 @@ public class SpinLogoContext extends ContextInfo implements
 	// the revolution speed
 	private int revolutionSpeed = Constants.DEFAULT_REVOLUTION_SPEED;
 	// the rotation speed
-	private int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
+	private volatile int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
 	// the scale factor
-	private int scaleFactor = Constants.DEFAULT_LOGO_SIZE;
+	private volatile int scaleFactor = Constants.DEFAULT_LOGO_SIZE;
 	// the license status
 	private String licenseStatus = Constants.DEFAULT_LICENSE_STATUS;
 	
@@ -81,6 +82,22 @@ public class SpinLogoContext extends ContextInfo implements
 		else if(Constants.SKYBOX_TEXTURE_KEY.equals(key)) {
 			skyboxTextureName = prefs.getString(Constants.SKYBOX_TEXTURE_KEY, Constants.DEFAULT_SKYBOX_TEXTURE_NAME);
 		}
+	}
+	
+	public void setScaleFactor(SharedPreferences prefs, int scaleFactor) {
+		this.scaleFactor = scaleFactor > Constants.MAX_LOGO_SIZE ? Constants.MAX_LOGO_SIZE : scaleFactor;
+		this.scaleFactor = scaleFactor < Constants.MIN_LOGO_SIZE ? Constants.MIN_LOGO_SIZE : this.scaleFactor;
+		Editor editor = prefs.edit();
+		editor.putInt(Constants.SCALING_FACTOR_KEY, this.scaleFactor);
+		editor.commit();
+	}
+
+	public void setRotationSpeed(SharedPreferences prefs, int rotSpeed) {
+		this.rotationSpeed = rotSpeed > Constants.MAX_ROTATION_SPEED ? Constants.MAX_ROTATION_SPEED : rotSpeed;
+		this.rotationSpeed = rotSpeed < Constants.MIN_ROTATION_SPEED ? Constants.MIN_ROTATION_SPEED : this.rotationSpeed;
+		Editor editor = prefs.edit();
+		editor.putInt(Constants.ROTATION_SPEED_KEY, this.rotationSpeed);
+		editor.commit();
 	}
 
 }

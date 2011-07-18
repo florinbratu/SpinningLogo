@@ -32,10 +32,10 @@ public class SeekBarPreference extends DialogPreference implements OnSeekBarChan
 	private TextView mValueText;
 
 	public SeekBarPreference(Context context, AttributeSet attrs, 
-			int defaultVale, int maxValue, float speedUnit) {
+			int defaultVale, int minValue, int maxValue, float speedUnit) {
 		super(context, attrs);
 		// Read parameters from attributes
-		mMinValue = 0;
+		mMinValue = minValue;
 		// we will cheat
 		mDefaultValue = defaultVale;
 		mMaxValue = maxValue;
