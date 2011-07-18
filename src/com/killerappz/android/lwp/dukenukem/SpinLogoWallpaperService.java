@@ -3,6 +3,9 @@ package com.killerappz.android.lwp.dukenukem;
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.SharedPreferences;
 import android.os.Handler;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.SurfaceHolder;
 
 import com.killerappz.android.lwp.dukenukem.context.SpinLogoContext;
 import com.killerappz.android.lwp.dukenukem.licensing.MarketLicensingManager;
@@ -66,6 +69,10 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 		private final SharedPreferences mPreferences;
 		// the renderer
 		private SpinLogoRenderer renderer;
+		// touch gestures detektor
+		private final GestureDetector gestureDetector;
+		// the scale detector
+		private final ScaleGestureDetector scaleDetector;
 		
 		public SpinLogoEngine() {
 			super();
@@ -78,6 +85,17 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 			mPreferences = SpinLogoWallpaperService.this.getSharedPreferences(Constants.PREFS_NAME, 0);
 			mPreferences.registerOnSharedPreferenceChangeListener(contextInfo);
 			SpinLogoWallpaperService.this.contextInfo.loadPrefs(mPreferences);
+			// touch gesture detector
+			TouchGesturesHandler touchHandler = new TouchGesturesHandler(contextInfo, mPreferences);
+			gestureDetector = new GestureDetector(SpinLogoWallpaperService.this, touchHandler);
+			scaleDetector = new ScaleGestureDetector(SpinLogoWallpaperService.this, touchHandler);
+		}
+		
+		@Override
+		public void onCreate(SurfaceHolder surfaceHolder) {
+			super.onCreate(surfaceHolder);
+			// By default we don't get touch events, so enable them. Android is fucked up!
+	        setTouchEventsEnabled(true);
 		}
 
 		@Override
@@ -88,6 +106,13 @@ public class SpinLogoWallpaperService extends GLWallpaperService {
 			}
 			renderer = null;
 			mPreferences.unregisterOnSharedPreferenceChangeListener(contextInfo);
+		}
+		
+		// touch impl
+		@Override
+		public void onTouchEvent(MotionEvent event) {
+			gestureDetector.onTouchEvent(event);
+			scaleDetector.onTouchEvent(event);
 		}
 	}
 }

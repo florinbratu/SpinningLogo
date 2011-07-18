@@ -1,8 +1,10 @@
 package com.killerappz.android.lwp.dukenukem.context;
 
 import com.killerappz.android.lwp.dukenukem.Constants;
+import com.killerappz.android.lwp.dukenukem.R;
 
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 
 /**
  * Generic Context Information relevant 
@@ -17,9 +19,9 @@ public class SpinLogoContext extends ContextInfo implements
 	// the revolution speed
 	private int revolutionSpeed = Constants.DEFAULT_REVOLUTION_SPEED;
 	// the rotation speed
- 	private int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
+ 	private volatile int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
 	// the scale factor
-	private int scaleFactor = Constants.DEFAULT_LOGO_SIZE;
+	private volatile int scaleFactor = Constants.DEFAULT_LOGO_SIZE;
 	// the license status
 	private String licenseStatus = Constants.DEFAULT_LICENSE_STATUS;
     // the new logo texture, if it changed
@@ -66,4 +68,21 @@ public class SpinLogoContext extends ContextInfo implements
 		this.logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
 		this.licenseStatus = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);
 	}
+	
+	public void setScaleFactor(SharedPreferences prefs, int scaleFactor) {
+		this.scaleFactor = scaleFactor > Constants.MAX_LOGO_SIZE ? Constants.MAX_LOGO_SIZE : scaleFactor;
+		this.scaleFactor = scaleFactor < Constants.MIN_LOGO_SIZE ? Constants.MIN_LOGO_SIZE : this.scaleFactor;
+		Editor editor = prefs.edit();
+		editor.putInt(Constants.SCALING_FACTOR_KEY, this.scaleFactor);
+		editor.commit();
+	}
+
+	public void setRotationSpeed(SharedPreferences prefs, int rotSpeed) {
+		this.rotationSpeed = rotSpeed > Constants.MAX_ROTATION_SPEED ? Constants.MAX_ROTATION_SPEED : rotSpeed;
+		this.rotationSpeed = rotSpeed < Constants.MIN_ROTATION_SPEED ? Constants.MIN_ROTATION_SPEED : this.rotationSpeed;
+		Editor editor = prefs.edit();
+		editor.putInt(Constants.ROTATION_SPEED_KEY, this.rotationSpeed);
+		editor.commit();
+	}
+	
 }
