@@ -44,13 +44,32 @@ public class TouchGesturesHandler extends SimpleOnGestureListener
 			float velocityY) {
 		contextInfo.setTouchPoint(e1.getX(), e1.getY());
 		int ccw = contextInfo.rotationDirection( e1.getX(), e1.getY(), e2.getX(), e2.getY() );
-		// TODO calculate rot speed increment according to velocity values
 		int rotationIncrement = contextInfo.getRotationSpeedIncrement(
 				velocityX, velocityY);
-		if(contextInfo.touchInRange(GestureType.ROTATE))
+		if(contextInfo.touchInRange(GestureType.ROTATE)
+				&& minimumAngle(e1,e2))
 			contextInfo.setRotationSpeed( prefs , 
 					contextInfo.getRotationSpeed() + ccw * rotationIncrement );
 		return true;
+	}
+
+	/**
+	 * Test if the fling gesture is not performed on a horizontal direction
+	 * Horizontal flings are reserved for the virtual screen switch op
+	 * 
+	 * It's difficult to test for perfect horizontal flings
+	 * so instead we test if the movement angle is above a certain
+	 * threshold - stored in {@link Constants.MIN_FLING_ANGLE}
+	 * 
+	 * @param e1, e2 the motion events for the start and endpoint of fling
+	 * @return true if not horizontal fling
+	 */
+	private boolean minimumAngle(MotionEvent e1, MotionEvent e2) {
+		double minAngle = Math.tan(Math.toRadians(Constants.MIN_FLING_ANGLE));
+		double flingAngle = Math.abs(e1.getY() - e2.getY()) / Math.abs(e1.getX() - e2.getX());
+		/*Log.d(Constants.LOG_TAG, "Minimim angle: " + Constants.MIN_FLING_ANGLE + 
+				"; actual angle: " + Math.toDegrees(Math.atan(flingAngle)) );*/
+		return minAngle < flingAngle;
 	}
 
 	/**

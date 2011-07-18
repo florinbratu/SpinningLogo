@@ -90,6 +90,9 @@ public interface Constants {
 	public static final int SCALING_RANGE_PERCENTILE = 15;
 	// rotation 
 	public static final int ROTATION_RANGE_PERCENTILE = 25;
+	// minimum angle for which a fling will be taken into account
+	// this is so that we can at least slide between virtual screens...
+	public static final float MIN_FLING_ANGLE = 15;
 	public static final float ROTATION_SPEED_MIN_INCREMENT = 5;
 	public static final float ROTATION_SPEED_MAX_INCREMENT = 45;
 	public static final float SCREEN_UNIT_SCREEN_SIZE_FACTOR = 5;
