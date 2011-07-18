@@ -1,6 +1,10 @@
 package com.killerappz.android.lwp.transformers.context;
 
+import com.killerappz.android.lwp.transformers.Constants;
+import com.killerappz.android.lwp.transformers.TouchGesturesHandler.GestureType;
+
 import android.content.SharedPreferences;
+import android.util.Log;
 
 /**
  * Container for all the context-related information 
@@ -27,7 +31,7 @@ public abstract class ContextInfo implements
 	}
 
 	public void setCenter(float width, float height) {
-		mCenter.set(width/2.0f, height/2.0f);
+		mCenter.set(width, height);
 	}
 
 	public void setOffset(float xOffset, float yOffset, float xStep,
@@ -51,4 +55,30 @@ public abstract class ContextInfo implements
 		return mOffset;
 	}
 	
+	/**
+	 * test if the touch point is "in range"
+	 * relative to the point center,
+	 * so we can consider the touch event as a
+	 * valid interaction with the app.
+	 * The "in range" criteria is dependent on the event type 
+	 */
+	public boolean touchInRange(GestureType gesture) {
+		float range;
+		switch(gesture) {
+			case DOUBLE_TAP:
+				/* the double tap range is calculated as follows:
+				 * - average the width and height
+				 * - range will be RANGE_PERCENTILE * average
+				 *  */
+				range = (mCenter.x + mCenter.y) * Constants.DOUBLE_TAP_RANGE_PERCENTILE / 100.0f;
+				break;
+			default:
+				return false;
+		}
+		// calculate the distance to the center
+		double distance = Math.sqrt( (mTouchPoint.x - mCenter.x) * (mTouchPoint.x - mCenter.x) 
+				+ (mTouchPoint.y - mCenter.y) * (mTouchPoint.y - mCenter.y) );
+		return (float)distance < range;
+	}
+
 }
