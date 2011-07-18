@@ -29,10 +29,14 @@ public interface Constants {
 	public static final String ROTATION_SPEED_KEY = "rotation";
 	public static final float ROTATION_SPEED_UNIT = 0.25f;
 	public static final int DEFAULT_ROTATION_SPEED = 0;
+	public static final int MAX_ROTATION_SPEED = 90; // ugly but...works
+	public static final int MIN_ROTATION_SPEED = -90;
 	// scaling
 	public static final String SCALING_FACTOR_KEY = "scale";
 	public static final float LOGO_SIZE_UNIT = (float)2 / (float)90;
 	public static final int DEFAULT_LOGO_SIZE = 45;
+	public static final int MAX_LOGO_SIZE = 90; // ugly but...works
+	public static final int MIN_LOGO_SIZE = 9;
 	// 2) license status
 	public static final String LICENSE_STATUS_KEY = "licenseStatus";
 	// the default license status message
@@ -86,5 +90,24 @@ public interface Constants {
 	};
 	
 	public static final String DEV_EMAIL_ADDRESS = "killerappzz@gmail.com";
+	
+	/* Touch interaction prefs */
+	// the percentile with which the model increases when user double taps the screen 
+	public static final int DOUBLE_TAP_SCALE_PERCENTILE = 20;
+	public static final int DOUBLE_TAP_RANGE_PERCENTILE = 20;
+	// scaling percentile
+	public static final int SCALING_RANGE_PERCENTILE = 15;
+	// rotation 
+	public static final int ROTATION_RANGE_PERCENTILE = 25;
+	// minimum angle for which a fling will be taken into account
+	// this is so that we can at least slide between virtual screens...
+	public static final float MIN_FLING_ANGLE = 15;
+	public static final float ROTATION_SPEED_MIN_INCREMENT = 5;
+	public static final float ROTATION_SPEED_MAX_INCREMENT = 45;
+	public static final float SCREEN_UNIT_SCREEN_SIZE_FACTOR = 5;
+	// the velocity corresponding to the minimum speed increment, in "screen units"
+	public static final float ROTATION_VELOCITY_MIN_INCREMENT = 0.5f;
+	// the velocity corresponding to the maximum speed increment, in "screen units"
+	public static final float ROTATION_VELOCITY_MAX_INCREMENT = 9.0f;
 	
 }
