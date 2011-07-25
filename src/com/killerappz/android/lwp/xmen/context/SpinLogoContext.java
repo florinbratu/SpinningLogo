@@ -19,6 +19,7 @@ public class SpinLogoContext extends ContextInfo implements
 	// the revolution speed
 	private int revolutionSpeed = Constants.DEFAULT_REVOLUTION_SPEED;
 	// the rotation speed
+	private boolean rotationEnabled = false;
 	private volatile int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
 	// the scale factor
 	private volatile int scaleFactor = Constants.DEFAULT_LOGO_SIZE;
@@ -34,6 +35,10 @@ public class SpinLogoContext extends ContextInfo implements
 	
 	public int getRevolutionSpeed() {
 		return revolutionSpeed;
+	}
+	
+	public boolean rotationEnabled() {
+		return rotationEnabled;
 	}
 	
  	public int getRotationSpeed() {
@@ -52,6 +57,8 @@ public class SpinLogoContext extends ContextInfo implements
 	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
 		if(Constants.REVOLUTION_SPEED_KEY.equals(key))
 			revolutionSpeed = prefs.getInt(Constants.REVOLUTION_SPEED_KEY, Constants.DEFAULT_REVOLUTION_SPEED);
+		else if(Constants.ROTATION_KEY.equals(key))
+			rotationEnabled = prefs.getBoolean(Constants.ROTATION_KEY, false);
 		else if(Constants.ROTATION_SPEED_KEY.equals(key))
 			rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED); 
 		else if(Constants.SCALING_FACTOR_KEY.equals(key))
@@ -65,6 +72,7 @@ public class SpinLogoContext extends ContextInfo implements
 
 	public void loadPrefs(SharedPreferences prefs) {
 		this.revolutionSpeed = prefs.getInt(Constants.REVOLUTION_SPEED_KEY, Constants.DEFAULT_REVOLUTION_SPEED);
+		this.rotationEnabled = prefs.getBoolean(Constants.ROTATION_KEY, false);
  		this.rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
 		this.scaleFactor = prefs.getInt(Constants.SCALING_FACTOR_KEY, Constants.DEFAULT_LOGO_SIZE);
 		this.licenseStatus = prefs.getString(Constants.LICENSE_STATUS_KEY, Constants.DEFAULT_LICENSE_STATUS);

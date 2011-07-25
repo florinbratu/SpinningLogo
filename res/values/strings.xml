@@ -16,6 +16,9 @@
     <string name="revolution_speed_max_value">90</string>
     <string name="revolution_speed_title">Revolution speed</string>
     <!-- Rotation speed -->
+    <string name="rotation_title">Rotation Movement</string>
+   <string name="rotation_summary_on">On</string>
+   <string name="rotation_summary_off">Off</string>
     <string name="rotation_speed_name">RotationSpeed</string>
     <string name="rotation_speed_summary">%1$.1f deg/sec</string>
     <string name="rotation_speed_default_value">0</string>
