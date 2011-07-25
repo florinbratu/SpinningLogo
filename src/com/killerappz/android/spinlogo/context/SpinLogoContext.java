@@ -19,6 +19,7 @@ public class SpinLogoContext extends ContextInfo implements
 	private int revolutionSpeed = Constants.DEFAULT_REVOLUTION_SPEED;
 	// the rotation speed
 	private volatile int rotationSpeed = Constants.DEFAULT_ROTATION_SPEED;
+	private boolean rotationEnabled = false;
 	// the scale factor
 	private volatile int scaleFactor = Constants.DEFAULT_LOGO_SIZE;
 	// the license status
@@ -32,6 +33,10 @@ public class SpinLogoContext extends ContextInfo implements
 
 	public int getRevolutionSpeed() {
 		return revolutionSpeed;
+	}
+	
+	public boolean rotationEnabled() {
+		return rotationEnabled;
 	}
 	
 	public int getRotationSpeed() {
@@ -59,6 +64,7 @@ public class SpinLogoContext extends ContextInfo implements
 	// will be called initially, @engine creation
 	public void loadPrefs(SharedPreferences prefs) {
 		this.revolutionSpeed = prefs.getInt(Constants.REVOLUTION_SPEED_KEY, Constants.DEFAULT_REVOLUTION_SPEED);
+		this.rotationEnabled = prefs.getBoolean(Constants.ROTATION_KEY, false);
 		this.rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED);
 		this.scaleFactor = prefs.getInt(Constants.SCALING_FACTOR_KEY, Constants.DEFAULT_LOGO_SIZE);
 		this.logoTextureName = prefs.getString(Constants.LOGO_TEXTURE_KEY, Constants.DEFAULT_LOGO_TEXTURE_NAME);
@@ -70,6 +76,8 @@ public class SpinLogoContext extends ContextInfo implements
 	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
 		if(Constants.REVOLUTION_SPEED_KEY.equals(key))
 			revolutionSpeed = prefs.getInt(Constants.REVOLUTION_SPEED_KEY, Constants.DEFAULT_REVOLUTION_SPEED);
+		else if(Constants.ROTATION_KEY.equals(key))
+			rotationEnabled = prefs.getBoolean(Constants.ROTATION_KEY, false);
 		else if(Constants.ROTATION_SPEED_KEY.equals(key))
 			rotationSpeed = prefs.getInt(Constants.ROTATION_SPEED_KEY, Constants.DEFAULT_ROTATION_SPEED); 
 		else if(Constants.SCALING_FACTOR_KEY.equals(key))
@@ -83,7 +91,7 @@ public class SpinLogoContext extends ContextInfo implements
 			skyboxTextureName = prefs.getString(Constants.SKYBOX_TEXTURE_KEY, Constants.DEFAULT_SKYBOX_TEXTURE_NAME);
 		}
 	}
-	
+
 	public void setScaleFactor(SharedPreferences prefs, int scaleFactor) {
 		this.scaleFactor = scaleFactor > Constants.MAX_LOGO_SIZE ? Constants.MAX_LOGO_SIZE : scaleFactor;
 		this.scaleFactor = scaleFactor < Constants.MIN_LOGO_SIZE ? Constants.MIN_LOGO_SIZE : this.scaleFactor;
