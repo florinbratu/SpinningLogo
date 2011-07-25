@@ -93,7 +93,7 @@ public class SpinningLogo {
 		float revolutionSpeed = (float)contextInfo.getRevolutionSpeed() * Constants.REVOLUTION_SPEED_UNIT;
 		object.rotation().y += revolutionSpeed;
 		float rotationSpeed = (float)contextInfo.getRotationSpeed() * Constants.ROTATION_SPEED_UNIT;
-		if(rotationSpeed != 0.0f)
+		if(contextInfo.rotationEnabled())
 			object.rotation().z += rotationSpeed;
 		else
 			object.rotation().z = 0;

@@ -13,12 +13,19 @@
 		android:defaultValue="@string/revolution_speed_default_value"
 		android:max="@string/revolution_speed_max_value" />
 		
+	<CheckBoxPreference
+		android:key="rotationEnabled" 
+		android:title="@string/rotation_title"
+	    android:summaryOn="@string/rotation_summary_on"
+	    android:summaryOff="@string/rotation_summary_off" />
+		
 	<com.killerappz.android.lwp.donation.mortalkombat.preferences.RotationSpeedPreference
         android:key="rotation"
 		android:title="@string/rotation_speed_title"
 		android:dialogTitle="@string/rotation_speed_title"
 		android:summary="@string/rotation_speed_summary"
 		android:persistent="true"
+		android:dependency="rotationEnabled"
 		android:defaultValue="@string/rotation_speed_default_value"
 		android:max="@string/rotation_speed_max_value" />
 		

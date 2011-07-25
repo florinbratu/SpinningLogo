@@ -22,6 +22,7 @@ public interface Constants {
 	
 	// preferences screen keys
 	// revolution
+	public static final String ROTATION_KEY = "rotationEnabled";
 	public static final String REVOLUTION_SPEED_KEY = "revolution";
 	public static final float REVOLUTION_SPEED_UNIT = 0.1f;
 	public static final int DEFAULT_REVOLUTION_SPEED = 25;
