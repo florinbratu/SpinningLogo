@@ -1,10 +1,10 @@
-package com.killerappz.android.lwp.transformers.preferences;
+package com.killerappz.android.lwp.donation.transformers.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.killerappz.android.lwp.transformers.Constants;
-import com.killerappz.android.lwp.transformers.R;
+import com.killerappz.android.lwp.donation.transformers.Constants;
+import com.killerappz.android.lwp.donation.transformers.R;
 
 /**
  * Control the rotation speed 

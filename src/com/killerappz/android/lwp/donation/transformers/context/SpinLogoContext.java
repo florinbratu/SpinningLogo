@@ -1,9 +1,9 @@
-package com.killerappz.android.lwp.transformers.context;
+package com.killerappz.android.lwp.donation.transformers.context;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import com.killerappz.android.lwp.transformers.Constants;
+import com.killerappz.android.lwp.donation.transformers.Constants;
 
 /**
  * Generic Context Information relevant 

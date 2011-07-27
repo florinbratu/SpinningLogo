@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.transformers.preferences;
+package com.killerappz.android.lwp.donation.transformers.preferences;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.transformers.Constants;
-import com.killerappz.android.lwp.transformers.R;
+import com.killerappz.android.lwp.donation.transformers.Constants;
+import com.killerappz.android.lwp.donation.transformers.R;
 
 /**
  * Entrance in the Preferences page for 
