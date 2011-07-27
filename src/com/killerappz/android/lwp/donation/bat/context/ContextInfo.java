@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.donation.batman.context;
+package com.killerappz.android.lwp.donation.bat.context;
 
-import com.killerappz.android.lwp.donation.batman.Constants;
-import com.killerappz.android.lwp.donation.batman.TouchGesturesHandler.GestureType;
+import com.killerappz.android.lwp.donation.bat.Constants;
+import com.killerappz.android.lwp.donation.bat.TouchGesturesHandler.GestureType;
 
 import android.content.SharedPreferences;
 import android.util.Log;

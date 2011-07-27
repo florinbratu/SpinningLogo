@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.batman.context;
+package com.killerappz.android.lwp.donation.bat.context;
 
 
 // a Point where the user touched the screen

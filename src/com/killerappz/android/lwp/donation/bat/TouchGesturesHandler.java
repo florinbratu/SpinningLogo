@@ -1,6 +1,6 @@
-package com.killerappz.android.lwp.donation.batman;
+package com.killerappz.android.lwp.donation.bat;
 
-import com.killerappz.android.lwp.donation.batman.context.SpinLogoContext;
+import com.killerappz.android.lwp.donation.bat.context.SpinLogoContext;
 
 import android.content.SharedPreferences;
 import android.util.Log;

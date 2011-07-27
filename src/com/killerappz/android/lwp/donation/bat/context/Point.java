@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.batman.context;
+package com.killerappz.android.lwp.donation.bat.context;
 
 // a Point with floating-point precision
 public class Point {

@@ -1,10 +1,10 @@
-package com.killerappz.android.lwp.donation.batman.preferences;
+package com.killerappz.android.lwp.donation.bat.preferences;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-import com.killerappz.android.lwp.donation.batman.Constants;
-import com.killerappz.android.lwp.donation.batman.R;
+import com.killerappz.android.lwp.donation.bat.Constants;
+import com.killerappz.android.lwp.donation.bat.R;
 
 public class LiveWallpaperSettings extends PreferenceActivity
 {
