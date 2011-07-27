@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.mortalkombat;
+package com.killerappz.android.lwp.donation.mk;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "mk_donation_settings";

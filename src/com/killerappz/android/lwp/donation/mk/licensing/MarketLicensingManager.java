@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.mortalkombat.licensing;
+package com.killerappz.android.lwp.donation.mk.licensing;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,8 +12,8 @@ import com.android.vending.licensing.AESObfuscator;
 import com.android.vending.licensing.LicenseChecker;
 import com.android.vending.licensing.LicenseCheckerCallback;
 import com.android.vending.licensing.ServerManagedPolicy;
-import com.killerappz.android.lwp.donation.mortalkombat.Constants;
-import com.killerappz.android.lwp.donation.mortalkombat.SpinLogoWallpaperService;
+import com.killerappz.android.lwp.donation.mk.Constants;
+import com.killerappz.android.lwp.donation.mk.SpinLogoWallpaperService;
 
 /**
  * Handles the licensing process for the application,

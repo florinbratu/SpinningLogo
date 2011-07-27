@@ -1,10 +1,10 @@
-package com.killerappz.android.lwp.donation.mortalkombat.preferences;
+package com.killerappz.android.lwp.donation.mk.preferences;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-import com.killerappz.android.lwp.donation.mortalkombat.Constants;
-import com.killerappz.android.lwp.donation.mortalkombat.R;
+import com.killerappz.android.lwp.donation.mk.Constants;
+import com.killerappz.android.lwp.donation.mk.R;
 
 public class LiveWallpaperSettings extends PreferenceActivity
 {

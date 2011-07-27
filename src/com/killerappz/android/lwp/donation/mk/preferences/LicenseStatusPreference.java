@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.mortalkombat.preferences;
+package com.killerappz.android.lwp.donation.mk.preferences;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.donation.mortalkombat.Constants;
-import com.killerappz.android.lwp.donation.mortalkombat.R;
+import com.killerappz.android.lwp.donation.mk.Constants;
+import com.killerappz.android.lwp.donation.mk.R;
 
 /**
  * Entrance in the Preferences page for 

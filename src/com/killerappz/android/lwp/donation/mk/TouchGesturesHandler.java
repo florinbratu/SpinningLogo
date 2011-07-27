@@ -1,12 +1,12 @@
-package com.killerappz.android.lwp.donation.mortalkombat;
+package com.killerappz.android.lwp.donation.mk;
 
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
-import com.killerappz.android.lwp.donation.mortalkombat.ScaleGestureDetector.OnScaleGestureListener;
-import com.killerappz.android.lwp.donation.mortalkombat.context.SpinLogoContext;
+import com.killerappz.android.lwp.donation.mk.ScaleGestureDetector.OnScaleGestureListener;
+import com.killerappz.android.lwp.donation.mk.context.SpinLogoContext;
 
 /**
  * Handle touch screen interaction

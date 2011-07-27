@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.mortalkombat.context;
+package com.killerappz.android.lwp.donation.mk.context;
 
 import android.content.SharedPreferences;
 

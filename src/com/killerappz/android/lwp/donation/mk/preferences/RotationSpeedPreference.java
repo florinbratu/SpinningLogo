@@ -1,10 +1,10 @@
-package com.killerappz.android.lwp.donation.mortalkombat.preferences;
+package com.killerappz.android.lwp.donation.mk.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.killerappz.android.lwp.donation.mortalkombat.Constants;
-import com.killerappz.android.lwp.donation.mortalkombat.R;
+import com.killerappz.android.lwp.donation.mk.Constants;
+import com.killerappz.android.lwp.donation.mk.R;
 
 /**
  * Control the rotation speed 
