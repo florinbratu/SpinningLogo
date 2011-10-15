@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.transformers;
+package com.killerappz.android.lwp.donation.tf;
 
 import net.rbgrn.android.glwallpaperservice.GLWallpaperService;
 import android.content.SharedPreferences;
@@ -7,8 +7,8 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
-import com.killerappz.android.lwp.donation.transformers.context.SpinLogoContext;
-import com.killerappz.android.lwp.donation.transformers.licensing.MarketLicensingManager;
+import com.killerappz.android.lwp.donation.tf.context.SpinLogoContext;
+import com.killerappz.android.lwp.donation.tf.licensing.MarketLicensingManager;
 
 // Original code provided by Robert Green
 // http://www.rbgrn.net/content/354-glsurfaceview-adapted-3d-live-wallpapers

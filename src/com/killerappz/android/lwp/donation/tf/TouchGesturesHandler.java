@@ -1,11 +1,11 @@
-package com.killerappz.android.lwp.donation.transformers;
+package com.killerappz.android.lwp.donation.tf;
 
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
-import com.killerappz.android.lwp.donation.transformers.context.SpinLogoContext;
+import com.killerappz.android.lwp.donation.tf.context.SpinLogoContext;
 
 /**
  * Handle touch screen interaction

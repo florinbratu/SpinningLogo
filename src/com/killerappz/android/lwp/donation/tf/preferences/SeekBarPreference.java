@@ -1,6 +1,6 @@
-package com.killerappz.android.lwp.donation.transformers.preferences;
+package com.killerappz.android.lwp.donation.tf.preferences;
 
-import com.killerappz.android.lwp.donation.transformers.R;
+import com.killerappz.android.lwp.donation.tf.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

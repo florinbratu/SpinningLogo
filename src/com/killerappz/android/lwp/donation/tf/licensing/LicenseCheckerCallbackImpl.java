@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.transformers.licensing;
+package com.killerappz.android.lwp.donation.tf.licensing;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -10,9 +10,9 @@ import android.os.Handler;
 import android.util.Log;
 
 import com.android.vending.licensing.LicenseCheckerCallback;
-import com.killerappz.android.lwp.donation.transformers.Constants;
-import com.killerappz.android.lwp.donation.transformers.SpinLogoWallpaperService;
-import com.killerappz.android.lwp.donation.transformers.R;
+import com.killerappz.android.lwp.donation.tf.Constants;
+import com.killerappz.android.lwp.donation.tf.SpinLogoWallpaperService;
+import com.killerappz.android.lwp.donation.tf.R;
 
 /**
  * Callback implementation

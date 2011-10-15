@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.transformers;
+package com.killerappz.android.lwp.donation.tf;
 
 import min3d.core.Object3dContainer;
 import min3d.core.TextureManager;
