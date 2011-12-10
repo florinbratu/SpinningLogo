@@ -1,10 +1,10 @@
-package com.killerappz.android.lwp.donation.superman.preferences;
+package com.killerappz.android.lwp.donate.superman.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.killerappz.android.lwp.donation.superman.Constants;
-import com.killerappz.android.lwp.donation.superman.R;
+import com.killerappz.android.lwp.donate.superman.Constants;
+import com.killerappz.android.lwp.donate.superman.R;
 
 /**
  * Control the rotation speed 

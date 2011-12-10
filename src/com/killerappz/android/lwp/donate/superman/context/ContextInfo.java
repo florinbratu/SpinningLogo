@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.donation.superman.context;
+package com.killerappz.android.lwp.donate.superman.context;
 
-import com.killerappz.android.lwp.donation.superman.Constants;
-import com.killerappz.android.lwp.donation.superman.TouchGesturesHandler.GestureType;
+import com.killerappz.android.lwp.donate.superman.Constants;
+import com.killerappz.android.lwp.donate.superman.TouchGesturesHandler.GestureType;
 
 import android.content.SharedPreferences;
 import android.util.Log;

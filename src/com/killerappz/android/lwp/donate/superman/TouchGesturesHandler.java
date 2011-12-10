@@ -1,11 +1,11 @@
-package com.killerappz.android.lwp.donation.superman;
+package com.killerappz.android.lwp.donate.superman;
 
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
-import com.killerappz.android.lwp.donation.superman.context.SpinLogoContext;
+import com.killerappz.android.lwp.donate.superman.context.SpinLogoContext;
 
 /**
  * Handle touch screen interaction

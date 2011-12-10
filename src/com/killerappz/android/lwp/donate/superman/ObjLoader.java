@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.superman;
+package com.killerappz.android.lwp.donate.superman;
 
 import min3d.core.Object3dContainer;
 import min3d.core.TextureManager;

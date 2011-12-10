@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.superman.context;
+package com.killerappz.android.lwp.donate.superman.context;
 
 
 // a Point where the user touched the screen

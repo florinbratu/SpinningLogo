@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.superman;
+package com.killerappz.android.lwp.donate.superman;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "superman_donation_settings";
