@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.bat.licensing;
+package com.killerappz.android.lwp.bat.licensing;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -15,9 +15,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.donation.bat.Constants;
-import com.killerappz.android.lwp.donation.bat.preferences.LicenseStatusPreference;
-import com.killerappz.android.lwp.donation.bat.R;
+import com.killerappz.android.lwp.bat.Constants;
+import com.killerappz.android.lwp.bat.preferences.LicenseStatusPreference;
+import com.killerappz.android.lwp.bat.R;
 
 /**
  * Dialog to be displayed on wallpaper startup

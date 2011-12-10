@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.bat.context;
+package com.killerappz.android.lwp.bat.context;
 
 import android.content.SharedPreferences;
 

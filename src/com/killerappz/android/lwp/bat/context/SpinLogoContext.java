@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.donation.bat.context;
+package com.killerappz.android.lwp.bat.context;
 
-import com.killerappz.android.lwp.donation.bat.Constants;
-import com.killerappz.android.lwp.donation.bat.R;
+import com.killerappz.android.lwp.bat.Constants;
+import com.killerappz.android.lwp.bat.R;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;

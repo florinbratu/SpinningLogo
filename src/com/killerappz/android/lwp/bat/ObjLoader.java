@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.bat;
+package com.killerappz.android.lwp.bat;
 
 import min3d.core.Object3dContainer;
 import min3d.core.TextureManager;

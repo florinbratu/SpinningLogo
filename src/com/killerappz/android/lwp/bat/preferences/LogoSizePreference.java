@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.donation.bat.preferences;
+package com.killerappz.android.lwp.bat.preferences;
 
-import com.killerappz.android.lwp.donation.bat.Constants;
-import com.killerappz.android.lwp.donation.bat.R;
+import com.killerappz.android.lwp.bat.Constants;
+import com.killerappz.android.lwp.bat.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

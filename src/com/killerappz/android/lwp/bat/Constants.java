@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.bat;
+package com.killerappz.android.lwp.bat;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "batman_donation_settings";
