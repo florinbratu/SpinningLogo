@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.donation.mk.context;
+package com.killerappz.android.lwp.mk.context;
 
-import com.killerappz.android.lwp.donation.mk.Constants;
-import com.killerappz.android.lwp.donation.mk.TouchGesturesHandler.GestureType;
+import com.killerappz.android.lwp.mk.Constants;
+import com.killerappz.android.lwp.mk.TouchGesturesHandler.GestureType;
 
 import android.content.SharedPreferences;
 import android.util.Log;

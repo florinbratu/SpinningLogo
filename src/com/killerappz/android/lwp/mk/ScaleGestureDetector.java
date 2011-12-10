@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.mk;
+package com.killerappz.android.lwp.mk;
 
 import android.content.Context;
 import android.view.MotionEvent;

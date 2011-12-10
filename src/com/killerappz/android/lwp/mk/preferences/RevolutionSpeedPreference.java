@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.donation.mk.preferences;
+package com.killerappz.android.lwp.mk.preferences;
 
-import com.killerappz.android.lwp.donation.mk.Constants;
-import com.killerappz.android.lwp.donation.mk.R;
+import com.killerappz.android.lwp.mk.R;
+import com.killerappz.android.lwp.mk.Constants;
 
 import android.content.Context;
 import android.util.AttributeSet;

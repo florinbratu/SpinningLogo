@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.mk;
+package com.killerappz.android.lwp.mk;
 
 import min3d.core.Object3dContainer;
 import min3d.core.TextureManager;

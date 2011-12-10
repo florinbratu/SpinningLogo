@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.mk;
+package com.killerappz.android.lwp.mk;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -13,9 +13,9 @@ import min3d.vos.TextureVo;
 import android.content.Context;
 import android.graphics.Bitmap;
 
-import com.killerappz.android.lwp.donation.mk.context.Point;
-import com.killerappz.android.lwp.donation.mk.context.SpinLogoContext;
-import com.killerappz.android.lwp.donation.mk.R;
+import com.killerappz.android.lwp.mk.R;
+import com.killerappz.android.lwp.mk.context.Point;
+import com.killerappz.android.lwp.mk.context.SpinLogoContext;
 
 /**
  * The Spinning Logo object
