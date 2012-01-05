@@ -1,12 +1,12 @@
-package com.killerappz.android.lwp.xmen;
+package com.killerappz.android.live.wallpaper.xmen;
 
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
-import com.killerappz.android.lwp.xmen.ScaleGestureDetector.OnScaleGestureListener;
-import com.killerappz.android.lwp.xmen.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.xmen.ScaleGestureDetector.OnScaleGestureListener;
+import com.killerappz.android.live.wallpaper.xmen.context.SpinLogoContext;
 
 /**
  * Handle touch screen interaction

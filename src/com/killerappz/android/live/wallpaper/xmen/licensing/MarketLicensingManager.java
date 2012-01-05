@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.xmen.licensing;
+package com.killerappz.android.live.wallpaper.xmen.licensing;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,8 +12,8 @@ import com.android.vending.licensing.AESObfuscator;
 import com.android.vending.licensing.LicenseChecker;
 import com.android.vending.licensing.LicenseCheckerCallback;
 import com.android.vending.licensing.ServerManagedPolicy;
-import com.killerappz.android.lwp.xmen.Constants;
-import com.killerappz.android.lwp.xmen.SpinLogoWallpaperService;
+import com.killerappz.android.live.wallpaper.xmen.Constants;
+import com.killerappz.android.live.wallpaper.xmen.SpinLogoWallpaperService;
 
 /**
  * Handles the licensing process for the application,

@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.xmen;
+package com.killerappz.android.live.wallpaper.xmen;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "xmen_settings";

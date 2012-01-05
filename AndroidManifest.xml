@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.killerappz.android.lwp.xmen"
-      android:versionCode="8"
-      android:versionName="1.3.1">
+      package="com.killerappz.android.live.wallpaper.xmen"
+      android:versionCode="1"
+      android:versionName="1.0">
     
     <uses-sdk android:minSdkVersion="7" />
     <uses-feature android:name="android.software.live_wallpaper" />
@@ -11,10 +11,11 @@
     <application android:icon="@drawable/icon" 
     	android:label="@string/app_name">
     	
-        <service android:label="@string/service_label" 
-        	android:name="com.killerappz.android.lwp.xmen.SpinLogoWallpaperService"
-        	android:icon="@drawable/icon"
-            android:permission="android.permission.BIND_WALLPAPER">
+        <service android:label="@string/service_label"
+                android:name="com.killerappz.android.live.wallpaper.xmen.SpinLogoWallpaperService"
+                android:icon="@drawable/icon"
+                android:permission="android.permission.BIND_WALLPAPER">
+
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
             </intent-filter>
@@ -23,18 +24,18 @@
         </service>
         
         <activity android:label="@string/spinlogo_settings"
-			android:name="com.killerappz.android.lwp.xmen.preferences.LiveWallpaperSettings"
+			android:name="com.killerappz.android.live.wallpaper.xmen.preferences.LiveWallpaperSettings"
 			android:theme="@android:style/Theme.Light.WallpaperSettings"
 			android:exported="true"
 			android:icon="@drawable/icon">
 		</activity>
 		
 		<!-- the license validation dialog -->
-		<activity android:name="com.killerappz.android.lwp.xmen.licensing.LicenseValidationDialog"
-	        android:theme="@android:style/Theme.Dialog"
-	        android:launchMode="singleInstance"
-	        android:excludeFromRecents="true"
-	        android:finishOnTaskLaunch="true" />
+        <activity android:name="com.killerappz.android.live.wallpaper.xmen.licensing.LicenseValidationDialog"
+                android:theme="@android:style/Theme.Dialog"
+                android:launchMode="singleInstance"
+	        	android:excludeFromRecents="true"
+	        	android:finishOnTaskLaunch="true" />
     </application>
     
 

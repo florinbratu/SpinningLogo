@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.xmen.context;
+package com.killerappz.android.live.wallpaper.xmen.context;
 
 
 // a Point where the user touched the screen

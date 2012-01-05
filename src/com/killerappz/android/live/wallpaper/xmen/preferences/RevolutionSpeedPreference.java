@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.xmen.preferences;
+package com.killerappz.android.live.wallpaper.xmen.preferences;
 
-import com.killerappz.android.lwp.xmen.Constants;
-import com.killerappz.android.lwp.xmen.R;
+import com.killerappz.android.live.wallpaper.xmen.Constants;
+import com.killerappz.android.live.wallpaper.xmen.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

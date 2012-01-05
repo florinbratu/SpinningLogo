@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.xmen.licensing;
+package com.killerappz.android.live.wallpaper.xmen.licensing;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -15,9 +15,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.xmen.preferences.LicenseStatusPreference;
-import com.killerappz.android.lwp.xmen.Constants;
-import com.killerappz.android.lwp.xmen.R;
+import com.killerappz.android.live.wallpaper.xmen.Constants;
+import com.killerappz.android.live.wallpaper.xmen.preferences.LicenseStatusPreference;
+import com.killerappz.android.live.wallpaper.xmen.R;
 
 /**
  * Dialog to be displayed on wallpaper startup

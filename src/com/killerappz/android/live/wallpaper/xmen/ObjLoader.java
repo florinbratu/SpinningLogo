@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.xmen;
+package com.killerappz.android.live.wallpaper.xmen;
 
 import min3d.core.Object3dContainer;
 import min3d.core.TextureManager;
