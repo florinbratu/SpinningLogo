@@ -26,6 +26,7 @@ public interface Constants {
 	public static final String ROTATION_SPEED_KEY = "rotation";
 	public static final float ROTATION_SPEED_UNIT = 0.25f;
 	public static final int DEFAULT_ROTATION_SPEED = 0;
+	public static final int INITIAL_ROTATION_ANGLE = 15;
 	public static final int MAX_ROTATION_SPEED = 90; // ugly but...works
 	public static final int MIN_ROTATION_SPEED = -90;
 	// logo texture
