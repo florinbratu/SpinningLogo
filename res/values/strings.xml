@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ying Yang Live Wallpaper</string>
-    <string name="service_label">Ying Yang Taijitu 3D</string>
-    <string name="description">The ancient Ying Yang Taijitu symbol rotating in the middle of a beautiful arctic landscape!</string>
-    <string name="invalid_license">The Ying Yang Live Wallpaper has been installed on this device without a license!</string>
+    <string name="app_name">Peace Live Wallpaper</string>
+    <string name="service_label">Peace Live Wallpaper</string>
+    <string name="description">Peace, love and happiness to the world!</string>
+    <string name="invalid_license">The Peace Live Wallpaper has been installed on this device without a license!</string>
     <string name="license_check_error">Error while performing application license check, error code: </string>
 
     <!--  settings screen -->
@@ -31,11 +31,11 @@
     <string name="rotation_speed_title">Rotation speed</string>
     
     <!-- logo size -->
-    <string name="logo_size_name">Ying Yang Symbol Size</string>
+    <string name="logo_size_name">Peace Symbol Size</string>
     <string name="logo_size_summary">%1$.2f (scaled)</string>
     <string name="logo_size_default_value">45</string>
     <string name="logo_size_max_value">90</string>
-    <string name="logo_size_title">Ying Yang Symbol Size</string>
+    <string name="logo_size_title">Peace Symbol Size</string>
     
     <!-- License status dialog -->
     <string name="license_check_title">License Status</string>
@@ -54,7 +54,7 @@
     <color name="color_license_ok">#0f0</color>
     <color name="color_license_unknown">#ff0</color>
     
-    <string name="license_check_notes_label">The Ying Yang Live Wallpaper version
+    <string name="license_check_notes_label">The Peace Live Wallpaper version
     	installed on this device did not pass license validation! Please 
     	get a valid version of the application from the Android Market.
     	
@@ -63,14 +63,14 @@
     	The license validation process needs access to the Android Market servers, so
     	please make sure you have network coverage during the validation process.
     	</string>
-    <string name="license_check_notif_ticker_text">Ying Yang Live Wallpaper license validation failed!</string>
+    <string name="license_check_notif_ticker_text">Peace Live Wallpaper license validation failed!</string>
     <string name="license_check_notif_title">License validation failed...</string>
     <string name="license_check_notif_text">Click here to reattempt license validation</string>
     <string name="license_check_in_progress">Check in progress...</string>
     
     <!-- Logo texture -->
-    <string name="logo_texture_title">Ying Yang Image</string>
-    <string name="logo_texture_defaultValue">texture_taijitu</string>
+    <string name="logo_texture_title">Peace Symbol</string>
+    <string name="logo_texture_defaultValue">texture_black_grey</string>
     
     <!-- skybox texture -->
     <string name="skybox_texture_title">Background Image</string>
