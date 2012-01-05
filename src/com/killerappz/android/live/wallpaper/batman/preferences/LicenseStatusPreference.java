@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.bat.preferences;
+package com.killerappz.android.live.wallpaper.batman.preferences;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.bat.Constants;
-import com.killerappz.android.lwp.bat.R;
+import com.killerappz.android.live.wallpaper.batman.Constants;
+import com.killerappz.android.live.wallpaper.batman.R;
 
 /**
  * Entrance in the Preferences page for 

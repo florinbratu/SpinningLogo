@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.bat.context;
+package com.killerappz.android.live.wallpaper.batman.context;
 
 // a Point with floating-point precision
 public class Point {

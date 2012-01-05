@@ -1,10 +1,10 @@
-package com.killerappz.android.lwp.bat.preferences;
+package com.killerappz.android.live.wallpaper.batman.preferences;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-import com.killerappz.android.lwp.bat.Constants;
-import com.killerappz.android.lwp.bat.R;
+import com.killerappz.android.live.wallpaper.batman.Constants;
+import com.killerappz.android.live.wallpaper.batman.R;
 
 public class LiveWallpaperSettings extends PreferenceActivity
 {

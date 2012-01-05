@@ -1,6 +1,6 @@
-package com.killerappz.android.lwp.bat;
+package com.killerappz.android.live.wallpaper.batman;
 
-import com.killerappz.android.lwp.bat.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.batman.context.SpinLogoContext;
 
 import android.content.SharedPreferences;
 import android.util.Log;

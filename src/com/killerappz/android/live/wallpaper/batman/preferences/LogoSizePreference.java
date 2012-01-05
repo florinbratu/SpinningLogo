@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.bat.preferences;
+package com.killerappz.android.live.wallpaper.batman.preferences;
 
-import com.killerappz.android.lwp.bat.Constants;
-import com.killerappz.android.lwp.bat.R;
+import com.killerappz.android.live.wallpaper.batman.Constants;
+import com.killerappz.android.live.wallpaper.batman.R;
 
 import android.content.Context;
 import android.util.AttributeSet;
