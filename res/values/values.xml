@@ -2,31 +2,34 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="listNamesLogo">
-        <item>"Taijitu"</item>
         <item>"Rough"</item>
         <item>"Fire And Ice"</item>
         <item>"Red"</item>
         <item>"Hearts"</item>
         <item>"Golden"</item>
         <item>"Elektra"</item>
+        <item>"Shiny"</item>
+        <item>"American"</item>
     </string-array>
     <string-array name="listValuesLogo">
-        <item>"texture_taijitu"</item>
         <item>"texture_rough"</item>
         <item>"texture_fire_and_ice"</item>
         <item>"texture_red"</item>
         <item>"texture_hearts"</item>
         <item>"texture_golden"</item>
         <item>"texture_elektra"</item>
+        <item>"texture_black_grey"</item>
+        <item>"texture_american"</item>
     </string-array>
 	<array name="imageValuesLogo">
-		<item>@drawable/texture_taijitu_icon</item>
 		<item>@drawable/texture_rough_icon</item>
 		<item>@drawable/texture_fire_and_ice_icon</item>
 		<item>@drawable/texture_red_icon</item>
 		<item>@drawable/texture_hearts_icon</item>
 		<item>@drawable/texture_golden_icon</item>
 		<item>@drawable/texture_elektra_icon</item>
+		<item>@drawable/texture_black_grey_icon</item>
+		<item>@drawable/texture_american_icon</item>
 	</array>
 	
 	<string-array name="listNamesSkybox">
