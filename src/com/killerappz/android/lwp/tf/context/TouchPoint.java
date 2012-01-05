@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.tf.context;
+package com.killerappz.android.lwp.tf.context;
 
 
 // a Point where the user touched the screen

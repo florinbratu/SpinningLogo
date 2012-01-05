@@ -1,9 +1,9 @@
-package com.killerappz.android.lwp.donation.tf.context;
+package com.killerappz.android.lwp.tf.context;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import com.killerappz.android.lwp.donation.tf.Constants;
+import com.killerappz.android.lwp.tf.Constants;
 
 /**
  * Generic Context Information relevant 

@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.tf.licensing;
+package com.killerappz.android.lwp.tf.licensing;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -15,9 +15,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.donation.tf.Constants;
-import com.killerappz.android.lwp.donation.tf.preferences.LicenseStatusPreference;
-import com.killerappz.android.lwp.donation.tf.R;
+import com.killerappz.android.lwp.tf.R;
+import com.killerappz.android.lwp.tf.Constants;
+import com.killerappz.android.lwp.tf.preferences.LicenseStatusPreference;
 
 /**
  * Dialog to be displayed on wallpaper startup

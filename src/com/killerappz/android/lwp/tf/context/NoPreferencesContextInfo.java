@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.tf.context;
+package com.killerappz.android.lwp.tf.context;
 
 import android.content.SharedPreferences;
 

@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donation.tf;
+package com.killerappz.android.lwp.tf;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "transformers_settings";
