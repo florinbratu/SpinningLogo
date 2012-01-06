@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.killerappz.android.spinlogo"
+      package="com.killerappz.android.lwp.peace"
       android:versionCode="1"
       android:versionName="1.0">
     
@@ -29,8 +29,8 @@
 			android:icon="@drawable/icon">
 		</activity>
 		
-		<!-- the license validation dialog -->
-		<activity android:name="com.killerappz.android.spinlogo.licensing.LicenseValidationDialog"
+        <!-- the license validation dialog -->
+        <activity android:name="com.killerappz.android.lwp.peace.licensing.LicenseValidationDialog"
 	        android:theme="@android:style/Theme.Dialog"
 	        android:launchMode="singleInstance"
 	        android:excludeFromRecents="true"

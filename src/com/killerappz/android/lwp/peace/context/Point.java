@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo.context;
+package com.killerappz.android.lwp.peace.context;
 
 // a Point with floating-point precision
 public class Point {

@@ -1,10 +1,10 @@
-package com.killerappz.android.spinlogo.preferences;
+package com.killerappz.android.lwp.peace.preferences;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-import com.killerappz.android.spinlogo.Constants;
-import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.lwp.peace.Constants;
+import com.killerappz.android.lwp.peace.R;
 
 public class LiveWallpaperSettings extends PreferenceActivity
 {

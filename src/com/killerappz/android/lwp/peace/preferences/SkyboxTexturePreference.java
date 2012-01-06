@@ -1,9 +1,9 @@
-package com.killerappz.android.spinlogo.preferences;
+package com.killerappz.android.lwp.peace.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.killerappz.android.spinlogo.R;
+import com.killerappz.android.lwp.peace.R;
 
 /**
  * The preference page for the skybox texture selection

@@ -1,7 +1,7 @@
-package com.killerappz.android.spinlogo.context;
+package com.killerappz.android.lwp.peace.context;
 
-import com.killerappz.android.spinlogo.Constants;
-import com.killerappz.android.spinlogo.TouchGesturesHandler.GestureType;
+import com.killerappz.android.lwp.peace.Constants;
+import com.killerappz.android.lwp.peace.TouchGesturesHandler.GestureType;
 
 import android.content.SharedPreferences;
 import android.util.Log;
