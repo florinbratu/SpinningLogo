@@ -8,6 +8,10 @@
         <item>"Smiley"</item>
         <item>"Rasta"</item>
         <item>"Lips"</item>
+        <item>"Gradient"</item>
+        <item>"Groovy"</item>
+        <item>"Flower Power"</item>
+        <item>"Dark Scarlet"</item>
     </string-array>
     <string-array name="listValuesLogo">
         <item>"texture_black_grey"</item>
@@ -16,6 +20,10 @@
         <item>"texture_smiley"</item>
         <item>"texture_rasta"</item>
         <item>"texture_lips"</item>
+        <item>"texture_gradient"</item>
+        <item>"texture_groovy"</item>
+        <item>"texture_flower"</item>
+        <item>"texture_scarlet"</item>
     </string-array>
 	<array name="imageValuesLogo">
 		<item>@drawable/texture_black_grey_icon</item>
@@ -24,6 +32,10 @@
 		<item>@drawable/texture_smiley_icon</item>
 		<item>@drawable/texture_rasta_icon</item>
 		<item>@drawable/texture_lips_icon</item>
+		<item>@drawable/texture_gradient_icon</item>
+		<item>@drawable/texture_groovy_icon</item>
+		<item>@drawable/texture_flower_icon</item>
+		<item>@drawable/texture_scarlet_icon</item>
 	</array>
 	
 	<string-array name="listNamesSkybox">
