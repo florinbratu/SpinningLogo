@@ -74,6 +74,6 @@
     
     <!-- skybox texture -->
     <string name="skybox_texture_title">Background Image</string>
-    <string name="skybox_texture_defaultValue">skybox_awisdom</string>
+    <string name="skybox_texture_defaultValue">skybox_virtual</string>
 
 </resources>

@@ -34,7 +34,7 @@ public interface Constants {
 	public static final String DEFAULT_LOGO_TEXTURE_NAME = "texture_black_grey";
 	// skybox texture
 	public static final String SKYBOX_TEXTURE_KEY = "skyboxTexture";
-	public static final String DEFAULT_SKYBOX_TEXTURE_NAME = "skybox_awisdom";
+	public static final String DEFAULT_SKYBOX_TEXTURE_NAME = "skybox_virtual";
 
 	// scaling
 	public static final String SCALING_FACTOR_KEY = "scale";
