@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.mk.preferences;
+package com.killerappz.android.lwp.poker.preferences;
 
-import com.killerappz.android.lwp.mk.R;
-import com.killerappz.android.lwp.mk.Constants;
+import com.killerappz.android.lwp.poker.R;
+import com.killerappz.android.lwp.poker.Constants;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.mk;
+package com.killerappz.android.lwp.poker;
 
 import android.content.Context;
 import android.view.MotionEvent;

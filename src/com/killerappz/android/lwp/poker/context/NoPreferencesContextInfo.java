@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.mk.context;
+package com.killerappz.android.lwp.poker.context;
 
 import android.content.SharedPreferences;
 

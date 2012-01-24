@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.mk.licensing;
+package com.killerappz.android.lwp.poker.licensing;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -15,9 +15,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.mk.R;
-import com.killerappz.android.lwp.mk.Constants;
-import com.killerappz.android.lwp.mk.preferences.LicenseStatusPreference;
+import com.killerappz.android.lwp.poker.R;
+import com.killerappz.android.lwp.poker.Constants;
+import com.killerappz.android.lwp.poker.preferences.LicenseStatusPreference;
 
 /**
  * Dialog to be displayed on wallpaper startup

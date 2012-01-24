@@ -1,12 +1,12 @@
-package com.killerappz.android.lwp.mk;
+package com.killerappz.android.lwp.poker;
 
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
-import com.killerappz.android.lwp.mk.ScaleGestureDetector.OnScaleGestureListener;
-import com.killerappz.android.lwp.mk.context.SpinLogoContext;
+import com.killerappz.android.lwp.poker.ScaleGestureDetector.OnScaleGestureListener;
+import com.killerappz.android.lwp.poker.context.SpinLogoContext;
 
 /**
  * Handle touch screen interaction

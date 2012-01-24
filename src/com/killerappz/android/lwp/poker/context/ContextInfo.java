@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.mk.context;
+package com.killerappz.android.lwp.poker.context;
 
-import com.killerappz.android.lwp.mk.Constants;
-import com.killerappz.android.lwp.mk.TouchGesturesHandler.GestureType;
+import com.killerappz.android.lwp.poker.Constants;
+import com.killerappz.android.lwp.poker.TouchGesturesHandler.GestureType;
 
 import android.content.SharedPreferences;
 import android.util.Log;
