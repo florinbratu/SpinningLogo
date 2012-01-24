@@ -6,41 +6,17 @@
         <item>"Oregon"</item>
         <item>"White"</item>
         <item>"Triple Action"</item>
-        <item>"Red"</item>
-        <item>"Icy"</item>
-        <item>"Lightning"</item>
-        <item>"Earth"</item>
-        <item>"Green Flames"</item>
-        <item>"Pink"</item>
-        <item>"Red Crystal"</item>
-        <item>"Nine"</item>
     </string-array>
     <string-array name="listValues">
         <item>"texture_default"</item>
         <item>"texture_oregon"</item>
         <item>"texture_white"</item>
         <item>"texture_triple_action"</item>
-        <item>"texture_red"</item>
-        <item>"texture_icy"</item>
-        <item>"texture_lightning"</item>
-        <item>"texture_earth"</item>
-        <item>"texture_green_flames"</item>
-        <item>"texture_pink"</item>
-        <item>"texture_red_crystal"</item>
-        <item>"texture_nine"</item>
     </string-array>
 	<array name="imageValues">
 		<item>@drawable/texture_default_icon</item>
 		<item>@drawable/texture_oregon_icon</item>
 		<item>@drawable/texture_white_icon</item>
 		<item>@drawable/texture_triple_action_icon</item>
-		<item>@drawable/texture_red_icon</item>
-		<item>@drawable/texture_icy_icon</item>
-		<item>@drawable/texture_lightning_icon</item>
-		<item>@drawable/texture_earth_icon</item>
-		<item>@drawable/texture_green_flames_icon</item>
-		<item>@drawable/texture_pink_icon</item>
-		<item>@drawable/texture_red_crystal_icon</item>
-		<item>@drawable/texture_nine_icon</item>
 	</array>
 </resources>
