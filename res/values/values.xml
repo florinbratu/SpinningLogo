@@ -3,6 +3,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="listNames">
         <item>"Default"</item>
+        <item>"Oregon"</item>
+        <item>"White"</item>
+        <item>"Triple Action"</item>
         <item>"Red"</item>
         <item>"Icy"</item>
         <item>"Lightning"</item>
@@ -14,6 +17,9 @@
     </string-array>
     <string-array name="listValues">
         <item>"texture_default"</item>
+        <item>"texture_oregon"</item>
+        <item>"texture_white"</item>
+        <item>"texture_triple_action"</item>
         <item>"texture_red"</item>
         <item>"texture_icy"</item>
         <item>"texture_lightning"</item>
@@ -25,6 +31,9 @@
     </string-array>
 	<array name="imageValues">
 		<item>@drawable/texture_default_icon</item>
+		<item>@drawable/texture_oregon_icon</item>
+		<item>@drawable/texture_white_icon</item>
+		<item>@drawable/texture_triple_action_icon</item>
 		<item>@drawable/texture_red_icon</item>
 		<item>@drawable/texture_icy_icon</item>
 		<item>@drawable/texture_lightning_icon</item>
