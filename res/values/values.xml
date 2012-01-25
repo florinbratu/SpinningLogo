@@ -6,17 +6,35 @@
         <item>"Oregon"</item>
         <item>"White"</item>
         <item>"Triple Action"</item>
+        <item>"Suits"</item>
+        <item>"White Chip"</item>
+        <item>"Red Chip"</item>
+        <item>"Blue Chip"</item>
+        <item>"Green Chip"</item>
+        <item>"Black Chip"</item>
     </string-array>
     <string-array name="listValues">
         <item>"texture_default"</item>
         <item>"texture_oregon"</item>
         <item>"texture_white"</item>
         <item>"texture_triple_action"</item>
+        <item>"texture_suits"</item>
+        <item>"texture_white_chip"</item>
+        <item>"texture_red_chip"</item>
+        <item>"texture_blue_chip"</item>
+        <item>"texture_green_chip"</item>
+        <item>"texture_black_chip"</item>
     </string-array>
 	<array name="imageValues">
 		<item>@drawable/texture_default_icon</item>
 		<item>@drawable/texture_oregon_icon</item>
 		<item>@drawable/texture_white_icon</item>
 		<item>@drawable/texture_triple_action_icon</item>
+		<item>@drawable/texture_suits_icon</item>
+		<item>@drawable/texture_white_chip_icon</item>
+		<item>@drawable/texture_red_chip_icon</item>
+		<item>@drawable/texture_blue_chip_icon</item>
+		<item>@drawable/texture_green_chip_icon</item>
+		<item>@drawable/texture_black_chip_icon</item>
 	</array>
 </resources>
