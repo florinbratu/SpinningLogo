@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.mk.context;
+package com.killerappz.android.lwp.mortal.kombat.context;
 
-import com.killerappz.android.lwp.mk.R;
-import com.killerappz.android.lwp.mk.Constants;
+import com.killerappz.android.lwp.mortal.kombat.R;
+import com.killerappz.android.lwp.mortal.kombat.Constants;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;

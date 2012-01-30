@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.mk;
+package com.killerappz.android.lwp.mortal.kombat;
 
 import android.content.Context;
 import android.view.MotionEvent;

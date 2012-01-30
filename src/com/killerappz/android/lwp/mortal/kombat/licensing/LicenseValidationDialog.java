@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.mk.licensing;
+package com.killerappz.android.lwp.mortal.kombat.licensing;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -15,9 +15,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.lwp.mk.R;
-import com.killerappz.android.lwp.mk.Constants;
-import com.killerappz.android.lwp.mk.preferences.LicenseStatusPreference;
+import com.killerappz.android.lwp.mortal.kombat.R;
+import com.killerappz.android.lwp.mortal.kombat.Constants;
+import com.killerappz.android.lwp.mortal.kombat.preferences.LicenseStatusPreference;
 
 /**
  * Dialog to be displayed on wallpaper startup
