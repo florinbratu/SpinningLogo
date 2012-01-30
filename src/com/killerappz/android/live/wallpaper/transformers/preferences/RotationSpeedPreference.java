@@ -1,10 +1,10 @@
-package com.killerappz.android.lwp.tf.preferences;
+package com.killerappz.android.live.wallpaper.transformers.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.killerappz.android.lwp.tf.R;
-import com.killerappz.android.lwp.tf.Constants;
+import com.killerappz.android.live.wallpaper.transformers.Constants;
+import com.killerappz.android.live.wallpaper.transformers.R;
 
 /**
  * Control the rotation speed 

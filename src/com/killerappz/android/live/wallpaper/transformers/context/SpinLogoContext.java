@@ -1,9 +1,9 @@
-package com.killerappz.android.lwp.tf.context;
+package com.killerappz.android.live.wallpaper.transformers.context;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import com.killerappz.android.lwp.tf.Constants;
+import com.killerappz.android.live.wallpaper.transformers.Constants;
 
 /**
  * Generic Context Information relevant 

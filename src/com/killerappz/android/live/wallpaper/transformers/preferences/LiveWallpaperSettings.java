@@ -1,10 +1,10 @@
-package com.killerappz.android.lwp.tf.preferences;
+package com.killerappz.android.live.wallpaper.transformers.preferences;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-import com.killerappz.android.lwp.tf.R;
-import com.killerappz.android.lwp.tf.Constants;
+import com.killerappz.android.live.wallpaper.transformers.Constants;
+import com.killerappz.android.live.wallpaper.transformers.R;
 
 public class LiveWallpaperSettings extends PreferenceActivity
 {

@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.tf;
+package com.killerappz.android.live.wallpaper.transformers;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -13,9 +13,9 @@ import min3d.vos.TextureVo;
 import android.content.Context;
 import android.graphics.Bitmap;
 
-import com.killerappz.android.lwp.tf.R;
-import com.killerappz.android.lwp.tf.context.Point;
-import com.killerappz.android.lwp.tf.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.transformers.context.Point;
+import com.killerappz.android.live.wallpaper.transformers.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.transformers.R;
 
 /**
  * The Spinning Logo object

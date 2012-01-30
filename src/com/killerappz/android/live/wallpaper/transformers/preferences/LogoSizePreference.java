@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.tf.preferences;
+package com.killerappz.android.live.wallpaper.transformers.preferences;
 
-import com.killerappz.android.lwp.tf.R;
-import com.killerappz.android.lwp.tf.Constants;
+import com.killerappz.android.live.wallpaper.transformers.Constants;
+import com.killerappz.android.live.wallpaper.transformers.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

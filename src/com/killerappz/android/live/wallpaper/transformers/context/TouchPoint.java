@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.tf.context;
+package com.killerappz.android.live.wallpaper.transformers.context;
 
 
 // a Point where the user touched the screen

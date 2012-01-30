@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.tf.context;
+package com.killerappz.android.live.wallpaper.transformers.context;
 
 public class OffsetInfo {
 

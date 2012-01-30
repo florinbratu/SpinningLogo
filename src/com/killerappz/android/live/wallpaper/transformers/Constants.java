@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.tf;
+package com.killerappz.android.live.wallpaper.transformers;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "transformers_settings";

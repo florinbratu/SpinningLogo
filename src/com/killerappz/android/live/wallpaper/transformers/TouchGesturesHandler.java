@@ -1,11 +1,11 @@
-package com.killerappz.android.lwp.tf;
+package com.killerappz.android.live.wallpaper.transformers;
 
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
-import com.killerappz.android.lwp.tf.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.transformers.context.SpinLogoContext;
 
 /**
  * Handle touch screen interaction

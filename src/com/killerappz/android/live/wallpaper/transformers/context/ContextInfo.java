@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.tf.context;
+package com.killerappz.android.live.wallpaper.transformers.context;
 
-import com.killerappz.android.lwp.tf.Constants;
-import com.killerappz.android.lwp.tf.TouchGesturesHandler.GestureType;
+import com.killerappz.android.live.wallpaper.transformers.Constants;
+import com.killerappz.android.live.wallpaper.transformers.TouchGesturesHandler.GestureType;
 
 import android.content.SharedPreferences;
 import android.util.Log;
