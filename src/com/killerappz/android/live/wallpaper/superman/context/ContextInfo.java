@@ -1,7 +1,7 @@
-package com.killerappz.android.lwp.donate.superman.context;
+package com.killerappz.android.live.wallpaper.superman.context;
 
-import com.killerappz.android.lwp.donate.superman.Constants;
-import com.killerappz.android.lwp.donate.superman.TouchGesturesHandler.GestureType;
+import com.killerappz.android.live.wallpaper.superman.Constants;
+import com.killerappz.android.live.wallpaper.superman.TouchGesturesHandler.GestureType;
 
 import android.content.SharedPreferences;
 import android.util.Log;

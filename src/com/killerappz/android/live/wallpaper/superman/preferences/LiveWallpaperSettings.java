@@ -1,10 +1,10 @@
-package com.killerappz.android.lwp.donate.superman.preferences;
+package com.killerappz.android.live.wallpaper.superman.preferences;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-import com.killerappz.android.lwp.donate.superman.Constants;
-import com.killerappz.android.lwp.donate.superman.R;
+import com.killerappz.android.live.wallpaper.superman.Constants;
+import com.killerappz.android.live.wallpaper.superman.R;
 
 public class LiveWallpaperSettings extends PreferenceActivity
 {

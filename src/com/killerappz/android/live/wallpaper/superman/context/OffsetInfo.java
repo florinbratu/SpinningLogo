@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donate.superman.context;
+package com.killerappz.android.live.wallpaper.superman.context;
 
 public class OffsetInfo {
 

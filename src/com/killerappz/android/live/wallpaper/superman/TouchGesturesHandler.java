@@ -1,11 +1,11 @@
-package com.killerappz.android.lwp.donate.superman;
+package com.killerappz.android.live.wallpaper.superman;
 
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
-import com.killerappz.android.lwp.donate.superman.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.superman.context.SpinLogoContext;
 
 /**
  * Handle touch screen interaction

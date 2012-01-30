@@ -1,10 +1,10 @@
-package com.killerappz.android.lwp.donate.superman.preferences;
+package com.killerappz.android.live.wallpaper.superman.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.killerappz.android.lwp.donate.superman.Constants;
-import com.killerappz.android.lwp.donate.superman.R;
+import com.killerappz.android.live.wallpaper.superman.Constants;
+import com.killerappz.android.live.wallpaper.superman.R;
 
 /**
  * Control the rotation speed 

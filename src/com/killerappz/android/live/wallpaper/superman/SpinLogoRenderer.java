@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donate.superman;
+package com.killerappz.android.live.wallpaper.superman;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -14,9 +14,9 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Handler;
 
-import com.killerappz.android.lwp.donate.superman.context.OffsetInfo;
-import com.killerappz.android.lwp.donate.superman.context.Point;
-import com.killerappz.android.lwp.donate.superman.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.superman.context.OffsetInfo;
+import com.killerappz.android.live.wallpaper.superman.context.Point;
+import com.killerappz.android.live.wallpaper.superman.context.SpinLogoContext;
 
 /**
  * This is the renderer implementation class for the Wallpaper Service

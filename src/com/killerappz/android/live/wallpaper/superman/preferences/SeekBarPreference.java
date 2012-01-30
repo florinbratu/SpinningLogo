@@ -1,4 +1,4 @@
-package com.killerappz.android.lwp.donate.superman.preferences;
+package com.killerappz.android.live.wallpaper.superman.preferences;
 
 import android.content.Context;
 import android.preference.DialogPreference;
@@ -9,7 +9,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-import com.killerappz.android.lwp.donate.superman.R;
+import com.killerappz.android.live.wallpaper.superman.R;
 
 /**
  * Class implementing a sliding seek bar. Used for selecting the rotation speed
