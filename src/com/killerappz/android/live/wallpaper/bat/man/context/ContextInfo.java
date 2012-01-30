@@ -1,7 +1,7 @@
-package com.killerappz.android.live.wallpaper.batman.context;
+package com.killerappz.android.live.wallpaper.bat.man.context;
 
-import com.killerappz.android.live.wallpaper.batman.Constants;
-import com.killerappz.android.live.wallpaper.batman.TouchGesturesHandler.GestureType;
+import com.killerappz.android.live.wallpaper.bat.man.Constants;
+import com.killerappz.android.live.wallpaper.bat.man.TouchGesturesHandler.GestureType;
 
 import android.content.SharedPreferences;
 import android.util.Log;

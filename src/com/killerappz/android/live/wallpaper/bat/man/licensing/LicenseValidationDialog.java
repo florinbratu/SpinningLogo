@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.batman.licensing;
+package com.killerappz.android.live.wallpaper.bat.man.licensing;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -15,9 +15,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.live.wallpaper.batman.Constants;
-import com.killerappz.android.live.wallpaper.batman.preferences.LicenseStatusPreference;
-import com.killerappz.android.live.wallpaper.batman.R;
+import com.killerappz.android.live.wallpaper.bat.man.Constants;
+import com.killerappz.android.live.wallpaper.bat.man.preferences.LicenseStatusPreference;
+import com.killerappz.android.live.wallpaper.bat.man.R;
 
 /**
  * Dialog to be displayed on wallpaper startup

@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.batman.licensing;
+package com.killerappz.android.live.wallpaper.bat.man.licensing;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -10,9 +10,9 @@ import android.os.Handler;
 import android.util.Log;
 
 import com.android.vending.licensing.LicenseCheckerCallback;
-import com.killerappz.android.live.wallpaper.batman.Constants;
-import com.killerappz.android.live.wallpaper.batman.SpinLogoWallpaperService;
-import com.killerappz.android.live.wallpaper.batman.R;
+import com.killerappz.android.live.wallpaper.bat.man.Constants;
+import com.killerappz.android.live.wallpaper.bat.man.SpinLogoWallpaperService;
+import com.killerappz.android.live.wallpaper.bat.man.R;
 
 /**
  * Callback implementation

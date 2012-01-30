@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.batman.licensing;
+package com.killerappz.android.live.wallpaper.bat.man.licensing;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,8 +12,8 @@ import com.android.vending.licensing.AESObfuscator;
 import com.android.vending.licensing.LicenseChecker;
 import com.android.vending.licensing.LicenseCheckerCallback;
 import com.android.vending.licensing.ServerManagedPolicy;
-import com.killerappz.android.live.wallpaper.batman.Constants;
-import com.killerappz.android.live.wallpaper.batman.SpinLogoWallpaperService;
+import com.killerappz.android.live.wallpaper.bat.man.Constants;
+import com.killerappz.android.live.wallpaper.bat.man.SpinLogoWallpaperService;
 
 /**
  * Handles the licensing process for the application,

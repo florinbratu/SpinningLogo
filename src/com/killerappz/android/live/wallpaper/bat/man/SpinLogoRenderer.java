@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.batman;
+package com.killerappz.android.live.wallpaper.bat.man;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -14,9 +14,9 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Handler;
 
-import com.killerappz.android.live.wallpaper.batman.context.OffsetInfo;
-import com.killerappz.android.live.wallpaper.batman.context.Point;
-import com.killerappz.android.live.wallpaper.batman.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.bat.man.context.OffsetInfo;
+import com.killerappz.android.live.wallpaper.bat.man.context.Point;
+import com.killerappz.android.live.wallpaper.bat.man.context.SpinLogoContext;
 
 /**
  * This is the renderer implementation class for the Wallpaper Service

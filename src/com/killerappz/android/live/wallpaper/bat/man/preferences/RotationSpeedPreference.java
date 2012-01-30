@@ -1,10 +1,10 @@
-package com.killerappz.android.live.wallpaper.batman.preferences;
+package com.killerappz.android.live.wallpaper.bat.man.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.killerappz.android.live.wallpaper.batman.Constants;
-import com.killerappz.android.live.wallpaper.batman.R;
+import com.killerappz.android.live.wallpaper.bat.man.Constants;
+import com.killerappz.android.live.wallpaper.bat.man.R;
 
 /**
  * Control the rotation speed 

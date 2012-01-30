@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.batman;
+package com.killerappz.android.live.wallpaper.bat.man;
 
 public interface Constants {
 	public static final String PREFS_NAME	= "batman_donation_settings";

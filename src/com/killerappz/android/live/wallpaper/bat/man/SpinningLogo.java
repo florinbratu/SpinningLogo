@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.batman;
+package com.killerappz.android.live.wallpaper.bat.man;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -13,9 +13,9 @@ import min3d.vos.TextureVo;
 import android.content.Context;
 import android.graphics.Bitmap;
 
-import com.killerappz.android.live.wallpaper.batman.context.Point;
-import com.killerappz.android.live.wallpaper.batman.context.SpinLogoContext;
-import com.killerappz.android.live.wallpaper.batman.R;
+import com.killerappz.android.live.wallpaper.bat.man.context.Point;
+import com.killerappz.android.live.wallpaper.bat.man.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.bat.man.R;
 
 /**
  * The Spinning Logo object

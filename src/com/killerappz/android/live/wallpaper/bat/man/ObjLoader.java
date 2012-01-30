@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.batman;
+package com.killerappz.android.live.wallpaper.bat.man;
 
 import min3d.core.Object3dContainer;
 import min3d.core.TextureManager;

@@ -1,6 +1,6 @@
-package com.killerappz.android.live.wallpaper.batman.preferences;
+package com.killerappz.android.live.wallpaper.bat.man.preferences;
 
-import com.killerappz.android.live.wallpaper.batman.R;
+import com.killerappz.android.live.wallpaper.bat.man.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

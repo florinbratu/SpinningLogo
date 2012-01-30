@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       android:versionCode="1"
       android:versionName="1.0" 
-      package="com.killerappz.android.live.wallpaper.batman">
+      package="com.killerappz.android.live.wallpaper.bat.man">
     
     <uses-sdk android:minSdkVersion="7" />
     <uses-feature android:name="android.software.live_wallpaper" />
