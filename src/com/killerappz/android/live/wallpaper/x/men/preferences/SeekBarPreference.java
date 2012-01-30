@@ -1,6 +1,6 @@
-package com.killerappz.android.live.wallpaper.xmen.preferences;
+package com.killerappz.android.live.wallpaper.x.men.preferences;
 
-import com.killerappz.android.live.wallpaper.xmen.R;
+import com.killerappz.android.live.wallpaper.x.men.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

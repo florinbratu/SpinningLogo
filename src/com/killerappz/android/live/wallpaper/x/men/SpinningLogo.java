@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.xmen;
+package com.killerappz.android.live.wallpaper.x.men;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -13,9 +13,9 @@ import min3d.vos.TextureVo;
 import android.content.Context;
 import android.graphics.Bitmap;
 
-import com.killerappz.android.live.wallpaper.xmen.context.Point;
-import com.killerappz.android.live.wallpaper.xmen.context.SpinLogoContext;
-import com.killerappz.android.live.wallpaper.xmen.R;
+import com.killerappz.android.live.wallpaper.x.men.context.Point;
+import com.killerappz.android.live.wallpaper.x.men.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.x.men.R;
 
 /**
  * The Spinning Logo object

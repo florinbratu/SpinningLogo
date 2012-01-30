@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.xmen;
+package com.killerappz.android.live.wallpaper.x.men;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -14,9 +14,9 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Handler;
 
-import com.killerappz.android.live.wallpaper.xmen.context.OffsetInfo;
-import com.killerappz.android.live.wallpaper.xmen.context.Point;
-import com.killerappz.android.live.wallpaper.xmen.context.SpinLogoContext;
+import com.killerappz.android.live.wallpaper.x.men.context.OffsetInfo;
+import com.killerappz.android.live.wallpaper.x.men.context.Point;
+import com.killerappz.android.live.wallpaper.x.men.context.SpinLogoContext;
 
 /**
  * This is the renderer implementation class for the Wallpaper Service

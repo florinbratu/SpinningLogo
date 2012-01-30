@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.xmen.context;
+package com.killerappz.android.live.wallpaper.x.men.context;
 
 public class OffsetInfo {
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.killerappz.android.live.wallpaper.xmen"
+      package="com.killerappz.android.live.wallpaper.x.men"
       android:versionCode="1"
       android:versionName="1.0">
     
@@ -12,7 +12,7 @@
     	android:label="@string/app_name">
     	
         <service android:label="@string/service_label"
-                android:name="com.killerappz.android.live.wallpaper.xmen.SpinLogoWallpaperService"
+                android:name="com.killerappz.android.live.wallpaper.x.men.SpinLogoWallpaperService"
                 android:icon="@drawable/icon"
                 android:permission="android.permission.BIND_WALLPAPER">
 
@@ -24,14 +24,14 @@
         </service>
         
         <activity android:label="@string/spinlogo_settings"
-			android:name="com.killerappz.android.live.wallpaper.xmen.preferences.LiveWallpaperSettings"
+			android:name="com.killerappz.android.live.wallpaper.x.men.preferences.LiveWallpaperSettings"
 			android:theme="@android:style/Theme.Light.WallpaperSettings"
 			android:exported="true"
 			android:icon="@drawable/icon">
 		</activity>
 		
 		<!-- the license validation dialog -->
-        <activity android:name="com.killerappz.android.live.wallpaper.xmen.licensing.LicenseValidationDialog"
+        <activity android:name="com.killerappz.android.live.wallpaper.x.men.licensing.LicenseValidationDialog"
                 android:theme="@android:style/Theme.Dialog"
                 android:launchMode="singleInstance"
 	        	android:excludeFromRecents="true"

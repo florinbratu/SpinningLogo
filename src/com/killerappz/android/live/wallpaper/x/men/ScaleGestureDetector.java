@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.xmen;
+package com.killerappz.android.live.wallpaper.x.men;
 
 import android.content.Context;
 import android.view.MotionEvent;

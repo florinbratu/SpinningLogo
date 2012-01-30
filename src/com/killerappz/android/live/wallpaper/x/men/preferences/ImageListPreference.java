@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.xmen.preferences;
+package com.killerappz.android.live.wallpaper.x.men.preferences;
 
 import android.app.AlertDialog.Builder;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 
-import com.killerappz.android.live.wallpaper.xmen.R;
+import com.killerappz.android.live.wallpaper.x.men.R;
 
 /**
  * This is a Preference widget offering 

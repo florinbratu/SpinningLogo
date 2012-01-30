@@ -1,4 +1,4 @@
-package com.killerappz.android.live.wallpaper.xmen.licensing;
+package com.killerappz.android.live.wallpaper.x.men.licensing;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -10,9 +10,9 @@ import android.os.Handler;
 import android.util.Log;
 
 import com.android.vending.licensing.LicenseCheckerCallback;
-import com.killerappz.android.live.wallpaper.xmen.Constants;
-import com.killerappz.android.live.wallpaper.xmen.SpinLogoWallpaperService;
-import com.killerappz.android.live.wallpaper.xmen.R;
+import com.killerappz.android.live.wallpaper.x.men.Constants;
+import com.killerappz.android.live.wallpaper.x.men.SpinLogoWallpaperService;
+import com.killerappz.android.live.wallpaper.x.men.R;
 
 /**
  * Callback implementation

@@ -1,7 +1,7 @@
-package com.killerappz.android.live.wallpaper.xmen.context;
+package com.killerappz.android.live.wallpaper.x.men.context;
 
-import com.killerappz.android.live.wallpaper.xmen.Constants;
-import com.killerappz.android.live.wallpaper.xmen.TouchGesturesHandler.GestureType;
+import com.killerappz.android.live.wallpaper.x.men.Constants;
+import com.killerappz.android.live.wallpaper.x.men.TouchGesturesHandler.GestureType;
 
 import android.content.SharedPreferences;
 import android.util.Log;

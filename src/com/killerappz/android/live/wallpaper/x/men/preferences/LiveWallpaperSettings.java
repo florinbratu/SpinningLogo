@@ -1,10 +1,10 @@
-package com.killerappz.android.live.wallpaper.xmen.preferences;
+package com.killerappz.android.live.wallpaper.x.men.preferences;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-import com.killerappz.android.live.wallpaper.xmen.Constants;
-import com.killerappz.android.live.wallpaper.xmen.R;
+import com.killerappz.android.live.wallpaper.x.men.Constants;
+import com.killerappz.android.live.wallpaper.x.men.R;
 
 public class LiveWallpaperSettings extends PreferenceActivity
 {
