@@ -8,7 +8,7 @@
         <item>"Red"</item>
         <item>"Hearts"</item>
         <item>"Golden"</item>
-        <item>"Elektra"</item>
+        <item>"Red Mask"</item>
     </string-array>
     <string-array name="listValuesLogo">
         <item>"texture_taijitu"</item>
@@ -17,7 +17,7 @@
         <item>"texture_red"</item>
         <item>"texture_hearts"</item>
         <item>"texture_golden"</item>
-        <item>"texture_elektra"</item>
+        <item>"texture_redmask"</item>
     </string-array>
 	<array name="imageValuesLogo">
 		<item>@drawable/texture_taijitu_icon</item>
@@ -26,7 +26,7 @@
 		<item>@drawable/texture_red_icon</item>
 		<item>@drawable/texture_hearts_icon</item>
 		<item>@drawable/texture_golden_icon</item>
-		<item>@drawable/texture_elektra_icon</item>
+		<item>@drawable/texture_redmask_icon</item>
 	</array>
 	
 	<string-array name="listNamesSkybox">
