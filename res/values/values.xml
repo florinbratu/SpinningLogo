@@ -9,6 +9,7 @@
         <item>"Hearts"</item>
         <item>"Golden"</item>
         <item>"Red Mask"</item>
+        <item>"Metal Mask"</item>
         <item>"Dragon"</item>
     </string-array>
     <string-array name="listValuesLogo">
@@ -19,6 +20,7 @@
         <item>"texture_hearts"</item>
         <item>"texture_golden"</item>
         <item>"texture_redmask"</item>
+        <item>"texture_metalmask"</item>
         <item>"texture_dragon"</item>
     </string-array>
 	<array name="imageValuesLogo">
@@ -29,6 +31,7 @@
 		<item>@drawable/texture_hearts_icon</item>
 		<item>@drawable/texture_golden_icon</item>
 		<item>@drawable/texture_redmask_icon</item>
+		<item>@drawable/texture_metalmask_icon</item>
 		<item>@drawable/texture_dragon_icon</item>
 	</array>
 	
