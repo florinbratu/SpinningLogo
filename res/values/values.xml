@@ -32,21 +32,21 @@
 	<string-array name="listNamesSkybox">
         <item>"Arctic Wisdom"</item>
         <item>"Air Sky"</item>
-        <item>"Green Trees"</item>
+        <item>"Daimyo"</item>
         <item>"Moonlight Sea"</item>
         <item>"Fantasy"</item>
     </string-array>
     <string-array name="listValuesSkybox">
         <item>"skybox_awisdom"</item>
         <item>"skybox_airsky"</item>
-        <item>"skybox_greentrees"</item>
+        <item>"skybox_daimyo"</item>
         <item>"skybox_lagoon"</item>
         <item>"skybox_fantasy"</item>
     </string-array>
 	<array name="imageValuesSkybox">
 		<item>@drawable/skybox_awisdom_icon</item>
 		<item>@drawable/skybox_airsky_icon</item>
-		<item>@drawable/skybox_greentrees_icon</item>
+		<item>@drawable/skybox_daimyo_icon</item>
 		<item>@drawable/skybox_lagoon_icon</item>
 		<item>@drawable/skybox_fantasy_icon</item>
 	</array>
