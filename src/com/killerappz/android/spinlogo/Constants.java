@@ -28,6 +28,9 @@ public interface Constants {
 	public static final int DEFAULT_ROTATION_SPEED = 0;
 	public static final int MAX_ROTATION_SPEED = 90; // ugly but...works
 	public static final int MIN_ROTATION_SPEED = -90;
+	// initial rotation angle - compensate for a glitch in a model
+	public static final float INITIAL_ROTATION_ANGLE = 15; // 15 degrees 
+	
 	// logo texture
 	public static final String LOGO_TEXTURE_KEY = "logoTexture";
 	public static final String DEFAULT_LOGO_TEXTURE_NAME = "texture_taijitu";

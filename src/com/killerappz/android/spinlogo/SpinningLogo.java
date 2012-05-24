@@ -112,7 +112,7 @@ public class SpinningLogo {
 		if(contextInfo.rotationEnabled())
 			object.rotation().z += rotationSpeed;
 		else
-			object.rotation().z = 0;
+			object.rotation().z = Constants.INITIAL_ROTATION_ANGLE;
 		float scaleFactor = (float)contextInfo.getScaleFactor() * Constants.LOGO_SIZE_UNIT;
 		object.scale().x = object.scale().y = object.scale().z = scaleFactor;
 	}
