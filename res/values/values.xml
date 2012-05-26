@@ -40,7 +40,8 @@
         <item>"Air Sky"</item>
         <item>"Daimyo"</item>
         <item>"Master"</item>
-        <item>"Sunrise(lowres)"</item>
+        <item>"Sunrise"</item>
+        <item>"Kokujin"</item>
         <item>"S.P."</item>
         <item>"Moonlight Sea"</item>
         <item>"Fantasy"</item>
@@ -51,6 +52,7 @@
         <item>"skybox_daimyo"</item>
         <item>"skybox_master"</item>
         <item>"skybox_sunrise"</item>
+        <item>"skybox_kokujin"</item>
         <item>"skybox_sp"</item>
         <item>"skybox_lagoon"</item>
         <item>"skybox_fantasy"</item>
@@ -61,6 +63,7 @@
 		<item>@drawable/skybox_daimyo_icon</item>
 		<item>@drawable/skybox_master_icon</item>
 		<item>@drawable/skybox_sunrise_icon</item>
+		<item>@drawable/skybox_kokujin_icon</item>
 		<item>@drawable/skybox_sp_icon</item>
 		<item>@drawable/skybox_lagoon_icon</item>
 		<item>@drawable/skybox_fantasy_icon</item>
