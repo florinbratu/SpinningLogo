@@ -6,18 +6,21 @@
         <item>"Red Mask"</item>
         <item>"Metal Mask"</item>
         <item>"Dragon"</item>
+        <item>"Helmet"</item>
     </string-array>
     <string-array name="listValuesLogo">
         <item>"texture_ying_yang"</item>
         <item>"texture_redmask"</item>
         <item>"texture_metalmask"</item>
         <item>"texture_dragon"</item>
+        <item>"texture_helmet"</item>
     </string-array>
 	<array name="imageValuesLogo">
 		<item>@drawable/texture_ying_yang_icon</item>
 		<item>@drawable/texture_redmask_icon</item>
 		<item>@drawable/texture_metalmask_icon</item>
 		<item>@drawable/texture_dragon_icon</item>
+		<item>@drawable/texture_helmet_icon</item>
 	</array>
 	
 	<string-array name="listNamesSkybox">
