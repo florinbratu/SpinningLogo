@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo;
+package com.killerappz.android.lwp.shogun;
 
 import android.content.Context;
 import android.view.MotionEvent;

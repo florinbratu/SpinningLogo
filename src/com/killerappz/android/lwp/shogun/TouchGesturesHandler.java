@@ -1,12 +1,12 @@
-package com.killerappz.android.spinlogo;
+package com.killerappz.android.lwp.shogun;
 
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
-import com.killerappz.android.spinlogo.ScaleGestureDetector.OnScaleGestureListener;
-import com.killerappz.android.spinlogo.context.SpinLogoContext;
+import com.killerappz.android.lwp.shogun.ScaleGestureDetector.OnScaleGestureListener;
+import com.killerappz.android.lwp.shogun.context.SpinLogoContext;
 
 /**
  * Handle touch screen interaction

@@ -1,9 +1,9 @@
-package com.killerappz.android.spinlogo.context;
+package com.killerappz.android.lwp.shogun.context;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import com.killerappz.android.spinlogo.Constants;
+import com.killerappz.android.lwp.shogun.Constants;
 
 /**
  * Generic Context Information relevant 

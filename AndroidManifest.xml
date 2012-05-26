@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.killerappz.android.spinlogo"
-      android:versionCode="8"
-      android:versionName="1.3.0">
+      package="com.killerappz.android.lwp.shogun"
+      android:versionCode="1"
+      android:versionName="1.1.0">
     
     <uses-sdk android:minSdkVersion="7" />
     <uses-feature android:name="android.software.live_wallpaper" />
@@ -22,16 +22,16 @@
                 android:resource="@xml/spinlogo" />
         </service>
         
-        <activity android:label="@string/spinlogo_settings"
+        <activity android:label="@string/shogun_settings"
 			android:name=".preferences.LiveWallpaperSettings"
 			android:theme="@android:style/Theme.Light.WallpaperSettings"
 			android:exported="true"
 			android:icon="@drawable/icon">
 		</activity>
 		
-		<!-- the license validation dialog -->
-		<activity android:name="com.killerappz.android.spinlogo.licensing.LicenseValidationDialog"
-	        android:theme="@android:style/Theme.Dialog"
+		<!-- the license validation dialog-->
+		<activity android:name="com.killerappz.android.lwp.shogun.licensing.LicenseValidationDialog" 
+			android:theme="@android:style/Theme.Dialog"
 	        android:launchMode="singleInstance"
 	        android:excludeFromRecents="true"
 	        android:finishOnTaskLaunch="true" />

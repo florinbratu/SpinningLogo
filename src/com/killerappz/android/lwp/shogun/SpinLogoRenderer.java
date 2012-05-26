@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo;
+package com.killerappz.android.lwp.shogun;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -14,9 +14,9 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Handler;
 
-import com.killerappz.android.spinlogo.context.OffsetInfo;
-import com.killerappz.android.spinlogo.context.Point;
-import com.killerappz.android.spinlogo.context.SpinLogoContext;
+import com.killerappz.android.lwp.shogun.context.OffsetInfo;
+import com.killerappz.android.lwp.shogun.context.Point;
+import com.killerappz.android.lwp.shogun.context.SpinLogoContext;
 
 /**
  * This is the renderer implementation class for the Wallpaper Service

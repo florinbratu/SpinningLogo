@@ -1,7 +1,7 @@
-package com.killerappz.android.spinlogo;
+package com.killerappz.android.lwp.shogun;
 
 public interface Constants {
-	public static final String PREFS_NAME	= "spinlogo_settings";
+	public static final String PREFS_NAME	= "shogun_settings";
 	// the file containing the model of the logo
 	public static final String LOGO_MODEL_FILE = "raw/ying_yang_obj";
 	// the folder under res/ where we find textures. Android internal cuisine

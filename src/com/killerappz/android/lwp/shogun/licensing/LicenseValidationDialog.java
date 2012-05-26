@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo.licensing;
+package com.killerappz.android.lwp.shogun.licensing;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -15,9 +15,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.killerappz.android.spinlogo.Constants;
-import com.killerappz.android.spinlogo.R;
-import com.killerappz.android.spinlogo.preferences.LicenseStatusPreference;
+import com.killerappz.android.lwp.shogun.Constants;
+import com.killerappz.android.lwp.shogun.preferences.LicenseStatusPreference;
+import com.killerappz.android.lwp.shogun.R;
 
 /**
  * Dialog to be displayed on wallpaper startup

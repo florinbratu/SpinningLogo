@@ -1,4 +1,4 @@
-package com.killerappz.android.spinlogo.context;
+package com.killerappz.android.lwp.shogun.context;
 
 
 // a Point where the user touched the screen
