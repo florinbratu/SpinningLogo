@@ -70,7 +70,7 @@
     
     <!-- Logo texture -->
     <string name="logo_texture_title">Ying Yang Image</string>
-    <string name="logo_texture_defaultValue">texture_redmask</string>
+    <string name="logo_texture_defaultValue">texture_dragon</string>
     
     <!-- skybox texture -->
     <string name="skybox_texture_title">Background Image</string>
