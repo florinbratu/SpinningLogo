@@ -2,70 +2,43 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="listNamesLogo">
-        <item>"Taijitu"</item>
-        <item>"Rough"</item>
-        <item>"Fire And Ice"</item>
-        <item>"Red"</item>
-        <item>"Hearts"</item>
-        <item>"Golden"</item>
+        <item>"Ying Yang"</item>
         <item>"Red Mask"</item>
         <item>"Metal Mask"</item>
         <item>"Dragon"</item>
     </string-array>
     <string-array name="listValuesLogo">
-        <item>"texture_taijitu"</item>
-        <item>"texture_rough"</item>
-        <item>"texture_fire_and_ice"</item>
-        <item>"texture_red"</item>
-        <item>"texture_hearts"</item>
-        <item>"texture_golden"</item>
+        <item>"texture_ying_yang"</item>
         <item>"texture_redmask"</item>
         <item>"texture_metalmask"</item>
         <item>"texture_dragon"</item>
     </string-array>
 	<array name="imageValuesLogo">
-		<item>@drawable/texture_taijitu_icon</item>
-		<item>@drawable/texture_rough_icon</item>
-		<item>@drawable/texture_fire_and_ice_icon</item>
-		<item>@drawable/texture_red_icon</item>
-		<item>@drawable/texture_hearts_icon</item>
-		<item>@drawable/texture_golden_icon</item>
+		<item>@drawable/texture_ying_yang_icon</item>
 		<item>@drawable/texture_redmask_icon</item>
 		<item>@drawable/texture_metalmask_icon</item>
 		<item>@drawable/texture_dragon_icon</item>
 	</array>
 	
 	<string-array name="listNamesSkybox">
-        <item>"Arctic Wisdom"</item>
-        <item>"Air Sky"</item>
+	    <item>"Kokujin"</item>
+	    <item>"Sunrise"</item>
         <item>"Daimyo"</item>
         <item>"Master"</item>
-        <item>"Sunrise"</item>
-        <item>"Kokujin"</item>
         <item>"S.P."</item>
-        <item>"Moonlight Sea"</item>
-        <item>"Fantasy"</item>
     </string-array>
     <string-array name="listValuesSkybox">
-        <item>"skybox_awisdom"</item>
-        <item>"skybox_airsky"</item>
+        <item>"skybox_kokujin"</item>
+        <item>"skybox_sunrise"</item>
         <item>"skybox_daimyo"</item>
         <item>"skybox_master"</item>
-        <item>"skybox_sunrise"</item>
-        <item>"skybox_kokujin"</item>
         <item>"skybox_sp"</item>
-        <item>"skybox_lagoon"</item>
-        <item>"skybox_fantasy"</item>
     </string-array>
 	<array name="imageValuesSkybox">
-		<item>@drawable/skybox_awisdom_icon</item>
-		<item>@drawable/skybox_airsky_icon</item>
+	    <item>@drawable/skybox_kokujin_icon</item>
+	    <item>@drawable/skybox_sunrise_icon</item>
 		<item>@drawable/skybox_daimyo_icon</item>
 		<item>@drawable/skybox_master_icon</item>
-		<item>@drawable/skybox_sunrise_icon</item>
-		<item>@drawable/skybox_kokujin_icon</item>
 		<item>@drawable/skybox_sp_icon</item>
-		<item>@drawable/skybox_lagoon_icon</item>
-		<item>@drawable/skybox_fantasy_icon</item>
 	</array>
 </resources>

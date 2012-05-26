@@ -33,10 +33,10 @@ public interface Constants {
 	
 	// logo texture
 	public static final String LOGO_TEXTURE_KEY = "logoTexture";
-	public static final String DEFAULT_LOGO_TEXTURE_NAME = "texture_taijitu";
+	public static final String DEFAULT_LOGO_TEXTURE_NAME = "texture_redmask";
 	// skybox texture
 	public static final String SKYBOX_TEXTURE_KEY = "skyboxTexture";
-	public static final String DEFAULT_SKYBOX_TEXTURE_NAME = "skybox_awisdom";
+	public static final String DEFAULT_SKYBOX_TEXTURE_NAME = "skybox_kokujin";
 
 	// scaling
 	public static final String SCALING_FACTOR_KEY = "scale";

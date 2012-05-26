@@ -70,10 +70,10 @@
     
     <!-- Logo texture -->
     <string name="logo_texture_title">Ying Yang Image</string>
-    <string name="logo_texture_defaultValue">texture_taijitu</string>
+    <string name="logo_texture_defaultValue">texture_redmask</string>
     
     <!-- skybox texture -->
     <string name="skybox_texture_title">Background Image</string>
-    <string name="skybox_texture_defaultValue">skybox_awisdom</string>
+    <string name="skybox_texture_defaultValue">skybox_kokujin</string>
 
 </resources>
