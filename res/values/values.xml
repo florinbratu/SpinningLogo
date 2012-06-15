@@ -35,6 +35,7 @@
         <item>"Green Trees"</item>
         <item>"Moonlight Sea"</item>
         <item>"Fantasy"</item>
+        <item>"Default"</item>
     </string-array>
     <string-array name="listValuesSkybox">
         <item>"skybox_awisdom"</item>
@@ -42,6 +43,7 @@
         <item>"skybox_greentrees"</item>
         <item>"skybox_lagoon"</item>
         <item>"skybox_fantasy"</item>
+        <item>"skybox_first"</item>
     </string-array>
 	<array name="imageValuesSkybox">
 		<item>@drawable/skybox_awisdom_icon</item>
@@ -49,5 +51,6 @@
 		<item>@drawable/skybox_greentrees_icon</item>
 		<item>@drawable/skybox_lagoon_icon</item>
 		<item>@drawable/skybox_fantasy_icon</item>
+		<item>@drawable/skybox_first_icon</item>
 	</array>
 </resources>
