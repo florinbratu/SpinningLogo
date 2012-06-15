@@ -36,6 +36,7 @@
         <item>"Moonlight Sea"</item>
         <item>"Fantasy"</item>
         <item>"Default"</item>
+        <item>"Lineup"</item>
     </string-array>
     <string-array name="listValuesSkybox">
         <item>"skybox_awisdom"</item>
@@ -44,6 +45,7 @@
         <item>"skybox_lagoon"</item>
         <item>"skybox_fantasy"</item>
         <item>"skybox_first"</item>
+        <item>"skybox_lineup"</item>
     </string-array>
 	<array name="imageValuesSkybox">
 		<item>@drawable/skybox_awisdom_icon</item>
@@ -52,5 +54,6 @@
 		<item>@drawable/skybox_lagoon_icon</item>
 		<item>@drawable/skybox_fantasy_icon</item>
 		<item>@drawable/skybox_first_icon</item>
+		<item>@drawable/skybox_lineup_icon</item>
 	</array>
 </resources>
